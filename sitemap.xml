@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yangkunxiao.cn/2019/11/11/php/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/11/hexo/index/</loc>
     
-    <lastmod>2019-11-11T03:19:17.354Z</lastmod>
+    <lastmod>2019-11-11T09:36:25.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/</loc>
+    
+    <lastmod>2019-11-11T08:18:13.567Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.cn/2019/11/11/php/base/</loc>
+    
+    <lastmod>2019-11-11T03:22:22.176Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>http://yangkunxiao.cn/archive/index.html</loc>
     
     <lastmod>2019-11-10T11:41:30.845Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.cn/2019/11/09/hello-world/</loc>
-    
-    <lastmod>2019-11-09T04:39:34.484Z</lastmod>
     
   </url>
   

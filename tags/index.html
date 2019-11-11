@@ -14,7 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>标签 | </title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -37,7 +37,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span"></span>
                 </a>
@@ -113,7 +113,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/favicon.png" class="logo-img circle responsive-img">
         
         <div class="logo-name"></div>
         <div class="logo-desc">
@@ -310,10 +310,19 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/Hexo/" title="Hexo: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Hexo" style="background-color: #F9EBEA;">Hexo
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/PHP/" title="PHP: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="PHP" style="background-color: #F9EBEA;">PHP
+                            data-tagname="PHP" style="background-color: #F5EEF8;">PHP
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -342,7 +351,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"PHP","weight":1,"link":"http://yangkunxiao.cn/tags/PHP/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"Hexo","weight":2,"link":"http://yangkunxiao.cn/tags/Hexo/"},{"text":"PHP","weight":1,"link":"http://yangkunxiao.cn/tags/PHP/"}], {
         autoResize: true
     });
 </script>
@@ -354,12 +363,11 @@
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            <!--Copyright&nbsp;&copy;
-            <span id="year">年份</span>-->
+<!--            <span id="year">年份</span>-->
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73</span>&nbsp;字
+                class="white-color">539</span>&nbsp;字
             
             
             
@@ -412,11 +420,11 @@
                     var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
+                        // document.getElementById("year").innerHTML = todayYear;
                         document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        // document.getElementById("year").innerHTML = startYear + " - " + todayYear;
                         document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }

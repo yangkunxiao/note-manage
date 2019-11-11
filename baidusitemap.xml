@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yangkunxiao.cn/2019/11/11/php/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/11/hexo/index/</loc>
     <lastmod>2019-11-11</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.cn/2019/11/09/hello-world/</loc>
-    <lastmod>2019-11-09</lastmod>
+    <loc>http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/</loc>
+    <lastmod>2019-11-11</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2019/11/11/php/base/</loc>
+    <lastmod>2019-11-11</lastmod>
   </url>
 </urlset>

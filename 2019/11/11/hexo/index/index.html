@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="archive, javascript typescript php node html html5 css linux vue react">
-    <meta name="description" content="archive | ">
+    <meta name="keywords" content="Hexo博客搭建, javascript typescript php node html html5 css linux vue react">
+    <meta name="description" content="HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+安装
+Node（本文不做多余叙述）
+
+Git（本文不做多余叙述）
+
+Hexo$ np">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>archive | </title>
+    <title>Hexo博客搭建 | </title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +266,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        archive
+                        Hexo博客搭建
                     </div>
                 </div>
             </div>
@@ -376,12 +382,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Hexo/" class="post-category">
+                                Hexo
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -390,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-10
+                    2019-11-11
                 </div>
                 
 
@@ -399,14 +418,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    539
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -422,7 +441,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h4><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li><p>Node（本文不做多余叙述）</p>
+</li>
+<li><p>Git（本文不做多余叙述）</p>
+</li>
+<li><p>Hexo<br><code>$ npm install -g hexo-cli</code><br>安装完成后，到一个新的文件夹下，打开Git Bash，执行一下命令：</p>
+<pre><code>$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+$ npm install</code></pre><p>新建完成之后，打开新建的项目，查看项目目录：</p>
+</li>
+<li><p>public：执行hexo generate命令，生成的HTML静态文件</p>
+</li>
+<li><p>scaffolds：模版文件夹</p>
+</li>
+<li><p>source：资源文件夹，文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里</p>
+<ul>
+<li>_data：你的数据文件夹，例如：<ul>
+<li>friends.json：存放友情链接的数据</li>
+<li>musics.json：存放音乐播放器的数据</li>
+</ul>
+</li>
+<li>_posts：文章存放文件夹</li>
+<li>categories：分类</li>
+<li>tags：标签<ul>
+<li>thems：主题文件夹，Hexo 会根据主题来生成静态页面。以我当前使用的metery主题为例</li>
+<li>langauages：存放语言相关设置的yml文件</li>
+<li>layout：存放文章的ejs模版，可以在里面修改相关的HTML、CSS、JS等</li>
+<li>source：该主题下使用的资源文件夹</li>
+<li>_config.yml：该主题的配置文件</li>
+<li>_config.yml：该项目的配置文件</li>
+<li>db.json：source解析所得到的</li>
+<li>package.json：项目所需模块项目的配置信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><ul>
+<li>GitHub上新建一个项目</li>
+<li>本地Git Bash上配置github账户信息<ul>
+<li><code>git config --global user.name &#39;yourName&#39;</code></li>
+<li><code>git config --global user.email &#39;yourEmail&#39;</code><ul>
+<li>创建SSH</li>
+<li>在gitbash中输入：</li>
+<li><code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。</li>
+<li><code>cd ~/.ssh</code> 找到id_rsa.pub</li>
+<li><code>cat id_rsa.pub</code>复制其中的内容到github上，创建一个新的 SSH KEY</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>修改_config.yml<pre><code>deploy:
+type: git
+repo: https://github.com/YourgithubName/YourgithubName.github.io.git
+branch: master</code></pre></li>
+<li>回到Git Bash<pre><code>npm i hexo-server
+hexo clean
+hexo generate
+hexo server</code></pre></li>
+<li>上传到GitHub<pre><code>npm install hexo-deployer-git --save
+hexo clean
+hexo generate
+hexo deploy</code></pre>注意deploy的过程中要输入你的username及passward。<br>然后在浏览器中输入 <a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a> 就可以看到你的个人博客。</li>
+</ul>
+
             </div>
             <hr/>
 
@@ -447,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.cn/archive/index.html">http://yangkunxiao.cn/archive/index.html</a>
+                    <a href="http://yangkunxiao.cn/2019/11/11/hexo/index/">http://yangkunxiao.cn/2019/11/11/hexo/index/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -484,7 +570,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -653,7 +743,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-11-10T19-39-24',
+        id: '2019-11-11T14-16-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -679,34 +769,52 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/11/hexo/index/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hexo博客搭建">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">Hexo博客搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+安装
+Node（本文不做多余叙述）
+
+Git（本文不做多余叙述）
+
+Hexo$ np
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            杨坤晓
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -714,16 +822,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/11/hexo/meteryThems/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Hexo博客主题-Metery">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">Hexo博客主题-Metery</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -734,17 +842,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            杨坤晓
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

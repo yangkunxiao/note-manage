@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.cn/"/>
-  <updated>2019-11-11T03:19:17.354Z</updated>
+  <updated>2019-11-11T09:36:25.246Z</updated>
   <id>http://yangkunxiao.cn/</id>
   
   <author>
@@ -17,42 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>php</title>
-    <link href="http://yangkunxiao.cn/2019/11/11/php/"/>
-    <id>http://yangkunxiao.cn/2019/11/11/php/</id>
-    <published>2019-11-11T03:18:07.000Z</published>
-    <updated>2019-11-11T03:19:17.354Z</updated>
+    <title>Hexo博客搭建</title>
+    <link href="http://yangkunxiao.cn/2019/11/11/hexo/index/"/>
+    <id>http://yangkunxiao.cn/2019/11/11/hexo/index/</id>
+    <published>2019-11-11T06:16:07.000Z</published>
+    <updated>2019-11-11T09:36:25.246Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot; title=&quot;Hexo&quot;&gt;&lt;/a&gt;Hexo&lt;/h4&gt;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用
+        
+      
     
     </summary>
     
     
+      <category term="Hexo" scheme="http://yangkunxiao.cn/categories/Hexo/"/>
     
-      <category term="PHP" scheme="http://yangkunxiao.cn/tags/PHP/"/>
+    
+      <category term="Hexo" scheme="http://yangkunxiao.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yangkunxiao.cn/2019/11/09/hello-world/"/>
-    <id>http://yangkunxiao.cn/2019/11/09/hello-world/</id>
-    <published>2019-11-09T04:39:34.484Z</published>
-    <updated>2019-11-09T04:39:34.484Z</updated>
+    <title>Hexo博客主题-Metery</title>
+    <link href="http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/"/>
+    <id>http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/</id>
+    <published>2019-11-11T03:18:07.000Z</published>
+    <updated>2019-11-11T08:18:13.567Z</updated>
     
     <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
     
     </summary>
     
     
+      <category term="Hexo" scheme="http://yangkunxiao.cn/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="http://yangkunxiao.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php</title>
+    <link href="http://yangkunxiao.cn/2019/11/11/php/base/"/>
+    <id>http://yangkunxiao.cn/2019/11/11/php/base/</id>
+    <published>2019-11-11T03:18:07.000Z</published>
+    <updated>2019-11-11T03:22:22.176Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yangkunxiao.cn/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yangkunxiao.cn/tags/PHP/"/>
     
   </entry>
   
