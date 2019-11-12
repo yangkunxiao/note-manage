@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="https://www.w3.org/2005/Atom">
-  <title>Wlater</title>
+  <title>Walter</title>
   
   <subtitle>学无止境</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yangkunxiao.cn/"/>
-  <updated>2019-11-11T09:53:52.972Z</updated>
-  <id>http://yangkunxiao.cn/</id>
+  <link href="http://yangkunxiao.github.io/"/>
+  <updated>2019-11-12T07:59:45.927Z</updated>
+  <id>http://yangkunxiao.github.io/</id>
   
   <author>
-    <name>杨坤晓</name>
+    <name>Walter</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>php和mySql</title>
+    <link href="http://yangkunxiao.github.io/2019/11/12/php/mysql/"/>
+    <id>http://yangkunxiao.github.io/2019/11/12/php/mysql/</id>
+    <published>2019-11-12T06:45:07.000Z</published>
+    <updated>2019-11-12T07:59:45.927Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yangkunxiao.github.io/categories/PHP/"/>
+    
+      <category term="mySql" scheme="http://yangkunxiao.github.io/categories/PHP/mySql/"/>
+    
+    
+      <category term="PHP" scheme="http://yangkunxiao.github.io/tags/PHP/"/>
+    
+      <category term="mySql" scheme="http://yangkunxiao.github.io/tags/mySql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo博客搭建</title>
-    <link href="http://yangkunxiao.cn/2019/11/11/hexo/index/"/>
-    <id>http://yangkunxiao.cn/2019/11/11/hexo/index/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/11/hexo/index/"/>
+    <id>http://yangkunxiao.github.io/2019/11/11/hexo/index/</id>
     <published>2019-11-11T06:16:07.000Z</published>
-    <updated>2019-11-11T09:53:52.972Z</updated>
+    <updated>2019-11-12T06:53:56.680Z</updated>
     
     <summary type="html">
     
@@ -36,17 +67,17 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://yangkunxiao.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yangkunxiao.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://yangkunxiao.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yangkunxiao.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客主题-Metery</title>
-    <link href="http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/"/>
-    <id>http://yangkunxiao.cn/2019/11/11/hexo/meteryThems/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/11/hexo/meteryThems/"/>
+    <id>http://yangkunxiao.github.io/2019/11/11/hexo/meteryThems/</id>
     <published>2019-11-11T03:18:07.000Z</published>
     <updated>2019-11-11T08:18:13.567Z</updated>
     
@@ -55,29 +86,37 @@
     </summary>
     
     
-      <category term="Hexo" scheme="http://yangkunxiao.cn/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://yangkunxiao.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://yangkunxiao.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yangkunxiao.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title>php</title>
-    <link href="http://yangkunxiao.cn/2019/11/11/php/base/"/>
-    <id>http://yangkunxiao.cn/2019/11/11/php/base/</id>
+    <title>php基础</title>
+    <link href="http://yangkunxiao.github.io/2019/11/11/php/base/"/>
+    <id>http://yangkunxiao.github.io/2019/11/11/php/base/</id>
     <published>2019-11-11T03:18:07.000Z</published>
-    <updated>2019-11-11T03:22:22.176Z</updated>
+    <updated>2019-11-12T06:42:16.725Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;PHP&quot;&gt;&lt;a href=&quot;#PHP&quot; class=&quot;headerlink&quot; title=&quot;PHP&quot;&gt;&lt;/a&gt;PHP&lt;/h4&gt;&lt;p&gt;（全称：PHP：Hypertext
+        
+      
     
     </summary>
     
     
-      <category term="PHP" scheme="http://yangkunxiao.cn/categories/PHP/"/>
+      <category term="PHP" scheme="http://yangkunxiao.github.io/categories/PHP/"/>
     
     
-      <category term="PHP" scheme="http://yangkunxiao.cn/tags/PHP/"/>
+      <category term="PHP" scheme="http://yangkunxiao.github.io/tags/PHP/"/>
     
   </entry>
   

@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo博客主题-Metery, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="Hexo博客主题-Metery | Walter">
+    <meta name="keywords" content="php和mySql, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
+
+MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
+PDO (PH">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo博客主题-Metery | Walter</title>
+    <title>php和mySql | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo博客主题-Metery
+                        php和mySql
                     </div>
                 </div>
             </div>
@@ -378,8 +381,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/PHP/">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/mySql/">
+                                <span class="chip bg-color">mySql</span>
                             </a>
                         
                     </div>
@@ -390,8 +397,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/PHP/" class="post-category">
+                                PHP
+                            </a>
+                        
+                            <a href="/categories/PHP/mySql/" class="post-category">
+                                mySql
                             </a>
                         
                     </div>
@@ -403,7 +414,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-11
+                    2019-11-12
                 </div>
                 
 
@@ -412,14 +423,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    535
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -435,7 +446,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>通过PHP，开发者可以和数据库相连。<br>在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：</p>
+<ul>
+<li>MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库</li>
+<li>PDO (PHP Data Objects)：PDO 应用在 12 种不同数据库中<br>因为我这里只安装了mySql，所以本文栗子均以第一种方式进行操作。</li>
+</ul>
+<h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><p>在访问数据库之前，我们需要进行数据库的连接</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$serverName</span> <span class="token operator">=</span> <span class="token string">'localhost'</span><span class="token punctuation">;</span>//数据库地址
+<span class="token variable">$serverRoot</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>//数据库登录名称
+<span class="token variable">$passWord</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>//数据库密码
+<span class="token variable">$dbName</span> <span class="token operator">=</span> <span class="token string">"myDB"</span><span class="token punctuation">;</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+//连接失败
+if<span class="token punctuation">(</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    die<span class="token punctuation">(</span><span class="token string">"数据库连接失败："</span><span class="token keyword">.</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+mysqli_set_charset<span class="token punctuation">(</span><span class="token variable">$this</span>-<span class="token operator">></span>conn, <span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//设置字符编码为utf8格式 否则汉字可能出现乱码的情况
+//数据库操作完成之后 一定记得关闭数据库的连接
+<span class="token variable">$conn</span>-<span class="token operator">></span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h4><p>1、创建数据库：<code>$sql = &quot;CREATE DATABASE IF NOT EXISTS dbname&quot;</code><br>2、创建表：上面的连接语句要修改下，加个参数，用来选择数据库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span>,<span class="token variable">$dbName</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP
+)"</span><span class="token punctuation">;</span></code></pre>
+<p>属性说明：</p>
+<ul>
+<li>NOT NULL - 每一行都必须含有值（不能为空），null 值是不允许的。</li>
+<li>DEFAULT value - 设置默认值</li>
+<li>UNSIGNED - 使用无符号数值类型，0 及正数</li>
+<li>AUTO INCREMENT - 设置 MySQL 字段的值在新增记录时每次自动增长 1</li>
+<li>PRIMARY KEY - 设置数据表中每条记录的唯一标识。 通常列的 PRIMARY KEY 设置为 ID 数值，与 AUTO_INCREMENT 一起使用。<br>每个表都应该有一个主键(本列为 “id” 列)，主键必须包含唯一的值</li>
+</ul>
+<p>3、插入数据：<code>$sql=&#39;INSERT INTO table_name (column1, column2, column3,...)
+VALUES (value1, value2, value3,...)&#39;</code><br>4、插入多条数据：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO student (column1, column2, column3,...)
+VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
+<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
+VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
+<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
+VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span></code></pre>
+<p>注意：sql语句之间用;隔开</p>
+<p>5、查询数据：<code>$sql = &#39;SELECT * FROM  myDB;&#39;</code><br>6、更新数据：<br><code>UPDATE table_name
+SET column1=value, column2=value2,...
+WHERE some_column=some_value</code><br>7、删除数据：<code>DELETE FROM table_name
+WHERE some_column = some_value</code></p>
+
             </div>
             <hr/>
 
@@ -460,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/11/hexo/meteryThems/">http://yangkunxiao.github.io/2019/11/11/hexo/meteryThems/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/12/php/mysql/">http://yangkunxiao.github.io/2019/11/12/php/mysql/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,8 +556,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/PHP/">
+                                    <span class="chip bg-color">PHP</span>
+                                </a>
+                            
+                                <a href="/tags/mySql/">
+                                    <span class="chip bg-color">mySql</span>
                                 </a>
                             
                         </div>
@@ -669,7 +732,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-11-11T11-18-07',
+        id: '2019-11-12T14-45-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -690,9 +753,71 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/11/12/php/mysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="php和mySql">
+                        
+                        <span class="card-title">php和mySql</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
+
+MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
+PDO (PH
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/PHP/mySql/" class="post-category">
+                                    mySql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/mySql/">
+                        <span class="chip bg-color">mySql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/11/11/hexo/index/">
                     <div class="card-image">
@@ -716,9 +841,9 @@ Hexo$ np
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -736,59 +861,6 @@ Hexo$ np
                     
                     <a href="/tags/Hexo/">
                         <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/11/php/base/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="php基础">
-                        
-                        <span class="card-title">php基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            PHP（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。
-PHP的作用
-PHP 可以生成动态页面内容
-PHP 可以创建、打开、读取、写入、关闭服务器上的文件
-PHP 可以收集
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
                     </a>
                     
                 </div>
