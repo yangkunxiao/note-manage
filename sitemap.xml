@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/12/php/mysql/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/13/javascript/%25E7%25BB%25A7%25E6%2589%25BF/</loc>
     
-    <lastmod>2019-11-12T07:59:45.927Z</lastmod>
+    <lastmod>2019-11-13T10:12:45.458Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yangkunxiao.github.io/2019/11/11/hexo/index/</loc>
     
-    <lastmod>2019-11-12T06:53:56.680Z</lastmod>
+    <lastmod>2019-11-13T08:52:13.228Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/13/javascript/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE/</loc>
+    
+    <lastmod>2019-11-13T08:52:05.856Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/12/php/mysql/</loc>
+    
+    <lastmod>2019-11-12T07:59:45.927Z</lastmod>
     
   </url>
   
