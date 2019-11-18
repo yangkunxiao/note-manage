@@ -4,8 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="详细解析Javascript原型和原型链, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="详细解析Javascript原型和原型链 | Walter">
+    <meta name="keywords" content="Javascript原型和原型链, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+    drink(){
+        console.log(&#39;drink&#39;)
+    }
+};
+
+P">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>详细解析Javascript原型和原型链 | Walter</title>
+    <title>Javascript原型和原型链 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +268,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        详细解析Javascript原型和原型链
+                        Javascript原型和原型链
                     </div>
                 </div>
             </div>
@@ -412,7 +420,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    321
                 </div>
                 
 
@@ -435,7 +443,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="为什么要使用原型prototype"><a href="#为什么要使用原型prototype" class="headerlink" title="为什么要使用原型prototype"></a>为什么要使用原型prototype</h4><p>首先，让我们看一段代码：</p>
+<pre class=" language-bash"><code class="language-bash">//新建一个构造函数
+var Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    drink<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console.log<span class="token punctuation">(</span><span class="token string">'drink'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Person.prototype.eat <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span><span class="token string">'eat'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+var person <span class="token operator">=</span> new Person<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person.eat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>在这段代码中，我们分别在Person和Person.prototye上挂载了 eat 和 drink 函数，然后使用 new 关键字对构造函数 Person 进行了实例化。</p>
+<p>对于 drink 函数：每进行一次实例化，都要重新在内存中占用一些资源；</p>
+<p>对于 eat 函数：我们将 eat 函数挂载在 Person 的原型上，Person 的实例每次只需要调用原型伤的方法即可。不仅节约了资源，而且是的代码更加优雅、美观。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><ol>
+<li><p>所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）</p>
+</li>
+<li><p>所有引用类型（数组、函数、对象）都有_proto_属性（这是它的隐式原型，除null外）</p>
+</li>
+<li><p>所有构造函数都有prototype属性（这是它的显示原型）</p>
+</li>
+<li><p>所有引用类型的_proto_都指向它们的构造函数的 prototype </p>
+</li>
+<li><p>当寻找一个属性时，如果在当前对象本身找不到该属性，就会沿着_proto_向上进行寻找，直到找到为止或者指向 null 为止。（这就是原型链）</p>
+<p><img src="http://q0sal13sb.bkt.clouddn.com/yuanxinglian.jpeg" alt="
+"></p>
+</li>
+</ol>
+
             </div>
             <hr/>
 
@@ -649,32 +689,6 @@
         </div>
     </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2019-11-13T16-45-00',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
     
 
     
@@ -974,7 +988,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.5k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             

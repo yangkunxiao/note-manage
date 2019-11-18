@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-13T10:12:45.458Z</updated>
+  <updated>2019-11-18T16:39:25.963Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</title>
+    <link href="http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/"/>
+    <id>http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/</id>
+    <published>2019-11-18T15:54:00.000Z</published>
+    <updated>2019-11-18T16:39:25.963Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;执行环境EC&quot;&gt;&lt;a href=&quot;#执行环境EC&quot; class=&quot;headerlink&quot; title=&quot;执行环境EC&quot;&gt;&lt;/a&gt;执行环境EC&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;执行环境&lt;/strong&gt;(Execution
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yangkunxiao.github.io/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yangkunxiao.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用原生JavaScript实现call、apply和bind</title>
+    <link href="http://yangkunxiao.github.io/2019/11/18/javascript/changeThis/"/>
+    <id>http://yangkunxiao.github.io/2019/11/18/javascript/changeThis/</id>
+    <published>2019-11-18T14:45:00.000Z</published>
+    <updated>2019-11-18T15:06:00.865Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yangkunxiao.github.io/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yangkunxiao.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈Javascript继承</title>
@@ -45,13 +99,21 @@
   </entry>
   
   <entry>
-    <title>详细解析Javascript原型和原型链</title>
+    <title>Javascript原型和原型链</title>
     <link href="http://yangkunxiao.github.io/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     <id>http://yangkunxiao.github.io/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
     <published>2019-11-13T08:45:00.000Z</published>
-    <updated>2019-11-13T08:52:05.856Z</updated>
+    <updated>2019-11-18T15:37:26.078Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;为什么要使用原型prototype&quot;&gt;&lt;a href=&quot;#为什么要使用原型prototype&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     

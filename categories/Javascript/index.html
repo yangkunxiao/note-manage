@@ -311,20 +311,11 @@
                 
                 
                 
-                <a href="/categories/Javascript/" title="Javascript: 2">
+                <a href="/categories/Javascript/" title="Javascript: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">Javascript
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/PHP/" title="PHP: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">PHP
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -332,8 +323,17 @@
                 <a href="/categories/Hexo/" title="Hexo: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Hexo
+                            style="background-color: #F5EEF8;">Hexo
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/PHP/" title="PHP: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">PHP
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -359,19 +359,122 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
+                    <a href="/2019/11/18/javascript/EC%20and%20Scope/" target="_blank">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="详细解析Javascript原型和原型链">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念">
                             
-                            <span class="card-title">详细解析Javascript原型和原型链</span>
+                            <span class="card-title">执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
+                                执行环境EC执行环境(Execution Context，即EC)是JavaScript中最为重要的一个概念。执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                            </span>
+                            <span class="publish-author">
                                 
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Javascript/" target="_blank">
+                            <span class="chip bg-color">Javascript</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/18/javascript/changeThis/" target="_blank">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="使用原生JavaScript实现call、apply和bind">
+                            
+                            <span class="card-title">使用原生JavaScript实现call、apply和bind</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
+
+实现方法：在传入的参数中传入一个方法，然后执行这个方
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Javascript/" target="_blank">
+                            <span class="chip bg-color">Javascript</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
+                            
+                            <span class="card-title">Javascript原型和原型链</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+    drink(){
+        console.log('drink')
+    }
+};
+
+P
                             
                         </div>
                         <div class="publish-info">
@@ -465,7 +568,7 @@ JavaScript规定，每一个构造函数都有一个prototype属性，它指向�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.5k</span>&nbsp;字
+                class="white-color">4.3k</span>&nbsp;字
             
             
             

@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="archive, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="archive | Walter">
+    <meta name="keywords" content="使用原生JavaScript实现call、apply和bind, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
+
+实现方法：在传入的参数中传入一个方法，然后执行这个方">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>archive | Walter</title>
+    <title>使用原生JavaScript实现call、apply和bind | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,7 +268,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        archive
+                        使用原生JavaScript实现call、apply和bind
                     </div>
                 </div>
             </div>
@@ -376,12 +378,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Javascript/">
+                                <span class="chip bg-color">Javascript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Javascript/" class="post-category">
+                                Javascript
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -390,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-10
+                    2019-11-18
                 </div>
                 
 
@@ -399,7 +414,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    368
                 </div>
                 
 
@@ -422,7 +437,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。</p>
+<blockquote>
+<p>实现方法：在传入的参数中传入一个方法，然后执行这个方法，最后删除该方法（为了保持对象的前后一致性）。</p>
+</blockquote>
+<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><pre class=" language-bash"><code class="language-bash">var obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age <span class="token punctuation">;</span> 10
+<span class="token punctuation">}</span>
+var fn <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.value <span class="token operator">=</span> 100<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+/**
+将newCall绑定在Function的原型上 context:上下文 即this
+<span class="token punctuation">..</span>.rest ES6语法糖 用来取代arguments
+*/
+Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
+        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    //使用symbal 避免原来的context上有函数fn
+    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
+    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
+<span class="token punctuation">}</span>
+var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span>this.age<span class="token punctuation">)</span><span class="token punctuation">;</span>//10
+    // fn.newCall<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //console.log<span class="token punctuation">(</span>this.value<span class="token punctuation">)</span><span class="token punctuation">;</span> 100
+<span class="token punctuation">}</span>
+
+fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>和call类似，只是传参的不同，不多说 ，直接上代码：</p>
+<pre class=" language-bash"><code class="language-bash">Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,parames<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
+        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    //使用symbal 避免原来的context上有函数fn
+    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
+    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
+<span class="token punctuation">}</span></code></pre>
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><p>bind和call、apply的区别，这里不再多做赘述。直接上代码：</p>
+<pre class=" language-bash"><code class="language-bash">Function.prototype.bind <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  var self <span class="token operator">=</span> this
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> self.call<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs,<span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
             </div>
             <hr/>
 
@@ -447,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/archive/index.html">http://yangkunxiao.github.io/archive/index.html</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/18/javascript/changeThis/">http://yangkunxiao.github.io/2019/11/18/javascript/changeThis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -483,7 +551,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Javascript/">
+                                    <span class="chip bg-color">Javascript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -647,39 +719,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/18/javascript/EC%20and%20Scope/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            执行环境EC执行环境(Execution Context，即EC)是JavaScript中最为重要的一个概念。执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Walter
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -687,37 +770,50 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/13/javascript/%E7%BB%A7%E6%89%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">浅谈Javascript继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
+构造函数继承
+JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Walter
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

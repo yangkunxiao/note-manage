@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="archive, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="archive | Walter">
+    <meta name="keywords" content="执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="执行环境EC执行环境(Execution Context，即EC)是JavaScript中最为重要的一个概念。执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>archive | Walter</title>
+    <title>执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        archive
+                        执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念
                     </div>
                 </div>
             </div>
@@ -376,12 +377,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Javascript/">
+                                <span class="chip bg-color">Javascript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Javascript/" class="post-category">
+                                Javascript
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -390,7 +404,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-10
+                    2019-11-18
                 </div>
                 
 
@@ -399,14 +413,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 				
@@ -422,7 +436,32 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="执行环境EC"><a href="#执行环境EC" class="headerlink" title="执行环境EC"></a>执行环境EC</h4><p><strong>执行环境</strong>(Execution Context，即EC)是JavaScript中最为重要的一个概念。<br>执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。<br>全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。</p>
+<h4 id="全局对象GO"><a href="#全局对象GO" class="headerlink" title="全局对象GO"></a>全局对象GO</h4><p>它在全局只存在一份，它的属性可以在任何地方都可以访问到，它的存在是伴随着整个程序的生命周期的。</p>
+<p>JS引擎在进入一段可执行的代码时，需要完成以下三个初始化工作：</p>
+<p>1、首先，创建一个全局对象(Global Object，即GO)，将Math、String、Data等常用的js对象作为其属性，但是这个GO在全局是不可见的，不可直接访问的。因此它还有另外一个属性window，并将window指向了自身，这样就可以在全局通过访问window，来访问GO的属性了。</p>
+<pre class=" language-bash"><code class="language-bash">//创建一个全局对象
+var globalObject <span class="token operator">=</span> <span class="token punctuation">{</span>
+    Math:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+    String:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+    Date:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+    document:<span class="token punctuation">{</span><span class="token punctuation">}</span>, //DOM操作
+    <span class="token punctuation">..</span>.
+    window:this //让window属性指向了自身
+<span class="token punctuation">}</span></code></pre>
+<h4 id="环境执行栈ECS"><a href="#环境执行栈ECS" class="headerlink" title="环境执行栈ECS"></a>环境执行栈ECS</h4><p>然后JS引擎会创建一个环境执行栈(Execution Context Stack，即ECS)，与此同时，还会建立一个全局的执行环境(Execution Context，即EC)。当执行流进入到一个函数时，函数的执行环境就会被推到ECS中，而在函数执行完毕之后，ECS就会将其环境弹出，并且将程序的控制权交给之前的EC。ECMAScript程序的执行流就是由这种机制控制着。</p>
+<pre class=" language-bash"><code class="language-bash">var ECStack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> //定义一个执行环境栈，类似于数组
+
+var EC <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>   //创建一个执行空间，
+//ECMA-262规范并没有对EC的数据结构做明确的定义，你可以理解为在内存中分配的一块空间
+
+ECStack.push<span class="token punctuation">(</span>EC<span class="token punctuation">)</span><span class="token punctuation">;</span> //进入函数，压入执行环境
+ECStack.pop<span class="token punctuation">(</span>EC<span class="token punctuation">)</span><span class="token punctuation">;</span>  //函数返回后，删除执行环境</code></pre>
+<h4 id="变量对象VO"><a href="#变量对象VO" class="headerlink" title="变量对象VO"></a>变量对象VO</h4><p>最后，JS引擎会创建一个与EC相关联的对象，<strong>变量对象</strong>（Variable Object，即VO），每个执行环境都有与之关联的VO，并把VO指向全局对象，VO中不仅仅包含了全局对象的属性，还包含了环境中定义的所有的变量和函数。<br>每个函数在定义的时候，都会创建一个与之关联的<strong>scope</strong>属性，scope总是指向定义函数时所在的环境。</p>
+<h4 id="作用域链Scope-Chain"><a href="#作用域链Scope-Chain" class="headerlink" title="作用域链Scope Chain"></a>作用域链Scope Chain</h4><p>当代码在一个环境中执行时，会创建变量对象的一个<strong>作用域链</strong>（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行环境的代码所在的变量对象。如果这个环境是函数，则将其<strong>活动对象</strong>（Activation Object，即AO）作为变量对象，初始时AO只包含一个变量，即arguments。作用域链的下一个变量对象来自于外部包含环境，而下一个变量对象来自下一个包含环境，这样一直延伸到全局环境。全局变量对象（GO）始终都是作用域链的最后一个对象。</p>
+<h4 id="标识符解析"><a href="#标识符解析" class="headerlink" title="标识符解析"></a>标识符解析</h4><p>当在某个环境中为了读取或写入从而引入一个标识符时，必须通过搜索来确定该标识符代表了什么。搜索过程从当期作用域链的前端开始，向上逐级搜索，如果在局部环境中查找到了该标识符的定义，则停止搜索‘否则将一直沿着作用域链向上查找，直到找到GO上。如果找不到，则会报错</p>
+<h4 id="延长作用域"><a href="#延长作用域" class="headerlink" title="延长作用域"></a>延长作用域</h4><p>虽然作用域只有两种：全局和局部（函数），但是还是有其他办法可以用来延长作用域链。其主要思路就是：有些语句可以在作用域链的前端临时增加一个变量对象，该变量对象在代码执行后就被销毁。<br>1、try-catch语句的catch块<br>2、with语句</p>
+
             </div>
             <hr/>
 
@@ -447,7 +486,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/archive/index.html">http://yangkunxiao.github.io/archive/index.html</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/">http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -483,7 +522,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Javascript/">
+                                    <span class="chip bg-color">Javascript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -652,34 +695,47 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/18/javascript/EC%20and%20Scope/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            执行环境EC执行环境(Execution Context，即EC)是JavaScript中最为重要的一个概念。执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Walter
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -687,37 +743,50 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archive/index.html">
+                <a href="/2019/11/18/javascript/changeThis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="archive">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="使用原生JavaScript实现call、apply和bind">
                         
-                        <span class="card-title">archive</span>
+                        <span class="card-title">使用原生JavaScript实现call、apply和bind</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
+
+实现方法：在传入的参数中传入一个方法，然后执行这个方
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Walter
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
