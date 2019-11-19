@@ -4,14 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo博客搭建, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装
-Node（本文不做多余叙述）
+    <meta name="keywords" content="使用原生JavaScript实现call、apply和bind, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
 
-Git（本文不做多余叙述）
-
-Hexo$ np">
+实现方法：在传入的参数中传入一个方法，然后执行这个方">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ Hexo$ np">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo博客搭建 | Walter</title>
+    <title>使用原生JavaScript实现call、apply和bind | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,13 +262,13 @@ Hexo$ np">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo博客搭建
+                        使用原生JavaScript实现call、apply和bind
                     </div>
                 </div>
             </div>
@@ -384,8 +380,8 @@ Hexo$ np">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/Javascript/">
+                                <span class="chip bg-color">Javascript</span>
                             </a>
                         
                     </div>
@@ -396,8 +392,8 @@ Hexo$ np">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/Javascript/" class="post-category">
+                                Javascript
                             </a>
                         
                     </div>
@@ -409,7 +405,7 @@ Hexo$ np">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-11
+                    2019-11-18
                 </div>
                 
 
@@ -418,14 +414,14 @@ Hexo$ np">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    539
+                    368
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 				
@@ -441,75 +437,59 @@ Hexo$ np">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h4><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li><p>Node（本文不做多余叙述）</p>
-</li>
-<li><p>Git（本文不做多余叙述）</p>
-</li>
-<li><p>Hexo<br><code>$ npm install -g hexo-cli</code><br>安装完成后，到一个新的文件夹下，打开Git Bash，执行一下命令：</p>
-<pre><code>$ hexo init &lt;folder&gt;
-$ cd &lt;folder&gt;
-$ npm install</code></pre><p>新建完成之后，打开新建的项目，查看项目目录：</p>
-</li>
-<li><p>public：执行hexo generate命令，生成的HTML静态文件</p>
-</li>
-<li><p>scaffolds：模版文件夹</p>
-</li>
-<li><p>source：资源文件夹，文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里</p>
-<ul>
-<li>_data：你的数据文件夹，例如：<ul>
-<li>friends.json：存放友情链接的数据</li>
-<li>musics.json：存放音乐播放器的数据</li>
-</ul>
-</li>
-<li>_posts：文章存放文件夹</li>
-<li>categories：分类</li>
-<li>tags：标签<ul>
-<li>thems：主题文件夹，Hexo 会根据主题来生成静态页面。以我当前使用的metery主题为例</li>
-<li>langauages：存放语言相关设置的yml文件</li>
-<li>layout：存放文章的ejs模版，可以在里面修改相关的HTML、CSS、JS等</li>
-<li>source：该主题下使用的资源文件夹</li>
-<li>_config.yml：该主题的配置文件</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>_config.yml：该项目的配置文件</li>
-<li>db.json：source解析所得到的</li>
-<li>package.json：项目所需模块项目的配置信息</li>
-</ul>
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><ul>
-<li>GitHub上新建一个项目</li>
-<li>本地Git Bash上配置github账户信息<ul>
-<li><code>git config --global user.name &#39;yourName&#39;</code></li>
-<li><code>git config --global user.email &#39;yourEmail&#39;</code><ul>
-<li>创建SSH</li>
-<li>在gitbash中输入：</li>
-<li><code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。</li>
-<li><code>cd ~/.ssh</code> 找到id_rsa.pub</li>
-<li><code>cat id_rsa.pub</code>复制其中的内容到github上，创建一个新的 SSH KEY</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>修改_config.yml<pre><code>deploy:
-type: git
-repo: https://github.com/YourgithubName/YourgithubName.github.io.git
-branch: master</code></pre></li>
-<li>回到Git Bash<pre><code>npm i hexo-server
-hexo clean
-hexo generate
-hexo server</code></pre></li>
-<li>上传到GitHub<pre><code>npm install hexo-deployer-git --save
-hexo clean
-hexo generate
-hexo deploy</code></pre>注意deploy的过程中要输入你的username及passward。<br>然后在浏览器中输入 <a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a> 就可以看到你的个人博客。</li>
-</ul>
+                <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。</p>
+<blockquote>
+<p>实现方法：在传入的参数中传入一个方法，然后执行这个方法，最后删除该方法（为了保持对象的前后一致性）。</p>
+</blockquote>
+<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><pre class=" language-bash"><code class="language-bash">var obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age <span class="token punctuation">;</span> 10
+<span class="token punctuation">}</span>
+var fn <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.value <span class="token operator">=</span> 100<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+/**
+将newCall绑定在Function的原型上 context:上下文 即this
+<span class="token punctuation">..</span>.rest ES6语法糖 用来取代arguments
+*/
+Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
+        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    //使用symbal 避免原来的context上有函数fn
+    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
+    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
+<span class="token punctuation">}</span>
+var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span>this.age<span class="token punctuation">)</span><span class="token punctuation">;</span>//10
+    // fn.newCall<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    //console.log<span class="token punctuation">(</span>this.value<span class="token punctuation">)</span><span class="token punctuation">;</span> 100
+<span class="token punctuation">}</span>
+
+fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>和call类似，只是传参的不同，不多说 ，直接上代码：</p>
+<pre class=" language-bash"><code class="language-bash">Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,parames<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
+        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    //使用symbal 避免原来的context上有函数fn
+    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
+    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
+    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
+<span class="token punctuation">}</span></code></pre>
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><p>bind和call、apply的区别，这里不再多做赘述。直接上代码：</p>
+<pre class=" language-bash"><code class="language-bash">Function.prototype.bind <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  var self <span class="token operator">=</span> this
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> self.call<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs,<span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -535,7 +515,7 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/11/hexo/index/">http://yangkunxiao.github.io/2019/11/11/hexo/index/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/18/javascript/this/">http://yangkunxiao.github.io/2019/11/18/javascript/this/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,8 +552,8 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/Javascript/">
+                                    <span class="chip bg-color">Javascript</span>
                                 </a>
                             
                         </div>
@@ -743,38 +723,32 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/12/php/mysql/">
+                <a href="/2019/11/18/javascript/EC%20and%20Scope/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="php和mySql">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念">
                         
-                        <span class="card-title">php和mySql</span>
+                        <span class="card-title">执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
-
-MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
-PDO (PH
+                            执行环境EC执行环境(Execution Context，即EC)是JavaScript中最为重要的一个概念。执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
-                                </a>
-                            
-                            <a href="/categories/PHP/mySql/" class="post-category">
-                                    mySql
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
@@ -784,12 +758,8 @@ PDO (PH
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
-                    </a>
-                    
-                    <a href="/tags/mySql/">
-                        <span class="chip bg-color">mySql</span>
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
                 </div>
@@ -803,35 +773,39 @@ PDO (PH
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/11/php/base/">
+                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="php基础">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
                         
-                        <span class="card-title">php基础</span>
+                        <span class="card-title">Javascript原型和原型链</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。
-PHP的作用
-PHP 可以生成动态页面内容
-PHP 可以创建、打开、读取、写入、关闭服务器上的文件
-PHP 可以收集
+                            为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+    drink(){
+        console.log('drink')
+    }
+};
+
+P
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
@@ -841,8 +815,8 @@ PHP 可以收集
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
                 </div>

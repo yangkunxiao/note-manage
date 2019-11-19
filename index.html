@@ -520,7 +520,7 @@ $(function () {
     
     
     <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/23.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -529,15 +529,18 @@ $(function () {
                         
                     
                 </div>
-                <a href="/2019/11/18/javascript/changeThis/" target="_blank">
-                    <h3 class="post-title">使用原生JavaScript实现call、apply和bind</h3>
+                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
+                    <h3 class="post-title">Javascript原型和原型链</h3>
                 </a>
                 <p class="post-description">
                     
-                        思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也
+                        为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+   
                     
                 </p>
-                <a href="/2019/11/18/javascript/changeThis/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -600,7 +603,7 @@ JavaScript规定，
     
     
     <div class="col s12 m6" data-aos="zoom-in-up">
-        <div class="post-card" style="background-image: url('/medias/featureimages/23.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -609,18 +612,15 @@ JavaScript规定，
                         
                     
                 </div>
-                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
-                    <h3 class="post-title">Javascript原型和原型链</h3>
+                <a href="/2019/11/18/javascript/this/" target="_blank">
+                    <h3 class="post-title">使用原生JavaScript实现call、apply和bind</h3>
                 </a>
                 <p class="post-description">
                     
-                        为什么要使用原型prototype首先，让我们看一段代码：
-//新建一个构造函数
-var Person = function (){
-   
+                        思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也
                     
                 </p>
-                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)" target="_blank">
+                <a href="/2019/11/18/javascript/this/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -643,6 +643,54 @@ var Person = function (){
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/19/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="javascript数据类型">
+                            
+                            <span class="card-title">javascript数据类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。
+基本数据类型Number、String、Null、Undefined、Bool。JavaScrip
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Javascript/">
+                            <span class="chip bg-color">Javascript</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -694,7 +742,7 @@ var Person = function (){
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/18/javascript/changeThis/" target="_blank">
+                    <a href="/2019/11/18/javascript/this/" target="_blank">
                         <div class="card-image">
                             
                             
@@ -715,55 +763,6 @@ var Person = function (){
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Javascript/">
-                            <span class="chip bg-color">Javascript</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/11/13/javascript/%E7%BB%A7%E6%89%BF/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
-                            
-                            <span class="card-title">浅谈Javascript继承</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
-构造函数继承
-JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
                             </span>
                             <span class="publish-author">
                                 
@@ -814,6 +813,55 @@ var Person = function (){
 };
 
 P
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Javascript/">
+                            <span class="chip bg-color">Javascript</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/13/javascript/%E7%BB%A7%E6%89%BF/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
+                            
+                            <span class="card-title">浅谈Javascript继承</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
+构造函数继承
+JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
                             
                         </div>
                         <div class="publish-info">
@@ -1022,7 +1070,7 @@ PHP 可以收集
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">4.8k</span>&nbsp;字
             
             
             

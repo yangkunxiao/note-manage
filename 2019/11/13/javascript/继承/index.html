@@ -758,26 +758,32 @@ console.dir<span class="token punctuation">(</span>Sub<span class="token punctua
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/18/javascript/changeThis/">
+                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="使用原生JavaScript实现call、apply和bind">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
                         
-                        <span class="card-title">使用原生JavaScript实现call、apply和bind</span>
+                        <span class="card-title">Javascript原型和原型链</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
+                            为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+    drink(){
+        console.log('drink')
+    }
+};
 
-实现方法：在传入的参数中传入一个方法，然后执行这个方
+P
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
                         </span>
                         <span class="publish-author">
                             
@@ -809,39 +815,38 @@ console.dir<span class="token punctuation">(</span>Sub<span class="token punctua
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                <a href="/2019/11/12/php/mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="php和mySql">
                         
-                        <span class="card-title">Javascript原型和原型链</span>
+                        <span class="card-title">php和mySql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么要使用原型prototype首先，让我们看一段代码：
-//新建一个构造函数
-var Person = function (){
-    drink(){
-        console.log('drink')
-    }
-};
+                            简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
 
-P
+MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
+PDO (PH
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/PHP/mySql/" class="post-category">
+                                    mySql
                                 </a>
                             
                             
@@ -851,8 +856,12 @@ P
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/mySql/">
+                        <span class="chip bg-color">mySql</span>
                     </a>
                     
                 </div>
@@ -1035,7 +1044,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">4.8k</span>&nbsp;字
             
             
             

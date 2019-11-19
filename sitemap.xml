@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/19/javascript/%25E6%2595%25B0%25E6%258D%25AE%25E7%25B1%25BB%25E5%259E%258B/</loc>
+    
+    <lastmod>2019-11-19T06:40:37.622Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/18/javascript/this/</loc>
+    
+    <lastmod>2019-11-19T02:50:16.293Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/11/18/javascript/EC%2520and%2520Scope/</loc>
     
     <lastmod>2019-11-18T16:39:25.963Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yangkunxiao.github.io/2019/11/13/javascript/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE/</loc>
     
     <lastmod>2019-11-18T15:37:26.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/18/javascript/changeThis/</loc>
-    
-    <lastmod>2019-11-18T15:06:00.865Z</lastmod>
     
   </url>
   
