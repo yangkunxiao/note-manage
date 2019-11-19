@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    487
+                    666
                 </div>
                 
 
@@ -496,6 +496,14 @@ typeof str // string
 var str1 <span class="token operator">=</span> new String<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 typeof str1 // object</code></pre>
 <p>其他的 Boolean 和 Number 也和 String 类似。</p>
+<h4 id="为什么使用Object-prototype-toString-call"><a href="#为什么使用Object-prototype-toString-call" class="headerlink" title="为什么使用Object.prototype.toString.call()?"></a>为什么使用Object.prototype.toString.call()?</h4><p>因为toString方法是Object原型上的方法，而Array、function等类型作为Object的实例，都重写了toString方法。不同的对象的调用toString方法的时候，调用的都是重写的toString方法，而不是Object原型链上的方法。所以如果要得到对象的具体的类型，需要调用Object原型上的toString方法，即使用call将toString的this指向改变。</p>
+<pre class=" language-bash"><code class="language-bash">var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    alert<span class="token punctuation">(</span>0<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>//返回的是 函数的字符串形式
+delete Function.prototype.toString<span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>// 返回的是<span class="token punctuation">[</span>object Function<span class="token punctuation">]</span></code></pre>
+<p>因为删除了Function.prototype上的toString方法之后，根据原型链，它会沿着原型链查找到Object.prototype.toString方法</p>
 
             </div>
             <hr/>
@@ -1000,7 +1008,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.8k</span>&nbsp;字
+                class="white-color">4.9k</span>&nbsp;字
             
             
             
