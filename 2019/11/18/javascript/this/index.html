@@ -470,7 +470,7 @@ var fun <span class="token operator">=</span> function<span class="token punctua
 <span class="token punctuation">}</span>
 
 fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>和call类似，只是传参的不同，不多说 ，直接上代码：</p>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>和call类似，只是传参的不同，不多说 ，直接上代码： </p>
 <pre class=" language-bash"><code class="language-bash">Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,parames<span class="token punctuation">)</span><span class="token punctuation">{</span>
     if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
         context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>

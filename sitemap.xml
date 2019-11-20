@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/18/JavaScript/this/</loc>
+    
+    <lastmod>2019-11-20T06:02:36.383Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
     
     <lastmod>2019-11-20T03:19:51.684Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%25E6%259E%2584%25E5%25BB%25BA/</loc>
     
     <lastmod>2019-11-20T02:49:21.552Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/18/JavaScript/this/</loc>
-    
-    <lastmod>2019-11-20T02:48:00.679Z</lastmod>
     
   </url>
   
