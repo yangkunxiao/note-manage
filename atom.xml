@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-19T07:21:12.637Z</updated>
+  <updated>2019-11-20T03:13:29.323Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -17,9 +17,249 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>解决多图片压缩上传和iOS端图片上传选择90度的问题</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</id>
+    <published>2019-11-20T03:30:00.000Z</published>
+    <updated>2019-11-20T03:13:29.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;逻辑思路：&lt;br&gt;1、监听input文件值的change事件&lt;br&gt;2、获取文件列表&lt;br&gt;3、使用FileReader()函数读取图片信息，并转为base64格式&lt;br&gt;4、根据预设的阀值，判断是否压缩&lt;br&gt;5、如果不压缩，将图片转为blob格式，使用FormData(
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yangkunxiao.github.io/categories/Javascript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 8.0+重置密码</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/</id>
+    <published>2019-11-20T03:25:00.000Z</published>
+    <updated>2019-11-20T03:01:36.993Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;关闭数据库&quot;&gt;&lt;a href=&quot;#关闭数据库&quot; class=&quot;headerlink&quot; title=&quot;关闭数据库&quot;&gt;&lt;/a&gt;关闭数据库&lt;/h4&gt;&lt;p&gt;1、在终端中输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac开启本地服务器</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Other/server/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Other/server/</id>
+    <published>2019-11-20T03:15:00.000Z</published>
+    <updated>2019-11-20T02:59:32.624Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h3&gt;&lt;p&gt;是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP
+        
+      
+    
+    </summary>
+    
+    
+      <category term="other" scheme="http://yangkunxiao.github.io/categories/other/"/>
+    
+    
+      <category term="other" scheme="http://yangkunxiao.github.io/tags/other/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx同域名下配置多项目</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</id>
+    <published>2019-11-20T03:00:00.000Z</published>
+    <updated>2019-11-20T02:54:07.571Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+    
+      <category term="ngigx" scheme="http://yangkunxiao.github.io/tags/ngigx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue使用webpack优化构建流程</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</id>
+    <published>2019-11-20T02:30:00.000Z</published>
+    <updated>2019-11-20T02:49:21.552Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;初衷：如果我们的 Vue 项目比较大．或者说项目中引入了许多第三方库，那么在执行 npm run build 构建项目的时候会极其的慢．比如我现在的项目就每次打包就要 83s。&lt;br&gt;下面提供一些方法用来提供优化打包速度：&lt;/p&gt;
+&lt;h4
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/categories/vue/"/>
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/vue/webpack/"/>
+    
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx下配置Vue项目</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/vue/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</id>
+    <published>2019-11-20T02:10:00.000Z</published>
+    <updated>2019-11-20T02:33:59.385Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、配置选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux系统：Centos 6.5 x64&lt;/li&gt;
+&lt;li&gt;Nginx版本：1.7.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、安装nginx：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /usr/local
+//下载nginx
+wget
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/categories/nginx/vue/"/>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx下配置静态资源</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</id>
+    <published>2019-11-20T02:01:00.000Z</published>
+    <updated>2019-11-20T02:30:04.247Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、查看nginx安装路径：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;whereis nginx&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、新建静态资源存储文件夹：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESC服务器Linux下安装mysql</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Linux/mysql/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Linux/mysql/</id>
+    <published>2019-11-20T02:00:00.000Z</published>
+    <updated>2019-11-20T02:32:59.987Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、重启服务器：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@sir-xiao server]# reboot&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、检查是否已经安装mysql服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@sir-xiao server]# yum list
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>javascript数据类型</title>
-    <link href="http://yangkunxiao.github.io/2019/11/19/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yangkunxiao.github.io/2019/11/19/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/19/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yangkunxiao.github.io/2019/11/19/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
     <published>2019-11-19T02:50:00.000Z</published>
     <updated>2019-11-19T07:21:12.637Z</updated>
     
@@ -46,8 +286,8 @@
   
   <entry>
     <title>执行环境（Execution Context）</title>
-    <link href="http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/"/>
-    <id>http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/18/JavaScript/EC%20and%20Scope/"/>
+    <id>http://yangkunxiao.github.io/2019/11/18/JavaScript/EC%20and%20Scope/</id>
     <published>2019-11-18T15:54:00.000Z</published>
     <updated>2019-11-20T02:05:41.042Z</updated>
     
@@ -67,10 +307,10 @@
   
   <entry>
     <title>使用原生JavaScript实现call、apply和bind</title>
-    <link href="http://yangkunxiao.github.io/2019/11/18/javascript/this/"/>
-    <id>http://yangkunxiao.github.io/2019/11/18/javascript/this/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/18/JavaScript/this/"/>
+    <id>http://yangkunxiao.github.io/2019/11/18/JavaScript/this/</id>
     <published>2019-11-18T14:45:00.000Z</published>
-    <updated>2019-11-19T02:50:16.293Z</updated>
+    <updated>2019-11-20T02:48:00.679Z</updated>
     
     <summary type="html">
     
@@ -94,10 +334,10 @@
   
   <entry>
     <title>Javascript原型和原型链</title>
-    <link href="http://yangkunxiao.github.io/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    <id>http://yangkunxiao.github.io/2019/11/13/javascript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/13/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>http://yangkunxiao.github.io/2019/11/13/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
     <published>2019-11-13T08:45:00.000Z</published>
-    <updated>2019-11-18T15:37:26.078Z</updated>
+    <updated>2019-11-20T02:47:48.298Z</updated>
     
     <summary type="html">
     
@@ -121,10 +361,10 @@
   
   <entry>
     <title>浅谈Javascript继承</title>
-    <link href="http://yangkunxiao.github.io/2019/11/13/javascript/%E7%BB%A7%E6%89%BF/"/>
-    <id>http://yangkunxiao.github.io/2019/11/13/javascript/%E7%BB%A7%E6%89%BF/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/13/JavaScript/%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yangkunxiao.github.io/2019/11/13/JavaScript/%E7%BB%A7%E6%89%BF/</id>
     <published>2019-11-13T08:45:00.000Z</published>
-    <updated>2019-11-13T10:12:45.458Z</updated>
+    <updated>2019-11-20T02:47:40.516Z</updated>
     
     <summary type="html">
     
@@ -149,8 +389,8 @@
   
   <entry>
     <title>php和mySql</title>
-    <link href="http://yangkunxiao.github.io/2019/11/12/php/mysql/"/>
-    <id>http://yangkunxiao.github.io/2019/11/12/php/mysql/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/12/Php/mysql/"/>
+    <id>http://yangkunxiao.github.io/2019/11/12/Php/mysql/</id>
     <published>2019-11-12T06:45:07.000Z</published>
     <updated>2019-11-12T07:59:45.927Z</updated>
     
@@ -180,8 +420,8 @@
   
   <entry>
     <title>Hexo博客搭建</title>
-    <link href="http://yangkunxiao.github.io/2019/11/11/hexo/index/"/>
-    <id>http://yangkunxiao.github.io/2019/11/11/hexo/index/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/11/Hexo/index/"/>
+    <id>http://yangkunxiao.github.io/2019/11/11/Hexo/index/</id>
     <published>2019-11-11T06:16:07.000Z</published>
     <updated>2019-11-13T08:52:13.228Z</updated>
     
@@ -207,8 +447,8 @@
   
   <entry>
     <title>php基础</title>
-    <link href="http://yangkunxiao.github.io/2019/11/11/php/base/"/>
-    <id>http://yangkunxiao.github.io/2019/11/11/php/base/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/11/Php/base/"/>
+    <id>http://yangkunxiao.github.io/2019/11/11/Php/base/</id>
     <published>2019-11-11T03:18:07.000Z</published>
     <updated>2019-11-12T06:42:16.725Z</updated>
     

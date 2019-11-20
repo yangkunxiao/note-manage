@@ -2,56 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/18/javascript/EC%2520and%2520Scope/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
+    
+    <lastmod>2019-11-20T03:13:29.323Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/</loc>
+    
+    <lastmod>2019-11-20T03:01:36.993Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Other/server/</loc>
+    
+    <lastmod>2019-11-20T02:59:32.624Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</loc>
+    
+    <lastmod>2019-11-20T02:54:07.571Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%25E6%259E%2584%25E5%25BB%25BA/</loc>
+    
+    <lastmod>2019-11-20T02:49:21.552Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/18/JavaScript/this/</loc>
+    
+    <lastmod>2019-11-20T02:48:00.679Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/13/JavaScript/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE/</loc>
+    
+    <lastmod>2019-11-20T02:47:48.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/13/JavaScript/%25E7%25BB%25A7%25E6%2589%25BF/</loc>
+    
+    <lastmod>2019-11-20T02:47:40.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</loc>
+    
+    <lastmod>2019-11-20T02:33:59.385Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Linux/mysql/</loc>
+    
+    <lastmod>2019-11-20T02:32:59.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</loc>
+    
+    <lastmod>2019-11-20T02:30:04.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/18/JavaScript/EC%2520and%2520Scope/</loc>
     
     <lastmod>2019-11-20T02:05:41.042Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/19/javascript/%25E6%2595%25B0%25E6%258D%25AE%25E7%25B1%25BB%25E5%259E%258B/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/19/JavaScript/%25E6%2595%25B0%25E6%258D%25AE%25E7%25B1%25BB%25E5%259E%258B/</loc>
     
     <lastmod>2019-11-19T07:21:12.637Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/18/javascript/this/</loc>
-    
-    <lastmod>2019-11-19T02:50:16.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/13/javascript/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE/</loc>
-    
-    <lastmod>2019-11-18T15:37:26.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/13/javascript/%25E7%25BB%25A7%25E6%2589%25BF/</loc>
-    
-    <lastmod>2019-11-13T10:12:45.458Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/11/hexo/index/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/11/Hexo/index/</loc>
     
     <lastmod>2019-11-13T08:52:13.228Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/12/php/mysql/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/12/Php/mysql/</loc>
     
     <lastmod>2019-11-12T07:59:45.927Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/11/php/base/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/11/Php/base/</loc>
     
     <lastmod>2019-11-12T06:42:16.725Z</lastmod>
     
