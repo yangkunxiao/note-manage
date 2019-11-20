@@ -416,7 +416,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    601
+                    602
                 </div>
                 
 
@@ -439,40 +439,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。</p>
-<pre><code>安装：
+                <h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4><p>是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。</p>
+<pre class=" language-bash"><code class="language-bash">安装：
 搜索软件：brew search nginx
-安装软件：brew install nginx
+安装软件：brew <span class="token function">install</span> nginx
 卸载软件：brew uninstall nginx
 升级brew：sudo brew update
 查看安装信息：sudo brew info nginx
-查看已经安装的软件：brew list</code></pre><p>nginx常用命令：</p>
-<pre><code>nginx -v //查看下安装好的nginx版本
-sudo nginx  // 启动nginx
-sudo nginx              //启动nginx
-sudo nginx -s reload    //修改配置后重新加载生效
+查看已经安装的软件：brew list</code></pre>
+<p>nginx常用命令：</p>
+<pre class=" language-bash"><code class="language-bash">nginx -v //查看下安装好的nginx版本
+<span class="token function">sudo</span> nginx  // 启动nginx
+<span class="token function">sudo</span> nginx              //启动nginx
+<span class="token function">sudo</span> nginx -s reload    //修改配置后重新加载生效
 
-#简单解释下，上面这种方法重启，nginx在重启的时候不会中断服务，因为  nginx在启动后，会有一个master进程和多个worker进程，重启是会先生成新的worker进程去接受reload命令，等老的worker进程执行完毕，master进程在关闭他们，所以服务器不会中断。
+<span class="token comment" spellcheck="true">#简单解释下，上面这种方法重启，nginx在重启的时候不会中断服务，因为  nginx在启动后，会有一个master进程和多个worker进程，重启是会先生成新的worker进程去接受reload命令，等老的worker进程执行完毕，master进程在关闭他们，所以服务器不会中断。</span>
 
-sudo nginx -s  reopen   //重新打开日志文件
-sudo nginx -s stop  //快速停止nginx
-sudo nginx -s quit  //完整有序的停止nginx
-sudo nginx -t     //测试当前配置文件是否正确</code></pre><p>nginx常见目录：</p>
-<pre><code>/usr/local/Cellar/  #nginx默认安装的目录,所有使用brew安装的软件默认都在这里
+<span class="token function">sudo</span> nginx -s  reopen   //重新打开日志文件
+<span class="token function">sudo</span> nginx -s stop  //快速停止nginx
+<span class="token function">sudo</span> nginx -s quit  //完整有序的停止nginx
+<span class="token function">sudo</span> nginx -t     //测试当前配置文件是否正确</code></pre>
+<p>nginx常见目录：</p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/Cellar/  <span class="token comment" spellcheck="true">#nginx默认安装的目录,所有使用brew安装的软件默认都在这里</span>
 /usr/local/Cellar/nginx/1.8.0/html  ＃默认的访问目录，就是我们说的网站根目录
-/usr/local/etc/nginx/     # nginx.conf所在的目录
+/usr/local/etc/nginx/     <span class="token comment" spellcheck="true"># nginx.conf所在的目录</span>
 
 修改默认路径从nginx/html改成你自己放置代码的路径
-vim /usr/local/etc/nginx/nginx.conf
-</code></pre><p>接下来的任务就很明确了，把listen 80下面的两个 root html中的路径，改成我们自己放代码的文件夹。例如在桌面下面新建一个home的文件夹，再在目录下新建一个www的文件夹，那么路径就是：桌面:homewww，把task1.html放进去，然后修改配置修改完成后，点击Esc键<code>·shift+: 输入：wq</code>，保存修改。</p>
-<h3 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h3><p>打开终端，开启Apache:</p>
-<pre><code>//开启apache:  sudo apachectl start
+vim /usr/local/etc/nginx/nginx.conf</code></pre>
+<p>接下来的任务就很明确了，把listen 80下面的两个 root html中的路径，改成我们自己放代码的文件夹。例如在桌面下面新建一个home的文件夹，再在目录下新建一个www的文件夹，那么路径就是：桌面:homewww，把task1.html放进去，然后修改配置修改完成后，点击Esc键<code>·shift+: 输入：wq</code>，保存修改。</p>
+<h4 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h4><p>打开终端，开启Apache:</p>
+<pre class=" language-bash"><code class="language-bash">//开启apache:  <span class="token function">sudo</span> apachectl start
 
-//重启apache:  sudo apachectl restart
+//重启apache:  <span class="token function">sudo</span> apachectl restart
 
-//关闭apache:  sudo apachectl stop
+//关闭apache:  <span class="token function">sudo</span> apachectl stop
 
-//查看apache版本 sudo apachectl -v</code></pre><p>回车会提示输入密码，也就是你电脑的密码，<a href="http://127.0.0.1/测试一下。" target="_blank" rel="noopener">http://127.0.0.1/测试一下。</a><br>点击Finder,然后Command+Shift+G,前往Apache服务器的文件路径(/Library/WebServer/Documents)，在步骤1中只输入一个<a href="http://127.0.0.1其实默认打开的是index.html.en(html是一个网页文件)，该文件的内容就是在步骤1中测试时浏览器所显示的内容" target="_blank" rel="noopener">http://127.0.0.1其实默认打开的是index.html.en(html是一个网页文件)，该文件的内容就是在步骤1中测试时浏览器所显示的内容</a></p>
+//查看apache版本 <span class="token function">sudo</span> apachectl -v</code></pre>
+<p>回车会提示输入密码，也就是你电脑的密码，<a href="http://127.0.0.1/测试一下。" target="_blank" rel="noopener">http://127.0.0.1/测试一下。</a><br>点击Finder,然后Command+Shift+G,前往Apache服务器的文件路径(/Library/WebServer/Documents)，在步骤1中只输入一个<a href="http://127.0.0.1其实默认打开的是index.html.en(html是一个网页文件)，该文件的内容就是在步骤1中测试时浏览器所显示的内容" target="_blank" rel="noopener">http://127.0.0.1其实默认打开的是index.html.en(html是一个网页文件)，该文件的内容就是在步骤1中测试时浏览器所显示的内容</a></p>
 
             </div>
             <hr/>
@@ -719,9 +722,10 @@ vim /usr/local/etc/nginx/nginx.conf
                     <div class="summary block-with-text">
                         
                             关闭数据库1、在终端中输入：
-sudo /usr/local/mysql/support-files mysql.server stop2、在访达中找到安装好的mysql，关闭mysql运行。
+sudo /usr/local/mysql/support-files mysql.server stop
+2、在访达中找到安装好的mysql，关闭mysql运行。
 跳过验证// 进入数据库指令文件
-cd /us
+cd /u
                         
                     </div>
                     <div class="publish-info">
@@ -771,9 +775,9 @@ cd /us
                     <div class="summary block-with-text">
                         
                             webpack.config.jsbuild: {
-    index: path.resolve(__dirname, &#39;../dist/index.html&#39;),
+    index: path.resolve(__dirname, '../dist/index.html'),
     // Paths
-    assetsRoot:
+    assetsRoot: path.re
                         
                     </div>
                     <div class="publish-info">

@@ -6,8 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="ESC服务器Linux下安装mysql, javascript typescript php node html html5 css linux vue react 算法 数据结构">
     <meta name="description" content="1、重启服务器：
-[root@sir-xiao server]# reboot2、检查是否已经安装mysql服务：
-[root@sir-xiao server]# yum list installed | grep mysql如果显示一下内">
+[root@sir-xiao server]# reboot
+2、检查是否已经安装mysql服务：
+[root@sir-xiao server]# yum list installed | grep mysql
+如果显示一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -329,7 +331,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    421
+                    415
                 </div>
                 
 
@@ -353,32 +355,41 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1、重启服务器：</p>
-<pre><code>[root@sir-xiao server]# reboot</code></pre><p>2、检查是否已经安装mysql服务：</p>
-<pre><code>[root@sir-xiao server]# yum list installed | grep mysql</code></pre><p>如果显示一下内容，则表示没有安装：-bash: gerp: command not found<br>3、下载mysql安装包：</p>
-<pre><code>[root@sir-xiao server]# rpm -ivh http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></pre><p>4、安装mysql：</p>
-<pre><code>[root@sir-xiao server]# yum install -y mysql-server
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># reboot</span></code></pre>
+<p>2、检查是否已经安装mysql服务：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum list installed | grep mysql</span></code></pre>
+<p>如果显示一下内容，则表示没有安装：-bash: gerp: command not found<br>3、下载mysql安装包：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># rpm -ivh http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</span></code></pre>
+<p>4、安装mysql：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install -y mysql-server</span>
 或者
-[root@sir-xiao server]# yum install mysql-community-server</code></pre><p>5、设置开机启动：</p>
-<pre><code>[root@sir-xiao server]# systemctl enable mysqld.service</code></pre><p>6、查看服务是否加入开机自动启动：</p>
-<pre><code>[root@sir-xiao server]# systemctl list-unit-files | grep mysqld</code></pre><p>7、查看mysql的默认临时密码：</p>
-<pre><code>[root@sir-xiao server]# systemctl list-unit-files | grep mysqld</code></pre><p>8、root用户登录mysql数据库：</p>
-<pre><code>[root@sir-xiao server]# mysql -u root -p 
+<span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install mysql-community-server</span></code></pre>
+<p>5、设置开机启动：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl enable mysqld.service</span></code></pre>
+<p>6、查看服务是否加入开机自动启动：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl list-unit-files | grep mysqld</span></code></pre>
+<p>7、查看mysql的默认临时密码：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl list-unit-files | grep mysqld</span></code></pre>
+<p>8、root用户登录mysql数据库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mysql -u root -p </span>
 Enter password: 
-根据提示 输入密码</code></pre><p>9、修改root用户密码：</p>
-<pre><code>mysql&gt; use  mysql；----切换到mysql db
+根据提示 输入密码</code></pre>
+<p>9、修改root用户密码：</p>
+<pre class=" language-bash"><code class="language-bash">mysql<span class="token operator">></span> use  mysql；----切换到mysql db
 
-mysql&gt; UPDATE user SET authentication_string = PASSWORD(&#39;newpass&#39;) WHERE user = &#39;root&#39;;---新版本mysql执行
+mysql<span class="token operator">></span> UPDATE user SET authentication_string <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'newpass'</span><span class="token punctuation">)</span> WHERE user <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>---新版本mysql执行
 
-mysql&gt; UPDATE user SET Password = PASSWORD(&#39;newpass&#39;) WHERE user = &#39;root&#39;;---老版本mysql执行
+mysql<span class="token operator">></span> UPDATE user SET Password <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'newpass'</span><span class="token punctuation">)</span> WHERE user <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>---老版本mysql执行
 
-mysql&gt; flush privileges;---命令立即执行生效</code></pre><p>10、忘记密码重置密码：</p>
-<pre><code>1、查找mysql的启动文件：[root@sir-xiao etc]# whereis  my
+mysql<span class="token operator">></span> flush privileges<span class="token punctuation">;</span>---命令立即执行生效</code></pre>
+<p>10、忘记密码重置密码：</p>
+<pre class=" language-bash"><code class="language-bash">1、查找mysql的启动文件：<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis  my</span>
 
 2、vim /etc/my.cnf
 修改my.cnf启动参数，在文件的最后增加，mysql启动参数—— --skip-grant-tables。启动
 mysql时不启动授权表 grant-tables
-[root@sir-xiao etc]# vi /etc/my.cnf skip-grant-tables
-[root@sir-xiao etc]# :wq
+<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi /etc/my.cnf skip-grant-tables</span>
+<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># :wq</span>
 vi模式Enter进入，按“i”键，编辑文件，按“esc”键，输入:wq写入保存退出，:q 不保存退出
 
 3、重启mysql服务
@@ -386,6 +397,7 @@ vi模式Enter进入，按“i”键，编辑文件，按“esc”键，输入:wq
 4、修改密码：同上
 
 5、密码修改成功后需要进入vi模式下重新编辑/etc/my.cnf去掉增加的skip-grant-tables 重启mysql服务，就可以用密码登录了</code></pre>
+
             </div>
             <hr/>
 
@@ -635,11 +647,13 @@ vi模式Enter进入，按“i”键，编辑文件，按“esc”键，输入:wq
                     <div class="summary block-with-text">
                         
                             1、查看nginx安装路径：
-whereis nginx2、新建静态资源存储文件夹：
-mkdir assets3、进入nginx目录中，修改nginx.conf文件：
+whereis nginx
+2、新建静态资源存储文件夹：
+mkdir assets
+3、进入nginx目录中，修改nginx.conf文件：
 cd nginx: /usr/local/nginx/conf
 
-vim
+v
                         
                     </div>
                     <div class="publish-info">

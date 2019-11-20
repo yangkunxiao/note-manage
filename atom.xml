@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-20T03:13:29.323Z</updated>
+  <updated>2019-11-20T03:19:51.684Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</id>
     <published>2019-11-20T03:30:00.000Z</published>
-    <updated>2019-11-20T03:13:29.323Z</updated>
+    <updated>2019-11-20T03:19:51.684Z</updated>
     
     <summary type="html">
     
@@ -48,7 +48,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/</id>
     <published>2019-11-20T03:25:00.000Z</published>
-    <updated>2019-11-20T03:01:36.993Z</updated>
+    <updated>2019-11-20T03:17:28.346Z</updated>
     
     <summary type="html">
     
@@ -57,7 +57,7 @@
         
         
           &lt;h4 id=&quot;关闭数据库&quot;&gt;&lt;a href=&quot;#关闭数据库&quot; class=&quot;headerlink&quot; title=&quot;关闭数据库&quot;&gt;&lt;/a&gt;关闭数据库&lt;/h4&gt;&lt;p&gt;1、在终端中输入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
         
       
     
@@ -76,7 +76,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/Other/server/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Other/server/</id>
     <published>2019-11-20T03:15:00.000Z</published>
-    <updated>2019-11-20T02:59:32.624Z</updated>
+    <updated>2019-11-20T03:18:33.960Z</updated>
     
     <summary type="html">
     
@@ -84,7 +84,8 @@
       
         
         
-          &lt;h3 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h3&gt;&lt;p&gt;是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP
+          &lt;h4 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h4&gt;&lt;p&gt;是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。&lt;/p&gt;
+&lt;pre
         
       
     
@@ -103,7 +104,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</id>
     <published>2019-11-20T03:00:00.000Z</published>
-    <updated>2019-11-20T02:54:07.571Z</updated>
+    <updated>2019-11-20T03:18:46.803Z</updated>
     
     <summary type="html">
     
@@ -111,7 +112,7 @@
       
         
         
-          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot;
+          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot; title=&quot;webpack.config.js&quot;&gt;&lt;/a&gt;webpack.config.js&lt;/h4&gt;&lt;pre class=&quot;
         
       
     
@@ -162,7 +163,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/vue/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</id>
     <published>2019-11-20T02:10:00.000Z</published>
-    <updated>2019-11-20T02:33:59.385Z</updated>
+    <updated>2019-11-20T03:19:18.949Z</updated>
     
     <summary type="html">
     
@@ -176,9 +177,7 @@
 &lt;li&gt;Nginx版本：1.7.8&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;2、安装nginx：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd /usr/local
-//下载nginx
-wget
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
         
       
     
@@ -201,7 +200,7 @@ wget
     <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</id>
     <published>2019-11-20T02:01:00.000Z</published>
-    <updated>2019-11-20T02:30:04.247Z</updated>
+    <updated>2019-11-20T03:18:56.209Z</updated>
     
     <summary type="html">
     
@@ -210,8 +209,7 @@ wget
         
         
           &lt;p&gt;1、查看nginx安装路径：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;whereis nginx&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、新建静态资源存储文件夹：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mkdir
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;whereis&lt;/span&gt;
         
       
     
@@ -230,7 +228,7 @@ wget
     <link href="http://yangkunxiao.github.io/2019/11/20/Linux/mysql/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Linux/mysql/</id>
     <published>2019-11-20T02:00:00.000Z</published>
-    <updated>2019-11-20T02:32:59.987Z</updated>
+    <updated>2019-11-20T03:18:04.232Z</updated>
     
     <summary type="html">
     
@@ -239,8 +237,7 @@ wget
         
         
           &lt;p&gt;1、重启服务器：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@sir-xiao server]# reboot&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、检查是否已经安装mysql服务：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[root@sir-xiao server]# yum list
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@sir-xiao server&lt;span
         
       
     

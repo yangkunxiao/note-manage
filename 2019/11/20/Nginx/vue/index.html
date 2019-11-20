@@ -339,7 +339,7 @@ wget http://nginx.org/download/nginx-1">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    230
+                    233
                 </div>
                 
 
@@ -368,36 +368,40 @@ wget http://nginx.org/download/nginx-1">
 <li>Nginx版本：1.7.8</li>
 </ul>
 <p>2、安装nginx：</p>
-<pre><code>cd /usr/local
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local
 //下载nginx
-wget http://nginx.org/download/nginx-1.7.8.tar.gz
-cd nginx-1.7.8
-make
-make install</code></pre><p>3、开启nginx服务：</p>
-<pre><code>/usr/local/nginx-1.7.8/sbin/nginx
+<span class="token function">wget</span> http://nginx.org/download/nginx-1.7.8.tar.gz
+<span class="token function">cd</span> nginx-1.7.8
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span></code></pre>
+<p>3、开启nginx服务：</p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/nginx-1.7.8/sbin/nginx
 
 重启或关闭进程：
 
 /usr/local/nginx-1.7.8/sbin/nginx -s reload
 
-/usr/local/nginx-1.7.8/sbin/nginx -s stop</code></pre><p>4、关闭防火墙：</p>
-<pre><code>service iptables stop</code></pre><p>5、修改配置文件：</p>
-<pre><code>usr/local/nginx-1.7.8/conf/nginx.conf
+/usr/local/nginx-1.7.8/sbin/nginx -s stop</code></pre>
+<p>4、关闭防火墙：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> iptables stop</code></pre>
+<p>5、修改配置文件：</p>
+<pre class=" language-bash"><code class="language-bash">usr/local/nginx-1.7.8/conf/nginx.conf
 
-server {
-    listen 80;//监听80端口
-    server_name www.yangkunxiao.cn;   //项目对应域名
-    location /{
-     root /data/www/dist;     //项目存放路径
-     try_files $uri $uri/ /index.html;    //vue项目配置history模式
-     index index.html index.htm;    //项目首页名称
-     #proxy_pass http://127.0.0.1:8080;   //域名对应URL，这个URL对应的就是http://m.horace.space，可通过域名直接访问
-    }
-    location /assets/{//配置资源文件夹
-        root /usr/;//资源文件夹路径
-        autoindex on;
-    }
- }</code></pre><p>7、多个项目配置多个service即可<br>6、重启即可</p>
+server <span class="token punctuation">{</span>
+    listen 80<span class="token punctuation">;</span>//监听80端口
+    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>   //项目对应域名
+    location /<span class="token punctuation">{</span>
+     root /data/www/dist<span class="token punctuation">;</span>     //项目存放路径
+     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>    //vue项目配置history模式
+     index index.html index.htm<span class="token punctuation">;</span>    //项目首页名称
+     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;   //域名对应URL，这个URL对应的就是http://m.horace.space，可通过域名直接访问</span>
+    <span class="token punctuation">}</span>
+    location /assets/<span class="token punctuation">{</span>//配置资源文件夹
+        root /usr/<span class="token punctuation">;</span>//资源文件夹路径
+        autoindex on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span></code></pre>
+<p>7、多个项目配置多个service即可<br>6、重启即可</p>
 
             </div>
             <hr/>
@@ -706,11 +710,13 @@ resolve.modu
                     <div class="summary block-with-text">
                         
                             1、查看nginx安装路径：
-whereis nginx2、新建静态资源存储文件夹：
-mkdir assets3、进入nginx目录中，修改nginx.conf文件：
+whereis nginx
+2、新建静态资源存储文件夹：
+mkdir assets
+3、进入nginx目录中，修改nginx.conf文件：
 cd nginx: /usr/local/nginx/conf
 
-vim
+v
                         
                     </div>
                     <div class="publish-info">

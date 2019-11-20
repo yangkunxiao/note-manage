@@ -436,10 +436,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>逻辑思路：<br>1、监听input文件值的change事件<br>2、获取文件列表<br>3、使用FileReader()函数读取图片信息，并转为base64格式<br>4、根据预设的阀值，判断是否压缩<br>5、如果不压缩，将图片转为blob格式，使用FormData()函数，上传图片<br>6、如果压缩图片，使用canvas重新绘制图片，根据需要，选择是否使用瓦片canvas<br>7、使用Exif.js，获取图片方向信息，确定是否需要使用canvas的rotate()函数进行旋转图片<br>8、上传图片</p>
-<h4 id="自定义图片上传组件："><a href="#自定义图片上传组件：" class="headerlink" title="自定义图片上传组件："></a>自定义图片上传组件：</h4><pre><code>//推荐
-&lt;input type=&#39;file&#39; id=&#39;upload&#39; accept=&#39;image/gif,image/jpeg,image/png,image/jpg&#39; @change=&#39;upload&#39; &gt;
+<h4 id="自定义图片上传组件："><a href="#自定义图片上传组件：" class="headerlink" title="自定义图片上传组件："></a>自定义图片上传组件：</h4><pre class=" language-bash"><code class="language-bash">//推荐
+<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">'file'</span> id<span class="token operator">=</span><span class="token string">'upload'</span> accept<span class="token operator">=</span><span class="token string">'image/gif,image/jpeg,image/png,image/jpg'</span> @change<span class="token operator">=</span><span class="token string">'upload'</span> <span class="token operator">></span>
 //不推荐使用下面这种方法，该形式在Chrome浏览器中，选择文件弹框会滞留一段时间才弹出
-&lt;input type=&#39;file&#39; name=&#39;file&#39; class=&#39;element&#39; accept=&#39;image/*&#39;&gt;</code></pre><h4 id="引入exif-js"><a href="#引入exif-js" class="headerlink" title="引入exif.js"></a>引入exif.js</h4><pre><code>import Exif from &#39;exif-js&#39;</code></pre><h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><pre class=" language-bash"><code class="language-bash">upload<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">'file'</span> name<span class="token operator">=</span><span class="token string">'file'</span> class<span class="token operator">=</span><span class="token string">'element'</span> accept<span class="token operator">=</span><span class="token string">'image/*'</span><span class="token operator">></span></code></pre>
+<h4 id="引入exif-js"><a href="#引入exif-js" class="headerlink" title="引入exif.js"></a>引入exif.js</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> Exif from <span class="token string">'exif-js'</span></code></pre>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><pre class=" language-bash"><code class="language-bash">upload<span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token keyword">let</span> files <span class="token operator">=</span> e.target.files <span class="token operator">||</span> e.dataTransfer.files<span class="token punctuation">;</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>files.length<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
                 this.picValue <span class="token operator">=</span> files<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -936,9 +938,10 @@
                     <div class="summary block-with-text">
                         
                             关闭数据库1、在终端中输入：
-sudo /usr/local/mysql/support-files mysql.server stop2、在访达中找到安装好的mysql，关闭mysql运行。
+sudo /usr/local/mysql/support-files mysql.server stop
+2、在访达中找到安装好的mysql，关闭mysql运行。
 跳过验证// 进入数据库指令文件
-cd /us
+cd /u
                         
                     </div>
                     <div class="publish-info">

@@ -6,11 +6,13 @@
     <meta charset="utf-8">
     <meta name="keywords" content="nginx下配置静态资源, javascript typescript php node html html5 css linux vue react 算法 数据结构">
     <meta name="description" content="1、查看nginx安装路径：
-whereis nginx2、新建静态资源存储文件夹：
-mkdir assets3、进入nginx目录中，修改nginx.conf文件：
+whereis nginx
+2、新建静态资源存储文件夹：
+mkdir assets
+3、进入nginx目录中，修改nginx.conf文件：
 cd nginx: /usr/local/nginx/conf
 
-vim">
+v">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -328,7 +330,7 @@ vim">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    92
+                    94
                 </div>
                 
 
@@ -352,28 +354,31 @@ vim">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>1、查看nginx安装路径：</p>
-<pre><code>whereis nginx</code></pre><p>2、新建静态资源存储文件夹：</p>
-<pre><code>mkdir assets</code></pre><p>3、进入nginx目录中，修改nginx.conf文件：</p>
-<pre><code>cd nginx: /usr/local/nginx/conf
+<pre class=" language-bash"><code class="language-bash"><span class="token function">whereis</span> nginx</code></pre>
+<p>2、新建静态资源存储文件夹：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> assets</code></pre>
+<p>3、进入nginx目录中，修改nginx.conf文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> nginx: /usr/local/nginx/conf
 
 vim nginx.conf
 
 具体配置如下：
-server {
-    listen 80;
-    server_name www.yangkunxiao.cn;
-    location /{
-     root /data/www/dist;
-     try_files $uri $uri/ /index.html;
-     index index.html index.htm;
-     #proxy_pass http://127.0.0.1:8080;
-    }
-    location /assets/{
-        root /usr/;
-        autoindex on;
-    }
- }
-</code></pre><p>4、保存并重启nginx</p>
+server <span class="token punctuation">{</span>
+    listen 80<span class="token punctuation">;</span>
+    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>
+    location /<span class="token punctuation">{</span>
+     root /data/www/dist<span class="token punctuation">;</span>
+     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
+     index index.html index.htm<span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
+    <span class="token punctuation">}</span>
+    location /assets/<span class="token punctuation">{</span>
+        root /usr/<span class="token punctuation">;</span>
+        autoindex on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+<p>4、保存并重启nginx</p>
 
             </div>
             <hr/>
@@ -685,8 +690,10 @@ wget http://nginx.org/download/nginx-1
                     <div class="summary block-with-text">
                         
                             1、重启服务器：
-[root@sir-xiao server]# reboot2、检查是否已经安装mysql服务：
-[root@sir-xiao server]# yum list installed | grep mysql如果显示一下内
+[root@sir-xiao server]# reboot
+2、检查是否已经安装mysql服务：
+[root@sir-xiao server]# yum list installed | grep mysql
+如果显示一
                         
                     </div>
                     <div class="publish-info">
