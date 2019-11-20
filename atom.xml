@@ -45,21 +45,15 @@
   </entry>
   
   <entry>
-    <title>执行环境（execution context）,简称EC，它是JavaScript最为重要的一个概念</title>
+    <title>执行环境（Execution Context）</title>
     <link href="http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/"/>
     <id>http://yangkunxiao.github.io/2019/11/18/javascript/EC%20and%20Scope/</id>
     <published>2019-11-18T15:54:00.000Z</published>
-    <updated>2019-11-18T16:39:25.963Z</updated>
+    <updated>2019-11-20T02:05:41.042Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h4 id=&quot;执行环境EC&quot;&gt;&lt;a href=&quot;#执行环境EC&quot; class=&quot;headerlink&quot; title=&quot;执行环境EC&quot;&gt;&lt;/a&gt;执行环境EC&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;执行环境&lt;/strong&gt;(Execution
-        
-      
+      &lt;h4 id=&quot;执行环境EC&quot;&gt;&lt;a href=&quot;#执行环境EC&quot; class=&quot;headerlink&quot; title=&quot;执行环境EC&quot;&gt;&lt;/a&gt;执行环境EC&lt;/h4&gt;&lt;p&gt;Execution Context，即EC,是JavaScript中最为重要的一个概念。&lt;/p&gt;
     
     </summary>
     
