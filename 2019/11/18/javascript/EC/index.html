@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="php和mySql, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
-
-MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
-PDO (PH">
+    <meta name="keywords" content="执行环境（Execution Context）, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="执行环境ECExecution Context，即EC,是JavaScript中最为重要的一个概念。
+执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。
+全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
+全局对象">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ PDO (PH">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>php和mySql | Walter</title>
+    <title>执行环境（Execution Context） | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,13 +263,13 @@ PDO (PH">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        php和mySql
+                        执行环境（Execution Context）
                     </div>
                 </div>
             </div>
@@ -381,12 +381,8 @@ PDO (PH">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/PHP/">
-                                <span class="chip bg-color">PHP</span>
-                            </a>
-                        
-                            <a href="/tags/mySql/">
-                                <span class="chip bg-color">mySql</span>
+                            <a href="/tags/Javascript/">
+                                <span class="chip bg-color">Javascript</span>
                             </a>
                         
                     </div>
@@ -397,12 +393,8 @@ PDO (PH">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/PHP/" class="post-category">
-                                PHP
-                            </a>
-                        
-                            <a href="/categories/PHP/mySql/" class="post-category">
-                                mySql
+                            <a href="/categories/Javascript/" class="post-category">
+                                Javascript
                             </a>
                         
                     </div>
@@ -414,7 +406,7 @@ PDO (PH">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-12
+                    2019-11-18
                 </div>
                 
 
@@ -423,14 +415,14 @@ PDO (PH">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    535
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 				
@@ -446,54 +438,50 @@ PDO (PH">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>通过PHP，开发者可以和数据库相连。<br>在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：</p>
-<ul>
-<li>MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库</li>
-<li>PDO (PHP Data Objects)：PDO 应用在 12 种不同数据库中<br>因为我这里只安装了mySql，所以本文栗子均以第一种方式进行操作。</li>
-</ul>
-<h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><p>在访问数据库之前，我们需要进行数据库的连接</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$serverName</span> <span class="token operator">=</span> <span class="token string">'localhost'</span><span class="token punctuation">;</span>//数据库地址
-<span class="token variable">$serverRoot</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>//数据库登录名称
-<span class="token variable">$passWord</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>//数据库密码
-<span class="token variable">$dbName</span> <span class="token operator">=</span> <span class="token string">"myDB"</span><span class="token punctuation">;</span>
-<span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-//连接失败
-if<span class="token punctuation">(</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    die<span class="token punctuation">(</span><span class="token string">"数据库连接失败："</span><span class="token keyword">.</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span>
+                <h4 id="执行环境EC"><a href="#执行环境EC" class="headerlink" title="执行环境EC"></a>执行环境EC</h4><p>Execution Context，即EC,是JavaScript中最为重要的一个概念。</p>
+<p>执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。</p>
+<p>全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。</p>
+<h4 id="全局对象GO"><a href="#全局对象GO" class="headerlink" title="全局对象GO"></a>全局对象GO</h4><p>它在全局只存在一份，它的属性可以在任何地方都可以访问到，它的存在是伴随着整个程序的生命周期的。</p>
+<p>JS引擎在进入一段可执行的代码时，需要完成以下三个初始化工作：</p>
+<p>首先，创建一个全局对象(Global Object，即GO)，将Math、String、Data等常用的js对象作为其属性，但是这个GO在全局是不可见的，不可直接访问的。因此它还有另外一个属性window，并将window指向了自身，这样就可以在全局通过访问window，来访问GO的属性了。</p>
+<pre class=" language-bash"><code class="language-bash">
+//创建一个全局对象
+
+var globalObject <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+​    Math:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+
+​    String:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+
+​    Date:<span class="token punctuation">{</span><span class="token punctuation">}</span>,
+
+​    document:<span class="token punctuation">{</span><span class="token punctuation">}</span>, //DOM操作
+
+​    <span class="token punctuation">..</span>.
+
+​    window:this //让window属性指向了自身
+
 <span class="token punctuation">}</span>
-mysqli_set_charset<span class="token punctuation">(</span><span class="token variable">$this</span>-<span class="token operator">></span>conn, <span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//设置字符编码为utf8格式 否则汉字可能出现乱码的情况
-//数据库操作完成之后 一定记得关闭数据库的连接
-<span class="token variable">$conn</span>-<span class="token operator">></span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h4><p>1、创建数据库：<code>$sql = &quot;CREATE DATABASE IF NOT EXISTS dbname&quot;</code><br>2、创建表：上面的连接语句要修改下，加个参数，用来选择数据库：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span>,<span class="token variable">$dbName</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"CREATE TABLE MyGuests (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP
-)"</span><span class="token punctuation">;</span></code></pre>
-<p>属性说明：</p>
-<ul>
-<li>NOT NULL - 每一行都必须含有值（不能为空），null 值是不允许的。</li>
-<li>DEFAULT value - 设置默认值</li>
-<li>UNSIGNED - 使用无符号数值类型，0 及正数</li>
-<li>AUTO INCREMENT - 设置 MySQL 字段的值在新增记录时每次自动增长 1</li>
-<li>PRIMARY KEY - 设置数据表中每条记录的唯一标识。 通常列的 PRIMARY KEY 设置为 ID 数值，与 AUTO_INCREMENT 一起使用。<br>每个表都应该有一个主键(本列为 “id” 列)，主键必须包含唯一的值</li>
-</ul>
-<p>3、插入数据：<code>$sql=&#39;INSERT INTO table_name (column1, column2, column3,...)
-VALUES (value1, value2, value3,...)&#39;</code><br>4、插入多条数据：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span></code></pre>
-<p>注意：sql语句之间用;隔开</p>
-<p>5、查询数据：<code>$sql = &#39;SELECT * FROM  myDB;&#39;</code><br>6、更新数据：<br><code>UPDATE table_name
-SET column1=value, column2=value2,...
-WHERE some_column=some_value</code><br>7、删除数据：<code>DELETE FROM table_name
-WHERE some_column = some_value</code></p>
+</code></pre>
+<h4 id="环境执行栈ECS"><a href="#环境执行栈ECS" class="headerlink" title="环境执行栈ECS"></a>环境执行栈ECS</h4><p>然后JS引擎会创建一个环境执行栈(Execution Context Stack，即ECS)，与此同时，还会建立一个全局的执行环境(Execution Context，即EC)。当执行流进入到一个函数时，函数的执行环境就会被推到ECS中，而在函数执行完毕之后，ECS就会将其环境弹出，并且将程序的控制权交给之前的EC。ECMAScript程序的执行流就是由这种机制控制着。</p>
+<pre class=" language-bash"><code class="language-bash">
+var ECStack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> //定义一个执行环境栈，类似于数组
+
+var EC <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>   //创建一个执行空间，
+
+//ECMA-262规范并没有对EC的数据结构做明确的定义，你可以理解为在内存中分配的一块空间
+
+ECStack.push<span class="token punctuation">(</span>EC<span class="token punctuation">)</span><span class="token punctuation">;</span> //进入函数，压入执行环境
+
+ECStack.pop<span class="token punctuation">(</span>EC<span class="token punctuation">)</span><span class="token punctuation">;</span>  //函数返回后，删除执行环境
+</code></pre>
+<h4 id="变量对象VO"><a href="#变量对象VO" class="headerlink" title="变量对象VO"></a>变量对象VO</h4><p>最后，JS引擎会创建一个与EC相关联的对象，<strong><em>变量对象</em></strong>（Variable Object，即VO），每个执行环境都有与之关联的VO，并把VO指向全局对象，VO中不仅仅包含了全局对象的属性，还包含了环境中定义的所有的变量和函数。</p>
+<p>每个函数在定义的时候，都会创建一个与之关联的<strong><em>scope</em></strong>属性，scope总是指向定义函数时所在的环境。</p>
+<h4 id="作用域链Scope-Chain"><a href="#作用域链Scope-Chain" class="headerlink" title="作用域链Scope Chain"></a>作用域链Scope Chain</h4><p>当代码在一个环境中执行时，会创建变量对象的一个<strong><em>作用域链</em></strong>（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行环境的代码所在的变量对象。如果这个环境是函数，则将其<strong><em>活动对象</em></strong>（Activation Object，即AO）作为变量对象，初始时AO只包含一个变量，即arguments。作用域链的下一个变量对象来自于外部包含环境，而下一个变量对象来自下一个包含环境，这样一直延伸到全局环境。全局变量对象（GO）始终都是作用域链的最后一个对象。</p>
+<h4 id="标识符解析"><a href="#标识符解析" class="headerlink" title="标识符解析"></a>标识符解析</h4><p>当在某个环境中为了读取或写入从而引入一个标识符时，必须通过搜索来确定该标识符代表了什么。搜索过程从当期作用域链的前端开始，向上逐级搜索，如果在局部环境中查找到了该标识符的定义，则停止搜索‘否则将一直沿着作用域链向上查找，直到找到GO上。如果找不到，则会报错</p>
+<h4 id="延长作用域"><a href="#延长作用域" class="headerlink" title="延长作用域"></a>延长作用域</h4><p>虽然作用域只有两种：全局和局部（函数），但是还是有其他办法可以用来延长作用域链。其主要思路就是：有些语句可以在作用域链的前端临时增加一个变量对象，该变量对象在代码执行后就被销毁。</p>
+<p>1、try-catch语句的catch块</p>
+<p>2、with语句</p>
 
             </div>
             <hr/>
@@ -519,7 +507,7 @@ WHERE some_column = some_value</code></p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/12/Php/mysql/">http://yangkunxiao.github.io/2019/11/12/Php/mysql/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/18/JavaScript/EC/">http://yangkunxiao.github.io/2019/11/18/JavaScript/EC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,12 +544,8 @@ WHERE some_column = some_value</code></p>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/PHP/">
-                                    <span class="chip bg-color">PHP</span>
-                                </a>
-                            
-                                <a href="/tags/mySql/">
-                                    <span class="chip bg-color">mySql</span>
+                                <a href="/tags/Javascript/">
+                                    <span class="chip bg-color">Javascript</span>
                                 </a>
                             
                         </div>
@@ -731,26 +715,25 @@ WHERE some_column = some_value</code></p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/13/JavaScript/%E7%BB%A7%E6%89%BF/">
+                <a href="/2019/11/19/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="javascript数据类型">
                         
-                        <span class="card-title">浅谈Javascript继承</span>
+                        <span class="card-title">javascript数据类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
-构造函数继承
-JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
+                            JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。
+基本数据类型Number、String、Null、Undefined、Bool。JavaScrip
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-19
                         </span>
                         <span class="publish-author">
                             
@@ -782,37 +765,33 @@ JavaScript规定，每一个构造函数都有一个prototype属性，它指向�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/11/Hexo/index/">
+                <a href="/2019/11/18/JavaScript/this/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hexo博客搭建">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="使用原生JavaScript实现call、apply和bind">
                         
-                        <span class="card-title">Hexo博客搭建</span>
+                        <span class="card-title">使用原生JavaScript实现call、apply和bind</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装
-Node（本文不做多余叙述）
+                            思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
 
-Git（本文不做多余叙述）
-
-Hexo$ np
+实现方法：在传入的参数中传入一个方法，然后执行这个方
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Javascript/" class="post-category">
+                                    Javascript
                                 </a>
                             
                             
@@ -822,8 +801,8 @@ Hexo$ np
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
                 </div>
