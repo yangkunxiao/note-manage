@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-20T03:19:51.684Z</updated>
+  <updated>2019-11-20T15:04:06.710Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL自然连接查询</title>
+    <link href="http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/"/>
+    <id>http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/</id>
+    <published>2019-11-20T14:25:00.000Z</published>
+    <updated>2019-11-20T15:04:06.710Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;什么是自然连接？&quot;&gt;&lt;a href=&quot;#什么是自然连接？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>解决多图片压缩上传和iOS端图片上传选择90度的问题</title>
