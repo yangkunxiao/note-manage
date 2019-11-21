@@ -319,11 +319,11 @@
                 </a>
                 
                 
-                <a href="/tags/Javascript/" title="Javascript: 5">
+                <a href="/tags/Javascript/" title="Javascript: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Javascript" style="background-color: #F5EEF8;">Javascript
-                        <span class="tag-length">5</span>
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -382,19 +382,10 @@
                 </a>
                 
                 
-                <a href="/tags/other/" title="other: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="other" style="background-color: #A3E4D7;">other
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/PHP/" title="PHP: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="PHP" style="background-color: #85C1E9;">PHP
+                            data-tagname="PHP" style="background-color: #A3E4D7;">PHP
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -403,7 +394,16 @@
                 <a href="/tags/mySql/" title="mySql: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="mySql" style="background-color: #F8C471;">mySql
+                            data-tagname="mySql" style="background-color: #85C1E9;">mySql
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/other/" title="other: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="other" style="background-color: #F8C471;">other
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -473,7 +473,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.7k</span>&nbsp;字
+                class="white-color">8.7k</span>&nbsp;字
             
             
             
@@ -667,34 +667,7 @@ $(function () {
 </body>
 
 </html>
-me() {
-                    window.setTimeout("siteTime()", 1000);
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "2019";
-                    var startMonth = "11";
-                    var startDate = "8";
-                    var startHour = "0";
-                    var startMinute = "0";
-                    var startSecond = "0";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
+  minutes);
                     var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
