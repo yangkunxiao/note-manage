@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="php和mySql, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
-
-MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
-PDO (PH">
+    <meta name="keywords" content="php基础, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="PHP（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。
+PHP的作用
+PHP 可以生成动态页面内容
+PHP 可以创建、打开、读取、写入、关闭服务器上的文件
+PHP 可以收集">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@ PDO (PH">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>php和mySql | Walter</title>
+    <title>php基础 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,13 +264,13 @@ PDO (PH">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        php和mySql
+                        php基础
                     </div>
                 </div>
             </div>
@@ -385,10 +386,6 @@ PDO (PH">
                                 <span class="chip bg-color">PHP</span>
                             </a>
                         
-                            <a href="/tags/mySql/">
-                                <span class="chip bg-color">mySql</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -401,10 +398,6 @@ PDO (PH">
                                 PHP
                             </a>
                         
-                            <a href="/categories/PHP/mySql/" class="post-category">
-                                mySql
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -414,7 +407,7 @@ PDO (PH">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-12
+                    2019-11-22
                 </div>
                 
 
@@ -423,7 +416,7 @@ PDO (PH">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    535
+                    752
                 </div>
                 
 
@@ -446,54 +439,74 @@ PDO (PH">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>通过PHP，开发者可以和数据库相连。<br>在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：</p>
-<ul>
-<li>MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库</li>
-<li>PDO (PHP Data Objects)：PDO 应用在 12 种不同数据库中<br>因为我这里只安装了mySql，所以本文栗子均以第一种方式进行操作。</li>
+                <h4 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h4><p>（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。</p>
+<h4 id="PHP的作用"><a href="#PHP的作用" class="headerlink" title="PHP的作用"></a>PHP的作用</h4><ul>
+<li>PHP 可以生成动态页面内容</li>
+<li>PHP 可以创建、打开、读取、写入、关闭服务器上的文件<ul>
+<li>PHP 可以收集表单数据</li>
+<li>PHP 可以发送和接收 cookies</li>
+<li>PHP 可以添加、删除、修改您的数据库中的数据</li>
+<li>PHP 可以限制用户访问您的网站上的一些页面</li>
+<li>PHP 可以加密数据</li>
 </ul>
-<h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><p>在访问数据库之前，我们需要进行数据库的连接</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$serverName</span> <span class="token operator">=</span> <span class="token string">'localhost'</span><span class="token punctuation">;</span>//数据库地址
-<span class="token variable">$serverRoot</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>//数据库登录名称
-<span class="token variable">$passWord</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>//数据库密码
-<span class="token variable">$dbName</span> <span class="token operator">=</span> <span class="token string">"myDB"</span><span class="token punctuation">;</span>
-<span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-//连接失败
-if<span class="token punctuation">(</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    die<span class="token punctuation">(</span><span class="token string">"数据库连接失败："</span><span class="token keyword">.</span><span class="token variable">$conn</span>-<span class="token operator">></span>connect_error<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-mysqli_set_charset<span class="token punctuation">(</span><span class="token variable">$this</span>-<span class="token operator">></span>conn, <span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//设置字符编码为utf8格式 否则汉字可能出现乱码的情况
-//数据库操作完成之后 一定记得关闭数据库的连接
-<span class="token variable">$conn</span>-<span class="token operator">></span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h4><p>1、创建数据库：<code>$sql = &quot;CREATE DATABASE IF NOT EXISTS dbname&quot;</code><br>2、创建表：上面的连接语句要修改下，加个参数，用来选择数据库：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$conn</span> <span class="token operator">=</span> new mysqli<span class="token punctuation">(</span><span class="token variable">$serverName</span>,<span class="token variable">$userName</span>,<span class="token variable">$userPassword</span>,<span class="token variable">$dbName</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"CREATE TABLE MyGuests (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP
-)"</span><span class="token punctuation">;</span></code></pre>
-<p>属性说明：</p>
-<ul>
-<li>NOT NULL - 每一行都必须含有值（不能为空），null 值是不允许的。</li>
-<li>DEFAULT value - 设置默认值</li>
-<li>UNSIGNED - 使用无符号数值类型，0 及正数</li>
-<li>AUTO INCREMENT - 设置 MySQL 字段的值在新增记录时每次自动增长 1</li>
-<li>PRIMARY KEY - 设置数据表中每条记录的唯一标识。 通常列的 PRIMARY KEY 设置为 ID 数值，与 AUTO_INCREMENT 一起使用。<br>每个表都应该有一个主键(本列为 “id” 列)，主键必须包含唯一的值</li>
+</li>
 </ul>
-<p>3、插入数据：<code>$sql=&#39;INSERT INTO table_name (column1, column2, column3,...)
-VALUES (value1, value2, value3,...)&#39;</code><br>4、插入多条数据：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span>
-<span class="token variable">$sql</span>.<span class="token operator">=</span><span class="token string">"INSERT INTO student (column1, column2, column3,...)
-VALUES (value1, value2, value3,...);"</span><span class="token punctuation">;</span></code></pre>
-<p>注意：sql语句之间用;隔开</p>
-<p>5、查询数据：<code>$sql = &#39;SELECT * FROM  myDB;&#39;</code><br>6、更新数据：<br><code>UPDATE table_name
-SET column1=value, column2=value2,...
-WHERE some_column=some_value</code><br>7、删除数据：<code>DELETE FROM table_name
-WHERE some_column = some_value</code></p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><pre><code>&lt;?php
+    $x=5;
+    $y=6;
+    $z=$x+$y;
+    echo $z;
+?&gt;</code></pre><h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h4><p>PHP有四种不同的变量作用域：</p>
+<ul>
+<li>local：局部作用域。在 PHP 函数内部声明的变量是局部变量，仅能在函数内部访问</li>
+<li>global：全局作用域。在所有函数外部定义的变量，拥有全局作用域。除了函数外，全局变量可以被脚本中的任何部分访问，要在一个函数中访问一个全局变量，需要使用 global 关键字。</li>
+<li>static：当一个函数完成时，它的所有变量通常都会被删除。然而，有时候我们希望某个局部变量不要被删除，可以使用static</li>
+<li>parameter：参数作用域。参数是通过调用代码将值传递给函数的局部变量。参数是在参数列表中声明的，作为函数声明的一部分</li>
+</ul>
+<h4 id="局部和全局作用域"><a href="#局部和全局作用域" class="headerlink" title="局部和全局作用域"></a>局部和全局作用域</h4><pre><code>$x = 5;//全局变量
+function test(){
+    global $x;//使用global关键字 使用全局变量
+
+    static $n = 0;//局部变量
+
+    $y = 10;//局部变量
+
+    $n++;
+
+    echo &#39;x: &#39;.$x.&#39;&lt;br/&gt;&#39;;
+
+    echo &#39;y: &#39;.$y.&#39;&lt;br/&gt;&#39;;
+
+    echo $n.&#39;&lt;br /&gt;&#39;;
+};
+
+test();
+
+test();
+
+test();</code></pre><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>常量值被定义后，在脚本的其他任何地方都不能被改变。常量是一个简单值的标识符。该值在脚本中不能改变。<br>一个常量由英文字母、下划线、和数字组成,但数字不能作为首字母出现。 (常量名不需要加 $ 修饰符)。<br>设置常量，使用 define() 函数，函数语法如下：</p>
+<blockquote>
+<p>bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )<br>该函数有三个参数:</p>
+</blockquote>
+<ul>
+<li>name：必选参数，常量名称，即标志符</li>
+<li>value：必选参数，常量的值</li>
+<li>case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的</li>
+</ul>
+<pre><code>&lt;?php
+define(&quot;GREETING&quot;, &quot;欢迎访问 Runoob.com&quot;);
+echo GREETING;    // 输出 &quot;欢迎访问 Runoob.com&quot;
+echo &#39;&lt;br&gt;&#39;;
+echo greeting;   // 输出 &quot;greeting&quot;
+?&gt;</code></pre><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
+<li>字符串</li>
+<li>整型：整数是一个没有小数的数字</li>
+<li>浮点型：浮点数是带小数部分的数字，或是指数形式。</li>
+<li>布尔型</li>
+<li>数组</li>
+<li>对象：在 PHP 中，对象必须声明。首先，你必须使用class关键字声明类对象。类是可以包含属性和方法的结构。然后我们在类中定义数据类型，然后在实例化的类中使用数据类型</li>
+<li>NULL</li>
+</ul>
 
             </div>
             <hr/>
@@ -519,7 +532,7 @@ WHERE some_column = some_value</code></p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/12/Php/mysql/">http://yangkunxiao.github.io/2019/11/12/Php/mysql/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/22/Php/base/">http://yangkunxiao.github.io/2019/11/22/Php/base/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -558,10 +571,6 @@ WHERE some_column = some_value</code></p>
                             
                                 <a href="/tags/PHP/">
                                     <span class="chip bg-color">PHP</span>
-                                </a>
-                            
-                                <a href="/tags/mySql/">
-                                    <span class="chip bg-color">mySql</span>
                                 </a>
                             
                         </div>
@@ -731,33 +740,38 @@ WHERE some_column = some_value</code></p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/13/JavaScript/%E7%BB%A7%E6%89%BF/">
+                <a href="/2019/11/22/Php/mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="php和mySql">
                         
-                        <span class="card-title">浅谈Javascript继承</span>
+                        <span class="card-title">php和mySql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
-构造函数继承
-JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
+                            简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
+
+MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
+PDO (PH
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/PHP/mySql/" class="post-category">
+                                    mySql
                                 </a>
                             
                             
@@ -767,8 +781,12 @@ JavaScript规定，每一个构造函数都有一个prototype属性，它指向�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/mySql/">
+                        <span class="chip bg-color">mySql</span>
                     </a>
                     
                 </div>
@@ -782,7 +800,7 @@ JavaScript规定，每一个构造函数都有一个prototype属性，它指向�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/11/Hexo/index/">
+                <a href="/2019/11/22/Hexo/index/">
                     <div class="card-image">
                         
                         
@@ -805,7 +823,7 @@ Hexo$ np
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
                             </span>
                         <span class="publish-author">
                             

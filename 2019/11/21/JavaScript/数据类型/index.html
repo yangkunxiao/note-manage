@@ -4,10 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用原生JavaScript实现call、apply和bind, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="思路在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。
-
-实现方法：在传入的参数中传入一个方法，然后执行这个方">
+    <meta name="keywords" content="javascript数据类型, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。
+基本数据类型Number、String、Null、Undefined、Bool。JavaScrip">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>使用原生JavaScript实现call、apply和bind | Walter</title>
+    <title>javascript数据类型 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -262,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        使用原生JavaScript实现call、apply和bind
+                        javascript数据类型
                     </div>
                 </div>
             </div>
@@ -405,7 +404,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-18
+                    2019-11-21
                 </div>
                 
 
@@ -414,14 +413,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    368
+                    666
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 				
@@ -437,59 +436,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>在JavaScript中this的指向问题中提到，作为对象方法的调用。函数还可以作为某个对象的方法调用，这时this就指这个上级对象。也就是我们平时说的，谁调用，this就指向谁。</p>
-<blockquote>
-<p>实现方法：在传入的参数中传入一个方法，然后执行这个方法，最后删除该方法（为了保持对象的前后一致性）。</p>
-</blockquote>
-<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><pre class=" language-bash"><code class="language-bash">var obj <span class="token operator">=</span> <span class="token punctuation">{</span>
-    age <span class="token punctuation">;</span> 10
-<span class="token punctuation">}</span>
-var fn <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    this.value <span class="token operator">=</span> 100<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-/**
-将newCall绑定在Function的原型上 context:上下文 即this
-<span class="token punctuation">..</span>.rest ES6语法糖 用来取代arguments
-*/
-Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    //使用symbal 避免原来的context上有函数fn
-    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
-    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">..</span>.rest<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
-    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
-<span class="token punctuation">}</span>
-var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console.log<span class="token punctuation">(</span>this.age<span class="token punctuation">)</span><span class="token punctuation">;</span>//10
-    // fn.newCall<span class="token punctuation">(</span>this<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    //console.log<span class="token punctuation">(</span>this.value<span class="token punctuation">)</span><span class="token punctuation">;</span> 100
-<span class="token punctuation">}</span>
+                <p>JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。</p>
+<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>Number、String、Null、Undefined、Bool。<br>JavaScript的基本数据类型的访问是按值访问的，因为基本数据类型的值是保存在栈中的。</p>
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><p>Object、Function、Array等。<br>JavaScript的引用数据类型的访问是按引用访问的，引用数据类型的值是存放在栈和堆中的：指针存放在栈中，值存放在堆中。栈区内存保存变量标识符和指向堆内存中该对象的指针，也可以说是该对象在堆内存的地址。</p>
+<h4 id="数据类型的区分"><a href="#数据类型的区分" class="headerlink" title="数据类型的区分"></a>数据类型的区分</h4><ol>
+<li>typeof 检查</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">typeof   123　　 //Number
 
-fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>和call类似，只是传参的不同，不多说 ，直接上代码： </p>
-<pre class=" language-bash"><code class="language-bash">Function.prototype.newCall <span class="token operator">=</span> function<span class="token punctuation">(</span>context,parames<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    if<span class="token punctuation">(</span> context instanceof Object <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        context <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
-        context <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    //使用symbal 避免原来的context上有函数fn
-    const fn <span class="token operator">=</span> Symbal<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span> <span class="token operator">=</span> this<span class="token punctuation">;</span>//此时this 谁调用 指向谁
-    context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">(</span>parames<span class="token punctuation">)</span><span class="token punctuation">;</span>//context 调用fn,改变this指向
-    delete context<span class="token punctuation">[</span>fn<span class="token punctuation">]</span><span class="token punctuation">;</span>//删除fn属性 保持原对象的统一
-<span class="token punctuation">}</span></code></pre>
-<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><p>bind和call、apply的区别，这里不再多做赘述。直接上代码：</p>
-<pre class=" language-bash"><code class="language-bash">Function.prototype.bind <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  var self <span class="token operator">=</span> this
-  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> self.call<span class="token punctuation">(</span>context,<span class="token punctuation">..</span>.innerArgs,<span class="token punctuation">..</span>.finnalyArgs<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+typeof   <span class="token string">'abc'</span>　　//String
+
+typeof    <span class="token boolean">true</span>       //Boolean
+
+typeof    undefined   //Undefined
+
+typeof    null        //Object     
+
+typeof    <span class="token punctuation">{</span> <span class="token punctuation">}</span>           //Object
+
+typeof    <span class="token punctuation">[</span> <span class="token punctuation">]</span>           //Object
+
+typeof    console.log<span class="token punctuation">(</span><span class="token punctuation">)</span>       //Function</code></pre>
+<p>可以看出 typeof 是检查不出来 null、{} 、[] 的。<br>推荐使用一下方法：</p>
+<pre class=" language-bash"><code class="language-bash">判断基本类型：
+Object.prototype.toString.call<span class="token punctuation">(</span>null<span class="token punctuation">)</span> //<span class="token string">"[object Null]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> //<span class="token string">"[object Array]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> //<span class="token string">"[object Object]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span>123<span class="token punctuation">)</span> //<span class="token string">"[object Number]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span> //<span class="token string">"[object String]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span>undefined<span class="token punctuation">)</span> //<span class="token string">"[object Undefined]"</span>
+
+Object.prototype.toString.call<span class="token punctuation">(</span>true<span class="token punctuation">)</span> //<span class="token string">"[object Boolean]"</span>
+
+判断引用类型：
+Function fn<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>console.log<span class="token punctuation">(</span>“test”<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+Object.prototype.toString.call<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object Function]"</span>
+
+var <span class="token function">date</span> <span class="token operator">=</span> new Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Object.prototype.toString.call<span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object Date]"</span>
+
+var reg <span class="token operator">=</span> /<span class="token punctuation">[</span>hbc<span class="token punctuation">]</span>at/gi<span class="token punctuation">;</span>
+Object.prototype.toString.call<span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object RegExp]"</span></code></pre>
+<h4 id="数据包装类型"><a href="#数据包装类型" class="headerlink" title="数据包装类型"></a>数据包装类型</h4><p>数据包装类型包含：Number、String、Boolean。数据包装类型是特殊的引用类型，每当创建一个基本数据类型的时候，就会在后台创建一个对应的数据包装类型对象，用来使基本数据类型可以访问对象上的方法和属性。<br>举个🌰：</p>
+<pre class=" language-bash"><code class="language-bash">var str <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
+str.split<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+//后台创建对应的数据包装类型
+var str <span class="token operator">=</span> new String<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span>//创建str对象
+str.split<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//执行方法
+str <span class="token operator">=</span> null//销毁str</code></pre>
+<p>而且，通过构造函数和对象字面量创建的对象是不一样的：</p>
+<pre class=" language-bash"><code class="language-bash">var str <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
+typeof str // string
+var str1 <span class="token operator">=</span> new String<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+typeof str1 // object</code></pre>
+<p>其他的 Boolean 和 Number 也和 String 类似。</p>
+<h4 id="为什么使用Object-prototype-toString-call"><a href="#为什么使用Object-prototype-toString-call" class="headerlink" title="为什么使用Object.prototype.toString.call()?"></a>为什么使用Object.prototype.toString.call()?</h4><p>因为toString方法是Object原型上的方法，而Array、function等类型作为Object的实例，都重写了toString方法。不同的对象的调用toString方法的时候，调用的都是重写的toString方法，而不是Object原型链上的方法。所以如果要得到对象的具体的类型，需要调用Object原型上的toString方法，即使用call将toString的this指向改变。</p>
+<pre class=" language-bash"><code class="language-bash">var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    alert<span class="token punctuation">(</span>0<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>//返回的是 函数的字符串形式
+delete Function.prototype.toString<span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>// 返回的是<span class="token punctuation">[</span>object Function<span class="token punctuation">]</span></code></pre>
+<p>因为删除了Function.prototype上的toString方法之后，根据原型链，它会沿着原型链查找到Object.prototype.toString方法</p>
 
             </div>
             <hr/>
@@ -515,7 +529,7 @@ fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/18/JavaScript/this/">http://yangkunxiao.github.io/2019/11/18/JavaScript/this/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/21/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">http://yangkunxiao.github.io/2019/11/21/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,27 +737,32 @@ fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuat
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/18/JavaScript/EC/">
+                <a href="/2019/11/21/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="执行环境（Execution Context）">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
                         
-                        <span class="card-title">执行环境（Execution Context）</span>
+                        <span class="card-title">Javascript原型和原型链</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            执行环境ECExecution Context，即EC,是JavaScript中最为重要的一个概念。
-执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。
-全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
-全局对象
+                            为什么要使用原型prototype首先，让我们看一段代码：
+//新建一个构造函数
+var Person = function (){
+    drink(){
+        console.log('drink')
+    }
+};
+
+P
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
                         </span>
                         <span class="publish-author">
                             
@@ -775,39 +794,32 @@ fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/13/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                <a href="/2019/11/20/Mysql/naturalJoin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL自然连接查询">
                         
-                        <span class="card-title">Javascript原型和原型链</span>
+                        <span class="card-title">MySQL自然连接查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么要使用原型prototype首先，让我们看一段代码：
-//新建一个构造函数
-var Person = function (){
-    drink(){
-        console.log('drink')
-    }
-};
-
-P
+                            什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
+自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
                                 </a>
                             
                             
@@ -817,8 +829,8 @@ P
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
                 </div>

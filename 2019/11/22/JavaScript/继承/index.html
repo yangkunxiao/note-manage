@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="javascript数据类型, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。
-基本数据类型Number、String、Null、Undefined、Bool。JavaScrip">
+    <meta name="keywords" content="浅谈Javascript继承, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
+构造函数继承
+JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>javascript数据类型 | Walter</title>
+    <title>浅谈Javascript继承 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        javascript数据类型
+                        浅谈Javascript继承
                     </div>
                 </div>
             </div>
@@ -404,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-19
+                    2019-11-22
                 </div>
                 
 
@@ -413,7 +414,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    666
+                    723
                 </div>
                 
 
@@ -436,74 +437,94 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。</p>
-<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>Number、String、Null、Undefined、Bool。<br>JavaScript的基本数据类型的访问是按值访问的，因为基本数据类型的值是保存在栈中的。</p>
-<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><p>Object、Function、Array等。<br>JavaScript的引用数据类型的访问是按引用访问的，引用数据类型的值是存放在栈和堆中的：指针存放在栈中，值存放在堆中。栈区内存保存变量标识符和指向堆内存中该对象的指针，也可以说是该对象在堆内存的地址。</p>
-<h4 id="数据类型的区分"><a href="#数据类型的区分" class="headerlink" title="数据类型的区分"></a>数据类型的区分</h4><ol>
-<li>typeof 检查</li>
+                <p>在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。</p>
+<h4 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h4><blockquote>
+<p>JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造函数的实例所继承。</p>
+</blockquote>
+<p>构造函数的继承是通过new关键字，生成实例完成的。使用new关键字生成实例的过程中，就会把this绑定到实例上，具体过程如下：</p>
+<ol>
+<li>在内存中先生成一个object的实例对象，</li>
+<li>将实例对象的_proto_指向构造函数的prototype（即构造函数的原型），</li>
+<li>运行构造函数，</li>
+<li>检查返回值，如果返回值为基本数据类型，则无视该返回值，而将生成的对象返回。如果为引用类型，则将该返回值返回。</li>
 </ol>
-<pre class=" language-bash"><code class="language-bash">typeof   123　　 //Number
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> SuperType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"red"</span>, <span class="token string">"blue"</span>, <span class="token string">"green"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-typeof   <span class="token string">'abc'</span>　　//String
+<span class="token keyword">function</span> SubType<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    SuperType.call<span class="token punctuation">(</span>this<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-typeof    <span class="token boolean">true</span>       //Boolean
+var s <span class="token operator">=</span> new SubType<span class="token punctuation">(</span><span class="token string">'ykx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+s.colors.push<span class="token punctuation">(</span><span class="token string">'yellow'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>s.colors<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-typeof    undefined   //Undefined
+var s2 <span class="token operator">=</span> new Subtype<span class="token punctuation">(</span><span class="token string">'lhd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log<span class="token punctuation">(</span>s2.colors<span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p>优点：<br>1、实例化子类型的时候可以传参<br>2、父类型中的属性不会变为公共的属性</p>
+</blockquote>
+<blockquote>
+<p>缺点：虽然构造函数实现继承的方式比较好用，但是并不推荐这种方式。构造函数继承存在内存浪费的情况，每生成一个实例，都会占用一些内存。</p>
+</blockquote>
+<h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> SuperType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"red"</span>, <span class="token string">"blue"</span>, <span class="token string">"green"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+SuperType.prototype.Fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-typeof    null        //Object     
-
-typeof    <span class="token punctuation">{</span> <span class="token punctuation">}</span>           //Object
-
-typeof    <span class="token punctuation">[</span> <span class="token punctuation">]</span>           //Object
-
-typeof    console.log<span class="token punctuation">(</span><span class="token punctuation">)</span>       //Function</code></pre>
-<p>可以看出 typeof 是检查不出来 null、{} 、[] 的。<br>推荐使用一下方法：</p>
-<pre class=" language-bash"><code class="language-bash">判断基本类型：
-Object.prototype.toString.call<span class="token punctuation">(</span>null<span class="token punctuation">)</span> //<span class="token string">"[object Null]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> //<span class="token string">"[object Array]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> //<span class="token string">"[object Object]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span>123<span class="token punctuation">)</span> //<span class="token string">"[object Number]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span> //<span class="token string">"[object String]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span>undefined<span class="token punctuation">)</span> //<span class="token string">"[object Undefined]"</span>
-
-Object.prototype.toString.call<span class="token punctuation">(</span>true<span class="token punctuation">)</span> //<span class="token string">"[object Boolean]"</span>
-
-判断引用类型：
-Function fn<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>console.log<span class="token punctuation">(</span>“test”<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-Object.prototype.toString.call<span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object Function]"</span>
-
-var <span class="token function">date</span> <span class="token operator">=</span> new Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Object.prototype.toString.call<span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object Date]"</span>
-
-var reg <span class="token operator">=</span> /<span class="token punctuation">[</span>hbc<span class="token punctuation">]</span>at/gi<span class="token punctuation">;</span>
-Object.prototype.toString.call<span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>//<span class="token string">"[object RegExp]"</span></code></pre>
-<h4 id="数据包装类型"><a href="#数据包装类型" class="headerlink" title="数据包装类型"></a>数据包装类型</h4><p>数据包装类型包含：Number、String、Boolean。数据包装类型是特殊的引用类型，每当创建一个基本数据类型的时候，就会在后台创建一个对应的数据包装类型对象，用来使基本数据类型可以访问对象上的方法和属性。<br>举个🌰：</p>
-<pre class=" language-bash"><code class="language-bash">var str <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
-str.split<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-//后台创建对应的数据包装类型
-var str <span class="token operator">=</span> new String<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span>//创建str对象
-str.split<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//执行方法
-str <span class="token operator">=</span> null//销毁str</code></pre>
-<p>而且，通过构造函数和对象字面量创建的对象是不一样的：</p>
-<pre class=" language-bash"><code class="language-bash">var str <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
-typeof str // string
-var str1 <span class="token operator">=</span> new String<span class="token punctuation">(</span><span class="token string">'123'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-typeof str1 // object</code></pre>
-<p>其他的 Boolean 和 Number 也和 String 类似。</p>
-<h4 id="为什么使用Object-prototype-toString-call"><a href="#为什么使用Object-prototype-toString-call" class="headerlink" title="为什么使用Object.prototype.toString.call()?"></a>为什么使用Object.prototype.toString.call()?</h4><p>因为toString方法是Object原型上的方法，而Array、function等类型作为Object的实例，都重写了toString方法。不同的对象的调用toString方法的时候，调用的都是重写的toString方法，而不是Object原型链上的方法。所以如果要得到对象的具体的类型，需要调用Object原型上的toString方法，即使用call将toString的this指向改变。</p>
-<pre class=" language-bash"><code class="language-bash">var fun <span class="token operator">=</span> function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    alert<span class="token punctuation">(</span>0<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>//返回的是 函数的字符串形式
-delete Function.prototype.toString<span class="token punctuation">;</span>
-console.log<span class="token punctuation">(</span>fun.toString<span class="token punctuation">(</span><span class="token punctuation">))</span>// 返回的是<span class="token punctuation">[</span>object Function<span class="token punctuation">]</span></code></pre>
-<p>因为删除了Function.prototype上的toString方法之后，根据原型链，它会沿着原型链查找到Object.prototype.toString方法</p>
+<span class="token keyword">function</span> SubType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+//继承了SuperType
+SubType.prototype <span class="token operator">=</span> new SuperType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+var instance1 <span class="token operator">=</span> new SubType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+instance1.colors.push<span class="token punctuation">(</span><span class="token string">"black"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+alert<span class="token punctuation">(</span>instance1.colors<span class="token punctuation">)</span><span class="token punctuation">;</span> //<span class="token string">"red,blue,green,black"</span>
+var instance2 <span class="token operator">=</span> new SubType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+alert<span class="token punctuation">(</span>instance2.colors<span class="token punctuation">)</span><span class="token punctuation">;</span> //<span class="token string">"red,blue,green,black"</span></code></pre>
+<blockquote>
+<p>优点：可以通过 instanceOf 和 isPrototypeOf 检测<br>instanceOf：a.instanceOf B ,左操作数是一个对象，右操作数标识对象的类。如果左侧对象是右侧类的实例，则表达式返回为true，否则返回false。<br>isPrototypeOf：检测一个对象是否是另一个对象的原型。或者说一个对象是否被包含在另一个对象的原型链中。</p>
+</blockquote>
+<blockquote>
+<p>缺点：<br>1、父类型中的私有属性会变为子类型中的公有属性<br>2、创建子类型的时候，不能像父类型的构造函数中传递参数。</p>
+</blockquote>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> Man<span class="token punctuation">(</span>age,name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.eat <span class="token operator">=</span> function<span class="token punctuation">(</span>something<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console.log<span class="token punctuation">(</span>this.age + <span class="token string">'岁的'</span> + this.name + <span class="token string">'正在吃: '</span> + something<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Man.prototype.drink <span class="token operator">=</span> function<span class="token punctuation">(</span>something<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console.log<span class="token punctuation">(</span>this.name + <span class="token string">'正在喝:'</span> + something<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+ <span class="token keyword">function</span> Boy<span class="token punctuation">(</span>age,name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    this.age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    this.name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    Man.call<span class="token punctuation">(</span>this,age,name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+/**
+不推荐使用 Boy.prototype <span class="token operator">=</span> new Man<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+因为在JavaScript中没有显式的constructor，
+所以使用new关键字实例化的时候 该函数会被调用一次
+*/
+Boy.prototype <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>Man.prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Boy.prototype.constructor <span class="token operator">=</span> Boy<span class="token punctuation">;</span>//避免原型错乱
+var boy <span class="token operator">=</span> new Boy<span class="token punctuation">(</span>12,<span class="token string">'ykx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+boy.eat<span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+boy.drink<span class="token punctuation">(</span><span class="token string">'water'</span><span class="token punctuation">)</span></code></pre>
+<p>原型错乱：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token keyword">function</span> SuperType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> Sub<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    SuperType.call<span class="token punctuation">(</span>this<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+Sub.prototype <span class="token operator">=</span> Object.create<span class="token punctuation">(</span>SuperType.prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.dir<span class="token punctuation">(</span>Sub<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/20191113175800937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MTM0NzIx,size_16,color_FFFFFF,t_70" alt="原型错乱"><br>正确的继承结果应该如下：<br><img src="https://img-blog.csdnimg.cn/20191113175921976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MTM0NzIx,size_16,color_FFFFFF,t_70" alt="原型正常"></p>
 
             </div>
             <hr/>
@@ -529,7 +550,7 @@ console.log<span class="token punctuation">(</span>fun.toString<span class="toke
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/19/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">http://yangkunxiao.github.io/2019/11/19/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/">http://yangkunxiao.github.io/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,88 +754,31 @@ console.log<span class="token punctuation">(</span>fun.toString<span class="toke
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/20/Linux/mysql/">
+                <a href="/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ESC服务器Linux下安装mysql">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
                         
-                        <span class="card-title">ESC服务器Linux下安装mysql</span>
+                        <span class="card-title">浅谈Javascript继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、重启服务器：
-[root@sir-xiao server]# reboot
-2、检查是否已经安装mysql服务：
-[root@sir-xiao server]# yum list installed | grep mysql
-如果显示一
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/18/JavaScript/EC/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="执行环境（Execution Context）">
-                        
-                        <span class="card-title">执行环境（Execution Context）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            执行环境ECExecution Context，即EC,是JavaScript中最为重要的一个概念。
-执行环境定义链变量及函数有权访问的其他数据，决定了它们各自的行为。
-全局执行环境是一个“兜底”的执行环境，它是最外围的执行环境。
-全局对象
+                            在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
+构造函数继承
+JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
                             </span>
                         <span class="publish-author">
                             
@@ -828,11 +792,72 @@ console.log<span class="token punctuation">(</span>fun.toString<span class="toke
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Javascript/">
                         <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/22/Php/mysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="php和mySql">
+                        
+                        <span class="card-title">php和mySql</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简介通过PHP，开发者可以和数据库相连。在PHP5.0版本以后，官方推荐一下两种方式进行PHP和数据库的连接：
+
+MySQLi extension (“i” 意为 improved)：MySQLi 只针对 MySQL 数据库
+PDO (PH
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/PHP/mySql/" class="post-category">
+                                    mySql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/mySql/">
+                        <span class="chip bg-color">mySql</span>
                     </a>
                     
                 </div>
