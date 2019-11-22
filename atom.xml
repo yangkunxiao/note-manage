@@ -130,11 +130,11 @@
   </entry>
   
   <entry>
-    <title>执行环境（Execution Context）</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/EC/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/EC/</id>
+    <title>作用域和作用域链</title>
+    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/"/>
+    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</id>
     <published>2019-11-21T15:54:00.000Z</published>
-    <updated>2019-11-21T02:01:38.680Z</updated>
+    <updated>2019-11-22T16:09:45.816Z</updated>
     
     <summary type="html">
     
@@ -142,7 +142,7 @@
       
         
         
-          &lt;h4 id=&quot;执行环境EC&quot;&gt;&lt;a href=&quot;#执行环境EC&quot; class=&quot;headerlink&quot; title=&quot;执行环境EC&quot;&gt;&lt;/a&gt;执行环境EC&lt;/h4&gt;&lt;p&gt;Execution
+          &lt;h4 id=&quot;作用域&quot;&gt;&lt;a href=&quot;#作用域&quot; class=&quot;headerlink&quot;
         
       
     
