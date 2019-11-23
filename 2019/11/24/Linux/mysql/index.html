@@ -4,9 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL自然连接查询, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
-自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左">
+    <meta name="keywords" content="ESC服务器Linux下安装mysql, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="1、重启服务器：
+[root@sir-xiao server]# reboot
+2、检查是否已经安装mysql服务：
+[root@sir-xiao server]# yum list installed | grep mysql
+如果显示一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MySQL自然连接查询 | Walter</title>
+    <title>ESC服务器Linux下安装mysql | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,13 +264,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MySQL自然连接查询
+                        ESC服务器Linux下安装mysql
                     </div>
                 </div>
             </div>
@@ -278,99 +281,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -383,6 +297,10 @@
                                 <span class="chip bg-color">Mysql</span>
                             </a>
                         
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -391,8 +309,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Mysql/" class="post-category">
-                                Mysql
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -404,7 +322,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-20
+                    2019-11-24
                 </div>
                 
 
@@ -413,7 +331,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    234
+                    415
                 </div>
                 
 
@@ -436,27 +354,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="什么是自然连接？"><a href="#什么是自然连接？" class="headerlink" title="什么是自然连接？"></a>什么是自然连接？</h4><p>通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。</p>
-<h4 id="自然连接的分类"><a href="#自然连接的分类" class="headerlink" title="自然连接的分类"></a>自然连接的分类</h4><p>自然连接分为：<strong><em>内自然连接</em></strong>（inner natural join）和 <strong><em>外自然连接</em></strong>。其中<strong><em>外自然连接</em></strong>又可分为<strong><em>左外自然连接</em></strong>（left natural join ）和 <strong><em>右外自然连接</em></strong>（right natural join）。</p>
-<p>注意：自然连接没有判断语句！！！</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>假如存在两张表：tab1和tab2</p>
-<ul>
-<li><p>内自然连接</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural join tab2<span class="token punctuation">;</span></code></pre>
-<p>内自然连接相当于<strong>using为判断语句的内连接：</strong>即：</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tbl_name1 inner join tbl_name2 using<span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>左外自然连接</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural left join tab2<span class="token punctuation">;</span></code></pre>
-<p>相当于using为判断语句的左外连接：</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 left outer join tab2 using<span class="token punctuation">;</span></code></pre>
-</li>
-<li><p>右外自然连接</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural right join tab2<span class="token punctuation">;</span></code></pre>
-<p>相当于using为判断语句的右外连接：</p>
-<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural right join tab2<span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
+                <p>1、重启服务器：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># reboot</span></code></pre>
+<p>2、检查是否已经安装mysql服务：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum list installed | grep mysql</span></code></pre>
+<p>如果显示一下内容，则表示没有安装：-bash: gerp: command not found<br>3、下载mysql安装包：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># rpm -ivh http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</span></code></pre>
+<p>4、安装mysql：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install -y mysql-server</span>
+或者
+<span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># yum install mysql-community-server</span></code></pre>
+<p>5、设置开机启动：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl enable mysqld.service</span></code></pre>
+<p>6、查看服务是否加入开机自动启动：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl list-unit-files | grep mysqld</span></code></pre>
+<p>7、查看mysql的默认临时密码：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># systemctl list-unit-files | grep mysqld</span></code></pre>
+<p>8、root用户登录mysql数据库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@sir-xiao server<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mysql -u root -p </span>
+Enter password: 
+根据提示 输入密码</code></pre>
+<p>9、修改root用户密码：</p>
+<pre class=" language-bash"><code class="language-bash">mysql<span class="token operator">></span> use  mysql；----切换到mysql db
+
+mysql<span class="token operator">></span> UPDATE user SET authentication_string <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'newpass'</span><span class="token punctuation">)</span> WHERE user <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>---新版本mysql执行
+
+mysql<span class="token operator">></span> UPDATE user SET Password <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'newpass'</span><span class="token punctuation">)</span> WHERE user <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>---老版本mysql执行
+
+mysql<span class="token operator">></span> flush privileges<span class="token punctuation">;</span>---命令立即执行生效</code></pre>
+<p>10、忘记密码重置密码：</p>
+<pre class=" language-bash"><code class="language-bash">1、查找mysql的启动文件：<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># whereis  my</span>
+
+2、vim /etc/my.cnf
+修改my.cnf启动参数，在文件的最后增加，mysql启动参数—— --skip-grant-tables。启动
+mysql时不启动授权表 grant-tables
+<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi /etc/my.cnf skip-grant-tables</span>
+<span class="token punctuation">[</span>root@sir-xiao etc<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># :wq</span>
+vi模式Enter进入，按“i”键，编辑文件，按“esc”键，输入:wq写入保存退出，:q 不保存退出
+
+3、重启mysql服务
+
+4、修改密码：同上
+
+5、密码修改成功后需要进入vi模式下重新编辑/etc/my.cnf去掉增加的skip-grant-tables 重启mysql服务，就可以用密码登录了</code></pre>
 
             </div>
             <hr/>
@@ -482,7 +422,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/">http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/24/Linux/mysql/">http://yangkunxiao.github.io/2019/11/24/Linux/mysql/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,6 +461,10 @@
                             
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -690,32 +634,35 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/21/JavaScript/dataType/">
+                <a href="/2019/11/24/Mysql/resetPassWord/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="javascript数据类型">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="MySQL 8.0+重置密码">
                         
-                        <span class="card-title">javascript数据类型</span>
+                        <span class="card-title">MySQL 8.0+重置密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。
-基本数据类型Number、String、Null、Undefined、Bool。JavaScrip
+                            关闭数据库1、在终端中输入：
+sudo /usr/local/mysql/support-files mysql.server stop
+2、在访达中找到安装好的mysql，关闭mysql运行。
+跳过验证// 进入数据库指令文件
+cd /u
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
                                 </a>
                             
                             
@@ -725,8 +672,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
                 </div>
@@ -740,31 +687,34 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/20/JavaScript/multiImageUpload/">
+                <a href="/2019/11/23/Nginx/multiProject/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="解决多图片压缩上传和iOS端图片上传选择90度的问题">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="nginx同域名下配置多项目">
                         
-                        <span class="card-title">解决多图片压缩上传和iOS端图片上传选择90度的问题</span>
+                        <span class="card-title">nginx同域名下配置多项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            逻辑思路：1、监听input文件值的change事件2、获取文件列表3、使用FileReader()函数读取图片信息，并转为base64格式4、根据预设的阀值，判断是否压缩5、如果不压缩，将图片转为blob格式，使用FormData()函数
+                            webpack.config.jsbuild: {
+    index: path.resolve(__dirname, '../dist/index.html'),
+    // Paths
+    assetsRoot: path.re
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
+                            <a href="/categories/nginx/" class="post-category">
+                                    nginx
                                 </a>
                             
                             
@@ -774,8 +724,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
                     </a>
                     
                 </div>
@@ -850,100 +800,6 @@
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 

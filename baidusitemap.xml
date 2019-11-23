@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</loc>
+    <loc>http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/24/Linux/mysql/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
@@ -31,19 +43,7 @@
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/</loc>
-    <lastmod>2019-11-21</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</loc>
-    <lastmod>2019-11-20</lastmod>
-  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/Other/server/</loc>
-    <lastmod>2019-11-20</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Linux/mysql/</loc>
-    <lastmod>2019-11-20</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/</loc>
     <lastmod>2019-11-20</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</loc>

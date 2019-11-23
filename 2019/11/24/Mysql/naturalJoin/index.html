@@ -4,15 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx下配置静态资源, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="1、查看nginx安装路径：
-whereis nginx
-2、新建静态资源存储文件夹：
-mkdir assets
-3、进入nginx目录中，修改nginx.conf文件：
-cd nginx: /usr/local/nginx/conf
-
-v">
+    <meta name="keywords" content="MySQL自然连接查询, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
+自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +14,7 @@ v">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx下配置静态资源 | Walter</title>
+    <title>MySQL自然连接查询 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,13 +261,13 @@ v">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nginx下配置静态资源
+                        MySQL自然连接查询
                     </div>
                 </div>
             </div>
@@ -284,10 +278,99 @@ v">
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -296,8 +379,8 @@ v">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
+                            <a href="/tags/Mysql/">
+                                <span class="chip bg-color">Mysql</span>
                             </a>
                         
                     </div>
@@ -308,8 +391,8 @@ v">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/nginx/" class="post-category">
-                                nginx
+                            <a href="/categories/Mysql/" class="post-category">
+                                Mysql
                             </a>
                         
                     </div>
@@ -321,7 +404,7 @@ v">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-20
+                    2019-11-24
                 </div>
                 
 
@@ -330,7 +413,7 @@ v">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    94
+                    234
                 </div>
                 
 
@@ -353,32 +436,27 @@ v">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1、查看nginx安装路径：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">whereis</span> nginx</code></pre>
-<p>2、新建静态资源存储文件夹：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> assets</code></pre>
-<p>3、进入nginx目录中，修改nginx.conf文件：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> nginx: /usr/local/nginx/conf
-
-vim nginx.conf
-
-具体配置如下：
-server <span class="token punctuation">{</span>
-    listen 80<span class="token punctuation">;</span>
-    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>
-    location /<span class="token punctuation">{</span>
-     root /data/www/dist<span class="token punctuation">;</span>
-     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
-     index index.html index.htm<span class="token punctuation">;</span>
-     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
-    <span class="token punctuation">}</span>
-    location /assets/<span class="token punctuation">{</span>
-        root /usr/<span class="token punctuation">;</span>
-        autoindex on<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-</code></pre>
-<p>4、保存并重启nginx</p>
+                <h4 id="什么是自然连接？"><a href="#什么是自然连接？" class="headerlink" title="什么是自然连接？"></a>什么是自然连接？</h4><p>通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。</p>
+<h4 id="自然连接的分类"><a href="#自然连接的分类" class="headerlink" title="自然连接的分类"></a>自然连接的分类</h4><p>自然连接分为：<strong><em>内自然连接</em></strong>（inner natural join）和 <strong><em>外自然连接</em></strong>。其中<strong><em>外自然连接</em></strong>又可分为<strong><em>左外自然连接</em></strong>（left natural join ）和 <strong><em>右外自然连接</em></strong>（right natural join）。</p>
+<p>注意：自然连接没有判断语句！！！</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>假如存在两张表：tab1和tab2</p>
+<ul>
+<li><p>内自然连接</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural join tab2<span class="token punctuation">;</span></code></pre>
+<p>内自然连接相当于<strong>using为判断语句的内连接：</strong>即：</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tbl_name1 inner join tbl_name2 using<span class="token punctuation">;</span></code></pre>
+</li>
+<li><p>左外自然连接</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural left join tab2<span class="token punctuation">;</span></code></pre>
+<p>相当于using为判断语句的左外连接：</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 left outer join tab2 using<span class="token punctuation">;</span></code></pre>
+</li>
+<li><p>右外自然连接</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural right join tab2<span class="token punctuation">;</span></code></pre>
+<p>相当于using为判断语句的右外连接：</p>
+<pre class=" language-javascript"><code class="language-javascript">select <span class="token operator">*</span> <span class="token keyword">from</span> tab1 natural right join tab2<span class="token punctuation">;</span></code></pre>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -404,7 +482,7 @@ server <span class="token punctuation">{</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/">http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/">http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -441,8 +519,8 @@ server <span class="token punctuation">{</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
+                                <a href="/tags/Mysql/">
+                                    <span class="chip bg-color">Mysql</span>
                                 </a>
                             
                         </div>
@@ -608,62 +686,49 @@ server <span class="token punctuation">{</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/20/Nginx/vue/">
+                <a href="/2019/11/24/Mysql/naturalJoin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="nginx下配置Vue项目">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL自然连接查询">
                         
-                        <span class="card-title">nginx下配置Vue项目</span>
+                        <span class="card-title">MySQL自然连接查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、配置选择：
-
-Linux系统：Centos 6.5 x64
-Nginx版本：1.7.8
-
-2、安装nginx：
-cd /usr/local
-//下载nginx
-wget http://nginx.org/download/nginx-1
+                            什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
+自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/nginx/" class="post-category">
-                                    nginx
-                                </a>
-                            
-                            <a href="/categories/nginx/vue/" class="post-category">
-                                    vue
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
                 </div>
@@ -677,35 +742,35 @@ wget http://nginx.org/download/nginx-1
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/20/Linux/mysql/">
+                <a href="/2019/11/24/Mysql/resetPassWord/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ESC服务器Linux下安装mysql">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="MySQL 8.0+重置密码">
                         
-                        <span class="card-title">ESC服务器Linux下安装mysql</span>
+                        <span class="card-title">MySQL 8.0+重置密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、重启服务器：
-[root@sir-xiao server]# reboot
-2、检查是否已经安装mysql服务：
-[root@sir-xiao server]# yum list installed | grep mysql
-如果显示一
+                            关闭数据库1、在终端中输入：
+sudo /usr/local/mysql/support-files mysql.server stop
+2、在访达中找到安装好的mysql，关闭mysql运行。
+跳过验证// 进入数据库指令文件
+cd /u
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
                                 </a>
                             
                             
@@ -714,10 +779,6 @@ wget http://nginx.org/download/nginx-1
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
                     
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
@@ -795,6 +856,100 @@ wget http://nginx.org/download/nginx-1
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 

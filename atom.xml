@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-21T02:03:32.766Z</updated>
+  <updated>2019-11-23T07:51:44.326Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,183 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL自然连接查询</title>
+    <link href="http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/"/>
+    <id>http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/</id>
+    <published>2019-11-24T14:25:00.000Z</published>
+    <updated>2019-11-23T07:51:44.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;什么是自然连接？&quot;&gt;&lt;a href=&quot;#什么是自然连接？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 8.0+重置密码</title>
+    <link href="http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/"/>
+    <id>http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</id>
+    <published>2019-11-24T03:25:00.000Z</published>
+    <updated>2019-11-23T07:51:49.624Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;关闭数据库&quot;&gt;&lt;a href=&quot;#关闭数据库&quot; class=&quot;headerlink&quot; title=&quot;关闭数据库&quot;&gt;&lt;/a&gt;关闭数据库&lt;/h4&gt;&lt;p&gt;1、在终端中输入：&lt;/p&gt;
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ESC服务器Linux下安装mysql</title>
+    <link href="http://yangkunxiao.github.io/2019/11/24/Linux/mysql/"/>
+    <id>http://yangkunxiao.github.io/2019/11/24/Linux/mysql/</id>
+    <published>2019-11-24T02:00:00.000Z</published>
+    <updated>2019-11-23T07:51:33.621Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、重启服务器：&lt;/p&gt;
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@sir-xiao server&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
+    
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx同域名下配置多项目</title>
+    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/"/>
+    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</id>
+    <published>2019-11-23T03:00:00.000Z</published>
+    <updated>2019-11-23T07:50:58.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot; title=&quot;webpack.config.js&quot;&gt;&lt;/a&gt;webpack.config.js&lt;/h4&gt;&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx下配置Vue项目</title>
+    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/vue/"/>
+    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</id>
+    <published>2019-11-23T02:10:00.000Z</published>
+    <updated>2019-11-23T07:50:53.585Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、配置选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux系统：Centos 6.5 x64&lt;/li&gt;
+&lt;li&gt;Nginx版本：1.7.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、安装nginx：&lt;/p&gt;
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/categories/nginx/vue/"/>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
+    
+      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx下配置静态资源</title>
+    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/"/>
+    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/</id>
+    <published>2019-11-23T02:01:00.000Z</published>
+    <updated>2019-11-23T07:51:21.334Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、查看nginx安装路径：&lt;/p&gt;
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;whereis&lt;/span&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>php和mySql</title>
@@ -211,33 +388,6 @@
   </entry>
   
   <entry>
-    <title>MySQL自然连接查询</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/</id>
-    <published>2019-11-20T14:25:00.000Z</published>
-    <updated>2019-11-21T01:16:51.016Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;什么是自然连接？&quot;&gt;&lt;a href=&quot;#什么是自然连接？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
     <title>解决多图片压缩上传和iOS端图片上传选择90度的问题</title>
     <link href="http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</id>
@@ -261,34 +411,6 @@
     
     
       <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 8.0+重置密码</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Mysql/resetPassWord/</id>
-    <published>2019-11-20T03:25:00.000Z</published>
-    <updated>2019-11-20T03:17:28.346Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;关闭数据库&quot;&gt;&lt;a href=&quot;#关闭数据库&quot; class=&quot;headerlink&quot; title=&quot;关闭数据库&quot;&gt;&lt;/a&gt;关闭数据库&lt;/h4&gt;&lt;p&gt;1、在终端中输入：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
     
   </entry>
   
@@ -321,33 +443,6 @@
   </entry>
   
   <entry>
-    <title>nginx同域名下配置多项目</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</id>
-    <published>2019-11-20T03:00:00.000Z</published>
-    <updated>2019-11-23T07:49:58.823Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot; title=&quot;webpack.config.js&quot;&gt;&lt;/a&gt;webpack.config.js&lt;/h4&gt;&lt;pre class=&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vue使用webpack优化构建流程</title>
     <link href="http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</id>
@@ -376,101 +471,6 @@
       <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
     
       <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx下配置Vue项目</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/vue/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</id>
-    <published>2019-11-20T02:10:00.000Z</published>
-    <updated>2019-11-23T07:50:04.796Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、配置选择：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux系统：Centos 6.5 x64&lt;/li&gt;
-&lt;li&gt;Nginx版本：1.7.8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;2、安装nginx：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/categories/nginx/vue/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx下配置静态资源</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</id>
-    <published>2019-11-20T02:01:00.000Z</published>
-    <updated>2019-11-20T03:18:56.209Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、查看nginx安装路径：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;whereis&lt;/span&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ESC服务器Linux下安装mysql</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Linux/mysql/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Linux/mysql/</id>
-    <published>2019-11-20T02:00:00.000Z</published>
-    <updated>2019-11-20T03:18:04.232Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、重启服务器：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@sir-xiao server&lt;span
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
     
   </entry>
   

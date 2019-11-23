@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx同域名下配置多项目, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="webpack.config.jsbuild: {
-    index: path.resolve(__dirname, &#39;../dist/index.html&#39;),
-    // Paths
-    assetsRoot: path.re">
+    <meta name="keywords" content="MySQL 8.0+重置密码, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="关闭数据库1、在终端中输入：
+sudo /usr/local/mysql/support-files mysql.server stop
+2、在访达中找到安装好的mysql，关闭mysql运行。
+跳过验证// 进入数据库指令文件
+cd /u">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx同域名下配置多项目 | Walter</title>
+    <title>MySQL 8.0+重置密码 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,13 +264,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nginx同域名下配置多项目
+                        MySQL 8.0+重置密码
                     </div>
                 </div>
             </div>
@@ -381,8 +382,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
+                            <a href="/tags/Mysql/">
+                                <span class="chip bg-color">Mysql</span>
                             </a>
                         
                     </div>
@@ -393,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/nginx/" class="post-category">
-                                nginx
+                            <a href="/categories/Mysql/" class="post-category">
+                                Mysql
                             </a>
                         
                     </div>
@@ -406,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-20
+                    2019-11-24
                 </div>
                 
 
@@ -415,7 +416,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    243
+                    326
                 </div>
                 
 
@@ -438,47 +439,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h4><pre class=" language-bash"><code class="language-bash">build: <span class="token punctuation">{</span>
-    index: path.resolve<span class="token punctuation">(</span>__dirname, <span class="token string">'../dist/index.html'</span><span class="token punctuation">)</span>,
-    // Paths
-    assetsRoot: path.resolve<span class="token punctuation">(</span>__dirname, <span class="token string">'../dist'</span><span class="token punctuation">)</span>,
-    assetsSubDirectory: <span class="token string">'static'</span>,
-    assetsPublicPath: <span class="token string">'/admin/'</span>,
-    productionSourceMap: true,
-    devtool: <span class="token string">'#source-map'</span>,
-    productionGzip: true,
-    productionGzipExtensions: <span class="token punctuation">[</span><span class="token string">'js'</span>, <span class="token string">'css'</span><span class="token punctuation">]</span>,
-    bundleAnalyzerReport: process.env.npm_config_report
-  <span class="token punctuation">}</span></code></pre>
-<p>把 assetsPublicPath修改为你在nginx配置的路径。</p>
-<h4 id="router-js"><a href="#router-js" class="headerlink" title="router.js"></a>router.js</h4><pre class=" language-bash"><code class="language-bash">//base要和上面配置的assetsPublicPath配置的一样
- mode:<span class="token string">'history'</span>,
- base: <span class="token string">'/admin/'</span>,</code></pre>
-<h4 id="配置nginx："><a href="#配置nginx：" class="headerlink" title="配置nginx："></a>配置nginx：</h4><pre class=" language-bash"><code class="language-bash">keepalive_timeout  65<span class="token punctuation">;</span>
-<span class="token function">gzip</span>  on<span class="token punctuation">;</span>//开启Gzip压缩
-gzip_disable <span class="token string">'msie6'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#不使用gzip IE6</span>
-gzip_min_length 100k<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#gzip压缩最小文件大小，超出进行压缩（自行调节）</span>
-gzip_buffers 4 16k<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#buffer 不用修改</span>
-gzip_comp_level 3<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#压缩级别:1-10，数字越大压缩的越好，时间也越长</span>
-server <span class="token punctuation">{</span>
-    listen 80<span class="token punctuation">;</span>
-    server_name www.xxx.cn<span class="token punctuation">;</span>//配置你的域名
-    location /<span class="token punctuation">{</span>//配置默认的项目
-         root /data/www/web<span class="token punctuation">;</span>
-         try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
-         index index.html index.htm<span class="token punctuation">;</span>
-         <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
-     <span class="token punctuation">}</span>
-     location ^~/admin<span class="token punctuation">{</span>//配置 域名/admin 对应的项目
-         <span class="token function">alias</span> /data/www/admin/<span class="token punctuation">;</span>//别名 配置项目文件路径
-         try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
-         index index.html index.htm<span class="token punctuation">;</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>-e <span class="token variable">$request_filename</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>//防止二级路由下页面reload空白页面
-             rewrite ^/<span class="token punctuation">(</span>.*<span class="token punctuation">)</span> /admin/index.html last<span class="token punctuation">;</span>
-             <span class="token keyword">break</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-         <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
-     <span class="token punctuation">}</span></code></pre>
+                <h4 id="关闭数据库"><a href="#关闭数据库" class="headerlink" title="关闭数据库"></a>关闭数据库</h4><p>1、在终端中输入：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> /usr/local/mysql/support-files mysql.server stop</code></pre>
+<p>2、在访达中找到安装好的mysql，关闭mysql运行。</p>
+<h4 id="跳过验证"><a href="#跳过验证" class="headerlink" title="跳过验证"></a>跳过验证</h4><pre class=" language-bash"><code class="language-bash">// 进入数据库指令文件
+<span class="token function">cd</span> /usr/local/mysql/bin
+
+// 跳过权限认证
+<span class="token function">sudo</span> ./mysqld_safe --skip-grant-tables</code></pre>
+<h4 id="免密码进入数据库"><a href="#免密码进入数据库" class="headerlink" title="免密码进入数据库"></a>免密码进入数据库</h4><p>在上述指令运行后，新开一个终端，同时保持原来那个终端也开着，在新的终端输入指令如下：</p>
+<pre class=" language-bash"><code class="language-bash">//  执行mysql指令
+/usr/local/mysql/bin/mysql
+
+// 进入名为<span class="token operator">&lt;</span>mysql<span class="token operator">></span>的数据库
+use mysql<span class="token punctuation">;</span>
+
+把之前密码清空：
+update user <span class="token keyword">set</span> authentication_string<span class="token operator">=</span><span class="token string">''</span>  where user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">;</span>
+
+// 刷新权限
+flush privileges<span class="token punctuation">;</span>
+
+// 修改密码 但不适用于8.0+的版本
+// <span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> <span class="token operator">=</span> password<span class="token punctuation">(</span><span class="token string">'新的密码'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+// 8.0+版本修改密码
+ALTER user <span class="token string">'root'</span>@<span class="token string">'localhost'</span> indentified by <span class="token string">'新密码'</span><span class="token punctuation">;</span>
+
+//刷新一下
+flush privileges<span class="token punctuation">;</span>
+
+// 退出mysql
+<span class="token keyword">exit</span></code></pre>
+<p>mysql常用命令：</p>
+<pre class=" language-bash"><code class="language-bash">1、进入本地数据库：
+/usr/local/mysql/bin/mysql -u root -p 根据提示输入密码
+
+2、进入远程数据库：
+假设远程主机的IP为：23.106.134.88，用户名为root,密码为123456：
+mysql -h23.106.134.88 -u root -p 根据提示输入密码。
+
+3、启动mysql服务：
+<span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server start<span class="token punctuation">;</span>
+
+4、终止mysql服务：
+<span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server stop<span class="token punctuation">;</span>
+
+5、重启mysql服务：
+<span class="token function">sudo</span> /usr/local/mysql/support-files/mysql.server restart<span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -504,7 +512,7 @@ server <span class="token punctuation">{</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/">http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</a>
+                    <a href="http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/">http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -541,8 +549,8 @@ server <span class="token punctuation">{</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
+                                <a href="/tags/Mysql/">
+                                    <span class="chip bg-color">Mysql</span>
                                 </a>
                             
                         </div>
@@ -712,35 +720,32 @@ server <span class="token punctuation">{</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/20/Other/server/">
+                <a href="/2019/11/24/Mysql/naturalJoin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="mac开启本地服务器">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL自然连接查询">
                         
-                        <span class="card-title">mac开启本地服务器</span>
+                        <span class="card-title">MySQL自然连接查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Nginx是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。
-安装：
-搜索软件：brew search nginx
-安装软件：brew install nginx
-卸载软件：brew unins
+                            什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
+自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/other/" class="post-category">
-                                    other
+                            <a href="/categories/Mysql/" class="post-category">
+                                    Mysql
                                 </a>
                             
                             
@@ -750,8 +755,8 @@ server <span class="token punctuation">{</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/other/">
-                        <span class="chip bg-color">other</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
                 </div>
@@ -765,36 +770,35 @@ server <span class="token punctuation">{</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/">
+                <a href="/2019/11/24/Linux/mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="vue使用webpack优化构建流程">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ESC服务器Linux下安装mysql">
                         
-                        <span class="card-title">vue使用webpack优化构建流程</span>
+                        <span class="card-title">ESC服务器Linux下安装mysql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            初衷：如果我们的 Vue 项目比较大．或者说项目中引入了许多第三方库，那么在执行 npm run build 构建项目的时候会极其的慢．比如我现在的项目就每次打包就要 83s。下面提供一些方法用来提供优化打包速度：
-resolve.modu
+                            1、重启服务器：
+[root@sir-xiao server]# reboot
+2、检查是否已经安装mysql服务：
+[root@sir-xiao server]# yum list installed | grep mysql
+如果显示一
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/vue/" class="post-category">
-                                    vue
-                                </a>
-                            
-                            <a href="/categories/vue/webpack/" class="post-category">
-                                    webpack
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -804,12 +808,12 @@ resolve.modu
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
                     </a>
                     
-                    <a href="/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
