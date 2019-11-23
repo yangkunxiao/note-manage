@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</loc>
+    
+    <lastmod>2019-11-23T07:50:04.796Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</loc>
+    
+    <lastmod>2019-11-23T07:49:58.823Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
     
     <lastmod>2019-11-23T07:46:33.738Z</lastmod>
@@ -65,23 +79,9 @@
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/vue/</loc>
-    
-    <lastmod>2019-11-20T03:19:18.949Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/staticSource/</loc>
     
     <lastmod>2019-11-20T03:18:56.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Nginx/multiProject/</loc>
-    
-    <lastmod>2019-11-20T03:18:46.803Z</lastmod>
     
   </url>
   
