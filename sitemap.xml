@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
+    
+    <lastmod>2019-11-23T07:46:33.738Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
+    
+    <lastmod>2019-11-23T07:46:12.551Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
+    
+    <lastmod>2019-11-23T05:25:08.495Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
     
     <lastmod>2019-11-22T16:09:45.816Z</lastmod>
@@ -30,27 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yangkunxiao.github.io/2019/11/22/JavaScript/%25E7%25BB%25A7%25E6%2589%25BF/</loc>
-    
-    <lastmod>2019-11-21T02:03:23.057Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE/</loc>
-    
-    <lastmod>2019-11-21T02:03:09.237Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/%25E6%2595%25B0%25E6%258D%25AE%25E7%25B1%25BB%25E5%259E%258B/</loc>
-    
-    <lastmod>2019-11-21T02:02:16.850Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
     
     <lastmod>2019-11-21T02:02:00.689Z</lastmod>
@@ -61,13 +61,6 @@
     <loc>http://yangkunxiao.github.io/2019/11/20/Mysql/naturalJoin/</loc>
     
     <lastmod>2019-11-21T01:16:51.016Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
-    
-    <lastmod>2019-11-20T03:19:51.684Z</lastmod>
     
   </url>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-11-21T02:03:23.057Z</updated>
+  <updated>2019-11-21T02:03:32.766Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>浅谈Javascript继承</title>
-    <link href="http://yangkunxiao.github.io/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/"/>
-    <id>http://yangkunxiao.github.io/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/</id>
-    <published>2019-11-22T08:00:00.000Z</published>
-    <updated>2019-11-21T02:03:23.057Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。&lt;/p&gt;
-&lt;h4 id=&quot;构造函数继承&quot;&gt;&lt;a href=&quot;#构造函数继承&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Javascript" scheme="http://yangkunxiao.github.io/categories/Javascript/"/>
-    
-    
-      <category term="Javascript" scheme="http://yangkunxiao.github.io/tags/Javascript/"/>
-    
-  </entry>
   
   <entry>
     <title>php和mySql</title>
@@ -184,11 +156,11 @@
   </entry>
   
   <entry>
-    <title>Javascript原型和原型链</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
+    <title>Javascript原型、原型链和继承</title>
+    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/"/>
+    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</id>
     <published>2019-11-21T08:45:00.000Z</published>
-    <updated>2019-11-21T02:03:09.237Z</updated>
+    <updated>2019-11-23T07:46:12.551Z</updated>
     
     <summary type="html">
     
@@ -196,7 +168,7 @@
       
         
         
-          &lt;h4 id=&quot;为什么要使用原型prototype&quot;&gt;&lt;a href=&quot;#为什么要使用原型prototype&quot; class=&quot;headerlink&quot;
+          &lt;h4 id=&quot;原型对象&quot;&gt;&lt;a href=&quot;#原型对象&quot; class=&quot;headerlink&quot;
         
       
     
@@ -212,10 +184,10 @@
   
   <entry>
     <title>javascript数据类型</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/"/>
+    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</id>
     <published>2019-11-21T02:50:00.000Z</published>
-    <updated>2019-11-21T02:02:16.850Z</updated>
+    <updated>2019-11-23T07:46:33.738Z</updated>
     
     <summary type="html">
     
@@ -270,7 +242,7 @@
     <link href="http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/"/>
     <id>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</id>
     <published>2019-11-20T03:30:00.000Z</published>
-    <updated>2019-11-20T03:19:51.684Z</updated>
+    <updated>2019-11-23T05:25:08.495Z</updated>
     
     <summary type="html">
     

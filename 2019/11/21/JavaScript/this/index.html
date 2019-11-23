@@ -776,27 +776,21 @@ fun.newCall<span class="token punctuation">(</span>fn<span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/21/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                <a href="/2019/11/21/JavaScript/prototype/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Javascript原型、原型链和继承">
                         
-                        <span class="card-title">Javascript原型和原型链</span>
+                        <span class="card-title">Javascript原型、原型链和继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么要使用原型prototype首先，让我们看一段代码：
-//新建一个构造函数
-var Person = function (){
-    drink(){
-        console.log('drink')
-    }
-};
-
-P
+                            原型对象无论我们什么时候创建一个函数，它都会有一个属性prototype，该属性是一个指针，它指向函数的原型对象，该原型对象所拥有的属性和方法都可被函数的实例所共享。举个🌰：
+var fn = function(){
+  alert(0)
                         
                     </div>
                     <div class="publish-info">
@@ -1002,7 +996,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.5k</span>&nbsp;字
+                class="white-color">11.3k</span>&nbsp;字
             
             
             

@@ -311,11 +311,11 @@
                 
                 
                 
-                <a href="/categories/Javascript/" title="Javascript: 6">
+                <a href="/categories/Javascript/" title="Javascript: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">Javascript
-                        <span class="tag-length">6</span>
+                        <span class="tag-length">5</span>
                     </span>
                 </a>
                 
@@ -365,20 +365,20 @@
                 </a>
                 
                 
-                <a href="/categories/PHP/" title="PHP: 2">
+                <a href="/categories/vue/" title="vue: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">PHP
-                        <span class="tag-length">2</span>
+                            style="background-color: #82E0AA;">vue
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/vue/" title="vue: 1">
+                <a href="/categories/PHP/" title="PHP: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D7BDE2;">vue
-                        <span class="tag-length">1</span>
+                            style="background-color: #D7BDE2;">PHP
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -392,19 +392,19 @@
                 </a>
                 
                 
-                <a href="/categories/PHP/mySql/" title="mySql: 1">
+                <a href="/categories/vue/webpack/" title="webpack: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #85C1E9;">mySql
+                            style="background-color: #85C1E9;">webpack
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/vue/webpack/" title="webpack: 1">
+                <a href="/categories/PHP/mySql/" title="mySql: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8C471;">webpack
+                            style="background-color: #F8C471;">mySql
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -419,54 +419,6 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/11/22/JavaScript/%E7%BB%A7%E6%89%BF/" target="_blank">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈Javascript继承">
-                            
-                            <span class="card-title">浅谈Javascript继承</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                在JavaScript中有很多继承的方式，接下来让我们一起来总结下各种继承的方法以及它们的不同点。
-构造函数继承
-JavaScript规定，每一个构造函数都有一个prototype属性，它指向一个对象，这个对象中的所有的属性和方法都会被构造
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Javascript/" class="post-category">
-                                    Javascript
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Javascript/" target="_blank">
-                            <span class="chip bg-color">Javascript</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -568,27 +520,21 @@ JavaScript规定，每一个构造函数都有一个prototype属性，它指向�
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/21/JavaScript/%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
+                    <a href="/2019/11/21/JavaScript/prototype/" target="_blank">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Javascript原型和原型链">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Javascript原型、原型链和继承">
                             
-                            <span class="card-title">Javascript原型和原型链</span>
+                            <span class="card-title">Javascript原型、原型链和继承</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                为什么要使用原型prototype首先，让我们看一段代码：
-//新建一个构造函数
-var Person = function (){
-    drink(){
-        console.log('drink')
-    }
-};
-
-P
+                                原型对象无论我们什么时候创建一个函数，它都会有一个属性prototype，该属性是一个指针，它指向函数的原型对象，该原型对象所拥有的属性和方法都可被函数的实例所共享。举个🌰：
+var fn = function(){
+  alert(0)
                             
                         </div>
                         <div class="publish-info">
@@ -622,7 +568,7 @@ P
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/21/JavaScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_blank">
+                    <a href="/2019/11/21/JavaScript/dataType/" target="_blank">
                         <div class="card-image tag-image">
                             
                             
@@ -727,7 +673,7 @@ P
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.5k</span>&nbsp;字
+                class="white-color">11.3k</span>&nbsp;字
             
             
             
