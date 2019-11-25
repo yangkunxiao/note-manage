@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
-    <lastmod>2019-11-24</lastmod>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
+    <lastmod>2019-11-25</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</loc>
     <lastmod>2019-11-23</lastmod>
@@ -22,15 +34,6 @@
     <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
-    <lastmod>2019-11-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
-    <lastmod>2019-11-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
-    <lastmod>2019-11-22</lastmod>
-  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/22/Php/base/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
@@ -38,9 +41,6 @@
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/22/Php/mysql/</loc>
-    <lastmod>2019-11-21</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/Other/server/</loc>
