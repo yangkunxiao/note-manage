@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</loc>
+    
+    <lastmod>2019-12-01T02:47:05.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</loc>
+    
+    <lastmod>2019-11-30T15:21:54.719Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/11/30/Mocha/index/</loc>
     
     <lastmod>2019-11-30T05:00:03.459Z</lastmod>

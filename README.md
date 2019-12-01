@@ -8,6 +8,7 @@ JavaScript
 - [作用域和作用域链](https://yangkunxiao.cn/2019/11/21/JavaScript/ScopeChain/)
 - [原型和原型链](https://yangkunxiao.cn/2019/11/21/JavaScript/prototype/)
 - [js实现call、apply和bind](https://yangkunxiao.cn/2019/11/21/JavaScript/this/)
+- [详解JS的for循环](https://yangkunxiao.cn/2019/11/21/JavaScript/for/)
 
 Nginx
 
@@ -16,3 +17,4 @@ Nginx
 - [Nginx静态资源配置](https://yangkunxiao.cn/2019/11/23/Nginx/staticSource/)
 
 持续更新中 敬请期待~~
+
