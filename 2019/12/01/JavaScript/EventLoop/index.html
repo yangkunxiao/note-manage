@@ -4,11 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="单元测试, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="单元测试单元测试是指对软件中最小可测试单元进行检查验证，也称作模块测试。在nodeJs中通常是指对某个函数或者API进行正确验证，以保证代码的可用性。
-单元测试有很多种，常见的有：行为驱动开发（BDD）和 测试驱动开发（TDD）。
+    <meta name="keywords" content="浏览器中的进程、线程和Event Loop, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="#浏览器
+浏览器是多进程的。每一个Tab页就是一个独立的进程。
 
-行为驱">
+主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等
+第三方插件进程：管理第三方插件
+GPU线程：用于3D绘制
+渲染进程：对前端">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>单元测试 | Walter</title>
+    <title>浏览器中的进程、线程和Event Loop | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,13 +266,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        单元测试
+                        浏览器中的进程、线程和Event Loop
                     </div>
                 </div>
             </div>
@@ -381,8 +384,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mocha/">
-                                <span class="chip bg-color">Mocha</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -393,8 +396,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Mocha/" class="post-category">
-                                Mocha
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -406,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-30
+                    2019-12-01
                 </div>
                 
 
@@ -415,7 +418,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    848
+                    1k
                 </div>
                 
 
@@ -438,135 +441,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p>单元测试是指对软件中最小可测试单元进行检查验证，也称作模块测试。在nodeJs中通常是指对某个函数或者API进行正确验证，以保证代码的可用性。</p>
-<p>单元测试有很多种，常见的有：行为驱动开发（BDD）和 测试驱动开发（TDD）。</p>
+                <p>#浏览器</p>
+<p>浏览器是多进程的。每一个Tab页就是一个独立的进程。</p>
 <ul>
-<li>行为驱动开发（BDD）：行为驱动开发关注的是整个系统的最终实现是否和用户期望一致。</li>
-<li>测试驱动开发（TDD）：测试驱动开发的目的是取得快速反馈，使所有功能都是可用的。</li>
+<li>主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等</li>
+<li>第三方插件进程：管理第三方插件</li>
+<li>GPU线程：用于3D绘制</li>
+<li>渲染进程：对前端来说，最重要的进程。</li>
 </ul>
-<h4 id="Mocha"><a href="#Mocha" class="headerlink" title="Mocha"></a>Mocha</h4><p>Mocha是现在最流行的一种单元测试框架。Mocha功能比较丰富，支持BDD、TDD</p>
-<p>风格的测试，而且支持异步、同步的测试。</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g mocha
-
-or
-
-<span class="token function">npm</span> <span class="token function">install</span> -S mocha</code></pre>
-<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p>创建一个demo01.js文件，文件中包含一个求和函数：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">...</span>rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> rest<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> a <span class="token operator">+</span> b
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<h1 id="浏览器内核（渲染进程）"><a href="#浏览器内核（渲染进程）" class="headerlink" title="浏览器内核（渲染进程）"></a>浏览器内核（渲染进程）</h1><p>渲染进程是多线程的。它包含一下几大线程：</p>
+<ul>
+<li>GUI线程<ul>
+<li>它负责页面的渲染、布局。</li>
+<li>当页面发生重绘或者回流的时候，就会触发该线程</li>
+<li>它和JS引擎线程互斥</li>
+</ul>
+</li>
+<li>JS引擎线程<ul>
+<li>负责程序的解析和执行</li>
+</ul>
+</li>
+<li>事件触发线程<ul>
+<li>它控制事件循环，管理着一个事件任务队列TaskQueue</li>
+<li>当异步任务满足条件时，会将该异步任务的回调函数放入到JS引擎线程所在的执行栈中执行</li>
+</ul>
+</li>
+<li>定时触发器线程<ul>
+<li>setTimeOut 和 setInterval 所在的线程</li>
+<li>定时器任务的计时不是由JS引擎计时的，而是由该线程控制</li>
+<li>当定时任务计时完成之后，会通知事件触发线程</li>
+</ul>
+</li>
+<li>异步http请求线程<ul>
+<li>一个独立的ajax请求线程</li>
+<li>当请求完成之后，会通知事件触发线程</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么GUI线程和JS引擎线程互斥"><a href="#为什么GUI线程和JS引擎线程互斥" class="headerlink" title="为什么GUI线程和JS引擎线程互斥"></a>为什么GUI线程和JS引擎线程互斥</h4><p>因为JS是可以操作DOM的，如果使用JS操作DOM的同时，GUI线程也在渲染DOM，那么渲染完成之后的元素可能就不是之前的元素了</p>
+<h4 id="为什么JS引擎是单线程"><a href="#为什么JS引擎是单线程" class="headerlink" title="为什么JS引擎是单线程"></a>为什么JS引擎是单线程</h4><ul>
+<li>创建JavaScript语言的时候，多进程多线程的架构并不流行，硬件支持度不高</li>
+<li>多进程多线程操作需要加锁，操作成本较高，较为复杂</li>
+<li>如果多个线程同时操作一个DOM，那么结果会是不可预料的</li>
+</ul>
+<h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><ul>
+<li>JS的任务分为同步任何和异步任务的</li>
+<li>同步任务都在JS引擎的执行栈上执行</li>
+<li>事件触发线程管理一个任务队列，TaskQueue，当异步任务满足条件时，事件触发线程会将其放到任务队列当中，当主线程（JS引擎线程）执行完执行栈中的任务之后，会读取任务队列中的任务，如果有，就将可执行的异步任务的回调函数推入到执行栈中，开始执行。如果没有，则再次向事件触发线程发起询问，直到有为止。</li>
+</ul>
+<p><img src="http://q0sal13sb.bkt.clouddn.com/kbSsyB.png" alt="Event Loop"></p>
+<p>代码解释：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timerCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'httpCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-    add
-<span class="token punctuation">}</span></code></pre>
-<p>再创建一个test的文件夹，进行测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> lib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo01.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> assert <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> should <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'should'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Math'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'#add'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(0,0) should return 0'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//使用assert断言库</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(0,lib.add(0,0));</span>
-
-            <span class="token comment" spellcheck="true">//使用should.js断言库进行测试</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(1,-1) should return 0'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(0,lib.add(1,-1))</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(1,1) should return 2'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(2,lib.add(1,1))</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>describe(moduleName,testDetail):描述将要测试的模块。</p>
-<p>it(info,function()):测试语句放在回调函数中：</p>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+<span class="token comment" spellcheck="true">// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理</span>
+<span class="token comment" spellcheck="true">// 1s 后事件触发线程将 timerCallback 加入到事件队列中</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>timerCallback<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+<span class="token comment" spellcheck="true">// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理</span>
+<span class="token comment" spellcheck="true">// 请求成功后事件触发线程将 httpCallback 加入到事件队列中</span>
+$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'www.xxxx.com'</span><span class="token punctuation">,</span>httpCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//...</span>
+<span class="token comment" spellcheck="true">// 所有同步任务执行完后</span>
+<span class="token comment" spellcheck="true">// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数</span>
+<span class="token comment" spellcheck="true">// 如果没有，一直询问，直到有为止</span>
+<span class="token comment" spellcheck="true">// 如果有，将回调事件加入执行栈中，开始执行回调代码</span>
+</code></pre>
+<p>总结：</p>
 <ul>
-<li>info 是正确输出时的简单语句描述</li>
-<li>一个it对应一个实际的可能情况</li>
+<li>JS引擎线程只执行执行栈中的事件</li>
+<li>执行栈中的代码执行完毕，就会读取事件队列中的事件</li>
+<li>事件队列中的回调事件，是由各自线程插入到事件队列中的</li>
+<li>如此循环</li>
 </ul>
-<p>关于assets的更多的API，可参考<a href="https://nodejs.org/dist/latest/docs/api/assert.html#assert_assert" target="_blank" rel="noopener">node.js官网</a></p>
-<p>关于should.js的更多的API，可参考<a href="https://shouldjs.github.io/" target="_blank" rel="noopener">should.js官网</a></p>
-<p>然后，在package.json中写一下命令：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"mocha"</span>
-<span class="token punctuation">}</span></code></pre>
-<p>执行命令，mocha即可自动执行test文件夹下所有的测试脚本。</p>
-<h4 id="异步测试"><a href="#异步测试" class="headerlink" title="异步测试"></a>异步测试</h4><p>使用Mocha进行异步测试，只需要在测试完成之后回调一个回调函数即可，例如：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//异步测试</span>
-<span class="token keyword">function</span> <span class="token function">asyncFn</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-    asyncFn
-<span class="token punctuation">}</span></code></pre>
-<p>测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> lib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo03.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'async.js'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'async'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should wait 1000ms'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            lib<span class="token punctuation">.</span><span class="token function">asyncFn</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h4 id="路由测试"><a href="#路由测试" class="headerlink" title="路由测试"></a>路由测试</h4><p>需要借用<code>supertest</code>库对后端的API接口进行测试.</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev supertest</code></pre>
-<p>supertest支持各种框架。本例以Express为例：</p>
-<pre><code>//测试路由
-const express = require(&#39;express&#39;);
-const app = express();
-
-app.get(&#39;/user&#39;,(req,res) =&gt; {
-    res.status(200).json({
-        name:&#39;ykx&#39;,
-        age:24
-    })
-});
-
-module.exports = app;</code></pre><p>express设置了一个返回json格式的/user路由，通过get请求，返回用户名和年龄。</p>
-<p>测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'supertest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo04.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'GET /user'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should an name with age'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">request</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span><span class="token string">'application/json;charset=utf-8'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span><span class="token string">'ykx'</span><span class="token punctuation">,</span>
-            age<span class="token punctuation">:</span><span class="token number">24</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>done<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h4 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h4><p>测试覆盖率一般包含四个维度：</p>
+<h4 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h4><p>宏任务：可以理解为浏览器级别的任务。主代码块，setTimeout，setInterval等，都属于宏任务</p>
+<p>微任务：JS引擎级别的任务。Promise，process.nextTick等，属于<code>微任务</code>。</p>
+<p>执行顺序：</p>
 <ul>
-<li>行覆盖率：是否每一行都执行了</li>
-<li>函数覆盖率：是否每一个函数都执行了</li>
-<li>分支覆盖率：是否每个if代码块都执行了</li>
-<li>语句覆盖率。是否每个语句都执行了</li>
+<li>当前代码块对应的宏任务</li>
+<li>当前宏任务结束之后，下一个宏任务开始之前，执行当前对列的微任务</li>
+<li>GUI引擎渲染</li>
+<li>下一个宏任务</li>
 </ul>
-<p>在NodeJs中可以使用<code>Istanbul</code>代码覆盖率工具。</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g istanbul</code></pre>
-<p>然后在package.json中去配置命令：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token string">"scripts"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"test"</span><span class="token keyword">:</span> <span class="token string">"mocha"</span>,
-  <span class="token string">"cover"</span><span class="token keyword">:</span><span class="token string">"istanbul cover node_modules/mocha/bin/_mocha test/"</span>
-<span class="token punctuation">}</span></code></pre>
-<p>执行<code>npm run cover</code>命令，会在根目录下生成coverage文件夹，里面包含所有的测试数据。</p>
 
             </div>
             <hr/>
@@ -592,7 +557,7 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/30/Mocha/index/">http://yangkunxiao.github.io/2019/11/30/Mocha/index/</a>
+                    <a href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/">http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -629,8 +594,8 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mocha/">
-                                    <span class="chip bg-color">Mocha</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -796,47 +761,54 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/30/Webpack/tree-shaking/">
+                <a href="/2019/12/01/JavaScript/EventLoop/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JS和CSS的tree-shaking">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="浏览器中的进程、线程和Event Loop">
                         
-                        <span class="card-title">JS和CSS的tree-shaking</span>
+                        <span class="card-title">浏览器中的进程、线程和Event Loop</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            js：tree-shaking
-它是指帮助开发者消除不同模块之间的一些无效代码的feature。在webpack中，也是有tree-shaking功能的，但是它的功能十分简单粗暴：只寻找import引入进来的变量是否出现过在模块内，非常简单
+                            #浏览器
+浏览器是多进程的。每一个Tab页就是一个独立的进程。
+
+主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等
+第三方插件进程：管理第三方插件
+GPU线程：用于3D绘制
+渲染进程：对前端
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/webpack/" class="post-category">
-                                    webpack
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -850,32 +822,34 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/24/Mysql/naturalJoin/">
+                <a href="/2019/12/01/JavaScript/for/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL自然连接查询">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="详解JS的for循环">
                         
-                        <span class="card-title">MySQL自然连接查询</span>
+                        <span class="card-title">详解JS的for循环</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
-自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左
+                            forlet arr1 = [1, 2, 3];
+arr1['name'] = 'l'
+for (let i = 0, len = arr1.length; i &lt; len; i++) {
+  console.log(i, arr1[
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mysql/" class="post-category">
-                                    Mysql
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -885,8 +859,8 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>

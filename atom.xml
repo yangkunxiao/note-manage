@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-01T02:47:05.815Z</updated>
+  <updated>2019-12-04T06:30:32.490Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器中的进程、线程和Event Loop</title>
+    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/"/>
+    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</id>
+    <published>2019-12-01T02:46:00.000Z</published>
+    <updated>2019-12-04T06:30:32.490Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#浏览器&lt;/p&gt;
+&lt;p&gt;浏览器是多进程的。每一个Tab页就是一个独立的进程。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等&lt;/li&gt;
+&lt;li&gt;第三方插件进程：管理第三方插件&lt;/li&gt;
+&lt;li&gt;G
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>详解JS的for循环</title>
