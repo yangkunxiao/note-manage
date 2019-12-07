@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="单元测试, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="单元测试单元测试是指对软件中最小可测试单元进行检查验证，也称作模块测试。在nodeJs中通常是指对某个函数或者API进行正确验证，以保证代码的可用性。
-单元测试有很多种，常见的有：行为驱动开发（BDD）和 测试驱动开发（TDD）。
-
-行为驱">
+    <meta name="keywords" content="浅谈JavaScript异步编程, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="JavaScript异步编程
+PromisePromise是异步编程的一种实现方式，它比传统的解决方案更加合适、强大。所谓Promise，就是一种容器，容器里面保存着未来才会发生的事情（一般是异步操作）的结果。
+Promise是一个对象，它">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>单元测试 | Walter</title>
+    <title>浅谈JavaScript异步编程 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -263,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        单元测试
+                        浅谈JavaScript异步编程
                     </div>
                 </div>
             </div>
@@ -381,8 +380,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Mocha/">
-                                <span class="chip bg-color">Mocha</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -393,8 +392,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Mocha/" class="post-category">
-                                Mocha
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -406,7 +405,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-30
+                    2019-12-07
                 </div>
                 
 
@@ -415,14 +414,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    848
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    8 分
                 </div>
                 
 				
@@ -438,135 +437,171 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p>单元测试是指对软件中最小可测试单元进行检查验证，也称作模块测试。在nodeJs中通常是指对某个函数或者API进行正确验证，以保证代码的可用性。</p>
-<p>单元测试有很多种，常见的有：行为驱动开发（BDD）和 测试驱动开发（TDD）。</p>
+                <p>JavaScript异步编程</p>
+<h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><p>Promise是异步编程的一种实现方式，它比传统的解决方案更加合适、强大。所谓Promise，就是一种容器，容器里面保存着未来才会发生的事情（一般是异步操作）的结果。</p>
+<p>Promise是一个对象，它提供一系列的API可以将异步操作的事情以同步的形式表现出来，比起”回调地狱”，它看起来更加合适、强大。它具有以下几大特点：</p>
 <ul>
-<li>行为驱动开发（BDD）：行为驱动开发关注的是整个系统的最终实现是否和用户期望一致。</li>
-<li>测试驱动开发（TDD）：测试驱动开发的目的是取得快速反馈，使所有功能都是可用的。</li>
+<li><code>Promise</code>的状态不受任何外界的影响。Promise的异步操作有三种状态：    <code>pending</code>(执行中)、<code>fulfilled</code>(已成功)、<code>rejected</code>(已失败)。只有异步操作的结果才能够决定<code>Promise</code>状态的走向。</li>
+<li><code>Promise</code>的状态一旦改变，变不可再次变动。它的状态变化只有两种情况：<code>pending</code> =&gt; <code>fulfilled</code>、<code>pengding</code> =&gt; <code>rejected</code>。状态一旦发生变化，就不再改变，称之为 <code>resolved</code>(已定型)。</li>
 </ul>
-<h4 id="Mocha"><a href="#Mocha" class="headerlink" title="Mocha"></a>Mocha</h4><p>Mocha是现在最流行的一种单元测试框架。Mocha功能比较丰富，支持BDD、TDD</p>
-<p>风格的测试，而且支持异步、同步的测试。</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g mocha
+<p>Promise一旦新建之后，就会立即执行。而then指定的回调函数只有同步操作执行完之后才会执行。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span>reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
 
-or
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//成功回调</span>
+  <span class="token comment" spellcheck="true">//todo</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//失败回调</span>
 
-<span class="token function">npm</span> <span class="token function">install</span> -S mocha</code></pre>
-<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p>创建一个demo01.js文件，文件中包含一个求和函数：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">...</span>rest<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> rest<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> a <span class="token operator">+</span> b
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//todo</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。</p>
+<p><code>resolve</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“成功”（即从 <code>pending</code> 变为 <code>resolved</code>），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；<code>reject</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“失败”（即从 <code>pending</code> 变为 <code>rejected</code>），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+<p><code>Promise</code>实例生成以后，可以用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数。但是一般默认不指定<code>rejected</code>状态的回调函数，而是使用<code>catch</code>。</p>
+<p><code>finally</code>不管<code>promise</code>最终的执行结果如何，都会执行。</p>
+<p><code>all</code>：方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<p><code>Promise.all()</code>方法接受一个数组作为参数，<code>p1</code>、<code>p2</code>、<code>p3</code>都是 Promise 实例，如果不是，就会先调用<code>Promise.resolve</code>方法，将参数转为 Promise 实例，再进一步处理。另外，<code>Promise.all()</code>方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例</p>
+<p>举个🌰：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        msg<span class="token punctuation">:</span> <span class="token string">'p1'</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        msg<span class="token punctuation">:</span> <span class="token string">'p2'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> p3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        msg<span class="token punctuation">:</span> <span class="token string">'p3'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> p <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>p1<span class="token punctuation">,</span>p2<span class="token punctuation">,</span>p3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span>res1<span class="token punctuation">,</span>res2<span class="token punctuation">,</span>res3<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//执行结果：p1 p2 p3</span></code></pre>
+<p><code>p</code>的状态由p1,p2,p3决定：</p>
+<ul>
+<li><p>只有<code>p1</code>、<code>p2</code>、<code>p3</code>的状态都变成<code>fulfilled</code>，<code>p</code>的状态才会变成<code>fulfilled</code>，此时<code>p1</code>、<code>p2</code>、<code>p3</code>的返回值组成一个数组，传递给<code>p</code>的回调函数。</p>
+</li>
+<li><p>只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个被<code>rejected</code>，<code>p</code>的状态就变成<code>rejected</code>，此时第一个被<code>reject</code>的实例的返回值，会传递给<code>p</code>的回调函数。</p>
+</li>
+</ul>
+<p><code>race</code>：该方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> p <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">race</span><span class="token punctuation">(</span><span class="token punctuation">[</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>只要只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个实例率先改变状态，<code>p</code>的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给<code>p</code>的回调函数。</p>
+<p><code>allSettled</code>：该方法由<code>ES2020</code>引入。<code>Promise.allSettled()</code>方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只有等到所有这些参数实例都返回结果，不管是<code>fulfilled</code>还是<code>rejected</code>，包装实例才会结束。</p>
+<p><code>any</code>：<code>Promise.any()</code>方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只要参数实例有一个变成<code>fulfilled</code>状态，包装实例就会变成<code>fulfilled</code>状态；如果所有参数实例都变成<code>rejected</code>状态，包装实例就会变成<code>rejected</code>状态。该方法目前是一个第三阶段的<a href="https://github.com/tc39/proposal-promise-any" target="_blank" rel="noopener">提案</a> 。</p>
+<p><code>resolve</code>：<code>Promise.resolve()</code>将现有对象转为 Promise 对象。</p>
+<ul>
+<li><p>参数是一个<code>Promise</code>实例：那么<code>Promise.resolve</code>将不做任何修改、原封不动地返回这个实例。</p>
+</li>
+<li><p>参数是一个 <code>thenable</code> 实例：<code>thenable</code>对象指的是具有<code>then</code>方法的对象，比如下面这个对象。：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> thenable <span class="token operator">=</span> <span class="token punctuation">{</span>
+  then<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p><code>Promise.resolve</code>方法会将这个对象转为 Promise 对象，然后就立即执行<code>thenable</code>对象的<code>then</code>方法。</p>
+</li>
+<li><p>参数不是具有<code>then</code>方法的对象，或根本就不是对象：如果参数是一个原始值，或者是一个不具有<code>then</code>方法的对象，则<code>Promise.resolve</code>方法返回一个新的 Promise 对象，状态为<code>resolved</code>。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> p <span class="token operator">=</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+p<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Hello</span></code></pre>
+</li>
+</ul>
+<p><code>reject</code>：<code>Promise.reject(reason)</code>方法也会返回一个新的 Promise 实例，该实例的状态为<code>rejected</code>。</p>
+<h4 id="Generator-yield"><a href="#Generator-yield" class="headerlink" title="Generator/yield"></a>Generator/yield</h4><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p>
+<p>Generator 函数有多种理解角度。语法上，Generator 函数是一个状态机，封装了多个内部状态。</p>
+<p>执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个<code>遍历器对象生成函数</code>。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+<p>形式上，Generator 函数是一个普通函数，但是有两个特征:</p>
+<p>1、<code>function</code>关键字与函数名之间有一个星号；</p>
+<p>2、函数体内部使用<code>yield</code>表达式，定义不同的内部状态</p>
+<blockquote>
+<p> Generator 函数是分段执行的，<code>yield</code>表达式是暂停执行的标记，而<code>next</code>方法可以恢复执行。</p>
+</blockquote>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">helloWorldGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+  <span class="token keyword">yield</span> <span class="token string">'world'</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token string">'ending'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> hwg <span class="token operator">=</span> <span class="token function">helloWorldGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hwg<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ value:hello,done:false }</span>
+hwg<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ value:world,done:false }</span>
+hwg<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ value:ending,done:true }</span>
+hwg<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ value:undefined,done:true }</span></code></pre>
+<p>总结：调用Generator函数，会返回一个遍历器对象，它是函数内部的指针，以后每调用一次next函数，就会返回一个带有value和done属性的对象。<code>next</code>方法可以带一个参数，该参数就会被当作上一个<code>yield</code>表达式的返回值。<code>value</code>属性表示当前的内部状态的值，是<code>yield</code>表达式后面那个表达式的值；<code>done</code>属性是一个布尔值，表示是否遍历结束。</p>
+<p>Generator 函数返回的遍历器对象，还有一个<code>return</code>方法，可以返回给定的值，并且终结遍历 Generator 函数。</p>
+<h4 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h4><p>ES2017 标准引入了 async 函数，使得异步操作变得更加方便。它是Generator的语法糖。<code>async</code>函数就是将 Generator 函数的星号（<code>*</code>）替换成<code>async</code>，将<code>yield</code>替换成<code>await</code>。</p>
+<p><code>async</code>函数对 Generator 函数的改进，体现在以下几点。</p>
+<ul>
+<li><p>内置执行器。</p>
+<p>Generator 函数的执行必须靠执行器。而<code>async</code>函数自带执行器。也就是说，<code>async</code>函数的执行，与普通函数一模一样，只要一行。</p>
+</li>
+<li><p>返回值是 Promise</p>
+<p><code>async</code>函数的返回值是 Promise 对象，这比 Generator 函数的返回值是 Iterator 对象方便多了。你可以用<code>then</code>方法指定下一步的操作。</p>
+</li>
+</ul>
+<p>进一步说，<code>async</code>函数完全可以看作多个异步操作，包装成的一个 Promise 对象，而<code>await</code>命令就是内部<code>then</code>命令的语法糖。</p>
+<p><code>async</code>函数返回一个 Promise 对象。<code>async</code>函数内部<code>return</code>语句返回的值，会成为<code>then</code>方法回调函数的参数。</p>
+<p><code>async</code>函数返回的 Promise 对象，必须等到内部所有<code>await</code>命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到<code>return</code>语句或者抛出错误。也就是说，只有<code>async</code>函数内部的异步操作执行完，才会执行<code>then</code>方法指定的回调函数。</p>
+<p>举个🌰：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">timeFn</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//Promise 新建后就会立即执行。</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span>reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        msg<span class="token punctuation">:</span><span class="token string">'hello'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//Promise的写法</span>
+  <span class="token comment" spellcheck="true">// timeFn(time).then(res => {</span>
+  <span class="token comment" spellcheck="true">//     console.log(res);</span>
+  <span class="token comment" spellcheck="true">// })</span>
+
+  <span class="token comment" spellcheck="true">//async await的写法</span>
+  <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">timeFn</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">fun</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span></code></pre>
+<p>程序会在3s之后打印{msg:’hello’}</p>
+<p><code>await</code>：正常情况下，<code>await</code>命令后面是一个 Promise 对象，返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。另一种情况是，<code>await</code>命令后面是一个<code>thenable</code>对象（即定义<code>then</code>方法的对象），那么<code>await</code>会将其等同于 Promise 对象。</p>
+<p>如果<code>await</code>后面的异步操作出错，那么等同于<code>async</code>函数返回的 Promise 对象被<code>reject</code>。</p>
+<p><code>await</code>命令只能用在<code>async</code>函数之中，如果用在普通函数，就会报错。</p>
+<p>async 函数的实现原理，就是将 Generator 函数和自动执行器，包装在一个函数里。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
 <span class="token punctuation">}</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-    add
-<span class="token punctuation">}</span></code></pre>
-<p>再创建一个test的文件夹，进行测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> lib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo01.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> assert <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'assert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> should <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'should'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 等同于</span>
 
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'Math'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'#add'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(0,0) should return 0'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">//使用assert断言库</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(0,lib.add(0,0));</span>
-
-            <span class="token comment" spellcheck="true">//使用should.js断言库进行测试</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(1,-1) should return 0'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(0,lib.add(1,-1))</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'add(1,1) should return 2'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// assert.strictEqual(2,lib.add(1,1))</span>
-            lib<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>should<span class="token punctuation">.</span>be<span class="token punctuation">.</span><span class="token function">equal</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>describe(moduleName,testDetail):描述将要测试的模块。</p>
-<p>it(info,function()):测试语句放在回调函数中：</p>
-<ul>
-<li>info 是正确输出时的简单语句描述</li>
-<li>一个it对应一个实际的可能情况</li>
-</ul>
-<p>关于assets的更多的API，可参考<a href="https://nodejs.org/dist/latest/docs/api/assert.html#assert_assert" target="_blank" rel="noopener">node.js官网</a></p>
-<p>关于should.js的更多的API，可参考<a href="https://shouldjs.github.io/" target="_blank" rel="noopener">should.js官网</a></p>
-<p>然后，在package.json中写一下命令：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"mocha"</span>
-<span class="token punctuation">}</span></code></pre>
-<p>执行命令，mocha即可自动执行test文件夹下所有的测试脚本。</p>
-<h4 id="异步测试"><a href="#异步测试" class="headerlink" title="异步测试"></a>异步测试</h4><p>使用Mocha进行异步测试，只需要在测试完成之后回调一个回调函数即可，例如：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//异步测试</span>
-<span class="token keyword">function</span> <span class="token function">asyncFn</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'async'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        callback <span class="token operator">&amp;&amp;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-    asyncFn
-<span class="token punctuation">}</span></code></pre>
-<p>测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> lib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo03.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'async.js'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'async'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should wait 1000ms'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            lib<span class="token punctuation">.</span><span class="token function">asyncFn</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h4 id="路由测试"><a href="#路由测试" class="headerlink" title="路由测试"></a>路由测试</h4><p>需要借用<code>supertest</code>库对后端的API接口进行测试.</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev supertest</code></pre>
-<p>supertest支持各种框架。本例以Express为例：</p>
-<pre><code>//测试路由
-const express = require(&#39;express&#39;);
-const app = express();
-
-app.get(&#39;/user&#39;,(req,res) =&gt; {
-    res.status(200).json({
-        name:&#39;ykx&#39;,
-        age:24
-    })
-});
-
-module.exports = app;</code></pre><p>express设置了一个返回json格式的/user路由，通过get请求，返回用户名和年龄。</p>
-<p>测试：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'supertest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../demo04.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'GET /user'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should an name with age'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token function">request</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span><span class="token string">'application/json;charset=utf-8'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span><span class="token string">'ykx'</span><span class="token punctuation">,</span>
-            age<span class="token punctuation">:</span><span class="token number">24</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>done<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h4 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h4><p>测试覆盖率一般包含四个维度：</p>
-<ul>
-<li>行覆盖率：是否每一行都执行了</li>
-<li>函数覆盖率：是否每一个函数都执行了</li>
-<li>分支覆盖率：是否每个if代码块都执行了</li>
-<li>语句覆盖率。是否每个语句都执行了</li>
-</ul>
-<p>在NodeJs中可以使用<code>Istanbul</code>代码覆盖率工具。</p>
-<p>安装：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g istanbul</code></pre>
-<p>然后在package.json中去配置命令：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token string">"scripts"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"test"</span><span class="token keyword">:</span> <span class="token string">"mocha"</span>,
-  <span class="token string">"cover"</span><span class="token keyword">:</span><span class="token string">"istanbul cover node_modules/mocha/bin/_mocha test/"</span>
-<span class="token punctuation">}</span></code></pre>
-<p>执行<code>npm run cover</code>命令，会在根目录下生成coverage文件夹，里面包含所有的测试数据。</p>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//spawn 自动执行器</span></code></pre>
 
             </div>
             <hr/>
@@ -592,7 +627,7 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/30/Mocha/index/">http://yangkunxiao.github.io/2019/11/30/Mocha/index/</a>
+                    <a href="http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -629,8 +664,8 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Mocha/">
-                                    <span class="chip bg-color">Mocha</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -796,47 +831,50 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/30/Webpack/tree-shaking/">
+                <a href="/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JS和CSS的tree-shaking">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈JavaScript异步编程">
                         
-                        <span class="card-title">JS和CSS的tree-shaking</span>
+                        <span class="card-title">浅谈JavaScript异步编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            js：tree-shaking
-它是指帮助开发者消除不同模块之间的一些无效代码的feature。在webpack中，也是有tree-shaking功能的，但是它的功能十分简单粗暴：只寻找import引入进来的变量是否出现过在模块内，非常简单
+                            JavaScript异步编程
+PromisePromise是异步编程的一种实现方式，它比传统的解决方案更加合适、强大。所谓Promise，就是一种容器，容器里面保存着未来才会发生的事情（一般是异步操作）的结果。
+Promise是一个对象，它
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/webpack/" class="post-category">
-                                    webpack
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -850,32 +888,37 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/24/Mysql/naturalJoin/">
+                <a href="/2019/12/01/JavaScript/EventLoop/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL自然连接查询">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="浏览器中的进程、线程和Event Loop">
                         
-                        <span class="card-title">MySQL自然连接查询</span>
+                        <span class="card-title">浏览器中的进程、线程和Event Loop</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是自然连接？通过mysql自己判断完成连接过程,不需要指定连接条件，mysql会根据多个表内的相同字段作为连接条件。
-自然连接的分类自然连接分为：内自然连接（inner natural join）和 外自然连接。其中外自然连接又可分为左
+                            #浏览器
+浏览器是多进程的。每一个Tab页就是一个独立的进程。
+
+主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等
+第三方插件进程：管理第三方插件
+GPU线程：用于3D绘制
+渲染进程：对前端
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mysql/" class="post-category">
-                                    Mysql
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -885,8 +928,8 @@ module.exports = app;</code></pre><p>express设置了一个返回json格式的/u
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>

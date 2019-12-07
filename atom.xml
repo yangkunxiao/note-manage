@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-04T06:30:32.490Z</updated>
+  <updated>2019-12-07T16:30:26.002Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈JavaScript异步编程</title>
+    <link href="http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    <id>http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</id>
+    <published>2019-12-06T16:28:00.000Z</published>
+    <updated>2019-12-07T16:30:26.002Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;JavaScript异步编程&lt;/p&gt;
+&lt;h4 id=&quot;Promise&quot;&gt;&lt;a href=&quot;#Promise&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器中的进程、线程和Event Loop</title>
@@ -552,38 +580,6 @@
     
     
       <category term="other" scheme="http://yangkunxiao.github.io/tags/other/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue使用webpack优化构建流程</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</id>
-    <published>2019-11-20T02:30:00.000Z</published>
-    <updated>2019-11-20T02:49:21.552Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;初衷：如果我们的 Vue 项目比较大．或者说项目中引入了许多第三方库，那么在执行 npm run build 构建项目的时候会极其的慢．比如我现在的项目就每次打包就要 83s。&lt;br&gt;下面提供一些方法用来提供优化打包速度：&lt;/p&gt;
-&lt;h4
-        
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/categories/vue/"/>
-    
-      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/vue/webpack/"/>
-    
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
-    
-      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
     
   </entry>
   
