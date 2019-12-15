@@ -495,7 +495,7 @@ ecStack<span class="token punctuation">.</span><span class="token function">pop<
 <p>每一个函数在定义的时候，都会创建一个与之关联的<strong><em>[[scopes]]</em></strong>属性，该scope总是指向定义函数时的执行环境EC。举个🌰：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">dir</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><img src="http://q0sal13sb.bkt.clouddn.com/xv64Ki.png" alt="scopes"></p>
+<p><img src="http://cdn.yangkunxiao.cn/xv64Ki.png" alt="scopes"></p>
 <p>如上图所示，函数fn的[[scopes]][0]即是它的执行环境，GO。</p>
 <p>再看：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -507,7 +507,7 @@ console<span class="token punctuation">.</span><span class="token function">dir<
 <span class="token punctuation">}</span>
 <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">dir</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span></code></pre>
-<p><img src="http://q0sal13sb.bkt.clouddn.com/KL9FAg.png" alt="scopes"></p>
+<p><img src="http://cdn.yangkunxiao.cn/KL9FAg.png" alt="scopes"></p>
 <p>fn中始终都没有定义变量a，那么JS引擎就会沿着Scope Chain一直向上寻找a，最终在GO中找到了a。</p>
 <h4 id="作用域链-1"><a href="#作用域链-1" class="headerlink" title="作用域链"></a>作用域链</h4><p>当JavaScript的代码块在运行时，就会创建与之相关的作用域链。</p>
 <blockquote>
@@ -547,7 +547,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10</span></code></pre>
 <p>正常情况下，我们期待的结果就是返回0和1,但是结果出人意料。为什么呢？</p>
 <p>其实我们可以先看下arr[0]执行时，它的scope chain：</p>
-<p><img src="http://q0sal13sb.bkt.clouddn.com/r0f77m.png" alt="scopes"></p>
+<p><img src="http://cdn.yangkunxiao.cn/r0f77m.png" alt="scopes"></p>
 <p>我们可以清楚的看到，此时arr[0]中并没有i的定义，它会沿着作用域链向上找i，那么就会找到fn中的i，但是此时，i已经变成10了。</p>
 <p>从此我们也可以得出一个结论：</p>
 <blockquote>

@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</loc>
+    <lastmod>2019-12-15</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2019-12-07</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</loc>
     <lastmod>2019-12-07</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</loc>
-    <lastmod>2019-12-04</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</loc>
     <lastmod>2019-11-30</lastmod>
@@ -16,16 +25,10 @@
     <loc>http://yangkunxiao.github.io/2019/11/30/Mocha/index/</loc>
     <lastmod>2019-11-30</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
-    <lastmod>2019-11-25</lastmod>
-  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
-    <lastmod>2019-11-25</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
@@ -41,9 +44,6 @@
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/</loc>
-    <lastmod>2019-11-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</loc>

@@ -454,7 +454,7 @@ newFn<span class="token punctuation">.</span><span class="token function">todo</
 <blockquote>
 <p>当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262第5版中管这个指针叫[[Prototype]]。虽然在脚本中没有标准的方式访问[[Prototype]]，但Firefox、Safari和Chrome在每个对象上都支持一个属性__proto__；而在其他实现中，这个属性对脚本则是完全不可见的。——JavaScript高级程序设计</p>
 </blockquote>
-<p><img src="http://q0sal13sb.bkt.clouddn.com/rISRUz.png" alt=""></p>
+<p><img src="http://cdn.yangkunxiao.cn/prototype.png" alt=""></p>
 <p>该属性是实例和构造函数的原型对象之间的联系，和构造函数并无直接关联，其实实例之所以可以调用构造函数的原型对象上面的属性和方法，也是通过该属性实现的。</p>
 <p>小结：</p>
 <ul>
@@ -478,7 +478,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>请记住：万物皆对象。一切引用类型都有一个隐式原型Object.prototype。</p>
 </blockquote>
-<p><img src="http://q0sal13sb.bkt.clouddn.com/yuanxinglian.jpeg" alt="原型链"></p>
+<p><img src="http://cdn.yangkunxiao.cn/scopeChain.jpeg" alt="原型链"></p>
 <h4 id="原型对象的问题"><a href="#原型对象的问题" class="headerlink" title="原型对象的问题"></a>原型对象的问题</h4><p>原型对象最大的问题就是因其共享性所导致的。看个🌰：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//原型</span>
 <span class="token keyword">var</span> Fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -641,9 +641,9 @@ Sub<span class="token punctuation">.</span>prototype <span class="token operator
 
 console<span class="token punctuation">.</span><span class="token function">dir</span><span class="token punctuation">(</span>Sub<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>结果如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191113175800937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MTM0NzIx,size_16,color_FFFFFF,t_70" alt="原型错乱"></p>
+<p><img src="http://cdn.yangkunxiao.cn/prototypeError.jpg" alt="原型错乱"></p>
 <p>正确的继承结果应该如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20191113175921976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MTM0NzIx,size_16,color_FFFFFF,t_70" alt="原型正常"></p>
+<p><img src="http://cdn.yangkunxiao.cn/prototypeRight.jpg" alt="原型正常"></p>
 
             </div>
             <hr/>
