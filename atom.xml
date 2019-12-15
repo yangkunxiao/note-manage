@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-07T16:30:26.002Z</updated>
+  <updated>2019-12-15T14:18:01.313Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML5拖拽事件</title>
+    <link href="http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/"/>
+    <id>http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/</id>
+    <published>2019-12-15T14:20:00.000Z</published>
+    <updated>2019-12-15T14:18:01.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。&lt;/p&gt;
+&lt;h4 id=&quot;使用onmouse事件实现拖放&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈JavaScript异步编程</title>
@@ -552,34 +580,6 @@
     
     
       <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac开启本地服务器</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/Other/server/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/Other/server/</id>
-    <published>2019-11-20T03:15:00.000Z</published>
-    <updated>2019-11-20T03:18:33.960Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;Nginx&quot;&gt;&lt;a href=&quot;#Nginx&quot; class=&quot;headerlink&quot; title=&quot;Nginx&quot;&gt;&lt;/a&gt;Nginx&lt;/h4&gt;&lt;p&gt;是一个高性能的HTTP和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。&lt;/p&gt;
-&lt;pre
-        
-      
-    
-    </summary>
-    
-    
-      <category term="other" scheme="http://yangkunxiao.github.io/categories/other/"/>
-    
-    
-      <category term="other" scheme="http://yangkunxiao.github.io/tags/other/"/>
     
   </entry>
   

@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo博客搭建, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="HexoHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装
-Node（本文不做多余叙述）
-
-Git（本文不做多余叙述）
-
-Hexo$ np">
+    <meta name="keywords" content="HTML5拖拽事件, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。
+使用onmouse事件实现拖放通过监听鼠标事件实">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +14,7 @@ Hexo$ np">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo博客搭建 | Walter</title>
+    <title>HTML5拖拽事件 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,13 +261,13 @@ Hexo$ np">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo博客搭建
+                        HTML5拖拽事件
                     </div>
                 </div>
             </div>
@@ -384,8 +379,8 @@ Hexo$ np">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -396,8 +391,8 @@ Hexo$ np">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -409,7 +404,7 @@ Hexo$ np">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-22
+                    2019-12-15
                 </div>
                 
 
@@ -418,14 +413,14 @@ Hexo$ np">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    539
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 				
@@ -441,75 +436,161 @@ Hexo$ np">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h4><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
-<li><p>Node（本文不做多余叙述）</p>
-</li>
-<li><p>Git（本文不做多余叙述）</p>
-</li>
-<li><p>Hexo<br><code>$ npm install -g hexo-cli</code><br>安装完成后，到一个新的文件夹下，打开Git Bash，执行一下命令：</p>
-<pre><code>$ hexo init &lt;folder&gt;
-$ cd &lt;folder&gt;
-$ npm install</code></pre><p>新建完成之后，打开新建的项目，查看项目目录：</p>
-</li>
-<li><p>public：执行hexo generate命令，生成的HTML静态文件</p>
-</li>
-<li><p>scaffolds：模版文件夹</p>
-</li>
-<li><p>source：资源文件夹，文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里</p>
+                <p>在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。</p>
+<h4 id="使用onmouse事件实现拖放"><a href="#使用onmouse事件实现拖放" class="headerlink" title="使用onmouse事件实现拖放"></a>使用onmouse事件实现拖放</h4><p>通过监听鼠标事件实现元素拖放：必须借用<code>onmousedown</code>、<code>onmousemove</code>、<code>onmouseup</code>三个事件实现，且三者的顺序不能乱。</p>
 <ul>
-<li>_data：你的数据文件夹，例如：<ul>
-<li>friends.json：存放友情链接的数据</li>
-<li>musics.json：存放音乐播放器的数据</li>
+<li>onmousedown：鼠标按下事件，一般用在拖放元素上。</li>
+<li>onmousemove：鼠标移动事件，一般用在document或者window上。</li>
+<li>onmouseup：鼠标抬起事件，同上。</li>
 </ul>
-</li>
-<li>_posts：文章存放文件夹</li>
-<li>categories：分类</li>
-<li>tags：标签<ul>
-<li>thems：主题文件夹，Hexo 会根据主题来生成静态页面。以我当前使用的metery主题为例</li>
-<li>langauages：存放语言相关设置的yml文件</li>
-<li>layout：存放文章的ejs模版，可以在里面修改相关的HTML、CSS、JS等</li>
-<li>source：该主题下使用的资源文件夹</li>
-<li>_config.yml：该主题的配置文件</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>具体实现如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//获取拖放元素</span>
+<span class="token keyword">var</span> img <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//记录鼠标点击位置和元素边界的距离</span>
+<span class="token keyword">var</span> dirX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>dirY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">//给元素添加监听事件</span>
+img<span class="token punctuation">.</span>onmousedown <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  dirX <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+    dirY <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>onmousemove <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//记录鼠标移动距离</span>
+    <span class="token keyword">let</span> moveX<span class="token punctuation">,</span> moveY<span class="token punctuation">;</span> 
+    moveX <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> dirX<span class="token punctuation">;</span>
+    moveY <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> dirY<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//处理边界问题</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>moveX <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      moveX <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>moveX <span class="token operator">></span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      moveX <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetWidth
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>moveY <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      moveY <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>moveY <span class="token operator">></span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      moveY <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetHeight
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//实时的改变元素位置</span>
+    img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> moveX <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> moveY <span class="token operator">+</span> <span class="token string">'px'</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">//监听鼠标抬起事件</span>
+  document<span class="token punctuation">.</span>onmouseup <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//事件取消</span>
+    document<span class="token punctuation">.</span>onmouseup <span class="token operator">=</span> document<span class="token punctuation">.</span>onmousemove <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="使用HTML5Drag实现拖放"><a href="#使用HTML5Drag实现拖放" class="headerlink" title="使用HTML5Drag实现拖放"></a>使用HTML5Drag实现拖放</h4><p>拖拽元素时，将依次发生以下事件：</p>
 <ul>
-<li>_config.yml：该项目的配置文件</li>
-<li>db.json：source解析所得到的</li>
-<li>package.json：项目所需模块项目的配置信息</li>
+<li>ondragstart</li>
+<li>ondrag：拖拽期间持续触发该事件</li>
+<li>ondragend</li>
 </ul>
-<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><ul>
-<li>GitHub上新建一个项目</li>
-<li>本地Git Bash上配置github账户信息<ul>
-<li><code>git config --global user.name &#39;yourName&#39;</code></li>
-<li><code>git config --global user.email &#39;yourEmail&#39;</code><ul>
-<li>创建SSH</li>
-<li>在gitbash中输入：</li>
-<li><code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。</li>
-<li><code>cd ~/.ssh</code> 找到id_rsa.pub</li>
-<li><code>cat id_rsa.pub</code>复制其中的内容到github上，创建一个新的 SSH KEY</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>在目标元素（放置目标元素）上将会发生以下事件：</p>
 <ul>
-<li>修改_config.yml<pre><code>deploy:
-type: git
-repo: https://github.com/YourgithubName/YourgithubName.github.io.git
-branch: master</code></pre></li>
-<li>回到Git Bash<pre><code>npm i hexo-server
-hexo clean
-hexo generate
-hexo server</code></pre></li>
-<li>上传到GitHub<pre><code>npm install hexo-deployer-git --save
-hexo clean
-hexo generate
-hexo deploy</code></pre>注意deploy的过程中要输入你的username及passward。<br>然后在浏览器中输入 <a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a> 就可以看到你的个人博客。</li>
+<li>ondragenter：元素进入目标元素</li>
+<li>ondragover：元素在目标元素之中移动</li>
+<li>ondragleave/ondrop：元素离开目标元素/鼠标抬起</li>
 </ul>
+<p><strong>dataTransfer</strong> 对象：使用该对象进行数据传输</p>
+<ul>
+<li>setData：接收两个参数：第一个参数设置传输数据的类型：text 或者 URL，第二个参数设置值</li>
+<li>getData：接收值，只发生在ondrop</li>
+</ul>
+<p><strong>dropEffect</strong>与<strong>effectAllowed</strong> ：通过<strong>dataTransfer</strong>对象还可以确定被拖拽元素以及放置目标的元素能够接受什么操作。其中<strong>dropEffect</strong>可以知道被拖拽元素可以执行那种放置行为。<strong>effectAllowed</strong>可以知道允许拖拽元素执行哪种<strong>dropEffect</strong>。</p>
+<p><strong>effectAllowed</strong>有四种值：</p>
+<ul>
+<li>“none”:不能把拖动的元素放在这里。这是除文本框之外所有元素的默认值。</li>
+<li>“move”:应该把拖动的元素移动到放置目标。</li>
+<li>“copy”:应该把拖动的元素复制到放置目标。</li>
+<li>“link”:表示放置目标会打开拖动的元素(但拖动的元素必须是一个链接，有 URL)。 </li>
+</ul>
+<blockquote>
+<p>要使用 dropEffect 属性，必须在 ondragenter 事件处理程序中针对放置目标来设置它。 </p>
+</blockquote>
+<p><strong>effectAllowed</strong>的属性值如下：</p>
+<ul>
+<li>“uninitialized”:没有给被拖动的元素设置任何放置行为。 </li>
+<li>“none”:被拖动的元素不能有任何行为。</li>
+<li>“copy”:只允许值为”copy”的 dropEffect。</li>
+<li>“link”:只允许值为”link”的 dropEffect。 </li>
+<li>“move”:只允许值为”move”的 dropEffect。</li>
+<li>“copyLink”:允许值为”copy”和”link”的 dropEffect。 </li>
+<li>“copyMove”:允许值为”copy”和”move”的 dropEffect。 </li>
+<li>“linkMove”:允许值为”link”和”move”的 dropEffect。 </li>
+<li>“all”:允许任意 dropEffect。 </li>
+</ul>
+<blockquote>
+<p>必须在 ondragstart 事件处理程序中设置 effectAllowed 属性</p>
+</blockquote>
+<p>使用HTML5Drag事件来实现自由拖拽，具体实现如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> EventUtil <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * 绑定事件
+     * @param { type } = { 事件类型 }  
+     * @param { callback }  = { 回调函数 } 
+     * @param { bool }   = { 指定事件是否在捕获或冒泡阶段执行。true - 事件句柄在捕获阶段执行。默认，事件句柄在冒泡阶段执行 }
+     * */</span>
+    addHandler<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> type<span class="token punctuation">,</span> callback<span class="token punctuation">,</span> bool <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>addEventListener<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> callback<span class="token punctuation">,</span> bool<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>attachEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">attactEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//默认使用DOM0级的事件</span>
+            el<span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">+</span> type<span class="token punctuation">]</span> <span class="token operator">=</span> callback<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> img <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//记录鼠标点击位置和边界的距离</span>
+<span class="token keyword">var</span> dirX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>dirY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> dirX<span class="token punctuation">,</span> dirY<span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token string">'dragstart'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">'开始拖拽'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  dirX <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+  dirY <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dirX<span class="token punctuation">,</span> dirY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token string">'dragenter'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'进入目标元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token string">'dragover'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// console.log('在目标元素中移动');</span>
+  <span class="token comment" spellcheck="true">//计算鼠标移动距离</span>
+  <span class="token keyword">let</span> moveX <span class="token operator">=</span> moveY <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  moveX <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> dirX<span class="token punctuation">;</span>
+  moveY <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> dirY<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//边界处理</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>moveX <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    moveX <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>moveX <span class="token operator">></span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    moveX <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetWidth
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>moveY <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    moveY <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>moveY <span class="token operator">></span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerHeight <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    moveY <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetHeight
+  <span class="token punctuation">}</span>
+  img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> moveX <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+  img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> moveY <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//阻止默认行为</span>
+  EventUtil<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token string">'dragleave'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'离开目标元素'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUtil<span class="token punctuation">.</span><span class="token function">addHandler</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token string">'drop'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//设置磁吸效果</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>clientX <span class="token operator">></span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">-</span> img<span class="token punctuation">.</span>offsetWidth <span class="token operator">+</span> <span class="token string">'px'</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    img<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// console.log(e,'drop');</span>
+  <span class="token comment" spellcheck="true">// let data = e.dataTransfer.getData('text');</span>
+  <span class="token comment" spellcheck="true">// console.log('drop');</span>
+  <span class="token comment" spellcheck="true">// EventUtil.removeHandler()</span>
+  <span class="token comment" spellcheck="true">// e.target.appendChild(document.getElementById(data))</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><img src="http://cdn.yangkunxiao.cn/%E6%8B%96%E6%8B%BD%E4%BA%8B%E4%BB%B6.png" alt="拖放事件流程"></p>
 
             </div>
             <hr/>
@@ -535,7 +616,7 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/22/Hexo/index/">http://yangkunxiao.github.io/2019/11/22/Hexo/index/</a>
+                    <a href="http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/">http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,8 +653,8 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -739,50 +820,49 @@ hexo deploy</code></pre>注意deploy的过程中要输入你的username及passwa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/22/Php/base/">
+                <a href="/2019/12/15/JavaScript/drag/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="php基础">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="HTML5拖拽事件">
                         
-                        <span class="card-title">php基础</span>
+                        <span class="card-title">HTML5拖拽事件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。
-PHP的作用
-PHP 可以生成动态页面内容
-PHP 可以创建、打开、读取、写入、关闭服务器上的文件
-PHP 可以收集
+                            在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。
+使用onmouse事件实现拖放通过监听鼠标事件实
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -796,28 +876,26 @@ PHP 可以收集
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/21/JavaScript/ScopeChain/">
+                <a href="/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="作用域和作用域链">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈JavaScript异步编程">
                         
-                        <span class="card-title">作用域和作用域链</span>
+                        <span class="card-title">浅谈JavaScript异步编程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            作用域在JavaScript中的作用域有全局作用域、局部作用域（在JavaScript中局部作用域即是函数作用域）以及块级作用域。
-
-全局作用域：在最外层函数定义的变量即拥有全局作用域，对于任意函数来说，都可以访问到。例如：
-{
-  var
+                            JavaScript异步编程
+PromisePromise是异步编程的一种实现方式，它比传统的解决方案更加合适、强大。所谓Promise，就是一种容器，容器里面保存着未来才会发生的事情（一般是异步操作）的结果。
+Promise是一个对象，它
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
                             </span>
                         <span class="publish-author">
                             
