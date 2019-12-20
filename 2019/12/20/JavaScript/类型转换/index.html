@@ -4,14 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浏览器中的进程、线程和Event Loop, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="#浏览器
-浏览器是多进程的。每一个Tab页就是一个独立的进程。
+    <meta name="keywords" content="JavaScript强制类型转换, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="###类型
+在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：
 
-主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等
-第三方插件进程：管理第三方插件
-GPU线程：用于3D绘制
-渲染进程：对前端">
+原始数据类型：null、undefined、bool、string、number、boo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@ GPU线程：用于3D绘制
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>浏览器中的进程、线程和Event Loop | Walter</title>
+    <title>JavaScript强制类型转换 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -272,7 +269,7 @@ GPU线程：用于3D绘制
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        浏览器中的进程、线程和Event Loop
+                        JavaScript强制类型转换
                     </div>
                 </div>
             </div>
@@ -409,7 +406,7 @@ GPU线程：用于3D绘制
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-01
+                    2019-12-20
                 </div>
                 
 
@@ -418,14 +415,14 @@ GPU线程：用于3D绘制
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    764
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 				
@@ -441,96 +438,39 @@ GPU线程：用于3D绘制
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#浏览器</p>
-<p>浏览器是多进程的。每一个Tab页就是一个独立的进程。</p>
+                <p>###类型</p>
+<p>在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：</p>
 <ul>
-<li>主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等</li>
-<li>第三方插件进程：管理第三方插件</li>
-<li>GPU线程：用于3D绘制</li>
-<li>渲染进程：对前端来说，最重要的进程。</li>
+<li>原始数据类型：null、undefined、bool、string、number、boolean以及symbol（es6提出）</li>
+<li>对象数据类型：Object（function、date 等属于Object的子类型）</li>
 </ul>
-<h1 id="浏览器内核（渲染进程）"><a href="#浏览器内核（渲染进程）" class="headerlink" title="浏览器内核（渲染进程）"></a>浏览器内核（渲染进程）</h1><p>渲染进程是多线程的。它包含一下几大线程：</p>
+<p>那么这两种数据类型有什么区别呢？</p>
+<p>原始数据类型在内存中的存放地点是存放在栈中，所以在传递的过程中，是值传递。</p>
+<p>而对象数据类型的存放方式是：真实数据存放在堆中，而在栈中存放的是指向实际数据存储的地方，即堆的指针。</p>
+<p>这也就是值传递和引用传递。</p>
+<p>###字符串、数字和布尔类型之间的转换</p>
+<h4 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h4><p>它负责处理非字符串到字符串的转换。</p>
+<p>基本类型值的转换规则是：null转换为”null”，undefined转换为”undefined”,布尔转换成对应的数字：true转换为1，false转换为0。数字直接转换为对应的字符串。</p>
+<p>对应对象，除非对象内部定义了tostring方法，否则toString()（Object.prototype.toString()）返回其内部属性[[class]]的值。如果内部自定义了toString方法，则调用该内部方法并使用其返回值。</p>
+<p>对象的强制类型转换为string是通过<code>Toprimitive</code>抽象操作来完成的。</p>
+<blockquote>
+<p>ToPrimitive(input,PreferredType?)：其中PreferredType为number或者string。</p>
+<p>如果input是原始值，则返回该原始值对应的字符串。</p>
+<p>如果input不是原始值，则调用valueOf()方法，如果该方法返回原始值，则使用该方法返回值。</p>
+<p>如果valueOf()返回的不是原始值，则调用toString()方法，如果该方法返回原始值，则使用该方法返回的原始值。</p>
+<p>否则，报错TypeError</p>
+</blockquote>
+<p>JSON字符串化</p>
+<p>工具函数JSON.stringify可以将JSON对象序列化为字符串，内部也是调用了ToString。</p>
+<p>JSON.stringify使用规则：对于基本数据类型的值，使用JSON.stringify和使用toString返回结果一样。对于所有安全的JSON值，都可以使用JSON.stringify方法，所谓的JSON安全值是指：除了undefined、symbol、function以及包含循环引用的对象。</p>
+<p>JSON.stringify接收第二个参数：可以为字符串数组或者函数。如果是一个字符串数组，则根据数组内的元素，返回指定的对象属性和属性值。如果为函数，则为过滤函数，接收两个参数，key、value，我们可以根据自己的需要自行设定返回值。如果不需要某个属性，返回undefined即可过滤。</p>
+<p>JSON.stringify接收第三个参数：用于指定输出字符串的输出格式。</p>
+<p>如果对象内部有自定义的toJSON方法，则使用该方法。</p>
+<h4 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h4><p>用来将非数字处理成数字。转换方式遵循ToPrimitive，</p>
+<h4 id="ToBoolean"><a href="#ToBoolean" class="headerlink" title="ToBoolean"></a>ToBoolean</h4><p>JavaScript中的值大概可以分为两类：</p>
 <ul>
-<li>GUI线程<ul>
-<li>它负责页面的渲染、布局。</li>
-<li>当页面发生重绘或者回流的时候，就会触发该线程</li>
-<li>它和JS引擎线程互斥</li>
-</ul>
-</li>
-<li>JS引擎线程<ul>
-<li>负责程序的解析和执行</li>
-</ul>
-</li>
-<li>事件触发线程<ul>
-<li>它控制事件循环，管理着一个事件任务队列TaskQueue</li>
-<li>当异步任务满足条件时，会将该异步任务的回调函数放入到JS引擎线程所在的执行栈中执行</li>
-</ul>
-</li>
-<li>定时触发器线程<ul>
-<li>setTimeOut 和 setInterval 所在的线程</li>
-<li>定时器任务的计时不是由JS引擎计时的，而是由该线程控制</li>
-<li>当定时任务计时完成之后，会通知事件触发线程</li>
-</ul>
-</li>
-<li>异步http请求线程<ul>
-<li>一个独立的ajax请求线程</li>
-<li>当请求完成之后，会通知事件触发线程</li>
-</ul>
-</li>
-</ul>
-<h4 id="为什么GUI线程和JS引擎线程互斥"><a href="#为什么GUI线程和JS引擎线程互斥" class="headerlink" title="为什么GUI线程和JS引擎线程互斥"></a>为什么GUI线程和JS引擎线程互斥</h4><p>因为JS是可以操作DOM的，如果使用JS操作DOM的同时，GUI线程也在渲染DOM，那么渲染完成之后的元素可能就不是之前的元素了</p>
-<h4 id="为什么JS引擎是单线程"><a href="#为什么JS引擎是单线程" class="headerlink" title="为什么JS引擎是单线程"></a>为什么JS引擎是单线程</h4><ul>
-<li>创建JavaScript语言的时候，多进程多线程的架构并不流行，硬件支持度不高</li>
-<li>多进程多线程操作需要加锁，操作成本较高，较为复杂</li>
-<li>如果多个线程同时操作一个DOM，那么结果会是不可预料的</li>
-</ul>
-<h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><ul>
-<li>JS的任务分为同步任何和异步任务的</li>
-<li>同步任务都在JS引擎的执行栈上执行</li>
-<li>事件触发线程管理一个任务队列，TaskQueue，当异步任务满足条件时，事件触发线程会将其放到任务队列当中，当主线程（JS引擎线程）执行完执行栈中的任务之后，会读取任务队列中的任务，如果有，就将可执行的异步任务的回调函数推入到执行栈中，开始执行。如果没有，则再次向事件触发线程发起询问，直到有为止。</li>
-</ul>
-<p><img src="http://cdn.yangkunxiao.cn/EventLoop.png" alt="Event Loop"></p>
-<p>代码解释：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timerCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'httpCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// 同步任务</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 同步任务</span>
-<span class="token comment" spellcheck="true">// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理</span>
-<span class="token comment" spellcheck="true">// 1s 后事件触发线程将 timerCallback 加入到事件队列中</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span>timerCallback<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 同步任务</span>
-<span class="token comment" spellcheck="true">// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理</span>
-<span class="token comment" spellcheck="true">// 请求成功后事件触发线程将 httpCallback 加入到事件队列中</span>
-$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'www.xxxx.com'</span><span class="token punctuation">,</span>httpCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 同步任务</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//...</span>
-<span class="token comment" spellcheck="true">// 所有同步任务执行完后</span>
-<span class="token comment" spellcheck="true">// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数</span>
-<span class="token comment" spellcheck="true">// 如果没有，一直询问，直到有为止</span>
-<span class="token comment" spellcheck="true">// 如果有，将回调事件加入执行栈中，开始执行回调代码</span>
-</code></pre>
-<p>总结：</p>
-<ul>
-<li>JS引擎线程只执行执行栈中的事件</li>
-<li>执行栈中的代码执行完毕，就会读取事件队列中的事件</li>
-<li>事件队列中的回调事件，是由各自线程插入到事件队列中的</li>
-<li>如此循环</li>
-</ul>
-<h4 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h4><p>宏任务：可以理解为浏览器级别的任务。主代码块，setTimeout，setInterval等，都属于宏任务</p>
-<p>微任务：JS引擎级别的任务。Promise，process.nextTick等，属于<code>微任务</code>。</p>
-<p>执行顺序：</p>
-<ul>
-<li>当前代码块对应的宏任务</li>
-<li>当前宏任务结束之后，下一个宏任务开始之前，执行当前对列的微任务</li>
-<li>GUI引擎渲染</li>
-<li>下一个宏任务</li>
+<li>可以被强制转换为false的值，如：undefined、null、false、+0、-0、NaN和””</li>
+<li>其他可以被转换为true的值</li>
 </ul>
 
             </div>
@@ -557,7 +497,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/">http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</a>
+                    <a href="http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -761,31 +701,33 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">
+                <a href="/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浅谈JavaScript异步编程">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JavaScript强制类型转换">
                         
-                        <span class="card-title">浅谈JavaScript异步编程</span>
+                        <span class="card-title">JavaScript强制类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript异步编程
-PromisePromise是异步编程的一种实现方式，它比传统的解决方案更加合适、强大。所谓Promise，就是一种容器，容器里面保存着未来才会发生的事情（一般是异步操作）的结果。
-Promise是一个对象，它
+                            ###类型
+在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：
+
+原始数据类型：null、undefined、bool、string、number、boo
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -798,6 +740,7 @@ Promise是一个对象，它
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -816,27 +759,25 @@ Promise是一个对象，它
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/01/JavaScript/for/">
+                <a href="/2019/12/15/JavaScript/drag/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="详解JS的for循环">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="HTML5拖拽事件">
                         
-                        <span class="card-title">详解JS的for循环</span>
+                        <span class="card-title">HTML5拖拽事件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            forlet arr1 = [1, 2, 3];
-arr1['name'] = 'l'
-for (let i = 0, len = arr1.length; i &lt; len; i++) {
-  console.log(i, arr1[
+                            在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。
+使用onmouse事件实现拖放通过监听鼠标事件实
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-15
                             </span>
                         <span class="publish-author">
                             

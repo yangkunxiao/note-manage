@@ -3,10 +3,10 @@
   <title>Walter</title>
   
   <subtitle>学无止境</subtitle>
-  <link href="/public/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-15T14:18:01.313Z</updated>
+  <updated>2019-12-20T15:23:15.403Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript强制类型转换</title>
+    <link href="http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</id>
+    <published>2019-12-20T15:40:00.000Z</published>
+    <updated>2019-12-20T15:23:15.403Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;###类型&lt;/p&gt;
+&lt;p&gt;在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原始数据类型：null、undefined、bool、string、number、b
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML5拖拽事件</title>
@@ -543,33 +573,6 @@
         
           &lt;p&gt;JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。&lt;/p&gt;
 &lt;h4 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决多图片压缩上传和iOS端图片上传选择90度的问题</title>
-    <link href="http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/"/>
-    <id>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</id>
-    <published>2019-11-20T03:30:00.000Z</published>
-    <updated>2019-11-25T13:04:47.802Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;逻辑思路：&lt;br&gt;1、监听input文件值的change事件&lt;br&gt;2、获取文件列表&lt;br&gt;3、使用FileReader()函数读取图片信息，并转为base64格式&lt;br&gt;4、根据预设的阀值，判断是否压缩&lt;br&gt;5、如果不压缩，将图片转为blob格式，使用FormData(
         
       
     
