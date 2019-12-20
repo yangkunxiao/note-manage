@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-20T15:23:15.403Z</updated>
+  <updated>2019-12-20T15:24:42.793Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
     <id>http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</id>
     <published>2019-12-20T15:40:00.000Z</published>
-    <updated>2019-12-20T15:23:15.403Z</updated>
+    <updated>2019-12-20T15:24:42.793Z</updated>
     
     <summary type="html">
     
@@ -29,10 +29,7 @@
       
         
         
-          &lt;p&gt;###类型&lt;/p&gt;
-&lt;p&gt;在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;原始数据类型：null、undefined、bool、string、number、b
+          &lt;h3 id=&quot;类型&quot;&gt;&lt;a href=&quot;#类型&quot; class=&quot;headerlink&quot;
         
       
     
