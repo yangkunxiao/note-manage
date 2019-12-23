@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-20T15:58:50.669Z</updated>
+  <updated>2019-12-23T14:53:48.602Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack基础</title>
+    <link href="http://yangkunxiao.github.io/2019/12/24/Webpack/index/"/>
+    <id>http://yangkunxiao.github.io/2019/12/24/Webpack/index/</id>
+    <published>2019-12-23T16:47:00.000Z</published>
+    <updated>2019-12-23T14:53:48.602Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript强制类型转换</title>
@@ -100,6 +119,33 @@
   </entry>
   
   <entry>
+    <title>详解JS的for循环</title>
+    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/for/"/>
+    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</id>
+    <published>2019-12-01T02:46:00.000Z</published>
+    <updated>2019-12-07T14:05:15.614Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;for&quot;&gt;&lt;a href=&quot;#for&quot; class=&quot;headerlink&quot; title=&quot;for&quot;&gt;&lt;/a&gt;for&lt;/h4&gt;&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浏览器中的进程、线程和Event Loop</title>
     <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/"/>
     <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</id>
@@ -132,38 +178,11 @@
   </entry>
   
   <entry>
-    <title>详解JS的for循环</title>
-    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/for/"/>
-    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</id>
-    <published>2019-12-01T02:46:00.000Z</published>
-    <updated>2019-12-07T14:05:15.614Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;for&quot;&gt;&lt;a href=&quot;#for&quot; class=&quot;headerlink&quot; title=&quot;for&quot;&gt;&lt;/a&gt;for&lt;/h4&gt;&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS和CSS的tree-shaking</title>
+    <title>tree-shaking</title>
     <link href="http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/"/>
     <id>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</id>
     <published>2019-11-30T15:20:00.000Z</published>
-    <updated>2019-11-30T15:21:54.719Z</updated>
+    <updated>2019-12-23T14:46:29.580Z</updated>
     
     <summary type="html">
     
@@ -542,34 +561,6 @@
         
         
           &lt;h4 id=&quot;原型对象&quot;&gt;&lt;a href=&quot;#原型对象&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript数据类型</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</id>
-    <published>2019-11-21T02:50:00.000Z</published>
-    <updated>2019-11-25T13:05:59.036Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;JavaScript中有一下七种数据类型：Number、String、Null、Undefined、Bool、Object以及Symbal。&lt;/p&gt;
-&lt;h4 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerlink&quot;
         
       
     

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/12/24/Webpack/index/</loc>
+    
+    <lastmod>2019-12-23T14:53:48.602Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</loc>
+    
+    <lastmod>2019-12-23T14:46:29.580Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/12/20/JavaScript/%25E7%25B1%25BB%25E5%259E%258B%25E8%25BD%25AC%25E6%258D%25A2/</loc>
     
     <lastmod>2019-12-20T15:58:50.669Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</loc>
     
     <lastmod>2019-12-07T14:05:15.614Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</loc>
-    
-    <lastmod>2019-11-30T15:21:54.719Z</lastmod>
     
   </url>
   

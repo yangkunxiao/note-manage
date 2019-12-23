@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>webpack基础</title>
+      <link href="/2019/12/24/Webpack/index/"/>
+      <url>/2019/12/24/Webpack/index/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> webpack </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript强制类型转换</title>
       <link href="/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
       <url>/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
@@ -79,31 +104,6 @@
     
     
     <entry>
-      <title>浏览器中的进程、线程和Event Loop</title>
-      <link href="/2019/12/01/JavaScript/EventLoop/"/>
-      <url>/2019/12/01/JavaScript/EventLoop/</url>
-      
-        <content type="html"><![CDATA[<p>#浏览器</p><p>浏览器是多进程的。每一个Tab页就是一个独立的进程。</p><ul><li>主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等</li><li>第三方插件进程：管理第三方插件</li><li>GPU线程：用于3D绘制</li><li>渲染进程：对前端来说，最重要的进程。</li></ul><h1 id="浏览器内核（渲染进程）"><a href="#浏览器内核（渲染进程）" class="headerlink" title="浏览器内核（渲染进程）"></a>浏览器内核（渲染进程）</h1><p>渲染进程是多线程的。它包含一下几大线程：</p><ul><li>GUI线程<ul><li>它负责页面的渲染、布局。</li><li>当页面发生重绘或者回流的时候，就会触发该线程</li><li>它和JS引擎线程互斥</li></ul></li><li>JS引擎线程<ul><li>负责程序的解析和执行</li></ul></li><li>事件触发线程<ul><li>它控制事件循环，管理着一个事件任务队列TaskQueue</li><li>当异步任务满足条件时，会将该异步任务的回调函数放入到JS引擎线程所在的执行栈中执行</li></ul></li><li>定时触发器线程<ul><li>setTimeOut 和 setInterval 所在的线程</li><li>定时器任务的计时不是由JS引擎计时的，而是由该线程控制</li><li>当定时任务计时完成之后，会通知事件触发线程</li></ul></li><li>异步http请求线程<ul><li>一个独立的ajax请求线程</li><li>当请求完成之后，会通知事件触发线程</li></ul></li></ul><h4 id="为什么GUI线程和JS引擎线程互斥"><a href="#为什么GUI线程和JS引擎线程互斥" class="headerlink" title="为什么GUI线程和JS引擎线程互斥"></a>为什么GUI线程和JS引擎线程互斥</h4><p>因为JS是可以操作DOM的，如果使用JS操作DOM的同时，GUI线程也在渲染DOM，那么渲染完成之后的元素可能就不是之前的元素了</p><h4 id="为什么JS引擎是单线程"><a href="#为什么JS引擎是单线程" class="headerlink" title="为什么JS引擎是单线程"></a>为什么JS引擎是单线程</h4><ul><li>创建JavaScript语言的时候，多进程多线程的架构并不流行，硬件支持度不高</li><li>多进程多线程操作需要加锁，操作成本较高，较为复杂</li><li>如果多个线程同时操作一个DOM，那么结果会是不可预料的</li></ul><h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><ul><li>JS的任务分为同步任何和异步任务的</li><li>同步任务都在JS引擎的执行栈上执行</li><li>事件触发线程管理一个任务队列，TaskQueue，当异步任务满足条件时，事件触发线程会将其放到任务队列当中，当主线程（JS引擎线程）执行完执行栈中的任务之后，会读取任务队列中的任务，如果有，就将可执行的异步任务的回调函数推入到执行栈中，开始执行。如果没有，则再次向事件触发线程发起询问，直到有为止。</li></ul><p><img src="http://cdn.yangkunxiao.cn/EventLoop.png" alt="Event Loop"></p><p>代码解释：</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timerCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'httpCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">// 同步任务</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span><span class="token comment" spellcheck="true">// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理</span><span class="token comment" spellcheck="true">// 1s 后事件触发线程将 timerCallback 加入到事件队列中</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>timerCallback<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span><span class="token comment" spellcheck="true">// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理</span><span class="token comment" spellcheck="true">// 请求成功后事件触发线程将 httpCallback 加入到事件队列中</span>$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'www.xxxx.com'</span><span class="token punctuation">,</span>httpCallback<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//...</span><span class="token comment" spellcheck="true">// 所有同步任务执行完后</span><span class="token comment" spellcheck="true">// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数</span><span class="token comment" spellcheck="true">// 如果没有，一直询问，直到有为止</span><span class="token comment" spellcheck="true">// 如果有，将回调事件加入执行栈中，开始执行回调代码</span></code></pre><p>总结：</p><ul><li>JS引擎线程只执行执行栈中的事件</li><li>执行栈中的代码执行完毕，就会读取事件队列中的事件</li><li>事件队列中的回调事件，是由各自线程插入到事件队列中的</li><li>如此循环</li></ul><h4 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h4><p>宏任务：可以理解为浏览器级别的任务。主代码块，setTimeout，setInterval等，都属于宏任务</p><p>微任务：JS引擎级别的任务。Promise，process.nextTick等，属于<code>微任务</code>。</p><p>执行顺序：</p><ul><li>当前代码块对应的宏任务</li><li>当前宏任务结束之后，下一个宏任务开始之前，执行当前对列的微任务</li><li>GUI引擎渲染</li><li>下一个宏任务</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> JavaScript </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>详解JS的for循环</title>
       <link href="/2019/12/01/JavaScript/for/"/>
       <url>/2019/12/01/JavaScript/for/</url>
@@ -129,7 +129,32 @@
     
     
     <entry>
-      <title>JS和CSS的tree-shaking</title>
+      <title>浏览器中的进程、线程和Event Loop</title>
+      <link href="/2019/12/01/JavaScript/EventLoop/"/>
+      <url>/2019/12/01/JavaScript/EventLoop/</url>
+      
+        <content type="html"><![CDATA[<p>#浏览器</p><p>浏览器是多进程的。每一个Tab页就是一个独立的进程。</p><ul><li>主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等</li><li>第三方插件进程：管理第三方插件</li><li>GPU线程：用于3D绘制</li><li>渲染进程：对前端来说，最重要的进程。</li></ul><h1 id="浏览器内核（渲染进程）"><a href="#浏览器内核（渲染进程）" class="headerlink" title="浏览器内核（渲染进程）"></a>浏览器内核（渲染进程）</h1><p>渲染进程是多线程的。它包含一下几大线程：</p><ul><li>GUI线程<ul><li>它负责页面的渲染、布局。</li><li>当页面发生重绘或者回流的时候，就会触发该线程</li><li>它和JS引擎线程互斥</li></ul></li><li>JS引擎线程<ul><li>负责程序的解析和执行</li></ul></li><li>事件触发线程<ul><li>它控制事件循环，管理着一个事件任务队列TaskQueue</li><li>当异步任务满足条件时，会将该异步任务的回调函数放入到JS引擎线程所在的执行栈中执行</li></ul></li><li>定时触发器线程<ul><li>setTimeOut 和 setInterval 所在的线程</li><li>定时器任务的计时不是由JS引擎计时的，而是由该线程控制</li><li>当定时任务计时完成之后，会通知事件触发线程</li></ul></li><li>异步http请求线程<ul><li>一个独立的ajax请求线程</li><li>当请求完成之后，会通知事件触发线程</li></ul></li></ul><h4 id="为什么GUI线程和JS引擎线程互斥"><a href="#为什么GUI线程和JS引擎线程互斥" class="headerlink" title="为什么GUI线程和JS引擎线程互斥"></a>为什么GUI线程和JS引擎线程互斥</h4><p>因为JS是可以操作DOM的，如果使用JS操作DOM的同时，GUI线程也在渲染DOM，那么渲染完成之后的元素可能就不是之前的元素了</p><h4 id="为什么JS引擎是单线程"><a href="#为什么JS引擎是单线程" class="headerlink" title="为什么JS引擎是单线程"></a>为什么JS引擎是单线程</h4><ul><li>创建JavaScript语言的时候，多进程多线程的架构并不流行，硬件支持度不高</li><li>多进程多线程操作需要加锁，操作成本较高，较为复杂</li><li>如果多个线程同时操作一个DOM，那么结果会是不可预料的</li></ul><h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><ul><li>JS的任务分为同步任何和异步任务的</li><li>同步任务都在JS引擎的执行栈上执行</li><li>事件触发线程管理一个任务队列，TaskQueue，当异步任务满足条件时，事件触发线程会将其放到任务队列当中，当主线程（JS引擎线程）执行完执行栈中的任务之后，会读取任务队列中的任务，如果有，就将可执行的异步任务的回调函数推入到执行栈中，开始执行。如果没有，则再次向事件触发线程发起询问，直到有为止。</li></ul><p><img src="http://cdn.yangkunxiao.cn/EventLoop.png" alt="Event Loop"></p><p>代码解释：</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timerCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'httpCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">// 同步任务</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span><span class="token comment" spellcheck="true">// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理</span><span class="token comment" spellcheck="true">// 1s 后事件触发线程将 timerCallback 加入到事件队列中</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>timerCallback<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span><span class="token comment" spellcheck="true">// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理</span><span class="token comment" spellcheck="true">// 请求成功后事件触发线程将 httpCallback 加入到事件队列中</span>$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'www.xxxx.com'</span><span class="token punctuation">,</span>httpCallback<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 同步任务</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//...</span><span class="token comment" spellcheck="true">// 所有同步任务执行完后</span><span class="token comment" spellcheck="true">// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数</span><span class="token comment" spellcheck="true">// 如果没有，一直询问，直到有为止</span><span class="token comment" spellcheck="true">// 如果有，将回调事件加入执行栈中，开始执行回调代码</span></code></pre><p>总结：</p><ul><li>JS引擎线程只执行执行栈中的事件</li><li>执行栈中的代码执行完毕，就会读取事件队列中的事件</li><li>事件队列中的回调事件，是由各自线程插入到事件队列中的</li><li>如此循环</li></ul><h4 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h4><p>宏任务：可以理解为浏览器级别的任务。主代码块，setTimeout，setInterval等，都属于宏任务</p><p>微任务：JS引擎级别的任务。Promise，process.nextTick等，属于<code>微任务</code>。</p><p>执行顺序：</p><ul><li>当前代码块对应的宏任务</li><li>当前宏任务结束之后，下一个宏任务开始之前，执行当前对列的微任务</li><li>GUI引擎渲染</li><li>下一个宏任务</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tree-shaking</title>
       <link href="/2019/11/30/Webpack/tree-shaking/"/>
       <url>/2019/11/30/Webpack/tree-shaking/</url>
       
