@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-23T14:53:48.602Z</updated>
+  <updated>2019-12-31T08:58:23.819Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>web Worker(2019最后一更)</title>
+    <link href="http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/"/>
+    <id>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</id>
+    <published>2019-12-31T09:00:00.000Z</published>
+    <updated>2019-12-31T08:58:23.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;web-Worker的使用&quot;&gt;&lt;a href=&quot;#web-Worker的使用&quot; class=&quot;headerlink&quot; title=&quot;web Worker的使用&quot;&gt;&lt;/a&gt;web Worker的使用&lt;/h1&gt;&lt;h2 id=&quot;web-Worker&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack基础</title>
@@ -534,33 +561,6 @@
         
         
           &lt;h4 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript原型、原型链和继承</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</id>
-    <published>2019-11-21T08:45:00.000Z</published>
-    <updated>2019-12-15T07:02:12.845Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;原型对象&quot;&gt;&lt;a href=&quot;#原型对象&quot; class=&quot;headerlink&quot;
         
       
     

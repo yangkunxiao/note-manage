@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</loc>
+    
+    <lastmod>2019-12-31T08:58:23.819Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/12/24/Webpack/index/</loc>
     
     <lastmod>2019-12-23T14:53:48.602Z</lastmod>

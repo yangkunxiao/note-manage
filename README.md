@@ -12,6 +12,7 @@ JavaScript
 - [进程和线程](https://yangkunxiao.github.io/2019/12/04/JavaScript/EventLoop/)
 - [HTML5拖拽](https://yangkunxiao.github.io/2019/12/15/JavaScript/drag/)
 - [JavaScript强制类型转换](https://yangkunxiao.github.io/2019/12/20/JavaScript/类型转换/)
+- [web Worker](https://yangkunxiao.github.io/2019/12/20/JavaScript/webWorker/)
 
 Nginx
 

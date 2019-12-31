@@ -4,16 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx下配置Vue项目, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="1、配置选择：
-
-Linux系统：Centos 6.5 x64
-Nginx版本：1.7.8
-
-2、安装nginx：
-cd /usr/local
-//下载nginx
-wget http://nginx.org/download/nginx-1">
+    <meta name="keywords" content="web Worker(2019最后一更), javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +13,7 @@ wget http://nginx.org/download/nginx-1">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx下配置Vue项目 | Walter</title>
+    <title>web Worker(2019最后一更) | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,13 +260,13 @@ wget http://nginx.org/download/nginx-1">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nginx下配置Vue项目
+                        web Worker(2019最后一更)
                     </div>
                 </div>
             </div>
@@ -285,10 +277,99 @@ wget http://nginx.org/download/nginx-1">
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -297,12 +378,8 @@ wget http://nginx.org/download/nginx-1">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/nginx/">
-                                <span class="chip bg-color">nginx</span>
-                            </a>
-                        
-                            <a href="/tags/vue/">
-                                <span class="chip bg-color">vue</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -313,12 +390,8 @@ wget http://nginx.org/download/nginx-1">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/nginx/" class="post-category">
-                                nginx
-                            </a>
-                        
-                            <a href="/categories/nginx/vue/" class="post-category">
-                                vue
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -330,7 +403,7 @@ wget http://nginx.org/download/nginx-1">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-23
+                    2019-12-31
                 </div>
                 
 
@@ -339,14 +412,14 @@ wget http://nginx.org/download/nginx-1">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    233
+                    851
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 				
@@ -362,46 +435,49 @@ wget http://nginx.org/download/nginx-1">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1、配置选择：</p>
-<ul>
-<li>Linux系统：Centos 6.5 x64</li>
-<li>Nginx版本：1.7.8</li>
+                <h1 id="web-Worker的使用"><a href="#web-Worker的使用" class="headerlink" title="web Worker的使用"></a>web Worker的使用</h1><h2 id="web-Worker"><a href="#web-Worker" class="headerlink" title="web Worker"></a>web Worker</h2><h3 id="什么是web-Worker"><a href="#什么是web-Worker" class="headerlink" title="什么是web Worker"></a>什么是web Worker</h3><p>JavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。<br />web Worker是HTML5 提出的JavaScript多线程解决方案。我们可以将一些大计算量的操作交给web worker去运算，而不必“冻结”页面。</p>
+<h3 id="web-Worker的作用"><a href="#web-Worker的作用" class="headerlink" title="web Worker的作用"></a>web Worker的作用</h3><p>为JavaScript创建多线程。允许主线程创建子线程，将主线程的复杂的任务分配给子线程去执行。在主线程运行的同时，子线程也在后台执行，二者互不影响。等子线程处理完成之后，再将结果传递给主线程。这样，子线程分担了主线程的负载，让主线程的运行“顺畅”起来，不会被阻塞。</p>
+<h3 id="web-Worker的使用限制"><a href="#web-Worker的使用限制" class="headerlink" title="web Worker的使用限制"></a>web Worker的使用限制</h3><ul>
+<li>同源限制。分配的worker线程的脚本文件，必须和主线程同源。</li>
+<li>DOM限制。worker线程所在的脚本文件，无法读取主线程所在的网页的DOM对象。但是可以使用 <code>location</code> 和 <code>navigator</code> 对象。</li>
+<li>主线程和子线程通讯。主线程和worker线程不在同一个上下文对象，所以必须使用消息进行通讯。</li>
+<li>脚本限制。worker线程中不允许使用 <code>alert</code> 和 <code>confirm</code> 。但是可以使用 <code>XMLHttpRequest</code> 对象。</li>
+<li>文件限制。worker线程不能读取本地文件，它所加载的脚本文件，必须来源于网络。</li>
 </ul>
-<p>2、安装nginx：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local
-//下载nginx
-<span class="token function">wget</span> http://nginx.org/download/nginx-1.7.8.tar.gz
-<span class="token function">cd</span> nginx-1.7.8
-<span class="token function">make</span>
-<span class="token function">make</span> <span class="token function">install</span></code></pre>
-<p>3、开启nginx服务：</p>
-<pre class=" language-bash"><code class="language-bash">/usr/local/nginx-1.7.8/sbin/nginx
-
-重启或关闭进程：
-
-/usr/local/nginx-1.7.8/sbin/nginx -s reload
-
-/usr/local/nginx-1.7.8/sbin/nginx -s stop</code></pre>
-<p>4、关闭防火墙：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> iptables stop</code></pre>
-<p>5、修改配置文件：</p>
-<pre class=" language-bash"><code class="language-bash">usr/local/nginx-1.7.8/conf/nginx.conf
-
-server <span class="token punctuation">{</span>
-    listen 80<span class="token punctuation">;</span>//监听80端口
-    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>   //项目对应域名
-    location /<span class="token punctuation">{</span>
-     root /data/www/dist<span class="token punctuation">;</span>     //项目存放路径
-     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>    //vue项目配置history模式
-     index index.html index.htm<span class="token punctuation">;</span>    //项目首页名称
-     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;   //域名对应URL，这个URL对应的就是http://m.horace.space，可通过域名直接访问</span>
-    <span class="token punctuation">}</span>
-    location /assets/<span class="token punctuation">{</span>//配置资源文件夹
-        root /usr/<span class="token punctuation">;</span>//资源文件夹路径
-        autoindex on<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
- <span class="token punctuation">}</span></code></pre>
-<p>7、多个项目配置多个service即可<br>6、重启即可</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h3><p>主线程新建worker线程：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//new Worker(jsUrl, options);</span>
+<span class="token keyword">let</span> worker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string">'child.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>Worker</code> 构造函数的参数是一个脚本文件，该脚本文件就是要Worker线程的脚本文件。该文件必须来自网络，否则则会失败。Worker接收第二个参数，该参数是对象形式，它的一个作用就是指定Worker的名称。</p>
+<h4 id="主线程和子线程通讯"><a href="#主线程和子线程通讯" class="headerlink" title="主线程和子线程通讯"></a>主线程和子线程通讯</h4><p>主线程调用 <code>worker.postMessage()</code> 方法，向子线程传递数据。</p>
+<pre class=" language-javascript"><code class="language-javascript">worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token string">'准备好了吗？开始通信!'</span><span class="token punctuation">)</span>；
+<span class="token comment" spellcheck="true">//or</span>
+worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">'common'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">"准备好了吗？开始通信!"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="主线程指定监听事件"><a href="#主线程指定监听事件" class="headerlink" title="主线程指定监听事件"></a>主线程指定监听事件</h4><p>主线程使用 <code>worker.onmessage()</code> 方法，监听从子线程发送的数据：</p>
+<pre class=" language-javascript"><code class="language-javascript">worker<span class="token punctuation">.</span>onmessage <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'主线程收到子线程发的消息！！！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>主线程中可以监听worker是否发生错误。如果发生错误，worker就会触发主线程的 <code>onerror</code> 方法。</p>
+<pre class=" language-javascript"><code class="language-javascript">worker<span class="token punctuation">.</span>onerror <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//e.lineno ：错误代码的行数</span>
+  <span class="token comment" spellcheck="true">//e.filename ：发生错误的文件</span>
+  <span class="token comment" spellcheck="true">//e.message ：错误详细信息</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="终止执行"><a href="#终止执行" class="headerlink" title="终止执行"></a>终止执行</h4><p>当任务完成以后，主线程可以通过 <code>worker.terminate()</code> 方法，终止worker的执行。</p>
+<pre class=" language-javascript"><code class="language-javascript">worker<span class="token punctuation">.</span><span class="token function">terminate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="worker线程"><a href="#worker线程" class="headerlink" title="worker线程"></a>worker线程</h3><h4 id="worker监听函数"><a href="#worker监听函数" class="headerlink" title="worker监听函数"></a>worker监听函数</h4><p>在worker中，使用监听函数，来获取主线程发送的数据：</p>
+<pre class=" language-javascript"><code class="language-javascript">self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`子线程接收消息：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    self<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`我收到你发的消息了! 你发的消息是：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>上述代码中， <code>self</code> 代表子线程自身，即子线程的全局对象。</p>
+<h4 id="worker线程加载脚本"><a href="#worker线程加载脚本" class="headerlink" title="worker线程加载脚本"></a>worker线程加载脚本</h4><p>如果我们在worker中需要引入其他脚本文件的时候，可以使用 <code>importScripts()</code>  方法导入。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">importScripts</span><span class="token punctuation">(</span><span class="token string">'underscore.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>导入之后，就可以在worker线程中使用了。</p>
+<h4 id="关闭worker"><a href="#关闭worker" class="headerlink" title="关闭worker"></a>关闭worker</h4><p>当worker执行完毕之后，可以将其关闭：</p>
+<pre class=" language-javascript"><code class="language-javascript">self<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -427,7 +503,7 @@ server <span class="token punctuation">{</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/23/Nginx/vue/">http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</a>
+                    <a href="http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/">http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -464,12 +540,8 @@ server <span class="token punctuation">{</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/nginx/">
-                                    <span class="chip bg-color">nginx</span>
-                                </a>
-                            
-                                <a href="/tags/vue/">
-                                    <span class="chip bg-color">vue</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -635,49 +707,48 @@ server <span class="token punctuation">{</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/23/Nginx/multiProject/">
+                <a href="/2019/12/31/JavaScript/webWorker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="nginx同域名下配置多项目">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
                         
-                        <span class="card-title">nginx同域名下配置多项目</span>
+                        <span class="card-title">web Worker(2019最后一更)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            webpack.config.jsbuild: {
-    index: path.resolve(__dirname, '../dist/index.html'),
-    // Paths
-    assetsRoot: path.re
+                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/nginx/" class="post-category">
-                                    nginx
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -691,38 +762,31 @@ server <span class="token punctuation">{</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/23/Nginx/staticSource/">
+                <a href="/2019/12/24/Webpack/index/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="nginx下配置静态资源">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="webpack基础">
                         
-                        <span class="card-title">nginx下配置静态资源</span>
+                        <span class="card-title">webpack基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、查看nginx安装路径：
-whereis nginx
-2、新建静态资源存储文件夹：
-mkdir assets
-3、进入nginx目录中，修改nginx.conf文件：
-cd nginx: /usr/local/nginx/conf
-
-v
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/nginx/" class="post-category">
-                                    nginx
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
@@ -732,8 +796,8 @@ v
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nginx/">
-                        <span class="chip bg-color">nginx</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -808,6 +872,100 @@ v
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
