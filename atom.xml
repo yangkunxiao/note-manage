@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2019-12-31T08:58:23.819Z</updated>
+  <updated>2020-01-01T09:34:11.843Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈JS变量提升(2020新年第一更)</title>
+    <link href="http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/"/>
+    <id>http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</id>
+    <published>2020-01-01T09:30:00.000Z</published>
+    <updated>2020-01-01T09:34:11.843Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;浅谈JS变量提升（2020新年第一章）&quot;&gt;&lt;a href=&quot;#浅谈JS变量提升（2020新年第一章）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>web Worker(2019最后一更)</title>
@@ -337,9 +364,9 @@
       <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
-    
       <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
+    
+      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
     
   </entry>
   
@@ -534,33 +561,6 @@
         
         
           &lt;h4 id=&quot;作用域&quot;&gt;&lt;a href=&quot;#作用域&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用原生JavaScript实现call、apply和bind</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/this/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</id>
-    <published>2019-11-21T14:45:00.000Z</published>
-    <updated>2019-11-25T13:05:56.087Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot;
         
       
     

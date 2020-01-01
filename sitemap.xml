@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</loc>
+    
+    <lastmod>2020-01-01T09:34:11.843Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</loc>
     
     <lastmod>2019-12-31T08:58:23.819Z</lastmod>

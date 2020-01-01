@@ -4,9 +4,21 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="tree-shaking, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="js：tree-shaking
-它是指帮助开发者消除不同模块之间的一些无效代码的feature。在webpack中，也是有tree-shaking功能的，但是它的功能十分简单粗暴：只寻找import引入进来的变量是否出现过在模块内，非常简单">
+    <meta name="keywords" content="浅谈JS变量提升(2020新年第一更), javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
+console.log(typeof a);
+
+a();
+
+var a = 3;
+
+function a() {
+
+    console.log(typeof a);
+
+}
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +26,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>tree-shaking | Walter</title>
+    <title>浅谈JS变量提升(2020新年第一更) | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -261,13 +273,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        tree-shaking
+                        浅谈JS变量提升(2020新年第一更)
                     </div>
                 </div>
             </div>
@@ -379,8 +391,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/webpack/">
-                                <span class="chip bg-color">webpack</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
                     </div>
@@ -391,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/webpack/" class="post-category">
-                                webpack
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -404,7 +416,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-30
+                    2020-01-01
                 </div>
                 
 
@@ -413,14 +425,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    396
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 				
@@ -436,73 +448,147 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="js：tree-shaking"><a href="#js：tree-shaking" class="headerlink" title="js：tree-shaking"></a>js：tree-shaking</h4><ul>
-<li><p>它是指帮助开发者消除不同模块之间的一些无效代码的feature。在webpack中，也是有tree-shaking功能的，但是它的功能十分简单粗暴：只寻找<code>import</code>引入进来的变量是否出现过在模块内，非常简单粗暴。因为在开发过程中，开发者经常会犯这种错误：一些模块曾经引入了进来，但是后来却没有使用到，忘记删除了，这就会导致打包的时候，webpack自带的tree-shaking功能无法将这些无效的feature去除。</p>
-</li>
-<li><p>这是我们需要借助一些第三方插件去做这个事情：</p>
-<pre class=" language-base"><code class="language-base">npm install --save-dev webpack-deep-scope-plugin
+                <h1 id="浅谈JS变量提升（2020新年第一章）"><a href="#浅谈JS变量提升（2020新年第一章）" class="headerlink" title="浅谈JS变量提升（2020新年第一章）"></a>浅谈JS变量提升（2020新年第一章）</h1><p>首先，先丢出来一道题：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-//在webpack.config.js中引用
-const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-module.export = {
-    ......
-    plugins:[
-        new WebpackDeepScopeAnalysisPlugin()
-    ]
-}</code></pre>
-<p>详情请参考：<a href="https://diverse.space/2018/05/better-tree-shaking-with-scope-analysis" target="_blank" rel="noopener">https://diverse.space/2018/05/better-tree-shaking-with-scope-analysis</a></p>
-</li>
-</ul>
-<h4 id="css-tree-shaking"><a href="#css-tree-shaking" class="headerlink" title="css:tree-shaking"></a>css:tree-shaking</h4><ul>
-<li><p>spa：<a href="https://www.npmjs.com/package/purifycss-webpack" target="_blank" rel="noopener">purifycss-webpack</a>该插件会把所有未被引用的css全部去除</p>
-<pre class=" language-javascript"><code class="language-javascript">production：
-npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev purifycss<span class="token operator">-</span>webpack
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">//在webpack.config.js中引用</span>
-<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//查找文件</span>
-<span class="token keyword">const</span> glob <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'glob'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> PurifyCSSPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'purifycss-webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-module<span class="token punctuation">.</span><span class="token keyword">export</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token operator">...</span><span class="token operator">...</span>
-    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
-        <span class="token keyword">new</span> <span class="token class-name">PurifyCSSPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// Give paths to parse for rules. These should be absolute!</span>
-      paths<span class="token punctuation">:</span> glob<span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./dist/*.html'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
-</li>
-<li><p>mpa：<a href="https://www.npmjs.com/package/mini-css-extract-plugin" target="_blank" rel="noopener">mini-css-extract-plugin</a>将css从js中抽离出来</p>
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果我们不了解JavaScript中的变量提升和函数声明提升，那我们的答案可能就是这样的：</p>
+<pre class=" language-javascript"><code class="language-javascript">undefined
+
+ReferenceError<span class="token punctuation">:</span> b is not defined
+
+<span class="token operator">...</span>
+</code></pre>
+<p>那么正确的答案是什么呢？我们首先把这段代码还原：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>好了，这下看一看执行结果是什么呢？</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"function"</span>
+
+<span class="token string">"function"</span>
+
+<span class="token string">"number"</span>
+
+<span class="token string">"a is not a function"</span></code></pre>
+<h2 id="为什么会发生提升？"><a href="#为什么会发生提升？" class="headerlink" title="为什么会发生提升？"></a>为什么会发生提升？</h2><p>首先我们需要知道一点编译原理的知识。JavaScript的源代码在运行的时候，会经过两个阶段：编译和执行。而且，编译阶段往往就在执行阶段的前几微秒甚至更短的时间内。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><h4 id="词法解析"><a href="#词法解析" class="headerlink" title="词法解析"></a>词法解析</h4><p>这个阶段会先把字符组成的字符串解析成一个个有意义的代码块，这些代码块也被称为词法单元。如 <code>var a = 1;</code> 会被解析成： <code>var 、a、=、1、;</code> ，空格是否会被解析成词法单元，就要看空格在这个语言中有意义。</p>
+<h4 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h4><p>这个阶段会把词法解析生成的词法单元流解析成有元素逐级嵌套所组成的程序语法树，AST。至于AST的结构是如何构成的，这里有几个网站，大家可以去试试: <a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">网站1</a>、<a href="https://resources.jointjs.com/demos/javascript-ast" target="_blank" rel="noopener">网站2</a>。</p>
+<h4 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h4><p>这个阶段就是将语法解析阶段生成的AST转译成可执行的代码。</p>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><h4 id="LHS查询"><a href="#LHS查询" class="headerlink" title="LHS查询"></a>LHS查询</h4><p>在编译的过程中，先将标识符和函数声明给提升到其对应的作用域的顶端。标识符解析的时候，会进行LHS查询，在LHS查询的时候，如果标识符一直找不到声明的位置，那么最终就会在全局环境生成一个全局变量。</p>
 <blockquote>
-<p>注意：它和style-loader 互斥， 不能同时开启，且HMR(热更新的时候也不支持) ， 只用于开发环境。</p>
+<p>LHS ： 指的是赋值操作的左端。<br>标识符解析：请查看我的另外一篇文章。</p>
 </blockquote>
-<pre class=" language-javascript"><code class="language-javascript">npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev mini<span class="token operator">-</span>css<span class="token operator">-</span>extract<span class="token operator">-</span>plugin<span class="token punctuation">;</span>
+<h4 id="RHS查询"><a href="#RHS查询" class="headerlink" title="RHS查询"></a>RHS查询</h4><p>说到LHS查询，就不得不提对应的RHS查询，相信大家已经看出RHS的意思了把，它指的是赋值操作的源头。RHS查询的时候，如果找不到对应的标识符，就会抛出一个异常：ReferenceError。</p>
+<h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><p>函数提升和变量提升还有点不一样。函数提升，只会提升函数声明，而不会提升函数表达式。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> MiniCssExtractPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mini-css-extract-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//fn is not a function </span>
 
-module<span class="token punctuation">.</span><span class="token keyword">export</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token operator">...</span><span class="token operator">...</span>
-  rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      test<span class="token punctuation">:</span> <span class="token regex">/\.css$/i</span><span class="token punctuation">,</span>
-      use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token comment" spellcheck="true">// 'style-loader',</span>
-        <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//和style-loader 互斥 不能同时开启 HMR(热更新的时候也不支持)  只用于开发环境</span>
-          loader<span class="token punctuation">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span>
-          options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            publicPath<span class="token punctuation">:</span> <span class="token string">'../'</span><span class="token punctuation">,</span>
-          <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        loader<span class="token punctuation">:</span> <span class="token string">'css-loader'</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">//函数表达式</span>
+<span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//函数声明</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
-</li>
-</ul>
+<p>这里我把代码还原，我们来看一下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//函数声明</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> fn<span class="token punctuation">;</span>
+
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这下明白为什么执行函数fn的时候，会报错了吧。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>现在，大家是不是对变量和函数声明的提升机制已经有一定的了解了？那么让我们在深度实战一下。</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        f <span class="token operator">=</span> a<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yideng1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>在非严格模式下，代码块中，只有使用 <code>var</code> 声明的变量和函数声明是可以提升的，但是函数声明只能将函数的名字提升出去。 </p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
+
+<span class="token string">"undefined"</span>
+
+<span class="token string">"function"</span></code></pre>
+<p>在严格模式下：代码块中，只有使用 <code>var</code> 声明的变量可以提升出去。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
+
+<span class="token string">"f is not defined "</span></code></pre>
+<p>再来看一个题：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
+    <span class="token comment" spellcheck="true">// var f = 3;</span>
+    f <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//number</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
+    <span class="token comment" spellcheck="true">// var s = 3;</span>
+    s <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function </span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上述代码中，函数f是具名函数，函数s是函数表达式。具名函数中，可以在函数内部改变函数名，而函数表达式，如果有函数名，则它的函数名只能作用在其自身作用域中，且不可改变改变函数名。</p>
 
             </div>
             <hr/>
@@ -528,7 +614,7 @@ module<span class="token punctuation">.</span><span class="token keyword">export
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/">http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</a>
+                    <a href="http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/">http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,8 +651,8 @@ module<span class="token punctuation">.</span><span class="token keyword">export
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/webpack/">
-                                    <span class="chip bg-color">webpack</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
                         </div>
@@ -732,35 +818,43 @@ module<span class="token punctuation">.</span><span class="token keyword">export
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/01/JavaScript/EventLoop/">
+                <a href="/2020/01/01/JavaScript/variableHoisting/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="浏览器中的进程、线程和Event Loop">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="浅谈JS变量提升(2020新年第一更)">
                         
-                        <span class="card-title">浏览器中的进程、线程和Event Loop</span>
+                        <span class="card-title">浅谈JS变量提升(2020新年第一更)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            #浏览器
-浏览器是多进程的。每一个Tab页就是一个独立的进程。
+                            浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
+console.log(typeof a);
 
-主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等
-第三方插件进程：管理第三方插件
-GPU线程：用于3D绘制
-渲染进程：对前端
+a();
+
+var a = 3;
+
+function a() {
+
+    console.log(typeof a);
+
+}
+
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -773,6 +867,7 @@ GPU线程：用于3D绘制
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -791,34 +886,31 @@ GPU线程：用于3D绘制
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/30/Mocha/index/">
+                <a href="/2019/12/31/JavaScript/webWorker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="单元测试">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
                         
-                        <span class="card-title">单元测试</span>
+                        <span class="card-title">web Worker(2019最后一更)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单元测试单元测试是指对软件中最小可测试单元进行检查验证，也称作模块测试。在nodeJs中通常是指对某个函数或者API进行正确验证，以保证代码的可用性。
-单元测试有很多种，常见的有：行为驱动开发（BDD）和 测试驱动开发（TDD）。
-
-行为驱
+                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mocha/" class="post-category">
-                                    Mocha
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -828,8 +920,8 @@ GPU线程：用于3D绘制
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mocha/">
-                        <span class="chip bg-color">Mocha</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
