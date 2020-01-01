@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
+    <lastmod>2020-01-01</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
@@ -17,9 +20,6 @@
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/</loc>
-    <lastmod>2019-12-15</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
