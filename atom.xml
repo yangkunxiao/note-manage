@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2020-01-01T09:34:11.843Z</updated>
+  <updated>2020-01-03T06:27:25.853Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript块级作用域的默认变量和声明函数</title>
+    <link href="http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/"/>
+    <id>http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/</id>
+    <published>2020-01-03T06:27:00.000Z</published>
+    <updated>2020-01-03T06:27:25.853Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;块级作用域的变量声明和函数声明&quot;&gt;&lt;a href=&quot;#块级作用域的变量声明和函数声明&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈JS变量提升(2020新年第一更)</title>
@@ -364,9 +391,9 @@
       <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
     
     
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
-    
       <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
+    
+      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
     
   </entry>
   
@@ -544,33 +571,6 @@
     
     
       <category term="Hexo" scheme="http://yangkunxiao.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>作用域和作用域链</title>
-    <link href="http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/"/>
-    <id>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</id>
-    <published>2019-11-21T15:54:00.000Z</published>
-    <updated>2019-12-15T06:56:44.904Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;作用域&quot;&gt;&lt;a href=&quot;#作用域&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
     
   </entry>
   

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/change-this/</loc>
+    <lastmod>2020-01-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/</loc>
+    <lastmod>2020-01-03</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
@@ -41,9 +47,6 @@
     <lastmod>2019-11-30</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
-    <lastmod>2019-11-25</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/this/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>

@@ -4,10 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript强制类型转换, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="类型在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：
-
-原始数据类型：null、undefined、bool、string、number、boolean">
+    <meta name="keywords" content="JavaScript块级作用域的默认变量和声明函数, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="块级作用域的变量声明和函数声明最近在一个讨论群看到一个面试题：
+{
+  a = 10;
+  function a(){};
+  console.log(a)//10
+};
+console.log(a);//10
+what？不应该是：func">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JavaScript强制类型转换 | Walter</title>
+    <title>JavaScript块级作用域的默认变量和声明函数 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -262,13 +267,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JavaScript强制类型转换
+                        JavaScript块级作用域的默认变量和声明函数
                     </div>
                 </div>
             </div>
@@ -405,7 +410,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-20
+                    2020-01-03
                 </div>
                 
 
@@ -437,108 +442,94 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：</p>
-<ul>
-<li>原始数据类型：null、undefined、bool、string、number、boolean以及symbol（es6提出）</li>
-<li>对象数据类型：Object（function、date 等属于Object的子类型）</li>
-</ul>
-<p>那么这两种数据类型有什么区别呢？</p>
-<p>原始数据类型在内存中的存放地点是存放在栈中，所以在传递的过程中，是值传递。</p>
-<p>而对象数据类型的存放方式是：真实数据存放在堆中，而在栈中存放的是指向实际数据存储的地方，即堆的指针。</p>
-<p>这也就是值传递和引用传递。</p>
-<h3 id="字符串、数字和布尔类型之间的转换"><a href="#字符串、数字和布尔类型之间的转换" class="headerlink" title="字符串、数字和布尔类型之间的转换"></a>字符串、数字和布尔类型之间的转换</h3><h4 id="ToString"><a href="#ToString" class="headerlink" title="ToString"></a>ToString</h4><p>它负责处理非字符串到字符串的转换。</p>
-<p>基本类型值的转换规则是：null转换为”null”，undefined转换为”undefined”,布尔转换成对应的数字：true转换为1，false转换为0。数字直接转换为对应的字符串。</p>
-<p>对应对象，除非对象内部定义了tostring方法，否则toString()（Object.prototype.toString()）返回其内部属性[[class]]的值。如果内部自定义了toString方法，则调用该内部方法并使用其返回值。</p>
-<p>对象的强制类型转换为string是通过<code>Toprimitive</code>抽象操作来完成的。</p>
-<blockquote>
-<p>ToPrimitive(input,PreferredType?)：其中PreferredType为number或者string。</p>
-<p>如果input是原始值，则返回该原始值对应的字符串。</p>
-<p>如果input不是原始值，则调用valueOf()方法，如果该方法返回原始值，则使用该方法返回值。</p>
-<p>如果valueOf()返回的不是原始值，则调用toString()方法，如果该方法返回原始值，则使用该方法返回的原始值。</p>
-<p>否则，报错TypeError</p>
-</blockquote>
-<p>JSON字符串化</p>
-<p>工具函数JSON.stringify可以将JSON对象序列化为字符串，内部也是调用了ToString。</p>
-<p>JSON.stringify使用规则：对于基本数据类型的值，使用JSON.stringify和使用toString返回结果一样。对于所有安全的JSON值，都可以使用JSON.stringify方法，所谓的JSON安全值是指：除了undefined、symbol、function以及包含循环引用的对象。</p>
-<p>JSON.stringify接收第二个参数：可以为字符串数组或者函数。如果是一个字符串数组，则根据数组内的元素，返回指定的对象属性和属性值。如果为函数，则为过滤函数，接收两个参数，key、value，我们可以根据自己的需要自行设定返回值。如果不需要某个属性，返回undefined即可过滤。</p>
-<p>JSON.stringify接收第三个参数：用于指定输出字符串的输出格式。</p>
-<p>如果对象内部有自定义的toJSON方法，则使用该方法。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
-  a<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>
-  b<span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token comment" spellcheck="true">// toJSON:function(){</span>
-  <span class="token comment" spellcheck="true">//     return 0</span>
-  <span class="token comment" spellcheck="true">// }</span>
+                <h1 id="块级作用域的变量声明和函数声明"><a href="#块级作用域的变量声明和函数声明" class="headerlink" title="块级作用域的变量声明和函数声明"></a>块级作用域的变量声明和函数声明</h1><p>最近在一个讨论群看到一个面试题：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//10</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> str <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//过滤函数</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>key <span class="token operator">===</span> <span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">100</span>
-  <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> o <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//还原函数</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>key <span class="token operator">===</span> <span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">1</span>
-  <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4 id="ToNumber"><a href="#ToNumber" class="headerlink" title="ToNumber"></a>ToNumber</h4><p>用来将非数字处理成数字。转换方式遵循ToPrimitive，</p>
-<h4 id="ToBoolean"><a href="#ToBoolean" class="headerlink" title="ToBoolean"></a>ToBoolean</h4><p>JavaScript中的值大概可以分为两类：</p>
-<ul>
-<li>可以被强制转换为false的值，如：undefined、null、false、+0、-0、NaN和””</li>
-<li>其他可以被转换为true的值</li>
-</ul>
-<p>假值对象：封装了假值的对象。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Boolean</span><span class="token punctuation">(</span> <span class="token boolean">false</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span> <span class="token number">0</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span>
-<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span> <span class="token string">""</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//true</span></code></pre>
-<p>它们的值为true，但是如果对其进行强制类型转换，则结果为false。</p>
-<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><h4 id="隐式强制类型转换"><a href="#隐式强制类型转换" class="headerlink" title="隐式强制类型转换"></a>隐式强制类型转换</h4><h5 id="字符串和数字的隐式强制转换"><a href="#字符串和数字的隐式强制转换" class="headerlink" title="字符串和数字的隐式强制转换"></a>字符串和数字的隐式强制转换</h5><p>运算符：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">"42"</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token string">"0"</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "420"</span>
-c <span class="token operator">+</span> d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 42</span>
-
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "1,23,4"</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10</span></code></pre>
+<p>what？不应该是：function a(){} 、function a(){} 吗？</p>
+<p>最后一位牛人给出了他的理解，这里本人只是作出验证，加深理解。</p>
 <blockquote>
-<p>根据 ES5 规范 11.6.1 节，如果某个操作数是字符串或者能够通过以下步骤转换为字符串 的话，+ 将进行拼接操作。如果其中一个操作数是对象(包括数组)，则首先对其调用 ToPrimitive 抽象操作(规范 9.1 节)，该抽象操作再调用 [[DefaultValue]](规范 8.12.8 节)，以数字作为上下文。 </p>
+<p>接下来的环境默认都是chrome环境，支持ES6。</p>
+<p>下文提出的默认变量指的是没有使用 var、let、const定义的变量。</p>
 </blockquote>
-<h5 id="宽松相等和严格相等"><a href="#宽松相等和严格相等" class="headerlink" title="宽松相等和严格相等"></a>宽松相等和严格相等</h5><p>宽松相等(loose equals)== 和严格相等(strict equals)=== 都用来判断两个值是否“相等”，但是它们之间有一个很重要的区别，特别是在判断条件上。</p>
-<ul>
-<li>== 在相等比较中，允许进行类型转换</li>
-<li>=== 不允许类型转换</li>
+<h3 id="块级作用域的默认变量"><a href="#块级作用域的默认变量" class="headerlink" title="块级作用域的默认变量"></a>块级作用域的默认变量</h3><p>我们先看这样一个🌰：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//ReferenceError: a is not defined</span>
+<span class="token punctuation">{</span>
+    a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//10</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10</span></code></pre>
+<p>可能有些人会像我一样感到诧异：为什么第一个a打印出来的不是undefined？<code>a = 10</code>默认不是 <code>var a = 10</code>吗？应该会提升到全局作用域的顶端的啊。</p>
+<p>那好，让我们把<code>window.a</code>打印出来看看：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
+<span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined  、a is not defined</span>
+    a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//10 10</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10 10</span></code></pre>
+<p>结论：我们可以清晰的看到，在块级作用域中默认声明的变量，只有执行了声明代码，变量才会被挂载到全局作用域上。</p>
+<p>让我们在看看使用<code>var</code>声明的变量的情况：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined  undefined</span>
+<span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined  、undefined</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//10 10</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10 10</span></code></pre>
+<p>结论：对比上一个例子，我们可以得出，使用<code>var</code>声明的变量会在编译阶段被提升到全局作用域上，不过它只是将声明提升，赋值操作并未提升上去。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>在块级作用域中默认声明的变量，只有代码执行到声明语句之后，才可以进行访问，否则会报错。</li>
+<li>块级作用域中默认声明的变量会被提升到全局作用域。</li>
 </ul>
-<h5 id="抽象相等"><a href="#抽象相等" class="headerlink" title="抽象相等"></a>抽象相等</h5><ul>
-<li>如果表达式两端都是null、undefined，则为true。</li>
-<li>如果NaN在其中一端，则返回false。</li>
-<li>如果是string、number、boolean并且类型不一致，则先使用ToNumber转换为number在比较。</li>
-<li>如果是对象，则使用ToPrimitive，获取原始值再比较。</li>
+<h3 id="块级作用域的函数声明"><a href="#块级作用域的函数声明" class="headerlink" title="块级作用域的函数声明"></a>块级作用域的函数声明</h3><p>在块级作用域中的函数声明和变量是不同的。不多说，直接撸代码：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>回到第一个例子，如果块级作用域里面是一个默认变量，则第一行代码会直接报错，而函数声明则会打印<code>undefined</code>。</p>
+<p>其实在阮一峰老师的<a href="[http://es6.ruanyifeng.com/#docs/let#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F](http://es6.ruanyifeng.com/#docs/let#块级作用域)">ECMAScript6入门</a>中关于这一点就做了明确说明：</p>
+<p><img src="http://cdn.yangkunxiao.cn/qw7bBH.png" alt=""></p>
+<p>块级作用域函数，就像预先在全局作用域中使用<code>var</code>声明了一个变量，且默认值为<code>undefined</code>。</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined undefined</span>
+<span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined function a(){}</span>
+  <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//function a(){} function a(){}</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//function a(){} function a(){}</span></code></pre>
+<p>在这个例子中，第一行输出大概是比较符合预期的。至于第二行<code>window.a=undefoned</code>，而<code>a=function a(){}</code> ，上面在阮一峰老师的文章中说过，声明函数a会被提升到全局作用域，且在其块级作用域中，也会被提升到顶层。而<code>window.a</code>为什么会为<code>undefined</code>呢？因为只有<code>window.a</code>只有等块级作用域中函数声明的定义的那行代码执行过之后，才会被映射到全局作用域。</p>
+<h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>块级作用域函数在编译阶段将函数声明提升到全局作用域，并且会在全局声明一个变量，值为undefined。同时，也会被提升到对应的块级作用域顶层。</li>
+<li>块级作用域函数只有定义声明函数的那行代码执行过后，才会被映射到全局作用域。</li>
 </ul>
-<h4 id="显示类型转换"><a href="#显示类型转换" class="headerlink" title="显示类型转换"></a>显示类型转换</h4><h5 id="字符串和数字的显示强制转换"><a href="#字符串和数字的显示强制转换" class="headerlink" title="字符串和数字的显示强制转换"></a>字符串和数字的显示强制转换</h5><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span> a <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token string">"3.14"</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
-b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "42"</span>
-d<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span></code></pre>
-<p>String(..) 遵循前面讲过的 ToString 规则，将值转换为字符串基本类型。Number(..) 遵循 前面讲过的 ToNumber 规则，将值转换为数字基本类型。 </p>
-<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><p>字位运算符只适用于 32 位整数，运算符会强制操作数使用 32 位 格式。这是通过抽象操作 ToInt32 来实现的 </p>
-<blockquote>
-<p>ToInt32:先试用ToNumber转换为数字，再执行ToInt32。</p>
-</blockquote>
-<p>～～：~~ 中的第一个 ~ 执行 ToInt32 并反转字位。然后第二个 ~ 再进行一次字位反转，即将所有 字位反转回原值</p>
-<p>parseInt：只支持字符串解析成数字。</p>
-<blockquote>
-<p>~~和parseInt的区别：</p>
-<p>1、解析成数字允许字符串中有非数字字符，从左到右依次解析，遇到非数字字符停止解析</p>
-<p>2、强制转换成数字，不允许存在非数字字符，否则转换失败NaN</p>
-</blockquote>
+<h3 id="块级作用域中有同名的变量和函数声明"><a href="#块级作用域中有同名的变量和函数声明" class="headerlink" title="块级作用域中有同名的变量和函数声明"></a>块级作用域中有同名的变量和函数声明</h3><p>看🌰：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined undefined</span>
+<span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined function a(){}</span>
+    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function a(){}  10</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function a(){}  function a(){}</span></code></pre>
+<p>在这里，首先，块级作用域函数a的声明会被提升到全局作用域，第一行打印比较符合预期。然后在块级作用域中，由于声明函数a提升到块级作用域顶端，所以打印<code>a = function a(){}</code>，而<code>window.a</code>由于并没有执行函数定义的那一行代码，所以仍然为<code>undefined</code>。当执行到声明函数定义的时候，就会把函数a映射到全局作用域中。当执行<code>a = 10</code>的时候，JS引擎会进行LHS查找，此时，声明函数已经被同时提升到全局作用域和块级作用域顶端了，由于<code>遮蔽效果</code>，此时查找a只会找到块级作用域内的a，并不会找到全局作用域的a，这时，a已经被定义，<code>a = 10</code>只会执行赋值操作，并不会进行提升。</p>
+<p>我们再来看🌰2。它会更加抽象，准备好了没？</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined undefined</span>
+<span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined function a(){}</span>
+       a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10  10</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10 10</span></code></pre>
+<p>有了上面例子的铺垫，相信大家对前两行的打印结果不会有任何疑问了吧？</p>
+<p>那好，我们直接进行下一步，执行<code>a = 10</code>，我们知道，此时，在块级作用域中函数声明已经被提升到顶层，那么此时执行a，就是相当于赋值，将函数声明a赋值为数字a，可以理解吗？如果有疑问，可以看🌰1。然后，执行到函数声明语句，此时，虽然这一行代码是函数声明语句，但是a，已经为数字10了，所以，执行<code>function a(){}</code>之后，a的值10就会被赋值给全局作用域上的a，所以下面打印的<code>window.a,a</code>都为10！！！</p>
+<h4 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>块级作用域函数只有执行函数声明语句的时候，才会重写对应的全局作用域上的同名变量。</li>
+</ul>
 
             </div>
             <hr/>
@@ -564,7 +555,7 @@ d<span class="token punctuation">;</span> <span class="token comment" spellcheck
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</a>
+                    <a href="http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/">http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -768,46 +759,55 @@ d<span class="token punctuation">;</span> <span class="token comment" spellcheck
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/24/Webpack/index/">
+                <a href="/2020/01/03/JavaScript/block-scope-function/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="webpack基础">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="JavaScript块级作用域的默认变量和声明函数">
                         
-                        <span class="card-title">webpack基础</span>
+                        <span class="card-title">JavaScript块级作用域的默认变量和声明函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            块级作用域的变量声明和函数声明最近在一个讨论群看到一个面试题：
+{
+  a = 10;
+  function a(){};
+  console.log(a)//10
+};
+console.log(a);//10
+what？不应该是：func
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/webpack/" class="post-category">
-                                    webpack
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/webpack/">
-                        <span class="chip bg-color">webpack</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -821,25 +821,37 @@ d<span class="token punctuation">;</span> <span class="token comment" spellcheck
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/15/JavaScript/drag/">
+                <a href="/2020/01/01/JavaScript/variableHoisting/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="HTML5拖拽事件">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="浅谈JS变量提升(2020新年第一更)">
                         
-                        <span class="card-title">HTML5拖拽事件</span>
+                        <span class="card-title">浅谈JS变量提升(2020新年第一更)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。
-使用onmouse事件实现拖放通过监听鼠标事件实
+                            浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
+console.log(typeof a);
+
+a();
+
+var a = 3;
+
+function a() {
+
+    console.log(typeof a);
+
+}
+
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
                             </span>
                         <span class="publish-author">
                             

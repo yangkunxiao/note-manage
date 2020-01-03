@@ -7,13 +7,14 @@ JavaScript
 - [基本数据类型](https://yangkunxiao.github.io//2019/11/21/JavaScript/dataType/)
 - [作用域和作用域链](https://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/)
 - [原型和原型链](https://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/)
-- [js实现call、apply和bind](https://yangkunxiao.github.io/2019/11/21/JavaScript/this/)
+- [js实现call、apply和bind](https://yangkunxiao.github.io/2019/11/21/JavaScript/change-this/)
 - [详解JS的for循环](https://yangkunxiao.github.io/2019/11/21/JavaScript/for/)
 - [进程和线程](https://yangkunxiao.github.io/2019/12/04/JavaScript/EventLoop/)
 - [HTML5拖拽](https://yangkunxiao.github.io/2019/12/15/JavaScript/drag/)
 - [JavaScript强制类型转换](https://yangkunxiao.github.io/2019/12/20/JavaScript/类型转换/)
 - [web Worker](https://yangkunxiao.github.io/2019/12/20/JavaScript/webWorker/)
 - [浅谈JS变量提升](https://yangkunxiao.github.io/2019/12/20/JavaScript/variableHoisting/)
+- [JS块级作用域的默认变量和声明函数](https://yangkunxiao.github.io/2019/12/20/JavaScript/block-scope-function/)
 
 Nginx
 
