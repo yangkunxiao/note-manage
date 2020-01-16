@@ -6,15 +6,70 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2020-01-03T06:27:25.853Z</updated>
+  <updated>2020-01-16T03:24:59.686Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
-    <name>Walter</name>
+    <name>Walterkaka</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Koa2洋葱模型</title>
+    <link href="http://yangkunxiao.github.io/2020/01/16/Koa2/%20Onion-Model/"/>
+    <id>http://yangkunxiao.github.io/2020/01/16/Koa2/%20Onion-Model/</id>
+    <published>2020-01-16T03:30:00.000Z</published>
+    <updated>2020-01-16T03:24:59.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;浅解析洋葱模型&quot;&gt;&lt;a href=&quot;#浅解析洋葱模型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Koa2" scheme="http://yangkunxiao.github.io/categories/Koa2/"/>
+    
+    
+      <category term="Koa2" scheme="http://yangkunxiao.github.io/tags/Koa2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Koa2基础</title>
+    <link href="http://yangkunxiao.github.io/2020/01/16/Koa2/base/"/>
+    <id>http://yangkunxiao.github.io/2020/01/16/Koa2/base/</id>
+    <published>2020-01-16T03:20:00.000Z</published>
+    <updated>2020-01-16T03:25:11.930Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Koa2学习笔记&quot;&gt;&lt;a href=&quot;#Koa2学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Koa2学习笔记&quot;&gt;&lt;/a&gt;Koa2学习笔记&lt;/h1&gt;&lt;p&gt;&lt;a name=&quot;1wfVW&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Koa2简介&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Koa2" scheme="http://yangkunxiao.github.io/categories/Koa2/"/>
+    
+    
+      <category term="Koa2" scheme="http://yangkunxiao.github.io/tags/Koa2/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript块级作用域的默认变量和声明函数</title>
@@ -200,6 +255,33 @@
   </entry>
   
   <entry>
+    <title>详解JS的for循环</title>
+    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/for/"/>
+    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</id>
+    <published>2019-12-01T02:46:00.000Z</published>
+    <updated>2019-12-07T14:05:15.614Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;for&quot;&gt;&lt;a href=&quot;#for&quot; class=&quot;headerlink&quot; title=&quot;for&quot;&gt;&lt;/a&gt;for&lt;/h4&gt;&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浏览器中的进程、线程和Event Loop</title>
     <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/"/>
     <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</id>
@@ -218,33 +300,6 @@
 &lt;li&gt;主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等&lt;/li&gt;
 &lt;li&gt;第三方插件进程：管理第三方插件&lt;/li&gt;
 &lt;li&gt;G
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解JS的for循环</title>
-    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/for/"/>
-    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</id>
-    <published>2019-12-01T02:46:00.000Z</published>
-    <updated>2019-12-07T14:05:15.614Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;for&quot;&gt;&lt;a href=&quot;#for&quot; class=&quot;headerlink&quot; title=&quot;for&quot;&gt;&lt;/a&gt;for&lt;/h4&gt;&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code
         
       
     
@@ -517,60 +572,6 @@
       <category term="PHP" scheme="http://yangkunxiao.github.io/tags/PHP/"/>
     
       <category term="mySql" scheme="http://yangkunxiao.github.io/tags/mySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php基础</title>
-    <link href="http://yangkunxiao.github.io/2019/11/22/Php/base/"/>
-    <id>http://yangkunxiao.github.io/2019/11/22/Php/base/</id>
-    <published>2019-11-22T03:18:07.000Z</published>
-    <updated>2019-11-21T02:04:03.918Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;PHP&quot;&gt;&lt;a href=&quot;#PHP&quot; class=&quot;headerlink&quot; title=&quot;PHP&quot;&gt;&lt;/a&gt;PHP&lt;/h4&gt;&lt;p&gt;（全称：PHP：Hypertext
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://yangkunxiao.github.io/categories/PHP/"/>
-    
-    
-      <category term="PHP" scheme="http://yangkunxiao.github.io/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客搭建</title>
-    <link href="http://yangkunxiao.github.io/2019/11/22/Hexo/index/"/>
-    <id>http://yangkunxiao.github.io/2019/11/22/Hexo/index/</id>
-    <published>2019-11-22T02:16:07.000Z</published>
-    <updated>2019-11-21T02:03:52.316Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot; title=&quot;Hexo&quot;&gt;&lt;/a&gt;Hexo&lt;/h4&gt;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yangkunxiao.github.io/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yangkunxiao.github.io/tags/Hexo/"/>
     
   </entry>
   
