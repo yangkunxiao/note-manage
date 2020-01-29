@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</loc>
+    <lastmod>2020-01-29</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2020/01/16/Koa2/base/</loc>
     <lastmod>2020-01-16</lastmod>
   </url>  <url>

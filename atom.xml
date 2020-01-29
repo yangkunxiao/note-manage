@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2020-01-16T03:24:59.686Z</updated>
+  <updated>2020-01-29T08:39:03.326Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpackDevServer</title>
+    <link href="http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/"/>
+    <id>http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</id>
+    <published>2020-01-28T07:20:00.000Z</published>
+    <updated>2020-01-29T08:39:03.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-二-：webpackDevServer&quot;&gt;&lt;a href=&quot;#webpack4-0-二-：webpackDevServer&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>Koa2洋葱模型</title>
@@ -541,37 +568,6 @@
     
     
       <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php和mySql</title>
-    <link href="http://yangkunxiao.github.io/2019/11/22/Php/mysql/"/>
-    <id>http://yangkunxiao.github.io/2019/11/22/Php/mysql/</id>
-    <published>2019-11-22T06:45:07.000Z</published>
-    <updated>2019-11-21T02:03:32.766Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="PHP" scheme="http://yangkunxiao.github.io/categories/PHP/"/>
-    
-      <category term="mySql" scheme="http://yangkunxiao.github.io/categories/PHP/mySql/"/>
-    
-    
-      <category term="PHP" scheme="http://yangkunxiao.github.io/tags/PHP/"/>
-    
-      <category term="mySql" scheme="http://yangkunxiao.github.io/tags/mySql/"/>
     
   </entry>
   

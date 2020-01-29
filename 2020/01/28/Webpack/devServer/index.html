@@ -4,21 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浅谈JS变量提升(2020新年第一更), javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
-console.log(typeof a);
-
-a();
-
-var a = 3;
-
-function a() {
-
-    console.log(typeof a);
-
-}
-
-">
+    <meta name="keywords" content="webpackDevServer, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="webpack4.0(二)：webpackDevServer在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +13,7 @@ function a() {
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>浅谈JS变量提升(2020新年第一更) | Walter</title>
+    <title>webpackDevServer | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -273,13 +260,13 @@ function a() {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        浅谈JS变量提升(2020新年第一更)
+                        webpackDevServer
                     </div>
                 </div>
             </div>
@@ -391,8 +378,8 @@ function a() {
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
+                            <a href="/tags/webpack/">
+                                <span class="chip bg-color">webpack</span>
                             </a>
                         
                     </div>
@@ -403,8 +390,8 @@ function a() {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/webpack/" class="post-category">
+                                webpack
                             </a>
                         
                     </div>
@@ -416,7 +403,7 @@ function a() {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-01
+                    2020-01-28
                 </div>
                 
 
@@ -425,7 +412,7 @@ function a() {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    969
                 </div>
                 
 
@@ -448,147 +435,108 @@ function a() {
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="浅谈JS变量提升（2020新年第一章）"><a href="#浅谈JS变量提升（2020新年第一章）" class="headerlink" title="浅谈JS变量提升（2020新年第一章）"></a>浅谈JS变量提升（2020新年第一章）</h1><p>首先，先丢出来一道题：</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>如果我们不了解JavaScript中的变量提升和函数声明提升，那我们的答案可能就是这样的：</p>
-<pre class=" language-javascript"><code class="language-javascript">undefined
-
-ReferenceError<span class="token punctuation">:</span> b is not defined
-
-<span class="token operator">...</span>
-</code></pre>
-<p>那么正确的答案是什么呢？我们首先把这段代码还原：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>好了，这下看一看执行结果是什么呢？</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"function"</span>
-
-<span class="token string">"function"</span>
-
-<span class="token string">"number"</span>
-
-<span class="token string">"a is not a function"</span></code></pre>
-<h2 id="为什么会发生提升？"><a href="#为什么会发生提升？" class="headerlink" title="为什么会发生提升？"></a>为什么会发生提升？</h2><p>首先我们需要知道一点编译原理的知识。JavaScript的源代码在运行的时候，会经过两个阶段：编译和执行。而且，编译阶段往往就在执行阶段的前几微秒甚至更短的时间内。</p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><h4 id="词法解析"><a href="#词法解析" class="headerlink" title="词法解析"></a>词法解析</h4><p>这个阶段会先把字符组成的字符串解析成一个个有意义的代码块，这些代码块也被称为词法单元。如 <code>var a = 1;</code> 会被解析成： <code>var 、a、=、1、;</code> ，空格是否会被解析成词法单元，就要看空格在这个语言中有意义。</p>
-<h4 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h4><p>这个阶段会把词法解析生成的词法单元流解析成有元素逐级嵌套所组成的程序语法树，AST。至于AST的结构是如何构成的，这里有几个网站，大家可以去试试: <a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">网站1</a>、<a href="https://resources.jointjs.com/demos/javascript-ast" target="_blank" rel="noopener">网站2</a>。</p>
-<h4 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h4><p>这个阶段就是将语法解析阶段生成的AST转译成可执行的代码。</p>
-<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><h4 id="LHS查询"><a href="#LHS查询" class="headerlink" title="LHS查询"></a>LHS查询</h4><p>在编译的过程中，先将标识符和函数声明给提升到其对应的作用域的顶端。标识符解析的时候，会进行LHS查询，在LHS查询的时候，如果标识符一直找不到声明的位置，那么最终就会在全局环境生成一个全局变量。</p>
+                <h1 id="webpack4-0-二-：webpackDevServer"><a href="#webpack4-0-二-：webpackDevServer" class="headerlink" title="webpack4.0(二)：webpackDevServer"></a>webpack4.0(二)：webpackDevServer</h1><p>在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了。</p>
+<h3 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h3><p>首先我们需要安装：<code>webpack-dev-server</code>:</p>
+<pre class=" language-javascript"><code class="language-javascript">全局安装：
+npm install <span class="token operator">-</span>g webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server
+局部安装：
+npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server</code></pre>
+<p>在webpack4之后，同时需要安装：<code>webpack-cli</code></p>
+<pre class=" language-javascript"><code class="language-javascript">npm install webpack<span class="token operator">-</span>cli <span class="token operator">-</span>D</code></pre>
+<p>最后我们运行<code>webpack-dev-server</code>，就可以启动一个本地服务器，默认端口号是8080，访问<code>http://localhost:8080/</code>即可。</p>
 <blockquote>
-<p>LHS ： 指的是赋值操作的左端。<br>标识符解析：请查看我的另外一篇文章。</p>
+<p>注意：使用webpack-dev-server打包的文件保存在电脑内存当中，可以提高访问速度。</p>
 </blockquote>
-<h4 id="RHS查询"><a href="#RHS查询" class="headerlink" title="RHS查询"></a>RHS查询</h4><p>说到LHS查询，就不得不提对应的RHS查询，相信大家已经看出RHS的意思了把，它指的是赋值操作的源头。RHS查询的时候，如果找不到对应的标识符，就会抛出一个异常：ReferenceError。</p>
-<h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><p>函数提升和变量提升还有点不一样。函数提升，只会提升函数声明，而不会提升函数表达式。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//fn is not a function </span>
-
-<span class="token comment" spellcheck="true">//函数表达式</span>
-<span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//函数声明</span>
-<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<p>当然，这个默认的配置是可以修改的，在<code>webpack.config.js</code>中：</p>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    contentBase<span class="token punctuation">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//指定服务器默认打开的文件夹</span>
+  open<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//是否自动打开浏览器窗口</span>
+  port<span class="token punctuation">:</span> <span class="token string">"8081"</span><span class="token comment" spellcheck="true">//配置端口号</span>
 <span class="token punctuation">}</span></code></pre>
-<p>这里我把代码还原，我们来看一下：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//函数声明</span>
-<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p>实时预览。使用<code>webpack --watch</code>，监听文件系统的变化，实现自动打包。当项目的入口文件或者依赖文件发生变动时，它会重新构建，构建完成之后会刷新页面。但是如果修改的不是入口文件或者依赖文件，它是不会重新构建的。</p>
+<h3 id="webpack-dev-middleware"><a href="#webpack-dev-middleware" class="headerlink" title="webpack-dev-middleware"></a>webpack-dev-middleware</h3><p>新建一个服务端，并且将webpack处理过的文件传送给服务器。<br>原理：使用webpack和其对应的配置文件，生成一个编译器，使用该中间件，在服务器上监听文件变化，重新打包。<br>使用express建立本地服务器：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//server.js</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> middleware <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-dev-middleware'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.config.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> complier <span class="token operator">=</span> <span class="token function">webpack</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//编译器</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> fn<span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">middleware</span><span class="token punctuation">(</span>complier<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    publicPath<span class="token punctuation">:</span> config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>publicPath
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span></code></pre>
+<p>然后访问3000端口即可。</p>
+<h3 id="HMR"><a href="#HMR" class="headerlink" title="HMR"></a>HMR</h3><p>除了以上方法可以实现在入口文件或者依赖文件发生变动时进行重新打包加载页面之外，使用模块热替换技术也可以实现在不刷新页面的情况下，使用已更新的模块替换旧模块。<br>模块热替换技术默认是不开启的，我们可以通过以下方法开启：</p>
+<ol>
+<li>在启动devServer的时候带上<code>--inline</code> 或者 <code>--inline hot</code>即可。</li>
+<li>在devServer中配置：</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  contentBase<span class="token punctuation">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+  open<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  port<span class="token punctuation">:</span> <span class="token number">8080</span><span class="token punctuation">,</span>
+  hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//配置HMR 阻止浏览器自动刷新</span>
+  hotOnly<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//即便HMR不生效 也不让浏览器自动刷新</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+ plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span></code></pre>
+<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p>dev-server使用了非常强大的包：<code>http-proxy-middleware</code>，具体用法请查看<a href="https://www.npmjs.com/package/http-proxy-middleware" target="_blank" rel="noopener">使用文档</a>。<br>举个🌰：如果在<code>http://localhost:3000</code>上有后端开发服务器，我们可以这样设置代理：</p>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    proxy<span class="token punctuation">:</span><span class="token punctuation">{</span>
+      <span class="token string">"/api"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:3000/"</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>这下明白为什么执行函数fn的时候，会报错了吧。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>现在，大家是不是对变量和函数声明的提升机制已经有一定的了解了？那么让我们在深度实战一下。</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>将请求到 <code>/api/users</code> 现在会被代理到请求 <code>http://localhost:3000/api/users</code>。<br>如果不想始终传递 <code>/api</code> ，则需要重写路径：</p>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
+      pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"^/api"</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>默认情况下，不接受运行在 HTTPS 上，且使用了无效证书的后端服务器。如果你想要接受，修改配置如下：</p>
+<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
+      pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"^/api"</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      secure<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>有时你不想代理所有的请求。可以基于一个函数的返回值绕过代理。<br>在函数中你可以访问请求体、响应体和代理选项。必须返回 <code>false</code> 或路径，来跳过代理请求。<br>例如：对于浏览器请求，你想要提供一个 HTML 页面，但是对于 API 请求则保持代理。你可以这样做：</p>
+<pre class=" language-javascript"><code class="language-javascript">proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
+    bypass<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> proxyOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>accept<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"html"</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Skipping proxy for browser request."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"/index.html"</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>如果想要代理多个目标路径大同一目标呢服务器上，则可以使用数组或者多个对象的形式：</p>
+<pre class=" language-javascript"><code class="language-javascript">proxy<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  context<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"/auth"</span><span class="token punctuation">,</span> <span class="token string">"/api"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//或者</span>
 
-<span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        f <span class="token operator">=</span> a<span class="token punctuation">;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yideng1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>在非严格模式下，代码块中，只有使用 <code>var</code> 声明的变量和函数声明是可以提升的，但是函数声明只能将函数的名字提升出去。 </p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
-
-<span class="token string">"undefined"</span>
-
-<span class="token string">"function"</span></code></pre>
-<p>在严格模式下：代码块中，只有使用 <code>var</code> 声明的变量可以提升出去。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
-
-<span class="token string">"f is not defined "</span></code></pre>
-<p>再来看一个题：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
-    <span class="token comment" spellcheck="true">// var f = 3;</span>
-    f <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//number</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-
-<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
-    <span class="token comment" spellcheck="true">// var s = 3;</span>
-    s <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function </span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>上述代码中，函数f是具名函数，函数s是函数表达式。具名函数中，可以在函数内部改变函数名，而函数表达式，如果有函数名，则它的函数名只能作用在其自身作用域中，且不可改变改变函数名。</p>
+proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"/api"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+      <span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:3000/"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"/auth"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
+      <span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:4000/"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -614,7 +562,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/">http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</a>
+                    <a href="http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/">http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -651,8 +599,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
+                                <a href="/tags/webpack/">
+                                    <span class="chip bg-color">webpack</span>
                                 </a>
                             
                         </div>
@@ -818,53 +766,48 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/03/JavaScript/block-scope-function/">
+                <a href="/2020/01/28/Webpack/devServer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="JavaScript块级作用域的默认变量和声明函数">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="webpackDevServer">
                         
-                        <span class="card-title">JavaScript块级作用域的默认变量和声明函数</span>
+                        <span class="card-title">webpackDevServer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            块级作用域的变量声明和函数声明最近在一个讨论群看到一个面试题：
-{
-  a = 10;
-  function a(){};
-  console.log(a)//10
-};
-console.log(a);//10
-what？不应该是：func
+                            webpack4.0(二)：webpackDevServer在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -878,31 +821,32 @@ what？不应该是：func
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/31/JavaScript/webWorker/">
+                <a href="/2020/01/16/Koa2/%20Onion-Model/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Koa2洋葱模型">
                         
-                        <span class="card-title">web Worker(2019最后一更)</span>
+                        <span class="card-title">Koa2洋葱模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
+                            浅解析洋葱模型koa2最大的特点就是独特的中间件控制流程。koa2基于NodeV7.6.0，可以直接使用async/await来替代generator，使得代码彻底摆脱“回调地狱”，可读性更佳。
+洋葱模型以下是一张中间件的“神图”，它可以清
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/Koa2/" class="post-category">
+                                    Koa2
                                 </a>
                             
                             
@@ -912,8 +856,8 @@ what？不应该是：func
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/Koa2/">
+                        <span class="chip bg-color">Koa2</span>
                     </a>
                     
                 </div>
