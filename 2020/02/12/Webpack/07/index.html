@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="webpack基础, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="webpack基础 | Walter">
+    <meta name="keywords" content="多页面打包配置, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="webpack4.0(七)：多页面打包配置webpack.config.js
+const path = require(&#39;path&#39;);
+const fs = require(&#39;fs&#39;);
+const webpack = require(&#39;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>webpack基础 | Walter</title>
+    <title>多页面打包配置 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        webpack基础
+                        多页面打包配置
                     </div>
                 </div>
             </div>
@@ -403,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-24
+                    2020-02-12
                 </div>
                 
 
@@ -412,7 +415,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    208
                 </div>
                 
 
@@ -435,7 +438,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="webpack4-0-七-：多页面打包配置"><a href="#webpack4-0-七-：多页面打包配置" class="headerlink" title="webpack4.0(七)：多页面打包配置"></a>webpack4.0(七)：多页面打包配置</h1><p>webpack.config.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> CleanWebpackPlugin <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> AddAssetHtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'add-asset-html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">/**
+ * @param { Object } 
+ * @return { Object }
+ */</span>
+<span class="token keyword">const</span> makeHtml <span class="token operator">=</span> <span class="token punctuation">(</span>configs<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> pluginsDll <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>configs<span class="token punctuation">.</span>entry<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+        pluginsDll<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+            <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                filename<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.html`</span></span><span class="token punctuation">,</span>
+                template<span class="token punctuation">:</span><span class="token string">'./src/index.html'</span><span class="token punctuation">,</span>
+                chunks<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'lodash'</span><span class="token punctuation">,</span><span class="token string">'react'</span><span class="token punctuation">,</span>key<span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dll'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>file <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/.*\.dll.js$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            pluginsDll<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+                <span class="token keyword">new</span> <span class="token class-name">AddAssetHtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    filepath<span class="token punctuation">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dll'</span><span class="token punctuation">,</span>file<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/.*\.manifest.json$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DllReferencePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                manifest<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dll'</span><span class="token punctuation">,</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> pluginsDll<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+    entry<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        index<span class="token punctuation">:</span><span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+        list<span class="token punctuation">:</span><span class="token string">'./src/list.js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dist'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    module<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span><span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+                loader<span class="token punctuation">:</span><span class="token string">'babel-loader'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+config<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token function">makeHtml</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> config<span class="token punctuation">;</span></code></pre>
+<p>webpack.dll.js</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">"production"</span><span class="token punctuation">,</span>
+    entry<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        react<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'react'</span><span class="token punctuation">,</span><span class="token string">'react-dom'</span><span class="token punctuation">,</span><span class="token string">'react-router-dom'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        lodash<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'lodash-es'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    output<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        filename<span class="token punctuation">:</span><span class="token string">'[name].dll.js'</span><span class="token punctuation">,</span>
+        path <span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../dll'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        library<span class="token punctuation">:</span><span class="token string">'_dll_[name]'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DllPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            name<span class="token punctuation">:</span> <span class="token string">"_dll_[name]"</span><span class="token punctuation">,</span>
+            path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"../dll/[name].manifest.json"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+
             </div>
             <hr/>
 
@@ -460,7 +553,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2019/12/24/Webpack/index/">http://yangkunxiao.github.io/2019/12/24/Webpack/index/</a>
+                    <a href="http://yangkunxiao.github.io/2020/02/12/Webpack/07/">http://yangkunxiao.github.io/2020/02/12/Webpack/07/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -668,24 +761,27 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/31/JavaScript/webWorker/">
+                <a href="/2020/02/20/Interview/01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="浏览器输入URL到页面加载完成">
                         
-                        <span class="card-title">web Worker(2019最后一更)</span>
+                        <span class="card-title">浏览器输入URL到页面加载完成</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
+                            从输入URL到页面加载完成的过程主干流程
+浏览器接收url，开启一个新的网络请求线程（这部分涉及到浏览器进程与线程之间的关系）。
+从开启网络请求线程到发起一个http请求（这部分涉及到dns解析、五层因特网协议栈、tcp/ip协议等）。
+从
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-20
                         </span>
                         <span class="publish-author">
                             
@@ -717,33 +813,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
+                <a href="/2020/02/11/Webpack/06/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JavaScript强制类型转换">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="DllPlugin和DllReferencePlugin">
                         
-                        <span class="card-title">JavaScript强制类型转换</span>
+                        <span class="card-title">DllPlugin和DllReferencePlugin</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            类型在说JavaScript的强制类型转换之前，我们先了解下JavaScript中的数据类型有哪些。JavaScript中类型分为以下两种：
-
-原始数据类型：null、undefined、bool、string、number、boolean
+                            webpack4.0(六)：DllPlugin和DllReferencePlugin前言在项目开发的时候，我们可能会发现有时候我们在打包的时候，构建速度很慢，尤其是一些我们使用的第三方库，每次都会被打包进去，大大延长了构建时间。那么我们能不
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
@@ -753,8 +847,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -937,7 +1031,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27k</span>&nbsp;字
+                class="white-color">58.5k</span>&nbsp;字
             
             
             

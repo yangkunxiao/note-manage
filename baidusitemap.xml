@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</loc>
-    <lastmod>2020-01-29</lastmod>
+    <loc>http://yangkunxiao.github.io/2020/01/10/Interview/02/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/19/JavaScript/process-thread/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/12/17/JavaScript/repaint-reflow/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/04/JavaScript/block-scope/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/03/JavaScript/async/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/01/JavaScript/variable-hoisting/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/13/Optimize/img/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/12/24/Webpack/01/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/02/12/Webpack/07/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/02/11/Webpack/06/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/02/09/Webpack/05/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/02/07/Webpack/04/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/03/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/01/28/Webpack/02/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2020/02/20/Interview/01/</loc>
+    <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2020/01/16/Koa2/base/</loc>
     <lastmod>2020-01-16</lastmod>
@@ -25,12 +70,6 @@
     <loc>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</loc>
     <lastmod>2019-12-31</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/24/Webpack/index/</loc>
-    <lastmod>2019-12-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</loc>
-    <lastmod>2019-12-23</lastmod>
-  </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</loc>
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
@@ -38,9 +77,6 @@
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
-    <lastmod>2019-12-15</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</loc>

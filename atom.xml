@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.github.io/"/>
-  <updated>2020-01-29T08:39:03.326Z</updated>
+  <updated>2020-02-21T01:47:44.024Z</updated>
   <id>http://yangkunxiao.github.io/</id>
   
   <author>
@@ -17,11 +17,146 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>浏览器输入URL到页面加载完成</title>
+    <link href="http://yangkunxiao.github.io/2020/02/20/Interview/01/"/>
+    <id>http://yangkunxiao.github.io/2020/02/20/Interview/01/</id>
+    <published>2020-02-20T02:00:00.000Z</published>
+    <updated>2020-02-21T01:47:44.024Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;从输入URL到页面加载完成的过程&quot;&gt;&lt;a href=&quot;#从输入URL到页面加载完成的过程&quot; class=&quot;headerlink&quot; title=&quot;从输入URL到页面加载完成的过程&quot;&gt;&lt;/a&gt;从输入URL到页面加载完成的过程&lt;/h1&gt;&lt;h2 id=&quot;主干流程&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多页面打包配置</title>
+    <link href="http://yangkunxiao.github.io/2020/02/12/Webpack/07/"/>
+    <id>http://yangkunxiao.github.io/2020/02/12/Webpack/07/</id>
+    <published>2020-02-12T12:00:00.000Z</published>
+    <updated>2020-02-21T01:58:02.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-七-：多页面打包配置&quot;&gt;&lt;a href=&quot;#webpack4-0-七-：多页面打包配置&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DllPlugin和DllReferencePlugin</title>
+    <link href="http://yangkunxiao.github.io/2020/02/11/Webpack/06/"/>
+    <id>http://yangkunxiao.github.io/2020/02/11/Webpack/06/</id>
+    <published>2020-02-11T12:00:00.000Z</published>
+    <updated>2020-02-21T01:57:03.270Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-六-：DllPlugin和DllReferencePlugin&quot;&gt;&lt;a href=&quot;#webpack4-0-六-：DllPlugin和DllReferencePlugin&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>babel</title>
+    <link href="http://yangkunxiao.github.io/2020/02/09/Webpack/05/"/>
+    <id>http://yangkunxiao.github.io/2020/02/09/Webpack/05/</id>
+    <published>2020-02-09T12:00:00.000Z</published>
+    <updated>2020-02-21T01:55:45.290Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-四-：babel&quot;&gt;&lt;a href=&quot;#webpack4-0-四-：babel&quot; class=&quot;headerlink&quot; title=&quot;webpack4.0(四)：babel&quot;&gt;&lt;/a&gt;webpack4.0(四)：babel&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>codeSplitting</title>
+    <link href="http://yangkunxiao.github.io/2020/02/07/Webpack/04/"/>
+    <id>http://yangkunxiao.github.io/2020/02/07/Webpack/04/</id>
+    <published>2020-02-07T15:20:00.000Z</published>
+    <updated>2020-02-21T01:54:41.746Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-三-：codeSplitting&quot;&gt;&lt;a href=&quot;#webpack4-0-三-：codeSplitting&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
+    
+    
+      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
     <title>webpackDevServer</title>
-    <link href="http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/"/>
-    <id>http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</id>
+    <link href="http://yangkunxiao.github.io/2020/01/28/Webpack/02/"/>
+    <id>http://yangkunxiao.github.io/2020/01/28/Webpack/02/</id>
     <published>2020-01-28T07:20:00.000Z</published>
-    <updated>2020-01-29T08:39:03.326Z</updated>
+    <updated>2020-02-21T01:52:36.806Z</updated>
     
     <summary type="html">
     
@@ -40,6 +175,33 @@
     
     
       <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器进程与线程</title>
+    <link href="http://yangkunxiao.github.io/2020/01/19/JavaScript/process-thread/"/>
+    <id>http://yangkunxiao.github.io/2020/01/19/JavaScript/process-thread/</id>
+    <published>2020-01-19T14:20:00.000Z</published>
+    <updated>2020-02-21T02:10:09.764Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;浏览器进程和线程&quot;&gt;&lt;a href=&quot;#浏览器进程和线程&quot; class=&quot;headerlink&quot; title=&quot;浏览器进程和线程&quot;&gt;&lt;/a&gt;浏览器进程和线程&lt;/h1&gt;&lt;h1 id=&quot;浏览器&quot;&gt;&lt;a href=&quot;#浏览器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -99,6 +261,114 @@
   </entry>
   
   <entry>
+    <title>图片优化</title>
+    <link href="http://yangkunxiao.github.io/2020/01/13/Optimize/img/"/>
+    <id>http://yangkunxiao.github.io/2020/01/13/Optimize/img/</id>
+    <published>2020-01-12T16:47:00.000Z</published>
+    <updated>2020-02-21T02:01:15.359Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;图片优化&quot;&gt;&lt;a href=&quot;#图片优化&quot; class=&quot;headerlink&quot; title=&quot;图片优化&quot;&gt;&lt;/a&gt;图片优化&lt;/h1&gt;&lt;h3 id=&quot;为什么要做图片优化？&quot;&gt;&lt;a href=&quot;#为什么要做图片优化？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Optimize" scheme="http://yangkunxiao.github.io/categories/Optimize/"/>
+    
+    
+      <category term="Optimize" scheme="http://yangkunxiao.github.io/tags/Optimize/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP缓存</title>
+    <link href="http://yangkunxiao.github.io/2020/01/10/Interview/02/"/>
+    <id>http://yangkunxiao.github.io/2020/01/10/Interview/02/</id>
+    <published>2020-01-10T14:20:00.000Z</published>
+    <updated>2020-02-21T02:11:50.778Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;HTTP缓存&quot;&gt;&lt;a href=&quot;#HTTP缓存&quot; class=&quot;headerlink&quot; title=&quot;HTTP缓存&quot;&gt;&lt;/a&gt;HTTP缓存&lt;/h1&gt;&lt;h3 id=&quot;HTTP报文&quot;&gt;&lt;a href=&quot;#HTTP报文&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>块级作用域的函数声明和函数声明</title>
+    <link href="http://yangkunxiao.github.io/2020/01/04/JavaScript/block-scope/"/>
+    <id>http://yangkunxiao.github.io/2020/01/04/JavaScript/block-scope/</id>
+    <published>2020-01-04T12:00:00.000Z</published>
+    <updated>2020-02-21T02:06:47.032Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;块级作用域的变量声明和函数声明&quot;&gt;&lt;a href=&quot;#块级作用域的变量声明和函数声明&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异步编程</title>
+    <link href="http://yangkunxiao.github.io/2020/01/03/JavaScript/async/"/>
+    <id>http://yangkunxiao.github.io/2020/01/03/JavaScript/async/</id>
+    <published>2020-01-03T09:00:00.000Z</published>
+    <updated>2020-02-21T02:06:23.825Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;JavaScript异步编程&quot;&gt;&lt;a href=&quot;#JavaScript异步编程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript块级作用域的默认变量和声明函数</title>
     <link href="http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/"/>
     <id>http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/</id>
@@ -153,6 +423,33 @@
   </entry>
   
   <entry>
+    <title>JS变量提升</title>
+    <link href="http://yangkunxiao.github.io/2020/01/01/JavaScript/variable-hoisting/"/>
+    <id>http://yangkunxiao.github.io/2020/01/01/JavaScript/variable-hoisting/</id>
+    <published>2020-01-01T09:00:00.000Z</published>
+    <updated>2020-02-21T02:03:45.888Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;浅谈JS变量提升（2020新年第一章）&quot;&gt;&lt;a href=&quot;#浅谈JS变量提升（2020新年第一章）&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>web Worker(2019最后一更)</title>
     <link href="http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/"/>
     <id>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</id>
@@ -180,13 +477,21 @@
   </entry>
   
   <entry>
-    <title>webpack基础</title>
-    <link href="http://yangkunxiao.github.io/2019/12/24/Webpack/index/"/>
-    <id>http://yangkunxiao.github.io/2019/12/24/Webpack/index/</id>
+    <title>基础</title>
+    <link href="http://yangkunxiao.github.io/2019/12/24/Webpack/01/"/>
+    <id>http://yangkunxiao.github.io/2019/12/24/Webpack/01/</id>
     <published>2019-12-23T16:47:00.000Z</published>
-    <updated>2019-12-23T14:53:48.602Z</updated>
+    <updated>2020-02-21T01:58:24.498Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webpack4-0-一-：基础&quot;&gt;&lt;a href=&quot;#webpack4-0-一-：基础&quot; class=&quot;headerlink&quot; title=&quot;webpack4.0(一)：基础&quot;&gt;&lt;/a&gt;webpack4.0(一)：基础&lt;/h1&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a
+        
+      
     
     </summary>
     
@@ -226,11 +531,11 @@
   </entry>
   
   <entry>
-    <title>HTML5拖拽事件</title>
-    <link href="http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/"/>
-    <id>http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/</id>
-    <published>2019-12-15T14:20:00.000Z</published>
-    <updated>2019-12-15T14:18:01.313Z</updated>
+    <title>重排与重绘</title>
+    <link href="http://yangkunxiao.github.io/2019/12/17/JavaScript/repaint-reflow/"/>
+    <id>http://yangkunxiao.github.io/2019/12/17/JavaScript/repaint-reflow/</id>
+    <published>2019-12-17T14:20:00.000Z</published>
+    <updated>2020-02-21T02:08:28.075Z</updated>
     
     <summary type="html">
     
@@ -238,8 +543,7 @@
       
         
         
-          &lt;p&gt;在网页中，拖放是一个很常见的一个用户界面模式。简单来说，就是鼠标点击目标元素不放，移动鼠标位置，然后松开鼠标，即可将目标元素移动到另一个区域。它的实现其实很简单。以下介绍两种常见的实现方法。&lt;/p&gt;
-&lt;h4 id=&quot;使用onmouse事件实现拖放&quot;&gt;&lt;a
+          &lt;h1 id=&quot;重排和重绘&quot;&gt;&lt;a href=&quot;#重排和重绘&quot; class=&quot;headerlink&quot; title=&quot;重排和重绘&quot;&gt;&lt;/a&gt;重排和重绘&lt;/h1&gt;&lt;h4 id=&quot;浏览器构建页面布局&quot;&gt;&lt;a href=&quot;#浏览器构建页面布局&quot; class=&quot;headerlink&quot;
         
       
     
@@ -250,324 +554,6 @@
     
     
       <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈JavaScript异步编程</title>
-    <link href="http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</id>
-    <published>2019-12-06T16:28:00.000Z</published>
-    <updated>2019-12-07T16:30:26.002Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;JavaScript异步编程&lt;/p&gt;
-&lt;h4 id=&quot;Promise&quot;&gt;&lt;a href=&quot;#Promise&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器中的进程、线程和Event Loop</title>
-    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/"/>
-    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</id>
-    <published>2019-12-01T02:46:00.000Z</published>
-    <updated>2019-12-15T06:47:57.459Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;#浏览器&lt;/p&gt;
-&lt;p&gt;浏览器是多进程的。每一个Tab页就是一个独立的进程。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主进程：个人理解问“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等&lt;/li&gt;
-&lt;li&gt;第三方插件进程：管理第三方插件&lt;/li&gt;
-&lt;li&gt;G
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>详解JS的for循环</title>
-    <link href="http://yangkunxiao.github.io/2019/12/01/JavaScript/for/"/>
-    <id>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</id>
-    <published>2019-12-01T02:46:00.000Z</published>
-    <updated>2019-12-07T14:05:15.614Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;for&quot;&gt;&lt;a href=&quot;#for&quot; class=&quot;headerlink&quot; title=&quot;for&quot;&gt;&lt;/a&gt;for&lt;/h4&gt;&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tree-shaking</title>
-    <link href="http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/"/>
-    <id>http://yangkunxiao.github.io/2019/11/30/Webpack/tree-shaking/</id>
-    <published>2019-11-30T15:20:00.000Z</published>
-    <updated>2019-12-23T14:46:29.580Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;js：tree-shaking&quot;&gt;&lt;a href=&quot;#js：tree-shaking&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="webpack" scheme="http://yangkunxiao.github.io/categories/webpack/"/>
-    
-    
-      <category term="webpack" scheme="http://yangkunxiao.github.io/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单元测试</title>
-    <link href="http://yangkunxiao.github.io/2019/11/30/Mocha/index/"/>
-    <id>http://yangkunxiao.github.io/2019/11/30/Mocha/index/</id>
-    <published>2019-11-30T01:00:00.000Z</published>
-    <updated>2019-11-30T05:00:03.459Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;单元测试&quot;&gt;&lt;a href=&quot;#单元测试&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mocha" scheme="http://yangkunxiao.github.io/categories/Mocha/"/>
-    
-    
-      <category term="Mocha" scheme="http://yangkunxiao.github.io/tags/Mocha/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL自然连接查询</title>
-    <link href="http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/"/>
-    <id>http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/</id>
-    <published>2019-11-24T14:25:00.000Z</published>
-    <updated>2019-11-23T07:51:44.326Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;什么是自然连接？&quot;&gt;&lt;a href=&quot;#什么是自然连接？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 8.0+重置密码</title>
-    <link href="http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/"/>
-    <id>http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</id>
-    <published>2019-11-24T03:25:00.000Z</published>
-    <updated>2019-11-23T07:51:49.624Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;关闭数据库&quot;&gt;&lt;a href=&quot;#关闭数据库&quot; class=&quot;headerlink&quot; title=&quot;关闭数据库&quot;&gt;&lt;/a&gt;关闭数据库&lt;/h4&gt;&lt;p&gt;1、在终端中输入：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/categories/Mysql/"/>
-    
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ESC服务器Linux下安装mysql</title>
-    <link href="http://yangkunxiao.github.io/2019/11/24/Linux/mysql/"/>
-    <id>http://yangkunxiao.github.io/2019/11/24/Linux/mysql/</id>
-    <published>2019-11-24T02:00:00.000Z</published>
-    <updated>2019-11-23T07:51:33.621Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、重启服务器：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@sir-xiao server&lt;span
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yangkunxiao.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://yangkunxiao.github.io/tags/Linux/"/>
-    
-      <category term="Mysql" scheme="http://yangkunxiao.github.io/tags/Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx同域名下配置多项目</title>
-    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/"/>
-    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</id>
-    <published>2019-11-23T03:00:00.000Z</published>
-    <updated>2019-12-15T06:56:57.845Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;webpack-config-js&quot;&gt;&lt;a href=&quot;#webpack-config-js&quot; class=&quot;headerlink&quot; title=&quot;webpack.config.js&quot;&gt;&lt;/a&gt;webpack.config.js&lt;/h4&gt;&lt;pre class=&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx下配置Vue项目</title>
-    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/vue/"/>
-    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</id>
-    <published>2019-11-23T02:10:00.000Z</published>
-    <updated>2019-11-23T07:50:53.585Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、配置选择：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux系统：Centos 6.5 x64&lt;/li&gt;
-&lt;li&gt;Nginx版本：1.7.8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;2、安装nginx：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/categories/nginx/vue/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
-    
-      <category term="vue" scheme="http://yangkunxiao.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx下配置静态资源</title>
-    <link href="http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/"/>
-    <id>http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/</id>
-    <published>2019-11-23T02:01:00.000Z</published>
-    <updated>2019-11-23T07:51:21.334Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、查看nginx安装路径：&lt;/p&gt;
-&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;whereis&lt;/span&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://yangkunxiao.github.io/tags/nginx/"/>
     
   </entry>
   

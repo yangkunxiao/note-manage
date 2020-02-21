@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="webpackDevServer, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="webpack4.0(二)：webpackDevServer在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了">
+    <meta name="keywords" content="babel, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="webpack4.0(四)：babel什么是babelES6是ECMAScript在2015年发布的下一代JavaScript语法，它引入了一些新的语法和API，但是这些新的语法和API只有在最新的浏览器中才会得到支持，就算是现在仍然有一部">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>webpackDevServer | Walter</title>
+    <title>babel | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -260,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        webpackDevServer
+                        babel
                     </div>
                 </div>
             </div>
@@ -403,7 +403,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-28
+                    2020-02-09
                 </div>
                 
 
@@ -412,14 +412,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    969
+                    736
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 				
@@ -435,108 +435,69 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="webpack4-0-二-：webpackDevServer"><a href="#webpack4-0-二-：webpackDevServer" class="headerlink" title="webpack4.0(二)：webpackDevServer"></a>webpack4.0(二)：webpackDevServer</h1><p>在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了。</p>
-<h3 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h3><p>首先我们需要安装：<code>webpack-dev-server</code>:</p>
-<pre class=" language-javascript"><code class="language-javascript">全局安装：
-npm install <span class="token operator">-</span>g webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server
-局部安装：
-npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server</code></pre>
-<p>在webpack4之后，同时需要安装：<code>webpack-cli</code></p>
-<pre class=" language-javascript"><code class="language-javascript">npm install webpack<span class="token operator">-</span>cli <span class="token operator">-</span>D</code></pre>
-<p>最后我们运行<code>webpack-dev-server</code>，就可以启动一个本地服务器，默认端口号是8080，访问<code>http://localhost:8080/</code>即可。</p>
+                <h1 id="webpack4-0-四-：babel"><a href="#webpack4-0-四-：babel" class="headerlink" title="webpack4.0(四)：babel"></a>webpack4.0(四)：babel</h1><h2 id="什么是babel"><a href="#什么是babel" class="headerlink" title="什么是babel"></a>什么是babel</h2><p>ES6是ECMAScript在2015年发布的下一代JavaScript语法，它引入了一些新的语法和API，但是这些新的语法和API只有在最新的浏览器中才会得到支持，就算是现在仍然有一部分浏览器不支持ES6。所以我们需要一个转换工具，将ES6+的语法转换为ES5的语法。而babel就是这样一个转换工具。</p>
 <blockquote>
-<p>注意：使用webpack-dev-server打包的文件保存在电脑内存当中，可以提高访问速度。</p>
+<p>本文的babel讲解基于babel7。</p>
 </blockquote>
-<p>当然，这个默认的配置是可以修改的，在<code>webpack.config.js</code>中：</p>
-<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
-    contentBase<span class="token punctuation">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//指定服务器默认打开的文件夹</span>
-  open<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//是否自动打开浏览器窗口</span>
-  port<span class="token punctuation">:</span> <span class="token string">"8081"</span><span class="token comment" spellcheck="true">//配置端口号</span>
+<h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p>babel在执行编译的时候，会从项目根目录下的<code>.babelrc</code>中或者<code>babel-loader</code>的options中读取其配置。<code>.babelrc</code>是一个json格式的文件，其中主要是对预设（presets）和 插件（plugins）的配置。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+    <span class="token string">"presets"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> 
+        <span class="token punctuation">[</span>
+            <span class="token string">"@babel/preset-env"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">"targets"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">"edge"</span><span class="token punctuation">:</span> <span class="token string">"17"</span><span class="token punctuation">,</span>
+                    <span class="token string">"firefox"</span><span class="token punctuation">:</span> <span class="token string">"60"</span><span class="token punctuation">,</span>
+                    <span class="token string">"chrome"</span><span class="token punctuation">:</span> <span class="token string">"67"</span><span class="token punctuation">,</span>
+                    <span class="token string">"safari"</span><span class="token punctuation">:</span> <span class="token string">"11.1"</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string">"useBuiltIns"</span><span class="token punctuation">:</span><span class="token string">"usage"</span><span class="token comment" spellcheck="true">//只转换已使用的模块</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p>实时预览。使用<code>webpack --watch</code>，监听文件系统的变化，实现自动打包。当项目的入口文件或者依赖文件发生变动时，它会重新构建，构建完成之后会刷新页面。但是如果修改的不是入口文件或者依赖文件，它是不会重新构建的。</p>
-<h3 id="webpack-dev-middleware"><a href="#webpack-dev-middleware" class="headerlink" title="webpack-dev-middleware"></a>webpack-dev-middleware</h3><p>新建一个服务端，并且将webpack处理过的文件传送给服务器。<br>原理：使用webpack和其对应的配置文件，生成一个编译器，使用该中间件，在服务器上监听文件变化，重新打包。<br>使用express建立本地服务器：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//server.js</span>
-<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> middleware <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-dev-middleware'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.config.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> complier <span class="token operator">=</span> <span class="token function">webpack</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//编译器</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">middleware</span><span class="token punctuation">(</span>complier<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    publicPath<span class="token punctuation">:</span> config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>publicPath
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span></code></pre>
-<p>然后访问3000端口即可。</p>
-<h3 id="HMR"><a href="#HMR" class="headerlink" title="HMR"></a>HMR</h3><p>除了以上方法可以实现在入口文件或者依赖文件发生变动时进行重新打包加载页面之外，使用模块热替换技术也可以实现在不刷新页面的情况下，使用已更新的模块替换旧模块。<br>模块热替换技术默认是不开启的，我们可以通过以下方法开启：</p>
-<ol>
-<li>在启动devServer的时候带上<code>--inline</code> 或者 <code>--inline hot</code>即可。</li>
-<li>在devServer中配置：</li>
-</ol>
-<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  contentBase<span class="token punctuation">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
-  open<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  port<span class="token punctuation">:</span> <span class="token number">8080</span><span class="token punctuation">,</span>
-  hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//配置HMR 阻止浏览器自动刷新</span>
-  hotOnly<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//即便HMR不生效 也不让浏览器自动刷新</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
- plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>HotModuleReplacementPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span></code></pre>
-<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p>dev-server使用了非常强大的包：<code>http-proxy-middleware</code>，具体用法请查看<a href="https://www.npmjs.com/package/http-proxy-middleware" target="_blank" rel="noopener">使用文档</a>。<br>举个🌰：如果在<code>http://localhost:3000</code>上有后端开发服务器，我们可以这样设置代理：</p>
-<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
-    proxy<span class="token punctuation">:</span><span class="token punctuation">{</span>
-      <span class="token string">"/api"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:3000/"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>将请求到 <code>/api/users</code> 现在会被代理到请求 <code>http://localhost:3000/api/users</code>。<br>如果不想始终传递 <code>/api</code> ，则需要重写路径：</p>
-<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
-    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
-      pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"^/api"</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>默认情况下，不接受运行在 HTTPS 上，且使用了无效证书的后端服务器。如果你想要接受，修改配置如下：</p>
-<pre class=" language-javascript"><code class="language-javascript">devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
-    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
-      pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"^/api"</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-      secure<span class="token punctuation">:</span> <span class="token boolean">false</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>有时你不想代理所有的请求。可以基于一个函数的返回值绕过代理。<br>在函数中你可以访问请求体、响应体和代理选项。必须返回 <code>false</code> 或路径，来跳过代理请求。<br>例如：对于浏览器请求，你想要提供一个 HTML 页面，但是对于 API 请求则保持代理。你可以这样做：</p>
-<pre class=" language-javascript"><code class="language-javascript">proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"/api"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
-    bypass<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> proxyOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>accept<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"html"</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Skipping proxy for browser request."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"/index.html"</span><span class="token punctuation">;</span>
+<h3 id="babel-loader"><a href="#babel-loader" class="headerlink" title="babel-loader"></a>babel-loader</h3><p>关于babel-loader的具体配置，请查看<a href="https://www.npmjs.com/package/babel-loader" target="_blank" rel="noopener">官方文档</a>。</p>
+<blockquote>
+<p>webpack 4.x | babel-loader 8.x | babel 7.x</p>
+</blockquote>
+<p>安装：<code>npm install -D babel-loader @babel/core @babel/preset-env webpack</code><br>配置：<br>在webpack.config.js中：</p>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+                exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//对于第三方的插件 无需做多余处理</span>
+                use<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+                    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>关于<code>@babel/preset-env</code>的配置：<a href="https://babeljs.io/docs/en/babel-preset-env" target="_blank" rel="noopener">请移步</a>。<br>其实<code>babel-loader</code>只是babel和webpack沟通的桥梁，真正可以将ES6+语法转换为ES5语法的还是<code>``@babel/preset-env</code>。<br>按照上述配置，已经可以将ES6+的语法转换为ES5了。但是<code>@babel/preset-env</code>只是将语法翻译成ES5 ，在低版本的浏览器中，不支持的API，如Promise、map等，仍然没有被补充进去。所以我们需要使用一个工具在低版本的浏览器中补充这些新的API。<br>而<code>@babel/polyfill</code> 和 <code>@babel/runtime</code>正是用来做这些工作的。</p>
+<h3 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="@babel/polyfill"></a>@babel/polyfill</h3><p>安装：<code>npm install --save @babel/polyfill</code>。<br>使用：在项目的入口文件中第一行引入即可：<code>import &quot;@babel/polyfill&quot;;</code>。由于<code>@babel/polyfill</code>很大，所以在配合webpack使用的时候，最好在babelrc文件中添加一项配置：<code>useBuiltIns: &#39;usage&#39;</code>。这样在打包编译的时候，就不会将为使用的ES6+语法也给打包进去了。</p>
+<h3 id="babel-plugin-transform-runtime"><a href="#babel-plugin-transform-runtime" class="headerlink" title="babel-plugin-transform-runtime"></a>babel-plugin-transform-runtime</h3><p>安装：具体配置<a href="https://babeljs.io/docs/en/babel-plugin-transform-runtime" target="_blank" rel="noopener">请移步</a><br><code>npm install --save-dev @babel/plugin-transform-runtime</code><br><code>npm install --save @babel/runtime</code>。<br>配置：<br>.babelrc：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"@babel/plugin-transform-runtime"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">"absoluteRuntime"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token string">"corejs"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token string">"helpers"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">"regenerator"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">"useESModules"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"7.0.0-beta.0"</span>
       <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<p>如果想要代理多个目标路径大同一目标呢服务器上，则可以使用数组或者多个对象的形式：</p>
-<pre class=" language-javascript"><code class="language-javascript">proxy<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-  context<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"/auth"</span><span class="token punctuation">,</span> <span class="token string">"/api"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  target<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true">//或者</span>
-
-proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"/api"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
-      <span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:3000/"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token string">"/auth"</span><span class="token punctuation">:</span><span class="token punctuation">{</span>
-      <span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"http://localhost:4000/"</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<h3 id="babel-polyfill-和-babel-plugin-transform-runtime的区别"><a href="#babel-polyfill-和-babel-plugin-transform-runtime的区别" class="headerlink" title="@babel/polyfill 和 babel-plugin-transform-runtime的区别"></a>@babel/polyfill 和 babel-plugin-transform-runtime的区别</h3><ul>
+<li>前者的原理是当运行环境中并没有实现的一些方法，babel-polyfill会做兼容。后者是将ES6语法转换为ES5的语法，不管浏览器支不支持ES6的语法，都会编译，所以会有很多的冗余的代码。</li>
+<li>前者是在全局环境一种添加方法，会造成全局变量的污染。后者它不会污染全局对象和内置对象的原型，比如说我们需要Promise，我们只需要import Promise from ‘babel-runtime/core-js/promise’即可，这样不仅避免污染全局对象，而且可以减少不必要的代码。</li>
+</ul>
 
             </div>
             <hr/>
@@ -562,7 +523,7 @@ proxy<span class="token punctuation">:</span> <span class="token punctuation">{<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/">http://yangkunxiao.github.io/2020/01/28/Webpack/devServer/</a>
+                    <a href="http://yangkunxiao.github.io/2020/02/09/Webpack/05/">http://yangkunxiao.github.io/2020/02/09/Webpack/05/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -766,30 +727,29 @@ proxy<span class="token punctuation">:</span> <span class="token punctuation">{<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/28/Webpack/devServer/">
+                <a href="/2020/02/11/Webpack/06/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="webpackDevServer">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="DllPlugin和DllReferencePlugin">
                         
-                        <span class="card-title">webpackDevServer</span>
+                        <span class="card-title">DllPlugin和DllReferencePlugin</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            webpack4.0(二)：webpackDevServer在开发中我们还需要一个本地文件的服务器，并且当我们保存代码的时候会自动进行打包，并且还支持 Source Map，以方便代码调试等功能，因此我们现在需要使用到 devServer了
+                            webpack4.0(六)：DllPlugin和DllReferencePlugin前言在项目开发的时候，我们可能会发现有时候我们在打包的时候，构建速度很慢，尤其是一些我们使用的第三方库，每次都会被打包进去，大大延长了构建时间。那么我们能不
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -802,7 +762,6 @@ proxy<span class="token punctuation">:</span> <span class="token punctuation">{<
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -821,32 +780,31 @@ proxy<span class="token punctuation">:</span> <span class="token punctuation">{<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/16/Koa2/%20Onion-Model/">
+                <a href="/2020/02/07/Webpack/04/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Koa2洋葱模型">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="codeSplitting">
                         
-                        <span class="card-title">Koa2洋葱模型</span>
+                        <span class="card-title">codeSplitting</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浅解析洋葱模型koa2最大的特点就是独特的中间件控制流程。koa2基于NodeV7.6.0，可以直接使用async/await来替代generator，使得代码彻底摆脱“回调地狱”，可读性更佳。
-洋葱模型以下是一张中间件的“神图”，它可以清
+                            webpack4.0(三)：codeSplitting代码分离是 webpack 中最引人注目的特性之一。此特性能够把代码分离到不同的 bundle 中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的 bundle，以及控制
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Koa2/" class="post-category">
-                                    Koa2
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
@@ -856,8 +814,8 @@ proxy<span class="token punctuation">:</span> <span class="token punctuation">{<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Koa2/">
-                        <span class="chip bg-color">Koa2</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -1040,7 +998,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27k</span>&nbsp;字
+                class="white-color">58.5k</span>&nbsp;字
             
             
             
