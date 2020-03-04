@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.github.io/2020/02/20/Interview/01/</loc>
+    <lastmod>2020-02-29</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.github.io/2019/11/22/Hexo/index/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.github.io/2020/01/10/Interview/02/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
@@ -44,9 +50,6 @@
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
-    <lastmod>2020-02-21</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/02/20/Interview/01/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2020/01/16/Koa2/base/</loc>
@@ -113,9 +116,6 @@
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/22/Php/base/</loc>
-    <lastmod>2019-11-21</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/22/Hexo/index/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.github.io/2019/11/22/Php/mysql/</loc>

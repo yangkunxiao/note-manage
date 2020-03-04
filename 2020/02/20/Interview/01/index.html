@@ -280,10 +280,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -393,7 +482,7 @@
 </ol>
 <p>注意：域名查询可能经过dns调度器的。而且dns查询是很耗时，如果解析域名较多，那么网站的首屏加载就会变得很慢，这时可以考试使用<code>dns-prefetch</code>，这一点请参考<a href="https://www.cnblogs.com/goloving/p/9368965.html" target="_blank" rel="noopener">这里</a>。</p>
 <h3 id="TCP-IP请求"><a href="#TCP-IP请求" class="headerlink" title="TCP/IP请求"></a>TCP/IP请求</h3><p>http请求本质上还是tcp/ip请求。<br>tcp将http长报文划分为短报文，通过三次握手与服务器建立连接，进行可靠传输。</p>
-<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582018099404-452e08b5-fc6b-4686-9893-7d0b2eaa0183.png#align=left&display=inline&height=222&name=image.png&originHeight=443&originWidth=708&size=244050&status=done&style=none&width=354" alt="image.png"><br>TCP报头中的源端口号和目的端口号同IP数据报中的源IP与目的IP唯一确定一条TCP连接。TCP在发送数据前必须在彼此间建立连接，这里连接意思是：双方需要内保存对方信息（例如：IP，Port…）。</p>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582018099404-452e08b5-fc6b-4686-9893-7d0b2eaa0183.png" alt="image.png"><br>TCP报头中的源端口号和目的端口号同IP数据报中的源IP与目的IP唯一确定一条TCP连接。TCP在发送数据前必须在彼此间建立连接，这里连接意思是：双方需要内保存对方信息（例如：IP，Port…）。</p>
 <p>报文主要段的意思：</p>
 <ul>
 <li>序号seq：发送的数据字节流，确保TCP连接传输有序，对每个字节编号。序列号seq就是这个报文段中的第一个字节的数据编号。</li>
@@ -435,14 +524,14 @@
 <td align="center">希望断开连接。</td>
 </tr>
 </tbody></table>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582018876320-c8e1eeaa-ca19-4344-9744-f2044a9bd6e0.png#align=left&display=inline&height=350&name=image.png&originHeight=409&originWidth=652&size=38945&status=done&style=none&width=558" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582018876320-c8e1eeaa-ca19-4344-9744-f2044a9bd6e0.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_a2Fr,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
 <ol>
 <li>第一次握手：建立连接时，客户端发送初始序号seq=x，SYN=1请求标志。让服务器知道客户端发送，自己接收正常。</li>
 <li>第二次握手：服务器发送请求标志SYN，发送确认标志ACK，服务器自己的序号seq，发送客户端的确认标志ack：SYN=1，ACK=1，seq=y，ack=x + 1。让客户端知道自己接收、发送正常，服务器接收、发送正常。</li>
 <li>第三次握手：客户端发送确认标志ACK，自己的序号seq，发送服务端的确认序号ack：ACK=1，seq=x+1，ack=y+1。让服务器知道客户端发送、接收，自己发送、接收正常。</li>
 </ol>
 <p>从上面可知，三次握手是让服务器和客户端知道彼此双方发送、接收能力正常的最少握手次数。</p>
-<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582019583668-d848c108-a4f3-4188-b8f3-c7fda16138e9.png#align=left&display=inline&height=349&name=image.png&originHeight=543&originWidth=925&size=98984&status=done&style=none&width=595" alt="image.png"></p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582019583668-d848c108-a4f3-4188-b8f3-c7fda16138e9.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_a2Fr,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10" alt="image.png"></p>
 <p>四次挥手过程解析：</p>
 <ol>
 <li>第一次挥手：客户端主动请求断开，向服务端发送FIN=1，seq=u，进入FIN-WAIT-1状态。</li>
@@ -603,7 +692,7 @@ Server：服务器的一些信息。</code></pre><p>一般来说，请求头部�
 <li><code>http1.0</code>中，默认使用的是短连接，也就是说，浏览器没进行一次http操作，就建立一次连接，任务结束就中断连接，譬如每一个静态资源请求时都是一个单独的连接</li>
 <li>http1.1起，默认使用长连接，使用长连接会有这一行<code>Connection: keep-alive</code>，在长连接的情况下，当一个网页打开完成后，客户端和服务端之间用于传输http的tcp连接不会关闭，如果客户端再次访问这个服务器的页面，会继续使用这一条已经建立的连接。</li>
 </ul>
-<p>注意： <strong>keep-alive不会永远保持，它有一个持续时间，一般在服务器中配置（如apache），另外长连接需要客户端和服务器都支持时才有效。</strong><br>**</p>
+<p>注意： <strong>keep-alive不会永远保持，它有一个持续时间，一般在服务器中配置（如apache），另外长连接需要客户端和服务器都支持时才有效。</strong></p>
 <h4 id="http2-0"><a href="#http2-0" class="headerlink" title="http2.0"></a>http2.0</h4><p>http2.0不是https，它是http的下一代规范。<br>简述一下http2.0和http1.1的区别：</p>
 <ul>
 <li>http1.1中，每请求一个资源，都需要新开一个tcp/ip连接，所以对应的结果就是每一个资源都占用一个tcp/ip请求，而tcp/ip请求并发数量是有限制的，当请求资源数量一多，请求速度就会慢下来。</li>
@@ -643,7 +732,8 @@ Server：服务器的一些信息。</code></pre><p>一般来说，请求头部�
 
     - 使用`session key`加密一段握手消息，发送给浏览器
 
-5. 浏览器解密并计算握手消息的HASH，如果与服务端发来的HASH一致，此时握手过程结束。</code></pre><p><strong>之后所有的https通信数据将由之前浏览器生成的<code>session key</code>并利用对称加密算法进行加密。</strong><br><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582123727413-3e3bbc49-a819-4229-8174-4bdcc8ced04b.png#align=left&display=inline&height=712&name=image.png&originHeight=773&originWidth=760&size=172844&status=done&style=none&width=700" alt="image.png"></strong><br>**<br><strong>图片来源于阮一峰的<a href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="noopener">图解SSL/TSL协议</a></strong><br>**</p>
+5. 浏览器解密并计算握手消息的HASH，如果与服务端发来的HASH一致，此时握手过程结束。</code></pre><p><strong>之后所有的https通信数据将由之前浏览器生成的<code>session key</code>并利用对称加密算法进行加密。</strong><br><strong><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1582123727413-3e3bbc49-a819-4229-8174-4bdcc8ced04b.png#align=left&display=inline&height=712&name=image.png&originHeight=773&originWidth=760&size=172844&status=done&style=none&width=700" alt="image.png"></strong></p>
+<p><strong>图片来源于阮一峰的<a href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="noopener">图解SSL/TSL协议</a></strong></p>
 <h3 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h3><p>缓存可以被简单的划分为两类：强缓存（200 from cache）和协商缓存（304）。<br>区别：</p>
 <ul>
 <li>强缓存：如果浏览器判断本地缓存未过期的时候，将会直接使用本地缓存，不会发起请求。</li>
@@ -654,7 +744,8 @@ Server：服务器的一些信息。</code></pre><p>一般来说，请求头部�
 <li>http1.0: Pragma/Expires</li>
 <li>http1.1: Cache-Control/Max-Age</li>
 </ul>
-<p>注意：<strong><code>Max-Age</code>不是一个头部，它是<code>Cache-Control</code>头部的值。</strong><br>**<br>用于协商缓存控制的：</p>
+<p>注意：<strong><code>Max-Age</code>不是一个头部，它是<code>Cache-Control</code>头部的值。</strong></p>
+<p>用于协商缓存控制的：</p>
 <ul>
 <li>http1.0: Last-Modified/If-Modified-Since</li>
 <li>http1.1：E-tag/If-None-Match</li>
@@ -753,7 +844,7 @@ img { float: right }</code></pre><p>最终生成的CSS Rules Tree：<br><img src
 <li>避免多次调用读取offset等属性，必要的时候可以缓存到变量中。</li>
 <li>将复杂的元素决定定位或者固定定位，使其脱离文档流，否则造成的回流代价太大。</li>
 </ol>
-<p><strong>注意：改变字体大小会引发回流</strong><br>**</p>
+<p><strong>注意：改变字体大小会引发回流</strong></p>
 <h3 id="复合层与简单层"><a href="#复合层与简单层" class="headerlink" title="复合层与简单层"></a>复合层与简单层</h3><p>浏览器渲染的图层一般分为两大类：普通图层和复合图层。</p>
 <ul>
 <li>DOM中每一个节点都对应一个普通图层。</li>
@@ -1454,6 +1545,100 @@ const webpack = require('
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
