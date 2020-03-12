@@ -1,130 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yangkunxiao.github.io/2020/02/20/Interview/01/</loc>
+    <loc>http://yangkunxiao.cn/2020/03/05/Code/06/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/05/Code/05/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/01/Code/04/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/02/27/Code/03/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/02/25/Code/02/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/02/25/Code/01/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2019/11/23/Nginx/vue/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2019/11/23/Nginx/multiProject/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2019/11/23/Nginx/staticSource/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/11/Interview/05/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/12/Interview/04/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/12/Interview/03/</loc>
+    <lastmod>2020-03-12</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/02/20/Interview/01/</loc>
     <lastmod>2020-02-29</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/22/Hexo/index/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/22/Hexo/index/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/10/Interview/02/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/10/Interview/02/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/19/JavaScript/process-thread/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/19/JavaScript/process-thread/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/17/JavaScript/repaint-reflow/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/17/JavaScript/repaint-reflow/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/04/JavaScript/block-scope/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/04/JavaScript/block-scope/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/03/JavaScript/async/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/03/JavaScript/async/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/01/JavaScript/variable-hoisting/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/01/JavaScript/variable-hoisting/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/13/Optimize/img/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/13/Optimize/img/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/24/Webpack/01/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/24/Webpack/01/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/02/12/Webpack/07/</loc>
+    <loc>http://yangkunxiao.cn/2020/02/12/Webpack/07/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/02/11/Webpack/06/</loc>
+    <loc>http://yangkunxiao.cn/2020/02/11/Webpack/06/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/02/09/Webpack/05/</loc>
+    <loc>http://yangkunxiao.cn/2020/02/09/Webpack/05/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/02/07/Webpack/04/</loc>
+    <loc>http://yangkunxiao.cn/2020/02/07/Webpack/04/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/30/Webpack/03/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/30/Webpack/03/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/28/Webpack/02/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/28/Webpack/02/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/ScopeChain/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/21/JavaScript/ScopeChain/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/16/Koa2/base/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/16/Koa2/base/</loc>
     <lastmod>2020-01-16</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/16/Koa2/%20Onion-Model/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/16/Koa2/%20Onion-Model/</loc>
     <lastmod>2020-01-16</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/change-this/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/21/JavaScript/change-this/</loc>
     <lastmod>2020-01-03</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/03/JavaScript/block-scope-function/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/03/JavaScript/block-scope-function/</loc>
     <lastmod>2020-01-03</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/prototype/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/21/JavaScript/prototype/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2020/01/01/JavaScript/variableHoisting/</loc>
+    <loc>http://yangkunxiao.cn/2020/01/01/JavaScript/variableHoisting/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/31/JavaScript/webWorker/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/31/JavaScript/webWorker/</loc>
     <lastmod>2019-12-31</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/20/JavaScript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</loc>
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/15/JavaScript/drag/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/15/JavaScript/drag/</loc>
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/multiProject/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/01/JavaScript/EventLoop/</loc>
     <lastmod>2019-12-15</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/EventLoop/</loc>
-    <lastmod>2019-12-15</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/07/JavaScript/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2019-12-07</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/12/01/JavaScript/for/</loc>
+    <loc>http://yangkunxiao.cn/2019/12/01/JavaScript/for/</loc>
     <lastmod>2019-12-07</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/30/Mocha/index/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/30/Mocha/index/</loc>
     <lastmod>2019-11-30</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/21/JavaScript/dataType/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/21/JavaScript/dataType/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/JavaScript/multiImageUpload/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/20/JavaScript/multiImageUpload/</loc>
     <lastmod>2019-11-25</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/24/Mysql/resetPassWord/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/24/Mysql/resetPassWord/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/24/Mysql/naturalJoin/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/24/Mysql/naturalJoin/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/24/Linux/mysql/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/24/Linux/mysql/</loc>
     <lastmod>2019-11-23</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/staticSource/</loc>
-    <lastmod>2019-11-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/23/Nginx/vue/</loc>
-    <lastmod>2019-11-23</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/22/Php/base/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/22/Php/base/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/22/Php/mysql/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/22/Php/mysql/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Other/server/</loc>
-    <lastmod>2019-11-20</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.github.io/2019/11/20/Vue/webpack%E6%9E%84%E5%BB%BA/</loc>
+    <loc>http://yangkunxiao.cn/2019/11/20/Other/server/</loc>
     <lastmod>2019-11-20</lastmod>
   </url>
 </urlset>

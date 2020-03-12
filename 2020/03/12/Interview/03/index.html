@@ -1,0 +1,1209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="深拷贝 VS 浅拷贝, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="深拷贝 VS 浅拷贝
+深拷贝：拷贝实例。浅拷贝：拷贝引用。
+
+不知道大家还记不记得高程上对数据类型的定义：基本数据类型：布尔类型、字符串类型、数字类型。这些类型属于基本数据类型，它们的值通常都是直接存放在栈中，所以平时我们在给给变量赋值的时">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>深拷贝 VS 浅拷贝 | Walter</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="alternate" href="/atom.xml" title="Walter" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Walter</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Walter</div>
+        <div class="logo-desc">
+            
+            前端工程师
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yangkunxiao" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yangkunxiao" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        深拷贝 VS 浅拷贝
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h1><blockquote>
+<p>深拷贝：拷贝实例。浅拷贝：拷贝引用。</p>
+</blockquote>
+<p>不知道大家还记不记得高程上对数据类型的定义：<br><strong>基本数据类型：</strong><br>布尔类型、字符串类型、数字类型。这些类型属于基本数据类型，它们的值通常都是直接存放在栈中，所以平时我们在给给变量赋值的时候，就是直接将值直接复制给变量，新变量的更改不会影响原变量。<br><strong>引用类型：</strong><br>对于对象（包含object、array、date、function等等），这些对象的值都存放在堆中，值的引用存放在栈中。</p>
+<p>举个🌰：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10</span>
+b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//10,20</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">20</span> <span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj2 <span class="token operator">=</span> obj1<span class="token punctuation">;</span>
+obj2<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//100</span></code></pre>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1583893141137-90d3b97f-a36d-4bfb-a26d-88387fbfad4a.png#align=left&display=inline&height=438&name=image.png&originHeight=1074&originWidth=1468&size=133037&status=done&style=none&width=599" alt="image.png"><br>如图，深拷贝就是在内存中重新开辟一个新的内存，将一个对象从内存中完整的读出来，存放到新的内存中，两者互不影响。</p>
+<p>话不多说，先撸为敬。</p>
+<h3 id="乞丐版"><a href="#乞丐版" class="headerlink" title="乞丐版"></a>乞丐版</h3><p>在业务场景中，我们使用的最多的就是下面的方式，但是这样的方式存在着潜在的风险，对于一下循环嵌套的对象、数组等，无法进行有效的复制。具体请看<a href="https://www.yuque.com/walter-glskq/zf7grn/uva3mi" target="_blank" rel="noopener">这一篇文章</a></p>
+<pre class=" language-javascript"><code class="language-javascript">JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h3 id="基础版本（一）"><a href="#基础版本（一）" class="headerlink" title="基础版本（一）"></a>基础版本（一）</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">deeClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> element <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      res<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> element
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">{</span> c<span class="token punctuation">:</span><span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    d<span class="token punctuation">:</span><span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">deeClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ a: 10, b: [ 1, 3, 4, { c: 20 } ], d: true }</span></code></pre>
+<h3 id="基础版本（二）"><a href="#基础版本（二）" class="headerlink" title="基础版本（二）"></a>基础版本（二）</h3><p>创建一个新对象，遍历目标对象，将原对象上的属性和属性值一次挂载到新对象上。<br>深拷贝，由于我们不知道原对象会嵌套多少层，所以我们需要使用递归来解决。<br>如果属性值为基本类型，直接将属性和属性值挂载到新对象上。<br>如果属性值为对象类型，则递归遍历该属性的属性值，然后挂载到新对象上。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> target <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> res <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> element <span class="token operator">=</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> element <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            res<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            res<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> element<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        c<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            d<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">{</span> g<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span></code></pre>
+<h3 id="基础版本（三）"><a href="#基础版本（三）" class="headerlink" title="基础版本（三）"></a>基础版本（三）</h3><p>兼容循环引用。</p>
+<p>我们借用上面的函数，去对一个有循环引用的对象进行深拷贝：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        c<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            d<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">{</span> g<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>obj <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span></code></pre>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1583897125036-ba767d71-84e0-4793-828f-badefde0ecf1.png#align=left&display=inline&height=71&name=image.png&originHeight=108&originWidth=822&size=13051&status=done&style=none&width=537" alt="image.png"></p>
+<p>如上所示，如果存在对象直接或者间接引用自身的情况，就会出现内存溢出的情况。</p>
+<p>为了解决这种情况，我们需要在内存中开辟一个新的空间，来存储当前对象和拷贝对象的关系，当拷贝当前对象的时候，现在存储空间中查找，如果存在，直接返回存储中的值，否则，继续拷贝。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">deepClone3</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> target <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> res <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> element <span class="token operator">=</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          res<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone3</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        c<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            b<span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span>
+            d<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">{</span> g<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span>obj <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token function">deepClone3</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span></code></pre>
+<p>再次执行拷贝：我们可以看到obj.obj值为 <code>Circular</code>，即循环引用的意思。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1583938079008-5972dee1-63ac-4ef4-8cc9-ca65b4978571.png#align=left&display=inline&height=90&name=image.png&originHeight=148&originWidth=670&size=15716&status=done&style=none&width=408" alt="image.png"></p>
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>JavaScript的对象本质上只能是键值对的集合，且键只能为字符串。为了解决这个问题，在ES6中提出了一种新的数据结构：Map。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。<br>Map的API：</p>
+<ol>
+<li>size()</li>
+<li>set(key,value)</li>
+<li>get(key)</li>
+<li>has(key)</li>
+<li>delete(key)</li>
+<li>clear()</li>
+</ol>
+<p>Map的遍历方法：</p>
+<ul>
+<li><code>Map.prototype.keys()</code>：返回键名的遍历器。</li>
+<li><code>Map.prototype.values()</code>：返回键值的遍历器。</li>
+<li><code>Map.prototype.entries()</code>：返回所有成员的遍历器。</li>
+<li><code>Map.prototype.forEach()</code>：遍历 Map 的所有成员。</li>
+</ul>
+<h4 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h4><p>WeakMap是Map的一种变形。但是WeakMap只接受对象作为键（除null外），且WeakMap的键对应的对象，不会被计入垃圾回收机制。<br>使用WeakMap的优势：它的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内。因此，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。也就是说，一旦不再需要，WeakMap 里面的键名对象和所对应的键值对会自动消失，不用手动删除引用。</p>
+<p>总之，<code>WeakMap</code>的专用场合就是，它的键所对应的对象，可能会在将来消失。<code>WeakMap</code>结构有助于防止内存泄漏。<br>WeakMap的API：</p>
+<ol>
+<li>get(key)</li>
+<li>set(key,value)</li>
+<li>has(key)</li>
+<li>delete(key)</li>
+</ol>
+<h3 id="兼容其他类型"><a href="#兼容其他类型" class="headerlink" title="兼容其他类型"></a>兼容其他类型</h3><p>每一个对象都有对应的<code>toString()</code>方法，如果该方法未被重写，则调用的就是<code>Object.prototype</code>上的toString()，返回的就是’[object type]’，type就是该对象对应的数据类型。<br>所以，为了防止toString()方法被重写，我们直接调用<code>Object.prototype</code>上的方法，获取数据类型：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//判断类型</span>
+<span class="token keyword">function</span> <span class="token function">getType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>前面提到过，对应可引用的数据类型，我们要递归遍历；对应不可引用的数据类型，直接复制即可：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//判断是否是可引用的数据类型 </span>
+<span class="token keyword">function</span> <span class="token function">isRefrenceType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> type <span class="token operator">=</span> <span class="token keyword">typeof</span> target<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>target <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这里大致对一些数据类型进行划分：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//引用类型</span>
+<span class="token keyword">const</span> mapTag <span class="token operator">=</span> <span class="token string">'Map'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> setTag <span class="token operator">=</span> <span class="token string">'Set'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> arrayTag <span class="token operator">=</span> <span class="token string">'Array'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> objectTag <span class="token operator">=</span> <span class="token string">'Object'</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">//不可引用类型</span>
+<span class="token keyword">const</span> boolTag <span class="token operator">=</span> <span class="token string">'Boolean'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> dateTag <span class="token operator">=</span> <span class="token string">'Date'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> errorTag <span class="token operator">=</span> <span class="token string">'Error'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> numberTag <span class="token operator">=</span> <span class="token string">'Number'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> regexpTag <span class="token operator">=</span> <span class="token string">'RegExp'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> stringTag <span class="token operator">=</span> <span class="token string">'String'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> symbolTag <span class="token operator">=</span> <span class="token string">'Symbol'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> bufferTag <span class="token operator">=</span> <span class="token string">'Uint8Array'</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//判断类型</span>
+<span class="token keyword">function</span> <span class="token function">getType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//判断是否是原始类型类型 </span>
+<span class="token keyword">function</span> <span class="token function">isRefrenceType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> type <span class="token operator">=</span> <span class="token keyword">typeof</span> target<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>target <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//获取原型上的方法</span>
+<span class="token keyword">function</span> <span class="token function">getInit</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> ClassNames <span class="token operator">=</span> target<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ClassNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//引用类型</span>
+<span class="token keyword">const</span> mapTag <span class="token operator">=</span> <span class="token string">'Map'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> setTag <span class="token operator">=</span> <span class="token string">'Set'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> arrayTag <span class="token operator">=</span> <span class="token string">'Array'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> objectTag <span class="token operator">=</span> <span class="token string">'Object'</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">//不可引用类型</span>
+<span class="token keyword">const</span> boolTag <span class="token operator">=</span> <span class="token string">'Boolean'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> dateTag <span class="token operator">=</span> <span class="token string">'Date'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> errorTag <span class="token operator">=</span> <span class="token string">'Error'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> numberTag <span class="token operator">=</span> <span class="token string">'Number'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> regexpTag <span class="token operator">=</span> <span class="token string">'RegExp'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> stringTag <span class="token operator">=</span> <span class="token string">'String'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> symbolTag <span class="token operator">=</span> <span class="token string">'Symbol'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> bufferTag <span class="token operator">=</span> <span class="token string">'Uint8Array'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> deepTag <span class="token operator">=</span> <span class="token punctuation">[</span>mapTag<span class="token punctuation">,</span> setTag<span class="token punctuation">,</span> arrayTag<span class="token punctuation">,</span> objectTag<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">deepClone4</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> type <span class="token operator">=</span> <span class="token function">getType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> isOriginType <span class="token operator">=</span> <span class="token function">isRefrenceType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isOriginType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>deepTag<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cloneTarget <span class="token operator">=</span> <span class="token function">getInit</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//防止循环引用</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> cloneTarget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//如果是mapTag 类型</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> mapTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> cloneTarget<span class="token punctuation">,</span> <span class="token string">'target'</span><span class="token punctuation">)</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token function">deepClone4</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//如果是setTag 类型</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> setTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">deepClone4</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//如果是arrayTag 类型</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> arrayTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone4</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> map<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//objectTag 类型</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> objectTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> array <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        array<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone4</span><span class="token punctuation">(</span>target<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'key'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'kaka'</span><span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">const</span> <span class="token keyword">set</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">set</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'11'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'12'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token punctuation">{</span>
+    field1<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    field2<span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+    field3<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        child<span class="token punctuation">:</span> <span class="token string">'child'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    field4<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    empty<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    map<span class="token punctuation">,</span>
+    <span class="token keyword">set</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+target<span class="token punctuation">.</span>target <span class="token operator">=</span> target<span class="token punctuation">;</span>
+<span class="token keyword">const</span> target1 <span class="token operator">=</span> <span class="token function">deepClone4</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+target1<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token string">"a"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'🍎'</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'🍌'</span><span class="token punctuation">,</span> target1<span class="token punctuation">)</span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yangkunxiao.cn" rel="external nofollow noreferrer">Walter</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yangkunxiao.cn/2020/03/12/Interview/03/">http://yangkunxiao.cn/2020/03/12/Interview/03/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/03/12/Interview/03/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="深拷贝 VS 浅拷贝">
+                        
+                        <span class="card-title">深拷贝 VS 浅拷贝</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            深拷贝 VS 浅拷贝
+深拷贝：拷贝实例。浅拷贝：拷贝引用。
+
+不知道大家还记不记得高程上对数据类型的定义：基本数据类型：布尔类型、字符串类型、数字类型。这些类型属于基本数据类型，它们的值通常都是直接存放在栈中，所以平时我们在给给变量赋值的时
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/12/Interview/04/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="web常见的攻击手段">
+                        
+                        <span class="card-title">web常见的攻击手段</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            常见的攻击手段DOSDOS(Denial Service)拒绝服务式攻击，它是一种实现即简单很有效的针对服务器进行的攻 击方式，它的攻击目的就是让被攻击的主机和服务器拒绝用户正常访问，破坏系统正常运行 ，从而达到互联网用户无法连接被攻击的服
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Walter<br />'
+            + '文章作者: Walter<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="row">
+            <!-- <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p> -->
+            <p id="copyRightEn">Copyright © 2019 - 2020 前端博客 All Rights Reserved.</p>
+            <p><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">豫ICP备17047806号</a></p>
+      </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
