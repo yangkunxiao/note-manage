@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.cn/2020/03/11/Interview/05/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/15/Interview/08/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/28/Interview/07/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/21/Interview/06/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E7%9B%B8%E5%85%B3API%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Observer/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/01/01/JavaScript/variableHoisting/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/12/Code/09/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/12/Code/08/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/03/26/Code/07/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/04/06/Webpack/08/</loc>
+    <lastmod>2020-04-03</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.cn/2020/03/05/Code/06/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
@@ -31,13 +64,7 @@
     <loc>http://yangkunxiao.cn/2019/11/23/Nginx/staticSource/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
-    <loc>http://yangkunxiao.cn/2020/03/11/Interview/05/</loc>
-    <lastmod>2020-03-12</lastmod>
-  </url>  <url>
     <loc>http://yangkunxiao.cn/2020/03/12/Interview/04/</loc>
-    <lastmod>2020-03-12</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.cn/2020/03/12/Interview/03/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2020/02/20/Interview/01/</loc>
@@ -59,9 +86,6 @@
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2020/01/03/JavaScript/async/</loc>
-    <lastmod>2020-02-21</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.cn/2020/01/01/JavaScript/variable-hoisting/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2020/01/13/Optimize/img/</loc>
@@ -104,9 +128,6 @@
     <lastmod>2020-01-03</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2019/11/21/JavaScript/prototype/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.cn/2020/01/01/JavaScript/variableHoisting/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2019/12/31/JavaScript/webWorker/</loc>

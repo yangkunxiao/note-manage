@@ -4,21 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JS变量提升, javascript typescript php node html html5 css linux vue react 算法 数据结构">
-    <meta name="description" content="浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
-console.log(typeof a);
+    <meta name="keywords" content="手写Event.EventEmitter, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="手写Event.EventEmitter一个EventEmitter需要实现以下方法：
 
-a();
+addEventListener
+removeEventlistener
+removeAllEventListener
+emit
+once
 
-var a = 3;
-
-function a() {
-
-    console.log(typeof a);
-
-}
-
-">
+Even">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +21,7 @@ function a() {
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JS变量提升 | Walter</title>
+    <title>手写Event.EventEmitter | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -273,13 +268,13 @@ function a() {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JS变量提升
+                        手写Event.EventEmitter
                     </div>
                 </div>
             </div>
@@ -416,7 +411,7 @@ function a() {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-01
+                    2020-03-12
                 </div>
                 
 
@@ -425,14 +420,14 @@ function a() {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    487
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 				
@@ -448,183 +443,98 @@ function a() {
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="浅谈JS变量提升（2020新年第一章）"><a href="#浅谈JS变量提升（2020新年第一章）" class="headerlink" title="浅谈JS变量提升（2020新年第一章）"></a>浅谈JS变量提升（2020新年第一章）</h1><p>首先，先丢出来一道题：</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+                <h1 id="手写Event-EventEmitter"><a href="#手写Event-EventEmitter" class="headerlink" title="手写Event.EventEmitter"></a>手写Event.EventEmitter</h1><p>一个<strong><em>EventEmitter</em></strong>需要实现以下方法：</p>
+<ul>
+<li>addEventListener</li>
+<li>removeEventlistener</li>
+<li>removeAllEventListener</li>
+<li>emit</li>
+<li>once</li>
+</ul>
+<h3 id="EventEmitter"><a href="#EventEmitter" class="headerlink" title="EventEmitter"></a>EventEmitter</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>events <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>如果我们不了解JavaScript中的变量提升和函数声明提升，那我们的答案可能就是这样的：</p>
-<pre class=" language-javascript"><code class="language-javascript">undefined
-
-ReferenceError<span class="token punctuation">:</span> b is not defined
-
-<span class="token operator">...</span>
-</code></pre>
-<p>那么正确的答案是什么呢？我们首先把这段代码还原：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-
-<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>好了，这下看一看执行结果是什么呢？</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"function"</span>
-
-<span class="token string">"function"</span>
-
-<span class="token string">"number"</span>
-
-<span class="token string">"a is not a function"</span></code></pre>
-<h2 id="为什么会发生提升？"><a href="#为什么会发生提升？" class="headerlink" title="为什么会发生提升？"></a>为什么会发生提升？</h2><p>首先我们需要知道一点编译原理的知识。JavaScript的源代码在运行的时候，会经过两个阶段：编译和执行。而且，编译阶段往往就在执行阶段的前几微秒甚至更短的时间内。</p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><h4 id="词法解析"><a href="#词法解析" class="headerlink" title="词法解析"></a>词法解析</h4><p>这个阶段会先把字符组成的字符串解析成一个个有意义的代码块，这些代码块也被称为词法单元。如 <code>var a = 1;</code> 会被解析成： <code>var 、a、=、1、;</code> ，空格是否会被解析成词法单元，就要看空格在这个语言中有意义。</p>
-<h4 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h4><p>这个阶段会把词法解析生成的词法单元流解析成有元素逐级嵌套所组成的程序语法树，AST。至于AST的结构是如何构成的，这里有几个网站，大家可以去试试: <a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">网站1</a>、<a href="https://resources.jointjs.com/demos/javascript-ast" target="_blank" rel="noopener">网站2</a>。</p>
-<h4 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h4><p>这个阶段就是将语法解析阶段生成的AST转译成可执行的代码。</p>
-<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><h4 id="LHS查询"><a href="#LHS查询" class="headerlink" title="LHS查询"></a>LHS查询</h4><p>在编译的过程中，先将标识符和函数声明给提升到其对应的作用域的顶端。标识符解析的时候，会进行LHS查询，在LHS查询的时候，如果标识符一直找不到声明的位置，那么最终就会在全局环境生成一个全局变量。</p>
-<blockquote>
-<p>LHS ： 指的是赋值操作的左端。<br>标识符解析：请查看我的另外一篇文章。</p>
-</blockquote>
-<h4 id="RHS查询"><a href="#RHS查询" class="headerlink" title="RHS查询"></a>RHS查询</h4><p>说到LHS查询，就不得不提对应的RHS查询，相信大家已经看出RHS的意思了把，它指的是赋值操作的源头。RHS查询的时候，如果找不到对应的标识符，就会抛出一个异常：ReferenceError。</p>
-<h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><p>函数提升和变量提升还有点不一样。函数提升，只会提升函数声明，而不会提升函数表达式。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//fn is not a function </span>
-
-<span class="token comment" spellcheck="true">//函数表达式</span>
-<span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//函数声明</span>
-<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//工具函数</span>
+<span class="token keyword">const</span> wrapCallBack <span class="token operator">=</span> <span class="token punctuation">(</span>fn<span class="token punctuation">,</span>once <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> callback<span class="token punctuation">:</span>fn<span class="token punctuation">,</span>once <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h3><pre class=" language-javascript"><code class="language-javascript">EventEmitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>addEventListener <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>fn<span class="token punctuation">,</span>once <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//从events获取事件类型为type的事件回调</span>
+    <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// console.log(handler)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>handler<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//如果不存在 则添加</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span><span class="token function">wrapCallBack</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span>once<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>handler <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> handler<span class="token punctuation">.</span>callback <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//如果只绑定一个回调</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span><span class="token punctuation">[</span>handler<span class="token punctuation">,</span><span class="token function">wrapCallBack</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span>once<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//绑定类多个回调</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token operator">...</span>handler<span class="token punctuation">,</span><span class="token function">wrapCallBack</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span>once<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>这里我把代码还原，我们来看一下：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//函数声明</span>
-<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">var</span> fn<span class="token punctuation">;</span>
-
-<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-fn <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<h3 id="removeEventListener"><a href="#removeEventListener" class="headerlink" title="removeEventListener"></a>removeEventListener</h3><pre class=" language-javascript"><code class="language-javascript">EventEmitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>removeListener <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>listener<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>handler<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//简单比较回调函数是否相同</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span>handler<span class="token punctuation">.</span>callback<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">String</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//循环回调函数队列</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> handler<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> handler<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//简单比较回调函数是否相同</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>callback<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token function">String</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                handler<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//避免回调函数数组变化 导致数组访问错误</span>
+                i<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//如果数组为空 删除监听的事件即可</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>handler<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>handler<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">//如果数组只有一个元素 只需要以对象的形式保存即可</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>这下明白为什么执行函数fn的时候，会报错了吧。</p>
-<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>块级作用域是在ES6中提出的一个概念，ES5中是没有块级作用域的，只有全局作用域和函数作用域。<br>我们还是先看个案例：</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
-<span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        yideng <span class="token operator">=</span> a<span class="token punctuation">;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yideng1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//function</span></code></pre>
-<p>还是把这段代码还原一下：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a<span class="token punctuation">,</span>flag<span class="token punctuation">,</span>fn<span class="token punctuation">;</span>
-<span class="token operator">...</span><span class="token operator">...</span></code></pre>
-<p>或许有人会问：为什么a和函数fn会被提到最顶端？变量a和函数fn都是在块级作用域中，其中a是通过var进行声明的，函数fn是一个函数声明。而非严格模式下，块级作用域是阻挡不了var声明的变量和函数声明的提升的。但是，声明函数。<br>更进一步</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
-    a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 5</span>
-
-    a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 0</span>
-
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 5</span></code></pre>
-<p>大家看到这个答案是不是很疑惑？当我第一次看到这个答案的时候，内心也是一万个🦙奔腾而过。<br>我们上面说过，块级作用域中，只有var声明的变量和函数声明可以直接提到全局作用域。块级作用域中的不实用var声明的变量，也会提升到全局作用域，但是只有在块级作用域中运行之后，才会反射到全局作用域上。<br>而且块级作用域和函数作用域完全不同：函数作用域会在执行完毕之后，重写window。而块级作用域之后进行一次有意义的重写。所谓有意义的重写，就是在外层作用域没有声明和赋值。<br>在块级作用域中，函数声明会提升到当前作用域顶层，至于会不会重写外层变量，那就要看是否有实际意义。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>现在，大家是不是对变量和函数的提升机制已经有一定的了解了？那么让我们在深度实战一下。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//'use strict'</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        f <span class="token operator">=</span> a<span class="token punctuation">;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yideng1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>在ES6非严格模式下，代码块中，只有使用 <code>var</code> 声明的变量和函数声明是可以提升的，但是函数声明只能将函数的名字提升出去。<br>ES5非严格模式下，各个浏览器表现不一样。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
-
-<span class="token string">"undefined"</span>
-
-<span class="token string">"function"</span></code></pre>
-<p>在ES6严格模式下：代码块中，只有使用 <code>var</code> 声明的变量可以提升出去。<br>ES5严格模式下，直接报错。因为ES5函数不允许在块级作用域中声明函数。函数的声明只能在函数作用域或者顶级作用域中。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
-
-<span class="token string">"ReferenceError:f is not defined "</span><span class="token comment" spellcheck="true">//报错</span></code></pre>
-<p>再来看一个题：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
-    <span class="token comment" spellcheck="true">// var f = 3;</span>
-    f <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//number</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
-    <span class="token comment" spellcheck="true">// var s = 3;</span>
-    s <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function </span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>上述代码中，函数f是具名函数，函数s是函数表达式。具名函数中，可以在函数内部改变函数名，而函数表达式，如果有函数名，则它的函数名只能作用在其自身作用域中，且不可改变改变函数名。</p>
+<h3 id="removeAllEventListener"><a href="#removeAllEventListener" class="headerlink" title="removeAllEventListener"></a>removeAllEventListener</h3><pre class=" language-javascript"><code class="language-javascript">EventEmitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>removeAllListener <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>handler<span class="token punctuation">)</span> <span class="token keyword">return</span> 
+    <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="emit"><a href="#emit" class="headerlink" title="emit"></a>emit</h3><pre class=" language-javascript"><code class="language-javascript">EventEmitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>emit <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        eventsArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//如果是回调队列为数组的形式 循环遍历</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//简单实现 避免后续数组长度出现变化 对数组的访问出错</span>
+        <span class="token comment" spellcheck="true">//优化：可以考虑写一个工具函数 深拷贝</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> handler<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            eventsArray<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>handler<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">//遍历type对应的回调队列 触发每一个cb</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> eventsArray<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> item <span class="token operator">=</span> eventsArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//执行回调</span>
+            item<span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>once<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                  <span class="token comment" spellcheck="true">//如果回调函数只执行一次 则删除该回调函数</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>item<span class="token punctuation">.</span>callback<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">//否则直接执行即可</span>
+        handler<span class="token punctuation">.</span>callback<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="once"><a href="#once" class="headerlink" title="once"></a>once</h3><pre class=" language-javascript"><code class="language-javascript">EventEmitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>once <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>fn<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>fn<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -650,7 +560,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yangkunxiao.cn/2020/01/01/JavaScript/variable-hoisting/">http://yangkunxiao.cn/2020/01/01/JavaScript/variable-hoisting/</a>
+                    <a href="http://yangkunxiao.cn/2020/03/12/Code/08/">http://yangkunxiao.cn/2020/03/12/Code/08/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,44 +643,35 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/01/JavaScript/variableHoisting/">
+                <a href="/2020/03/15/Interview/08/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="浅谈JS变量提升(2020新年第一更)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="webpack面试题集锦">
                         
-                        <span class="card-title">浅谈JS变量提升(2020新年第一更)</span>
+                        <span class="card-title">webpack面试题集锦</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
-console.log(typeof a);
+                            webpack面试集锦Webpack构建流程简单说一下Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：
 
-a();
+初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数
 
-var a = 3;
-
-function a() {
-
-    console.log(typeof a);
-
-}
-
-
+开始编译：用上一步得到的参数
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
@@ -780,8 +681,8 @@ function a() {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -795,24 +696,27 @@ function a() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/31/JavaScript/webWorker/">
+                <a href="/2020/03/12/Code/09/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="深拷贝 VS 浅拷贝">
                         
-                        <span class="card-title">web Worker(2019最后一更)</span>
+                        <span class="card-title">深拷贝 VS 浅拷贝</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
+                            深拷贝 VS 浅拷贝
+深拷贝：拷贝实例。浅拷贝：拷贝引用。
+
+不知道大家还记不记得高程上对数据类型的定义：基本数据类型：布尔类型、字符串类型、数字类型。这些类型属于基本数据类型，它们的值通常都是直接存放在栈中，所以平时我们在给给变量赋值的时
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-12
                             </span>
                         <span class="publish-author">
                             

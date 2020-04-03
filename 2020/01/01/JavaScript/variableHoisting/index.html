@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浅谈JS变量提升(2020新年第一更), javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="keywords" content="JS变量提升, javascript typescript php node html html5 css linux vue react 算法 数据结构">
     <meta name="description" content="浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
 console.log(typeof a);
 
@@ -26,7 +26,7 @@ function a() {
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>浅谈JS变量提升(2020新年第一更) | Walter</title>
+    <title>JS变量提升 | Walter</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -273,13 +273,13 @@ function a() {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        浅谈JS变量提升(2020新年第一更)
+                        JS变量提升
                     </div>
                 </div>
             </div>
@@ -425,14 +425,14 @@ function a() {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 				
@@ -539,10 +539,47 @@ fn <span class="token operator">=</span> <span class="token keyword">function</s
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 <p>这下明白为什么执行函数fn的时候，会报错了吧。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>现在，大家是不是对变量和函数声明的提升机制已经有一定的了解了？那么让我们在深度实战一下。</p>
-<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>块级作用域是在ES6中提出的一个概念，ES5中是没有块级作用域的，只有全局作用域和函数作用域。<br>我们还是先看个案例：</p>
+<pre class=" language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
+<span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        yideng <span class="token operator">=</span> a<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"yideng1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//undefined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//function</span></code></pre>
+<p>还是把这段代码还原一下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a<span class="token punctuation">,</span>flag<span class="token punctuation">,</span>fn<span class="token punctuation">;</span>
+<span class="token operator">...</span><span class="token operator">...</span></code></pre>
+<p>或许有人会问：为什么a和函数fn会被提到最顶端？变量a和函数fn都是在块级作用域中，其中a是通过var进行声明的，函数fn是一个函数声明。而非严格模式下，块级作用域是阻挡不了var声明的变量和函数声明的提升的。但是，声明函数。<br>更进一步</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+    a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 5</span>
+
+    a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 0</span>
+
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//5 5</span></code></pre>
+<p>大家看到这个答案是不是很疑惑？当我第一次看到这个答案的时候，内心也是一万个🦙奔腾而过。<br>我们上面说过，块级作用域中，只有var声明的变量和函数声明可以直接提到全局作用域。块级作用域中的不实用var声明的变量，也会提升到全局作用域，但是只有在块级作用域中运行之后，才会反射到全局作用域上。<br>而且块级作用域和函数作用域完全不同：函数作用域会在执行完毕之后，重写window。而块级作用域之后进行一次有意义的重写。所谓有意义的重写，就是在外层作用域没有声明和赋值。<br>在块级作用域中，函数声明会提升到当前作用域顶层，至于会不会重写外层变量，那就要看是否有实际意义。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>现在，大家是不是对变量和函数的提升机制已经有一定的了解了？那么让我们在深度实战一下。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//'use strict'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
@@ -558,16 +595,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>在非严格模式下，代码块中，只有使用 <code>var</code> 声明的变量和函数声明是可以提升的，但是函数声明只能将函数的名字提升出去。 </p>
+<p>在ES6非严格模式下，代码块中，只有使用 <code>var</code> 声明的变量和函数声明是可以提升的，但是函数声明只能将函数的名字提升出去。<br>ES5非严格模式下，各个浏览器表现不一样。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
 
 <span class="token string">"undefined"</span>
 
 <span class="token string">"function"</span></code></pre>
-<p>在严格模式下：代码块中，只有使用 <code>var</code> 声明的变量可以提升出去。</p>
+<p>在ES6严格模式下：代码块中，只有使用 <code>var</code> 声明的变量可以提升出去。<br>ES5严格模式下，直接报错。因为ES5函数不允许在块级作用域中声明函数。函数的声明只能在函数作用域或者顶级作用域中。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token string">"undefined"</span>
 
-<span class="token string">"f is not defined "</span></code></pre>
+<span class="token string">"ReferenceError:f is not defined "</span><span class="token comment" spellcheck="true">//报错</span></code></pre>
 <p>再来看一个题：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//function</span>
@@ -577,7 +614,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
 
 
 <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">s</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -753,37 +789,24 @@ what？不应该是：func
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/01/JavaScript/variable-hoisting/">
+                <a href="/2019/12/31/JavaScript/webWorker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="JS变量提升">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="web Worker(2019最后一更)">
                         
-                        <span class="card-title">JS变量提升</span>
+                        <span class="card-title">web Worker(2019最后一更)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浅谈JS变量提升（2020新年第一章）首先，先丢出来一道题：
-console.log(typeof a);
-
-a();
-
-var a = 3;
-
-function a() {
-
-    console.log(typeof a);
-
-}
-
-
+                            web Worker的使用web Worker什么是web WorkerJavaScript是单线程的。所有的任务只能在同一个线程中进行，一次只能执行一个任务，后面的只能等待。而且现在计算机大多都是多核的，单线程不能有效的利用计算机的资源。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-31
                             </span>
                         <span class="publish-author">
                             

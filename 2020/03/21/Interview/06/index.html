@@ -1,0 +1,1408 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS常见面试题, javascript typescript php node html html5 css linux vue react 算法 数据结构">
+    <meta name="description" content="CSS常见面试题
+介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？
+
+标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin低版本IE盒子模型：宽度=内容宽度（conten">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>CSS常见面试题 | Walter</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="alternate" href="/atom.xml" title="Walter" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Walter</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Walter</div>
+        <div class="logo-desc">
+            
+            前端工程师
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yangkunxiao" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yangkunxiao" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        CSS常见面试题
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-21
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CSS常见面试题"><a href="#CSS常见面试题" class="headerlink" title="CSS常见面试题"></a>CSS常见面试题</h1><ol>
+<li><strong>介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？</strong></li>
+</ol>
+<p>标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin<br>低版本IE盒子模型：宽度=内容宽度（content+border+padding）+ margin</p>
+<ol start="2">
+<li><strong>box-sizing属性</strong></li>
+</ol>
+<p>用来控制元素的盒子模型的解析模式，默认为content-box<br>context-box：W3C的标准盒子模型，设置元素的 height/width 属性指的是content部分的高/宽<br>border-box：IE传统盒子模型。设置元素的height/width属性指的是border + padding + content部分 的高/宽</p>
+<ol start="3">
+<li><strong>CSS选择器有哪些？哪些属性可以继承？CSS优先级算法如何计算？</strong></li>
+</ol>
+<p>CSS选择符：id选择器(#myid)、类选择器(.myclassname)、标签选择器(div, h1, p)、相邻选择器(h1 + p)、子选择器（ul &gt; li）、后代选择器（li a）、通配符选择器（*）、属性选择器（a[rel=”external”]）、伪类选择器（a:hover, li:nth-child）</p>
+<p>可继承的属性：font-size, font-family, color<br>不可继承的样式：border, padding, margin, width, height<br>优先级（就近原则）：!important &gt; [ id &gt; class &gt; tag ]<br>!important 比内联优先级高</p>
+<p>元素选择符： 1<br>class选择符： 10<br>id选择符：100<br>元素标签：1000</p>
+<ol>
+<li>!important声明的样式优先级最高，如果冲突再进行计算。</li>
+<li>如果优先级相同，则选择最后出现的样式。</li>
+<li>继承得到的样式的优先级最低。</li>
+</ol>
+<ol start="4">
+<li><strong>CSS3新增伪类有那些?</strong></li>
+</ol>
+<p>p:first-of-type 选择属于其父元素的首个元素<br>p:last-of-type 选择属于其父元素的最后元素<br>p:only-of-type 选择属于其父元素唯一的元素<br>p:only-child 选择属于其父元素的唯一子元素<br>p:nth-child(2) 选择属于其父元素的第二个子元素<br>:enabled :disabled 表单控件的禁用状态。<br>:checked 单选框或复选框被选中。</p>
+<ol start="5">
+<li><strong>如何居中div？</strong></li>
+</ol>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>main<span class="token punctuation">{</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellowgreen<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  vertical<span class="token operator">-</span>align<span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>content<span class="token punctuation">{</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  top<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  left<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token punctuation">.</span>content<span class="token punctuation">{</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  right<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  margin<span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> </code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>main<span class="token punctuation">{</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellowgreen<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  vertical<span class="token operator">-</span>align<span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+  display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ol start="6">
+<li><strong>display有哪些值？说明他们的作用?</strong></li>
+</ol>
+<ul>
+<li>inline（默认）–内联</li>
+<li>none–隐藏</li>
+<li>block–块显示</li>
+<li>table–表格显示</li>
+<li>list-item–项目列表</li>
+<li>inline-block</li>
+</ul>
+<ol start="7">
+<li><strong>position的值？</strong></li>
+</ol>
+<ul>
+<li>static（默认）：按照正常文档流进行排列；</li>
+<li>relative（相对定位）：不脱离文档流，参考自身静态位置通过 top, bottom, left, right 定位；</li>
+<li>absolute(绝对定位)：参考距其最近一个不为static的父级元素通过top, bottom, left, right 定位；</li>
+<li>fixed(固定定位)：所固定的参照对像是可视窗口。</li>
+</ul>
+<ol start="8">
+<li><strong>请解释一下CSS3的flexbox（弹性盒布局模型）,以及适用场景？</strong></li>
+</ol>
+<p>该布局模型的目的是提供一种更加高效的方式来对容器中的条目进行布局、对齐和分配空间。在传统的布局方式中，block 布局是把块在垂直方向从上到下依次排列的；而 inline 布局则是在水平方向来排列。弹性盒布局并没有这样内在的方向限制，可以由开发人员自由操作。<br>试用场景：弹性布局适合于移动前端开发，在Android和ios上也完美支持。</p>
+<ol start="9">
+<li><strong>用纯CSS创建一个三角形的原理是什么？</strong></li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">:</span>root<span class="token punctuation">{</span>
+  <span class="token operator">--</span>border<span class="token operator">-</span>width<span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>main<span class="token punctuation">{</span>
+  width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  margin<span class="token operator">-</span>top<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>main1<span class="token punctuation">{</span>
+  border<span class="token operator">-</span>left<span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>right<span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>bottom<span class="token punctuation">:</span> <span class="token keyword">var</span><span class="token punctuation">(</span><span class="token operator">--</span>border<span class="token operator">-</span>width<span class="token punctuation">)</span> solid yellowgreen<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>main2<span class="token punctuation">{</span>
+  border<span class="token operator">-</span>right<span class="token punctuation">:</span> 100px solid yellowgreen<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>bottom<span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>top<span class="token punctuation">:</span> 50px solid transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>main3<span class="token punctuation">{</span>
+  border<span class="token operator">-</span>right<span class="token punctuation">:</span> 120px solid yellowgreen<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>bottom<span class="token punctuation">:</span> 70px solid transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>top<span class="token punctuation">:</span> 30px solid transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/**********************************************/</span>
+<span class="token punctuation">:</span>root <span class="token punctuation">{</span>
+  <span class="token operator">--</span>Width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* --Width:100px; */</span>
+  <span class="token operator">--</span>border<span class="token operator">-</span>width<span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*三角形 开口向左上*/</span>
+<span class="token punctuation">.</span>main <span class="token punctuation">{</span>
+  width<span class="token punctuation">:</span> <span class="token keyword">var</span><span class="token punctuation">(</span><span class="token operator">--</span>Width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token keyword">var</span><span class="token punctuation">(</span><span class="token operator">--</span>Width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  border<span class="token punctuation">:</span> <span class="token keyword">var</span><span class="token punctuation">(</span><span class="token operator">--</span>border<span class="token operator">-</span>width<span class="token punctuation">)</span> solid<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>color<span class="token punctuation">:</span> yellow red green black<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>bottom<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/*transparent 表示颜色透明*/</span>
+  border<span class="token operator">-</span>right<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*扇形 开口向下*/</span>
+<span class="token punctuation">.</span>main2 <span class="token punctuation">{</span>
+  width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  margin<span class="token operator">-</span>top<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  border<span class="token punctuation">:</span> 100px solid red<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent; */</span>
+  border<span class="token operator">-</span>color<span class="token punctuation">:</span> #f00 transparent transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>radius<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*等腰梯形*/</span>
+<span class="token punctuation">.</span>main3 <span class="token punctuation">{</span>
+  margin<span class="token operator">-</span>top<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  border<span class="token punctuation">:</span> 70px solid<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>color<span class="token punctuation">:</span> red transparent transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*直角梯形*/</span>
+<span class="token punctuation">.</span>main4 <span class="token punctuation">{</span>
+  margin<span class="token operator">-</span>top<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  border<span class="token punctuation">:</span> 70px solid<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>bottom<span class="token operator">-</span>width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  border<span class="token operator">-</span>color<span class="token punctuation">:</span> red red transparent transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*平行四边形*/</span>
+<span class="token punctuation">.</span>main5 <span class="token punctuation">{</span>
+  position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  margin<span class="token operator">-</span>top<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  border<span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  border<span class="token operator">-</span>width<span class="token punctuation">:</span> 100px 70px<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>color<span class="token punctuation">:</span> yellow red green black<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>right<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>left<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>top<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span>main5<span class="token punctuation">:</span><span class="token punctuation">:</span>after <span class="token punctuation">{</span>
+  content<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  right<span class="token punctuation">:</span> <span class="token operator">-</span>140px<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>right<span class="token punctuation">:</span>70px solid transparent <span class="token punctuation">;</span>
+  border<span class="token operator">-</span>left<span class="token punctuation">:</span>70px solid transparent <span class="token punctuation">;</span>
+  border<span class="token operator">-</span>top<span class="token punctuation">:</span>100px solid red <span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ol start="10">
+<li><strong>常见的兼容性问题？</strong></li>
+</ol>
+<ul>
+<li>同浏览器的标签默认的margin和padding不一样。*{margin:0;padding:0;}</li>
+<li>IE6双边距bug：块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大。hack：display:inline;将其转化为行内属性</li>
+<li>设置较小高度标签（一般小于10px），在IE6，IE7中高度超出自己设置高度。hack：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。</li>
+<li>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。</li>
+</ul>
+<p>**</p>
+<ol start="11">
+<li><strong>display:none与visibility：hidden的区别？</strong></li>
+</ol>
+<p>display：none 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）<br>visibility：hidden 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）</p>
+<ol start="12">
+<li><strong>position跟display、overflow、float这些特性相互叠加后会怎么样？</strong></li>
+</ol>
+<p>display属性规定元素应该生成的框的类型；position属性规定元素的定位类型；float属性是一种布局方式，定义元素在哪个方向浮动。<br>类似于优先级机制：position：absolute/fixed优先级最高，有他们在时，float不起作用，display值需要调整。float 或者absolute定位的元素，只能是块元素或表格。</p>
+<ol start="13">
+<li><strong>对BFC规范(块级格式化上下文：block formatting context)的理解？</strong></li>
+</ol>
+<p>BFC规定了内部的Block Box如何布局。<br>定位方案：</p>
+<ol>
+<li>内部的Box会在垂直方向上一个接一个放置。</li>
+<li>Box垂直方向的距离由margin决定，属于同一个BFC的两个相邻Box的margin会发生重叠。</li>
+<li>每个元素的margin box 的左边，与包含块border box的左边相接触。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。</li>
+<li>计算BFC的高度时，浮动元素也会参与计算。</li>
+</ol>
+<p>满足下列条件之一就可触发BFC</p>
+<ol>
+<li>根元素，即html</li>
+<li>float的值不为none（默认）</li>
+<li>overflow的值不为visible（默认）</li>
+<li>display的值为inline-block、table-cell、table-caption</li>
+<li>position的值为absolute或fixed</li>
+</ol>
+<p>**</p>
+<ol start="14">
+<li><strong>为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式？</strong></li>
+</ol>
+<p>浮动元素碰到包含它的边框或者浮动元素的边框停留。由于浮动元素不在文档流中，所以文档流的块框表现得就像浮动框不存在一样。浮动元素会漂浮在文档流的块框上。<br>浮动带来的问题：</p>
+<ol>
+<li>父元素的高度无法被撑开，影响与父元素同级的元素</li>
+<li>与浮动元素同级的非浮动元素（内联元素）会跟随其后</li>
+<li>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构。</li>
+</ol>
+<p>清除浮动的方式：</p>
+<ol>
+<li>父级div定义height</li>
+<li>最后一个浮动元素后加空div标签 并添加样式clear:both。</li>
+<li>包含浮动元素的父标签添加样式overflow为hidden或auto。</li>
+<li>父级div定义zoom</li>
+<li>伪类（最佳）</li>
+</ol>
+<p>最佳实现方法：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/*清除浮动，将该class写在浮动元素的父级元素或父级以上的 元素*/</span>
+
+<span class="token punctuation">.</span>clearfix<span class="token punctuation">:</span>after <span class="token punctuation">{</span>
+    content<span class="token punctuation">:</span> <span class="token string">"."</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    clear<span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+    visibility<span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment" spellcheck="true">/*兼容ie*/</span>
+
+<span class="token punctuation">.</span>clearfix <span class="token punctuation">{</span>
+    zoom<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>**</p>
+<ol start="15">
+<li><strong>CSS优化、提高性能的方法有哪些？</strong><ol>
+<li>避免过度约束</li>
+<li>避免后代选择符</li>
+<li>避免链式选择符</li>
+<li>使用紧凑的语法</li>
+<li>避免不必要的命名空间</li>
+<li>避免不必要的重复</li>
+<li>最好使用表示语义的名字。一个好的类名应该是描述他是什么而不是像什么</li>
+<li>避免！important，可以选择其他选择器</li>
+<li>尽可能的精简规则，你可以合并不同类里的重复规则**</li>
+</ol>
+</li>
+<li><strong>浏览器是怎样解析CSS选择器的？</strong></li>
+</ol>
+<p>CSS选择器的解析是从右向左解析的。若从左向右的匹配，发现不符合规则，需要进行回溯，会损失很多性能。若从右向左匹配，先找到所有的最右节点，对于每一个节点，向上寻找其父节点直到找到根元素或满足条件的匹配规则，则结束这个分支的遍历。两种匹配规则的性能差别很大，是因为从右向左的匹配在第一步就筛选掉了大量的不符合条件的最右节点（叶子节点），而从左向右的匹配规则的性能都浪费在了失败的查找上面。<br>而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 Render Tree。</p>
+<ol start="17">
+<li><strong>margin和padding分别适合什么场景使用？</strong></li>
+</ol>
+<p>何时使用margin：</p>
+<ol>
+<li>需要在border外侧添加空白</li>
+<li>空白处不需要背景色</li>
+<li>上下相连的两个盒子之间的空白，需要相互抵消时。</li>
+</ol>
+<p>何时使用padding：</p>
+<ol>
+<li>需要在border内侧添加空白</li>
+<li>空白处需要背景颜色</li>
+<li>上下相连的两个盒子的空白，希望为两者之和。</li>
+</ol>
+<p>兼容性的问题：在IE5 IE6中，为float的盒子指定margin时，左侧的margin可能会变成两倍的宽度。通过改变padding或者指定盒子的display：inline解决。</p>
+<ol start="18">
+<li><strong>全屏滚动的原理是什么？用到了CSS的哪些属性？</strong></li>
+</ol>
+<p>原理：有点类似于轮播，整体的元素一直排列下去，假设有5个需要展示的全屏页面，那么高度是500%，只是展示100%，剩下的可以通过transform进行y轴定位，也可以通过margin-top实现。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1.0"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>Document<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+    <span class="token operator">&lt;</span>style<span class="token operator">></span>
+        <span class="token punctuation">.</span>wrap<span class="token punctuation">{</span>
+            width<span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+            overflow<span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>mian<span class="token punctuation">{</span>
+            height<span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+            width<span class="token punctuation">:</span> 1000px<span class="token punctuation">;</span>
+            overflow<span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+            animation<span class="token punctuation">:</span> identifier 10s 1s linear infinite<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>mian div<span class="token punctuation">{</span>
+            width<span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+            height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            float<span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>box1<span class="token punctuation">{</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>box2<span class="token punctuation">{</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>box3<span class="token punctuation">{</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>box4<span class="token punctuation">{</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> purple<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">.</span>box5<span class="token punctuation">{</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        @keyframes identifier <span class="token punctuation">{</span>
+            <span class="token number">0</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token number">20</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span>200px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token number">40</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span>400px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token number">60</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span>600px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token number">80</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span>800px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token number">100</span><span class="token operator">%</span> <span class="token punctuation">{</span>
+                transform<span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"wrap"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"mian"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box1"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box2"</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box3"</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box4"</span><span class="token operator">></span><span class="token number">4</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box5"</span><span class="token operator">></span><span class="token number">5</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span></code></pre>
+<ol start="19">
+<li><strong>::before 和 :after中双冒号和单冒号有什么区别和作用?</strong><ol>
+<li>冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。</li>
+<li>::before就是以一个子元素的存在，定义在元素主体内容之前的一个伪元素。并不存在于dom之中，只存在在页面之中。</li>
+</ol>
+</li>
+</ol>
+<p>:before 和 :after 这两个伪元素，是在CSS2.1里新出现的。起初，伪元素的前缀使用的是单冒号语法，但随着Web的进化，在CSS3的规范里，伪元素的语法被修改成使用双冒号，成为::before ::after<br>**</p>
+<ol start="20">
+<li><strong>你对line-height是如何理解的？</strong></li>
+</ol>
+<p>行高是指一行文字的高度，具体说是两行文字间基线的距离。CSS中起高度作用的是height和line-height，没有定义height属性，最终其表现作用一定是line-height。<br>单行文本垂直居中：把line-height值设置为height一样大小的值可以实现单行文字的垂直居中，其实也可以把height删除。<br>多行文本垂直居中：需要设置display属性为inline-block。</p>
+<ol start="21">
+<li><strong>怎么让Chrome支持小于12px 的文字？</strong></li>
+</ol>
+<p><strong><code>font-size: 20px;-webkit-transform: scale(0.8);</code></strong></p>
+<ol start="22">
+<li><strong>让页面里的字体变清晰，变细用CSS怎么做？</strong></li>
+</ol>
+<p><strong><code>-webkit-font-smoothing：antialiased</code></strong></p>
+<ol start="23">
+<li><strong>如果需要手动写动画，你认为最小时间间隔是多久，为什么？</strong></li>
+</ol>
+<p>多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms。</p>
+<ol start="24">
+<li><strong>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</strong></li>
+</ol>
+<p>行框的排列会受到中间空白（回车空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为0，就没有空格了。<br>解决方法：</p>
+<ol>
+<li><p>可以将<li>代码全部写在一排</p>
+</li>
+<li><p>浮动li中float：left</p>
+</li>
+<li><p>在ul中用font-size：0（谷歌不支持）；可以使用letter-space：-3px</p>
+</li>
+</ol>
+<p>**</p>
+<ol start="25">
+<li><strong>png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？</strong></li>
+</ol>
+<p><strong>png：</strong><br>特点：支持无损压缩、体积大、质量好、支持透明<br>使用场景：png在处理线条和颜色对比方面有优势，所以经常会被用来做logo或者颜色简单且对比强烈的背景图<br><strong>jpg/jpeg：</strong><br>特点：有损压缩、体积小、加载快、不支持透明<br>使用场景：适用于颜色丰富的场景、如背景图、轮播图、banner图等。<br><strong>svg：</strong><br>特点：文本文件、体积小、不失真、兼容性好<br>使用场景：将 SVG 写入独立文件后引入 HTML<br><strong>base64 :</strong><br>特点： 文本文件、基于编码、小图标解决方案<br>使用场景：小图标<br><strong>webp：</strong></p>
+<blockquote>
+<p>WebP 是 Google 专为 Web 开发的一种旨在加快图片加载速度的图片格式，它支持有损压缩和无损压缩</p>
+</blockquote>
+<p>特点：兼容png和jpg的优点，但是有兼容性问题。</p>
+<ol start="26">
+<li><strong>CSS属性overflow属性定义溢出元素内容区的内容会如何处理?</strong></li>
+</ol>
+<ul>
+<li>参数是scroll时候，必会出现滚动条。</li>
+<li>参数是auto时候，子元素内容大于父元素时出现滚动条。</li>
+<li>参数是visible时候，溢出的内容出现在父元素之外。</li>
+<li>参数是hidden时候，溢出隐藏。</li>
+</ul>
+<ol start="27">
+<li><strong>阐述一下CSS Sprites</strong></li>
+</ol>
+<p>将一个页面涉及到的所有图片都包含到一张大图中去，然后利用CSS的 background-image，background- repeat，background-position 的组合进行背景定位。利用CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能；CSS Sprites能减少图片的字节。</p>
+<ol start="28">
+<li><strong>div垂直居中 左右10px 宽为高的2倍 内容垂直居中</strong></li>
+</ol>
+<p>关键点：padding-top、padding-bottom、margin-top、margin-bottom为百分比的时候，都是相对于父元素的width。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1.0"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>div垂直居中，左右10px，高度始终为宽度一半<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+    <span class="token operator">&lt;</span>style<span class="token operator">></span>
+        <span class="token operator">*</span> <span class="token punctuation">{</span>
+            margin<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            padding<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        html<span class="token punctuation">,</span>
+        body <span class="token punctuation">{</span>
+            height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token punctuation">.</span>outer<span class="token operator">-</span>wrap <span class="token punctuation">{</span>
+            height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            margin<span class="token punctuation">:</span> <span class="token number">0</span> 10px<span class="token punctuation">;</span>
+            background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellowgreen<span class="token punctuation">;</span>
+            display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+            align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token punctuation">.</span>inner_wrapper <span class="token punctuation">{</span>
+            background<span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+            position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+            width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            height<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            padding<span class="token operator">-</span>bottom<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token punctuation">.</span>text <span class="token punctuation">{</span>
+            width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+            position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+            display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+            align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+            justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"outer-wrap"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"inner_wrapper"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span>A<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span></code></pre>
+<p>第二种：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>wrapper <span class="token punctuation">{</span>
+  position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>box<span class="token punctuation">{</span>
+  margin<span class="token operator">-</span>left<span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100vw <span class="token operator">-</span> 20px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  height<span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50vw <span class="token operator">-</span> 10px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> yellowgreen<span class="token punctuation">;</span>
+  display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ol start="29">
+<li>**</li>
+</ol>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yangkunxiao.cn" rel="external nofollow noreferrer">Walter</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yangkunxiao.cn/2020/03/21/Interview/06/">http://yangkunxiao.cn/2020/03/21/Interview/06/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/03/26/Code/07/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="手写Promise A+">
+                        
+                        <span class="card-title">手写Promise A+</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            手写Promise A+Promise 是异步编程的一种解决方案。ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/15/Interview/08/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="webpack面试题集锦">
+                        
+                        <span class="card-title">webpack面试题集锦</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            webpack面试集锦Webpack构建流程简单说一下Webpack 的运行流程是一个串行的过程，从启动到结束会依次执行以下流程：
+
+初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数
+
+开始编译：用上一步得到的参数
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Walter<br />'
+            + '文章作者: Walter<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="row">
+            <!-- <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p> -->
+            <p id="copyRightEn">Copyright © 2019 - 2020 前端博客 All Rights Reserved.</p>
+            <p><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">豫ICP备17047806号</a></p>
+      </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
