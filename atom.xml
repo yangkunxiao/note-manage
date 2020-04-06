@@ -314,11 +314,11 @@
   </entry>
   
   <entry>
-    <title>防抖节流</title>
-    <link href="http://yangkunxiao.cn/2020/03/05/Code/05/"/>
-    <id>http://yangkunxiao.cn/2020/03/05/Code/05/</id>
+    <title>柯里化</title>
+    <link href="http://yangkunxiao.cn/2020/03/05/Code/06/"/>
+    <id>http://yangkunxiao.cn/2020/03/05/Code/06/</id>
     <published>2020-03-05T14:30:00.000Z</published>
-    <updated>2020-03-12T03:17:05.935Z</updated>
+    <updated>2020-03-12T03:17:33.036Z</updated>
     
     <summary type="html">
     
@@ -326,7 +326,7 @@
       
         
         
-          &lt;h1 id=&quot;防抖节流&quot;&gt;&lt;a href=&quot;#防抖节流&quot; class=&quot;headerlink&quot; title=&quot;防抖节流&quot;&gt;&lt;/a&gt;防抖节流&lt;/h1&gt;&lt;p&gt;在前端开发的过程中，我们经常会需要绑定一些持续触发的事件，如 resize、scroll、mousemove
+          &lt;h1 id=&quot;柯里化&quot;&gt;&lt;a href=&quot;#柯里化&quot; class=&quot;headerlink&quot; title=&quot;柯里化&quot;&gt;&lt;/a&gt;柯里化&lt;/h1&gt;&lt;h3 id=&quot;柯里化-1&quot;&gt;&lt;a href=&quot;#柯里化-1&quot; class=&quot;headerlink&quot;
         
       
     
@@ -341,11 +341,11 @@
   </entry>
   
   <entry>
-    <title>柯里化</title>
-    <link href="http://yangkunxiao.cn/2020/03/05/Code/06/"/>
-    <id>http://yangkunxiao.cn/2020/03/05/Code/06/</id>
+    <title>防抖节流</title>
+    <link href="http://yangkunxiao.cn/2020/03/05/Code/05/"/>
+    <id>http://yangkunxiao.cn/2020/03/05/Code/05/</id>
     <published>2020-03-05T14:30:00.000Z</published>
-    <updated>2020-03-12T03:17:33.036Z</updated>
+    <updated>2020-03-12T03:17:05.935Z</updated>
     
     <summary type="html">
     
@@ -353,7 +353,7 @@
       
         
         
-          &lt;h1 id=&quot;柯里化&quot;&gt;&lt;a href=&quot;#柯里化&quot; class=&quot;headerlink&quot; title=&quot;柯里化&quot;&gt;&lt;/a&gt;柯里化&lt;/h1&gt;&lt;h3 id=&quot;柯里化-1&quot;&gt;&lt;a href=&quot;#柯里化-1&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;防抖节流&quot;&gt;&lt;a href=&quot;#防抖节流&quot; class=&quot;headerlink&quot; title=&quot;防抖节流&quot;&gt;&lt;/a&gt;防抖节流&lt;/h1&gt;&lt;p&gt;在前端开发的过程中，我们经常会需要绑定一些持续触发的事件，如 resize、scroll、mousemove
         
       
     
