@@ -17,7 +17,7 @@
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
-  <link rel="shortcut icon" href="/logo.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   
   <link rel="stylesheet" href="/dist/main.css">
   <link rel="stylesheet" href="/css/custom.css">
@@ -73,6 +73,101 @@
     
     
     
+    
+    <article id="post-Nginx/staticSource" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/11/23/Nginx/staticSource/"
+    >Nginx下配置静态资源</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/11/23/Nginx/staticSource/" class="article-date">
+  <time datetime="2019-11-23T02:01:00.000Z" itemprop="datePublished">2019-11-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>1、查看nginx安装路径：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">whereis</span> nginx</code></pre>
+<p>2、新建静态资源存储文件夹：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> assets</code></pre>
+<p>3、进入nginx目录中，修改nginx.conf文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> nginx: /usr/local/nginx/conf
+
+vim nginx.conf
+
+具体配置如下：
+server <span class="token punctuation">{</span>
+    listen 80<span class="token punctuation">;</span>
+    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>
+    location /<span class="token punctuation">{</span>
+     root /data/www/dist<span class="token punctuation">;</span>
+     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
+     index index.html index.htm<span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
+    <span class="token punctuation">}</span>
+    location /assets/<span class="token punctuation">{</span>
+        root /usr/<span class="token punctuation">;</span>
+        autoindex on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+<p>4、保存并重启nginx</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
     
     <article id="post-Php/mysql" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>

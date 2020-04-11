@@ -17,7 +17,7 @@
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
-  <link rel="shortcut icon" href="/logo.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   
   <link rel="stylesheet" href="/dist/main.css">
   <link rel="stylesheet" href="/css/custom.css">
@@ -73,6 +73,171 @@
     
     
     
+    
+    <article id="post-JavaScript/process-thread" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/19/JavaScript/process-thread/"
+    >浏览器进程与线程</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/19/JavaScript/process-thread/" class="article-date">
+  <time datetime="2020-01-19T14:20:00.000Z" itemprop="datePublished">2020-01-19</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="浏览器进程和线程"><a href="#浏览器进程和线程" class="headerlink" title="浏览器进程和线程"></a>浏览器进程和线程</h1><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><p>浏览器是多进程的。每一个Tab页就是一个独立的进程。</p>
+<ul>
+<li>浏览器进程（主进程）：个人理解为“管家”的角色，它控制着浏览器的各个任务，页面展示、网络请求、历史回退、前进等等</li>
+<li>第三方插件进程：管理第三方插件</li>
+<li>GPU线程：用于3D绘制</li>
+<li>渲染进程：浏览器内核，多线程。主要负责页面渲染、脚本执行、事件循环等。对前端来说，最重要的进程。</li>
+</ul>
+<h4 id="浏览器多进程优势："><a href="#浏览器多进程优势：" class="headerlink" title="浏览器多进程优势："></a>浏览器多进程优势：</h4><ul>
+<li>防止单个页面或者插件崩溃影响整个浏览器的运行。</li>
+<li>可以充分利用浏览器多核的优势。</li>
+<li>方便使用沙盒模型隔离插件等进程，提高浏览器稳定性。</li>
+</ul>
+<h1 id="浏览器内核（渲染进程）"><a href="#浏览器内核（渲染进程）" class="headerlink" title="浏览器内核（渲染进程）"></a>浏览器内核（渲染进程）</h1><p>渲染进程是多线程的。它包含一下几大线程：</p>
+<ul>
+<li>GUI线程<ul>
+<li>它负责页面的渲染、布局、解析HTML、CSS、渲染DOM树。</li>
+<li>当页面发生重绘或者回流的时候，就会触发该线程</li>
+<li>它和JS引擎线程互斥</li>
+</ul>
+</li>
+<li>JS引擎线程<ul>
+<li>负责程序的解析和执行</li>
+</ul>
+</li>
+<li>事件触发线程<ul>
+<li>它控制事件循环，管理着一个事件<code>任务队列</code>TaskQueue</li>
+<li>当异步任务满足条件时，会将该异步任务的回调函数放入到JS引擎线程所在的<code>执行栈</code>中执行</li>
+</ul>
+</li>
+<li>定时触发器线程<ul>
+<li>setTimeOut 和 setInterval 所在的线程</li>
+<li>定时器任务的计时不是由JS引擎计时的，而是由该线程控制</li>
+<li>当定时任务计时完成之后，会通知事件触发线程</li>
+<li>W3C在HTML标准中规定，规定要求setTimeout中低于4ms的时间间隔算为4ms。</li>
+</ul>
+</li>
+<li>异步http请求线程<ul>
+<li>一个独立的ajax请求线程</li>
+<li>当请求完成之后，会通知事件触发线程</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么GUI线程和JS引擎线程互斥"><a href="#为什么GUI线程和JS引擎线程互斥" class="headerlink" title="为什么GUI线程和JS引擎线程互斥"></a>为什么GUI线程和JS引擎线程互斥</h4><p>因为JS是可以操作DOM的，如果使用JS操作DOM的同时，GUI线程也在渲染DOM，那么渲染完成之后的元素可能就不是之前的元素了</p>
+<h4 id="为什么JS引擎是单线程"><a href="#为什么JS引擎是单线程" class="headerlink" title="为什么JS引擎是单线程"></a>为什么JS引擎是单线程</h4><ul>
+<li>创建JavaScript语言的时候，多进程多线程的架构并不流行，硬件支持度不高</li>
+<li>多进程多线程操作需要加锁，操作成本较高，较为复杂</li>
+<li>如果多个线程同时操作一个DOM，那么结果会是不可预料的</li>
+<li>线程之间资源共享</li>
+</ul>
+<h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><ul>
+<li>JS的任务分为同步任何和异步任务的</li>
+<li>同步任务都在JS引擎的执行栈上执行</li>
+<li>事件触发线程管理一个任务队列，TaskQueue，当异步任务满足条件时，事件触发线程会将其放到任务队列当中，当主线程（JS引擎线程）执行完执行栈中的任务之后，会读取任务队列中的任务，如果有，就将可执行的异步任务的回调函数推入到执行栈中，开始执行。如果没有，则再次向事件触发线程发起询问，直到有为止。</li>
+</ul>
+<p><img src="http://cdn.yangkunxiao.cn/EventLoop.png#align=left&display=inline&height=706&originHeight=706&originWidth=1278&status=done&style=none&width=1278" alt=""></p>
+<p>代码解释：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'timerCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'httpCallback'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 同步任务</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+<span class="token comment" spellcheck="true">// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理</span>
+<span class="token comment" spellcheck="true">// 1s 后事件触发线程将 timerCallback 加入到事件队列中</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>timerCallback<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+<span class="token comment" spellcheck="true">// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理</span>
+<span class="token comment" spellcheck="true">// 请求成功后事件触发线程将 httpCallback 加入到事件队列中</span>
+$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'www.xxxx.com'</span><span class="token punctuation">,</span>httpCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 同步任务</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'同步任务2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//...</span>
+<span class="token comment" spellcheck="true">// 所有同步任务执行完后</span>
+<span class="token comment" spellcheck="true">// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数</span>
+<span class="token comment" spellcheck="true">// 如果没有，一直询问，直到有为止</span>
+<span class="token comment" spellcheck="true">// 如果有，将回调事件加入执行栈中，开始执行回调代码</span></code></pre>
+<p>总结：</p>
+<ul>
+<li>JS引擎线程只执行执行栈中的事件</li>
+<li>执行栈中的代码执行完毕，就会读取事件队列中的事件</li>
+<li>事件队列中的回调事件，是由各自线程插入到事件队列中的</li>
+<li>如此循环</li>
+</ul>
+<h4 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h4><p>宏任务：可以理解为浏览器级别的任务。主代码块，setTimeout，setInterval等，都属于宏任务</p>
+<p>微任务：JS引擎级别的任务。Promise，process.nextTick等，属于<code>微任务</code>。</p>
+<p>执行顺序：</p>
+<ul>
+<li>当前代码块对应的宏任务</li>
+<li>当前宏任务结束之后，下一个宏任务开始之前，执行当前对列的微任务</li>
+<li>GUI引擎渲染</li>
+<li>下一个宏任务</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
     
     <article id="post-Koa2/ Onion-Model" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
@@ -2631,169 +2796,6 @@ d<span class="token punctuation">;</span> <span class="token comment" spellcheck
 <p>1、解析成数字允许字符串中有非数字字符，从左到右依次解析，遇到非数字字符停止解析</p>
 <p>2、强制转换成数字，不允许存在非数字字符，否则转换失败NaN</p>
 </blockquote>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-JavaScript/repaint-reflow" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/17/JavaScript/repaint-reflow/"
-    >重排与重绘</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/17/JavaScript/repaint-reflow/" class="article-date">
-  <time datetime="2019-12-17T14:20:00.000Z" itemprop="datePublished">2019-12-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="重排和重绘"><a href="#重排和重绘" class="headerlink" title="重排和重绘"></a>重排和重绘</h1><h4 id="浏览器构建页面布局"><a href="#浏览器构建页面布局" class="headerlink" title="浏览器构建页面布局"></a>浏览器构建页面布局</h4><ul>
-<li>构建DOM树（parse）：渲染引擎解析html文档，首先将标签转换成DOM树中的<code>DOM node</code>，然后生成内容树（<code>Content Tree/DOM Tree</code>）。同时，也会进行CSS解析，构建<code>CSS Rules Tree</code>。</li>
-<li>构建渲染树（render tree）：将 <code>CSS Rules Tree</code>依附于<code>DOM Tree</code> 之上，形成<code>Render Tree</code>。</li>
-<li>构建布局渲染树（<code>reflow/layout</code>）：从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标。</li>
-<li>绘制渲染树（<code>paint/repaint</code>）：遍历渲染树，使用UI层来绘制每个节点。</li>
-</ul>
-<p><img src="http://cdn.yangkunxiao.cn/jzdh0T.png#alt=%E6%9E%84%E5%BB%BA%E5%B8%83%E5%B1%80" alt=""></p>
-<h4 id="重绘-repaint-redraw"><a href="#重绘-repaint-redraw" class="headerlink" title="重绘(repaint / redraw)"></a>重绘(repaint / redraw)</h4><p>重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p>
-<p>触发重绘的条件：改变元素外观属性。如：color，background-color等。</p>
-<h4 id="重排-重构-回流-reflow"><a href="#重排-重构-回流-reflow" class="headerlink" title="重排(重构/回流/reflow)"></a>重排(重构/回流/reflow)</h4><p>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(<strong>reflow</strong>)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
-<p>重排发生的根本原理就是<strong>元素的几何属性</strong>发生了改变。如：</p>
-<ul>
-<li>添加或删除可见的DOM元素</li>
-<li>元素位置改变</li>
-<li>元素本身的尺寸发生改变</li>
-<li>内容改变</li>
-<li>页面渲染器初始化</li>
-<li>浏览器窗口大小发生改变</li>
-<li>读取某些元素属性：（offsetLeft/Top/Height/Width,　clientTop/Left/Width/Height,　scrollTop/Left/Width/Height,　width/height,　getComputedStyle(),　currentStyle(IE)　)</li>
-</ul>
-<h4 id="重排和重绘的关系"><a href="#重排和重绘的关系" class="headerlink" title="重排和重绘的关系"></a>重排和重绘的关系</h4><p>在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程称为重绘。</p>
-<p>所以：重排必定会引起重绘，但是重绘不一定引起重排。</p>
-<blockquote>
-<p>重绘和重排的代价很高，耗时，会造成浏览器的卡顿</p>
-</blockquote>
-<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><ul>
-<li><p>浏览器自己的优化：浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
-</li>
-<li><p>开发者自己的优化：尽量减少重绘重排的次数，合并多次的DOM修改和样式修改，减少对style样式的请求</p>
-<ul>
-<li>直接改变元素的className</li>
-</ul>
-</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>active <span class="token punctuation">{</span>
-    padding<span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
-    border<span class="token operator">-</span>left<span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
-    border<span class="token operator">-</span>right<span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// javascript</span>
-<span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-el<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'active'</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> ul <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#mylist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-ul<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>
-<span class="token function">appendNode</span><span class="token punctuation">(</span>ul<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-ul<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>减少重绘重排</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>borderLeft <span class="token operator">=</span> <span class="token string">'1px'</span><span class="token punctuation">;</span>
-el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>borderRight <span class="token operator">=</span> <span class="token string">'2px'</span><span class="token punctuation">;</span>
-el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>padding <span class="token operator">=</span> <span class="token string">'5px'</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//替换为</span>
-<span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token string">'border-left: 1px; border-right: 2px; padding: 5px'</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fragment <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'apple'</span><span class="token punctuation">;</span>
-fragment<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'watermelon'</span><span class="token punctuation">;</span>
-fragment<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'fruit'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fragment<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>将原始元素拷贝到一个独立的节点中，操作这个节点，然后覆盖原始元素</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> old <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#mylist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> clone <span class="token operator">=</span> old<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">appendNode</span><span class="token punctuation">(</span>clone<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-old<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>clone<span class="token punctuation">,</span> old<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>缓存布局信息，减少对style的多次请求</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript">div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> div<span class="token punctuation">.</span>offsetLeft <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
-div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> div<span class="token punctuation">.</span>offsetTop <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//替换为</span>
-current <span class="token operator">=</span> div<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
-div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token operator">++</span>current <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
-div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token operator">++</span>current <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>尽量不要使用table布局。</li>
-</ul>
 
       
       <!-- reward -->

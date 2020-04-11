@@ -17,7 +17,7 @@
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
-  <link rel="shortcut icon" href="/logo.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   
   <link rel="stylesheet" href="/dist/main.css">
   <link rel="stylesheet" href="/css/custom.css">
@@ -73,6 +73,169 @@
     
     
     
+    
+    <article id="post-JavaScript/repaint-reflow" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/12/17/JavaScript/repaint-reflow/"
+    >重排与重绘</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/12/17/JavaScript/repaint-reflow/" class="article-date">
+  <time datetime="2019-12-17T14:20:00.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="重排和重绘"><a href="#重排和重绘" class="headerlink" title="重排和重绘"></a>重排和重绘</h1><h4 id="浏览器构建页面布局"><a href="#浏览器构建页面布局" class="headerlink" title="浏览器构建页面布局"></a>浏览器构建页面布局</h4><ul>
+<li>构建DOM树（parse）：渲染引擎解析html文档，首先将标签转换成DOM树中的<code>DOM node</code>，然后生成内容树（<code>Content Tree/DOM Tree</code>）。同时，也会进行CSS解析，构建<code>CSS Rules Tree</code>。</li>
+<li>构建渲染树（render tree）：将 <code>CSS Rules Tree</code>依附于<code>DOM Tree</code> 之上，形成<code>Render Tree</code>。</li>
+<li>构建布局渲染树（<code>reflow/layout</code>）：从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标。</li>
+<li>绘制渲染树（<code>paint/repaint</code>）：遍历渲染树，使用UI层来绘制每个节点。</li>
+</ul>
+<p><img src="http://cdn.yangkunxiao.cn/jzdh0T.png#alt=%E6%9E%84%E5%BB%BA%E5%B8%83%E5%B1%80" alt=""></p>
+<h4 id="重绘-repaint-redraw"><a href="#重绘-repaint-redraw" class="headerlink" title="重绘(repaint / redraw)"></a>重绘(repaint / redraw)</h4><p>重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p>
+<p>触发重绘的条件：改变元素外观属性。如：color，background-color等。</p>
+<h4 id="重排-重构-回流-reflow"><a href="#重排-重构-回流-reflow" class="headerlink" title="重排(重构/回流/reflow)"></a>重排(重构/回流/reflow)</h4><p>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(<strong>reflow</strong>)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
+<p>重排发生的根本原理就是<strong>元素的几何属性</strong>发生了改变。如：</p>
+<ul>
+<li>添加或删除可见的DOM元素</li>
+<li>元素位置改变</li>
+<li>元素本身的尺寸发生改变</li>
+<li>内容改变</li>
+<li>页面渲染器初始化</li>
+<li>浏览器窗口大小发生改变</li>
+<li>读取某些元素属性：（offsetLeft/Top/Height/Width,　clientTop/Left/Width/Height,　scrollTop/Left/Width/Height,　width/height,　getComputedStyle(),　currentStyle(IE)　)</li>
+</ul>
+<h4 id="重排和重绘的关系"><a href="#重排和重绘的关系" class="headerlink" title="重排和重绘的关系"></a>重排和重绘的关系</h4><p>在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程称为重绘。</p>
+<p>所以：重排必定会引起重绘，但是重绘不一定引起重排。</p>
+<blockquote>
+<p>重绘和重排的代价很高，耗时，会造成浏览器的卡顿</p>
+</blockquote>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><ul>
+<li><p>浏览器自己的优化：浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
+</li>
+<li><p>开发者自己的优化：尽量减少重绘重排的次数，合并多次的DOM修改和样式修改，减少对style样式的请求</p>
+<ul>
+<li>直接改变元素的className</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>active <span class="token punctuation">{</span>
+    padding<span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    border<span class="token operator">-</span>left<span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+    border<span class="token operator">-</span>right<span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// javascript</span>
+<span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+el<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'active'</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> ul <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#mylist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ul<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>
+<span class="token function">appendNode</span><span class="token punctuation">(</span>ul<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ul<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>减少重绘重排</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>borderLeft <span class="token operator">=</span> <span class="token string">'1px'</span><span class="token punctuation">;</span>
+el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>borderRight <span class="token operator">=</span> <span class="token string">'2px'</span><span class="token punctuation">;</span>
+el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>padding <span class="token operator">=</span> <span class="token string">'5px'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//替换为</span>
+<span class="token keyword">var</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.el'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token string">'border-left: 1px; border-right: 2px; padding: 5px'</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> fragment <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'apple'</span><span class="token punctuation">;</span>
+fragment<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'watermelon'</span><span class="token punctuation">;</span>
+fragment<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'fruit'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fragment<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>将原始元素拷贝到一个独立的节点中，操作这个节点，然后覆盖原始元素</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> old <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#mylist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> clone <span class="token operator">=</span> old<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">appendNode</span><span class="token punctuation">(</span>clone<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+old<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>clone<span class="token punctuation">,</span> old<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>缓存布局信息，减少对style的多次请求</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> div<span class="token punctuation">.</span>offsetLeft <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> div<span class="token punctuation">.</span>offsetTop <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//替换为</span>
+current <span class="token operator">=</span> div<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token operator">++</span>current <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token operator">++</span>current <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>尽量不要使用table布局。</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
     
     <article id="post-JavaScript/drag" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
@@ -1698,101 +1861,6 @@ server <span class="token punctuation">{</span>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Nginx/staticSource" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/23/Nginx/staticSource/"
-    >Nginx下配置静态资源</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/23/Nginx/staticSource/" class="article-date">
-  <time datetime="2019-11-23T02:01:00.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Nginx/">Nginx</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>1、查看nginx安装路径：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">whereis</span> nginx</code></pre>
-<p>2、新建静态资源存储文件夹：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> assets</code></pre>
-<p>3、进入nginx目录中，修改nginx.conf文件：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> nginx: /usr/local/nginx/conf
-
-vim nginx.conf
-
-具体配置如下：
-server <span class="token punctuation">{</span>
-    listen 80<span class="token punctuation">;</span>
-    server_name www.yangkunxiao.cn<span class="token punctuation">;</span>
-    location /<span class="token punctuation">{</span>
-     root /data/www/dist<span class="token punctuation">;</span>
-     try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html<span class="token punctuation">;</span>
-     index index.html index.htm<span class="token punctuation">;</span>
-     <span class="token comment" spellcheck="true">#proxy_pass http://127.0.0.1:8080;</span>
-    <span class="token punctuation">}</span>
-    location /assets/<span class="token punctuation">{</span>
-        root /usr/<span class="token punctuation">;</span>
-        autoindex on<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-</code></pre>
-<p>4、保存并重启nginx</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li></ul>
 
 
     </footer>
