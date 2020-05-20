@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="javascript typescript php node html html5 css linux vue react 算法 数据结构" />
+   
+  <meta name="description" content="前端工程师" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    TypeScript(二):使用TypeScript改进Express路由 |  Walter
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Walter" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-TypeScript/02" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  TypeScript(二):使用TypeScript改进Express路由
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/20/TypeScript/02/" class="article-date">
+  <time datetime="2020-05-20T02:30:00.000Z" itemprop="datePublished">2020-05-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TypeScript/">TypeScript</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">954</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>base : <a href="https://tasaid.com/Blog/20171011233051.html" target="_blank" rel="noopener">https://tasaid.com/Blog/20171011233051.html</a></p>
+</blockquote>
+<h3 id="express路由"><a href="#express路由" class="headerlink" title="express路由"></a>express路由</h3><p>首先我们先看一下传统的express路由是如何使用的：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">*</span> as express <span class="token keyword">from</span> <span class="token string">'express'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Response<span class="token punctuation">,</span>Request <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//传统的路由方式</span>
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span>Request<span class="token punctuation">,</span>res<span class="token punctuation">:</span>Response<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'首页'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span>Request<span class="token punctuation">,</span>res<span class="token punctuation">:</span>Response<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'我的'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Example app listening at http://localhost:3000'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>我们可以看到，传统的路由就是有点像流水线一样，而且看起来并不是那么好看。上一章我们学到了<strong><em>装饰器和反射</em></strong>的相关知识，那么现在我们需要使用这些知识来改造路由，对他进行一下升级。</p>
+<h3 id="改造路由"><a href="#改造路由" class="headerlink" title="改造路由"></a>改造路由</h3><p>基于_<strong>装饰器和反射</strong>_，我们对路由的改造的最终结果应该像下面所示：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+    @httpGet
+    @<span class="token function">path</span><span class="token punctuation">(</span><span class="token string">'/user/login'</span><span class="token punctuation">)</span>
+    <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'user login'</span>
+    <span class="token punctuation">}</span>
+
+    @httpGet
+    @<span class="token function">path</span><span class="token punctuation">(</span><span class="token string">'/user/exit'</span><span class="token punctuation">)</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'user logout!!!!'</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>这种方式和传统的路由使用方式相比，这种基于装饰器和反射的路由有一下优势：</p>
+<ul>
+<li>将路由抽离处理成来装饰器，整个router函数只需要处理业务逻辑即可</li>
+<li>隐藏res、req，路由返回值直接return即可</li>
+<li>更加优雅、配置简单明了</li>
+</ul>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>这里我们需要简单实现两个装饰器：</p>
+<ul>
+<li>httpMethods：封装http请求方法，如get、post等。用于应对不同的请求方法。</li>
+<li>path：封装path，用于处理请求路径和请求参数</li>
+</ul>
+<h4 id="httpMethods"><a href="#httpMethods" class="headerlink" title="httpMethods"></a>httpMethods</h4><pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token string">'reflect-metadata'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> symbolHttpMethodsKey <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">"router:httpMethod"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">createMethods</span><span class="token punctuation">(</span>method<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">httpMethodDecorator</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span><span class="token keyword">any</span><span class="token punctuation">,</span>targetKey<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//注解：注入元数据 --> 请求方法</span>
+        Reflect<span class="token punctuation">.</span><span class="token function">defineMetadata</span><span class="token punctuation">(</span>symbolHttpMethodsKey<span class="token punctuation">,</span>method<span class="token punctuation">,</span>target<span class="token punctuation">,</span>targetKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> httpGet <span class="token operator">=</span> <span class="token function">createMethods</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> httpPost <span class="token operator">=</span> <span class="token function">createMethods</span><span class="token punctuation">(</span><span class="token string">'post'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token string">'reflect-metadata'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Response<span class="token punctuation">,</span>Request <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'express'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> symbolPathKey <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token string">'router:path'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>path<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">Function</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span>target<span class="token punctuation">:</span><span class="token keyword">any</span><span class="token punctuation">,</span>targetkey<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">,</span>descroptior<span class="token punctuation">:</span>PropertyDescriptor<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//注解：注入元数据 --> 请求路径</span>
+        Reflect<span class="token punctuation">.</span><span class="token function">defineMetadata</span><span class="token punctuation">(</span>symbolPathKey<span class="token punctuation">,</span>path<span class="token punctuation">,</span>target<span class="token punctuation">,</span>targetkey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//如果不存在回调函数</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>descroptior<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token keyword">return</span> 
+        <span class="token comment" spellcheck="true">//保存原始回调函数</span>
+        <span class="token keyword">let</span> oldMethod <span class="token operator">=</span> descroptior<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//重写回调函数 </span>
+        descroptior<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span>Request<span class="token punctuation">,</span>res<span class="token punctuation">:</span>Response<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//获取请求参数</span>
+            <span class="token keyword">const</span> params <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>req<span class="token punctuation">.</span>body<span class="token punctuation">,</span>req<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//调用回调函数 获取返回值</span>
+            <span class="token keyword">let</span> result <span class="token operator">=</span> oldMethod<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//给浏览器发送结果</span>
+            res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="Router-–-gt-Controller"><a href="#Router-–-gt-Controller" class="headerlink" title="Router –&gt; Controller"></a>Router –&gt; Controller</h3><p>现在我们需要将原有的业务进行抽离，按照业务进行归类，处理成一个个的class，如：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+    @httpGet
+    @<span class="token function">path</span><span class="token punctuation">(</span><span class="token string">'/user/login'</span><span class="token punctuation">)</span>
+    <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'user login'</span>
+    <span class="token punctuation">}</span>
+
+    @httpGet
+    @<span class="token function">path</span><span class="token punctuation">(</span><span class="token string">'/user/exit'</span><span class="token punctuation">)</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'user logout!!!!'</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 属性装饰器
+     * @param v1
+     */</span>
+    <span class="token comment" spellcheck="true">// @httpGet</span>
+    <span class="token comment" spellcheck="true">// @path('/validate')</span>
+    <span class="token comment" spellcheck="true">// @validateEmptyStr</span>
+    <span class="token comment" spellcheck="true">// valid(@required v1: string) {</span>
+    <span class="token comment" spellcheck="true">//   console.log(v1)</span>
+    <span class="token comment" spellcheck="true">//   return v1</span>
+    <span class="token comment" spellcheck="true">// }</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后在程序入口文件处，将class里面的方法遍历一遍，将其挂载到app实例上：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span>app<span class="token punctuation">:</span> Router<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> methodName <span class="token keyword">in</span> user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> method <span class="token operator">=</span> user<span class="token punctuation">[</span>methodName<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> method <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token keyword">break</span>
+        <span class="token comment" spellcheck="true">// 得到注解的数据</span>
+        <span class="token keyword">let</span> httpMethod <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">getMetadata</span><span class="token punctuation">(</span>
+            symbolHttpMethodsKey<span class="token punctuation">,</span>
+            user<span class="token punctuation">,</span>
+            methodName
+        <span class="token punctuation">)</span>
+        <span class="token keyword">let</span> path <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token function">getMetadata</span><span class="token punctuation">(</span>symbolPathKey<span class="token punctuation">,</span> user<span class="token punctuation">,</span> methodName<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// app.get('/', () => any)</span>
+    <span class="token comment" spellcheck="true">//在app实例挂载路由和对应的回调函数</span>
+        app<span class="token punctuation">[</span>httpMethod<span class="token punctuation">]</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> method<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>到这里，我们基于_<strong>装饰器和反射</strong>_的路由器改造就基本完成了。<br>下一步就是编译和运行了。</p>
+<h3 id="编译和运行"><a href="#编译和运行" class="headerlink" title="编译和运行"></a>编译和运行</h3><h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>这里我选用的是Gulp进行编译。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span>dest<span class="token punctuation">,</span>watch<span class="token punctuation">,</span>series <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> del <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'del'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ts <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-typescript'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> tsProject <span class="token operator">=</span> ts<span class="token punctuation">.</span><span class="token function">createProject</span><span class="token punctuation">(</span><span class="token string">"tsconfig.json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">clean</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>cb<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">'src/**/*.ts'</span><span class="token punctuation">,</span><span class="token punctuation">{</span> events<span class="token punctuation">:</span><span class="token string">'all'</span><span class="token punctuation">,</span>delay<span class="token punctuation">:</span><span class="token number">500</span><span class="token punctuation">,</span>ignoreInitial<span class="token punctuation">:</span><span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'src/**/*.ts'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">tsProject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">"dist"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+exports<span class="token punctuation">.</span><span class="token keyword">default</span> <span class="token operator">=</span>  <span class="token function">series</span><span class="token punctuation">(</span>clean<span class="token punctuation">,</span>build<span class="token punctuation">)</span></code></pre>
+<ul>
+<li><a href="https://www.npmjs.com/package/gulp-typescript" target="_blank" rel="noopener">gulp-typescript</a> 对typescript进行处理，将ts文件处理成js文件</li>
+<li>使用<a href="https://www.npmjs.com/package/del" target="_blank" rel="noopener">del</a>在重新编译之前将上次编译的文件夹删除，类似于<code>rm -rf</code>。</li>
+</ul>
+<p>然后我们只需要在终端执行<code>npx gulp</code>即可。</p>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>在package.json中配置scripts，执行即可。</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ts-router-to-constroller"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"MIT"</span><span class="token punctuation">,</span>
+    <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/app.js"</span><span class="token punctuation">,</span>
+    <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"nodemon dist/app.js"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"@types/express"</span><span class="token operator">:</span> <span class="token string">"^4.17.6"</span><span class="token punctuation">,</span>
+        <span class="token property">"@types/node"</span><span class="token operator">:</span> <span class="token string">"^14.0.1"</span><span class="token punctuation">,</span>
+        <span class="token property">"del"</span><span class="token operator">:</span> <span class="token string">"^5.1.0"</span><span class="token punctuation">,</span>
+        <span class="token property">"express"</span><span class="token operator">:</span> <span class="token string">"^4.17.1"</span><span class="token punctuation">,</span>
+        <span class="token property">"gulp"</span><span class="token operator">:</span> <span class="token string">"^4.0.2"</span><span class="token punctuation">,</span>
+        <span class="token property">"gulp-livereload"</span><span class="token operator">:</span> <span class="token string">"^4.0.2"</span><span class="token punctuation">,</span>
+        <span class="token property">"gulp-nodemon"</span><span class="token operator">:</span> <span class="token string">"^2.5.0"</span><span class="token punctuation">,</span>
+        <span class="token property">"gulp-typescript"</span><span class="token operator">:</span> <span class="token string">"^6.0.0-alpha.1"</span><span class="token punctuation">,</span>
+        <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"^3.9.2"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>源码点击<a href="https://github.com/yangkunxiao/vue-typescript-demo/tree/master/ts-router-to-constroller" target="_blank" rel="noopener">这里</a></p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yangkunxiao.cn/2020/05/20/TypeScript/02/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/05/13/TypeScript/01/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">TypeScript(一)：基础</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2019-2020
+        Walter
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      
+      <li>
+        <a href="http://www.beian.miit.gov.cn/" target="_black">豫ICP备17047806号</a>
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/logo.png" alt="Walter"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+
+
+<script src="/js/tocbot.min.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+
+    
+  </div>
+</body>
+
+</html>

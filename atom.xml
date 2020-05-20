@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yangkunxiao.cn/"/>
-  <updated>2020-04-11T09:08:07.469Z</updated>
+  <updated>2020-05-20T02:14:27.152Z</updated>
   <id>http://yangkunxiao.cn/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript(二):使用TypeScript改进Express路由</title>
+    <link href="http://yangkunxiao.cn/2020/05/20/TypeScript/02/"/>
+    <id>http://yangkunxiao.cn/2020/05/20/TypeScript/02/</id>
+    <published>2020-05-20T02:30:00.000Z</published>
+    <updated>2020-05-20T02:14:27.152Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;base : &lt;a href=&quot;https://tasaid.com/Blog/20171011233051.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="TypeScript" scheme="http://yangkunxiao.cn/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yangkunxiao.cn/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript(一)：基础</title>
+    <link href="http://yangkunxiao.cn/2020/05/13/TypeScript/01/"/>
+    <id>http://yangkunxiao.cn/2020/05/13/TypeScript/01/</id>
+    <published>2020-05-13T02:30:00.000Z</published>
+    <updated>2020-05-20T02:13:51.858Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;base: &lt;a href=&quot;https://tasaid.com/Blog/20171011231943.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="TypeScript" scheme="http://yangkunxiao.cn/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yangkunxiao.cn/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue同构</title>
@@ -44,11 +100,11 @@
   </entry>
   
   <entry>
-    <title>webpack性能优化</title>
-    <link href="http://yangkunxiao.cn/2020/04/06/Webpack/08/"/>
-    <id>http://yangkunxiao.cn/2020/04/06/Webpack/08/</id>
-    <published>2020-04-06T10:00:00.000Z</published>
-    <updated>2020-04-03T01:21:27.748Z</updated>
+    <title>vue源码解读</title>
+    <link href="http://yangkunxiao.cn/2020/04/10/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>http://yangkunxiao.cn/2020/04/10/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</id>
+    <published>2020-04-10T14:30:00.000Z</published>
+    <updated>2020-05-20T02:17:57.354Z</updated>
     
     <summary type="html">
     
@@ -56,7 +112,34 @@
       
         
         
-          &lt;h1 id=&quot;webpack性能优化&quot;&gt;&lt;a href=&quot;#webpack性能优化&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;整体架构分析&quot;&gt;&lt;a href=&quot;#整体架构分析&quot; class=&quot;headerlink&quot; title=&quot;整体架构分析&quot;&gt;&lt;/a&gt;整体架构分析&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yangkunxiao.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="http://yangkunxiao.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack性能优化</title>
+    <link href="http://yangkunxiao.cn/2020/04/06/Webpack/08/"/>
+    <id>http://yangkunxiao.cn/2020/04/06/Webpack/08/</id>
+    <published>2020-04-06T10:00:00.000Z</published>
+    <updated>2020-05-20T02:20:42.191Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基于webpack的性能优化&quot;&gt;&lt;a href=&quot;#基于webpack的性能优化&quot; class=&quot;headerlink&quot; title=&quot;基于webpack的性能优化&quot;&gt;&lt;/a&gt;基于webpack的性能优化&lt;/h1&gt;&lt;h3 id=&quot;基本优化方案&quot;&gt;&lt;a
         
       
     
@@ -67,6 +150,34 @@
     
     
       <category term="webpack" scheme="http://yangkunxiao.cn/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cookie / Session安全机制</title>
+    <link href="http://yangkunxiao.cn/2020/04/05/JavaScript/cookieAndSession/"/>
+    <id>http://yangkunxiao.cn/2020/04/05/JavaScript/cookieAndSession/</id>
+    <published>2020-04-05T10:00:00.000Z</published>
+    <updated>2020-05-20T02:23:23.264Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&quot;https://harttle.land/2015/08/10/cookie-session.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.cn/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yangkunxiao.cn/tags/JavaScript/"/>
     
   </entry>
   
@@ -98,11 +209,11 @@
   </entry>
   
   <entry>
-    <title>vue源码解读(二)：变化侦测相关API的实现原理</title>
-    <link href="http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E7%9B%B8%E5%85%B3API%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
-    <id>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E7%9B%B8%E5%85%B3API%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</id>
+    <title>vue源码解读(一)：Observe</title>
+    <link href="http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Observer/"/>
+    <id>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Observer/</id>
     <published>2020-03-26T14:30:00.000Z</published>
-    <updated>2020-04-03T01:47:41.929Z</updated>
+    <updated>2020-04-03T01:46:53.358Z</updated>
     
     <summary type="html">
     
@@ -110,7 +221,7 @@
       
         
         
-          &lt;h1 id=&quot;vue源码解读-二-：变化侦测相关API的实现原理&quot;&gt;&lt;a href=&quot;#vue源码解读-二-：变化侦测相关API的实现原理&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;vue源码解读-一-：Observe&quot;&gt;&lt;a href=&quot;#vue源码解读-一-：Observe&quot; class=&quot;headerlink&quot; title=&quot;vue源码解读(一)：Observe&quot;&gt;&lt;/a&gt;vue源码解读(一)：Observe&lt;/h1&gt;&lt;h2
         
       
     
@@ -125,11 +236,11 @@
   </entry>
   
   <entry>
-    <title>vue源码解读(一)：Observe</title>
-    <link href="http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Observer/"/>
-    <id>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Observer/</id>
+    <title>vue源码解读(二)：变化侦测相关API的实现原理</title>
+    <link href="http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E7%9B%B8%E5%85%B3API%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"/>
+    <id>http://yangkunxiao.cn/2020/03/26/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E7%9B%B8%E5%85%B3API%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</id>
     <published>2020-03-26T14:30:00.000Z</published>
-    <updated>2020-04-03T01:46:53.358Z</updated>
+    <updated>2020-04-03T01:47:41.929Z</updated>
     
     <summary type="html">
     
@@ -137,7 +248,7 @@
       
         
         
-          &lt;h1 id=&quot;vue源码解读-一-：Observe&quot;&gt;&lt;a href=&quot;#vue源码解读-一-：Observe&quot; class=&quot;headerlink&quot; title=&quot;vue源码解读(一)：Observe&quot;&gt;&lt;/a&gt;vue源码解读(一)：Observe&lt;/h1&gt;&lt;h2
+          &lt;h1 id=&quot;vue源码解读-二-：变化侦测相关API的实现原理&quot;&gt;&lt;a href=&quot;#vue源码解读-二-：变化侦测相关API的实现原理&quot; class=&quot;headerlink&quot;
         
       
     
@@ -445,114 +556,6 @@
     
     
       <category term="JavaScript" scheme="http://yangkunxiao.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手写JSON.stringify</title>
-    <link href="http://yangkunxiao.cn/2020/02/25/Code/02/"/>
-    <id>http://yangkunxiao.cn/2020/02/25/Code/02/</id>
-    <published>2020-02-25T03:30:00.000Z</published>
-    <updated>2020-03-12T03:14:10.299Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;手写JSON-stringify&quot;&gt;&lt;a href=&quot;#手写JSON-stringify&quot; class=&quot;headerlink&quot; title=&quot;手写JSON.stringify&quot;&gt;&lt;/a&gt;手写JSON.stringify&lt;/h1&gt;&lt;p&gt;根据&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手写new操作符</title>
-    <link href="http://yangkunxiao.cn/2020/02/25/Code/01/"/>
-    <id>http://yangkunxiao.cn/2020/02/25/Code/01/</id>
-    <published>2020-02-25T02:30:00.000Z</published>
-    <updated>2020-03-12T03:11:41.219Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;手写new操作符&quot;&gt;&lt;a href=&quot;#手写new操作符&quot; class=&quot;headerlink&quot; title=&quot;手写new操作符&quot;&gt;&lt;/a&gt;手写new操作符&lt;/h1&gt;&lt;h4 id=&quot;new操作符做了什么？&quot;&gt;&lt;a href=&quot;#new操作符做了什么？&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器输入URL到页面加载完成</title>
-    <link href="http://yangkunxiao.cn/2020/02/20/Interview/01/"/>
-    <id>http://yangkunxiao.cn/2020/02/20/Interview/01/</id>
-    <published>2020-02-20T02:00:00.000Z</published>
-    <updated>2020-02-29T13:32:21.442Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;从输入URL到页面加载完成的过程&quot;&gt;&lt;a href=&quot;#从输入URL到页面加载完成的过程&quot; class=&quot;headerlink&quot; title=&quot;从输入URL到页面加载完成的过程&quot;&gt;&lt;/a&gt;从输入URL到页面加载完成的过程&lt;/h1&gt;&lt;h2 id=&quot;主干流程&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yangkunxiao.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多页面打包配置</title>
-    <link href="http://yangkunxiao.cn/2020/02/12/Webpack/07/"/>
-    <id>http://yangkunxiao.cn/2020/02/12/Webpack/07/</id>
-    <published>2020-02-12T12:00:00.000Z</published>
-    <updated>2020-02-21T01:58:02.886Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;webpack4-0-七-：多页面打包配置&quot;&gt;&lt;a href=&quot;#webpack4-0-七-：多页面打包配置&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="webpack" scheme="http://yangkunxiao.cn/categories/webpack/"/>
-    
-    
-      <category term="webpack" scheme="http://yangkunxiao.cn/tags/webpack/"/>
     
   </entry>
   

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangkunxiao.cn/2020/04/05/JavaScript/cookieAndSession/</loc>
+    <lastmod>2020-05-20</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/04/06/Webpack/08/</loc>
+    <lastmod>2020-05-20</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/04/10/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/</loc>
+    <lastmod>2020-05-20</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/05/20/TypeScript/02/</loc>
+    <lastmod>2020-05-20</lastmod>
+  </url>  <url>
+    <loc>http://yangkunxiao.cn/2020/05/13/TypeScript/01/</loc>
+    <lastmod>2020-05-20</lastmod>
+  </url>  <url>
     <loc>http://yangkunxiao.cn/2020/04/11/Vue/Vue%E5%90%8C%E6%9E%84/</loc>
     <lastmod>2020-04-11</lastmod>
   </url>  <url>
@@ -32,9 +47,6 @@
     <lastmod>2020-04-03</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2020/03/26/Code/07/</loc>
-    <lastmod>2020-04-03</lastmod>
-  </url>  <url>
-    <loc>http://yangkunxiao.cn/2020/04/06/Webpack/08/</loc>
     <lastmod>2020-04-03</lastmod>
   </url>  <url>
     <loc>http://yangkunxiao.cn/2020/03/05/Code/06/</loc>

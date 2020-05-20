@@ -69,7 +69,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.2k</span>
+            <span class="post-count">2.5k</span>
         </span>
     </span>
 
@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">8 分钟</span>
+            <span class="post-count">10 分钟</span>
         </span>
     </span>
 </div>
@@ -103,39 +103,43 @@
       
 
       
-      <h1 id="webpack性能优化"><a href="#webpack性能优化" class="headerlink" title="webpack性能优化"></a>webpack性能优化</h1><ol>
-<li>使用<code>DllPlugin</code>和<code>DLLReferencePlugin</code>：<ol>
-<li><code>DLLPlugin</code> 和 <code>DLLReferencePlugin</code> 用某种方法实现了拆分 <code>bundles</code>，同时还大大提升了构建的速度。</li>
+      <h1 id="基于webpack的性能优化"><a href="#基于webpack的性能优化" class="headerlink" title="基于webpack的性能优化"></a>基于webpack的性能优化</h1><h3 id="基本优化方案"><a href="#基本优化方案" class="headerlink" title="基本优化方案"></a>基本优化方案</h3><ol>
+<li>使用高版本的webpack和node</li>
+<li>静态资源优化<ol>
+<li>JavaScript文件压缩、合并、TreeShaking</li>
+<li>CSS文件压缩、优化、TreeShaking</li>
+<li>Img压缩、合并雪碧图：</li>
+<li>HTML文件压缩</li>
+<li>上传CDN</li>
+<li>使用prefetch、preload预加载资源文件<ol>
+<li>preload：本次加载需要的资源，告诉浏览器，提高下载速度权重</li>
+<li>prefetch：未来可能使用到的资源文件，在浏览器空闲的时候下载</li>
 </ol>
 </li>
 </ol>
-<p>包含大量复用模块的动态链接库只需被编译一次，在之后的构建过程中被动态链接库包含的模块将不会重新编译，而是直接使用动态链接库中 的代码 由于动态链接库中大多数包含的是常用的第三方模块。例如 <code>vue、vue-router</code> ，所以只要不升级这些模块的版本，动态链接库就不用重新编译。</p>
-<h3 id="使用更高版本的webpack和node"><a href="#使用更高版本的webpack和node" class="headerlink" title="使用更高版本的webpack和node"></a>使用更高版本的webpack和node</h3><h3 id="优化Loader配置"><a href="#优化Loader配置" class="headerlink" title="优化Loader配置"></a>优化Loader配置</h3><p>由于 <code>Loader</code> 对文件的转换操作很耗时，所以需要让尽可能少的文件被 <code>Loader</code> 处理。可以通过 <code>test</code> <code>include</code> <code>exclude</code> 三个配置项来命中 <code>Loader</code> 要应用规则的文件。</p>
-<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> 
-  module <span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-    rules <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">//如果项目源码中只有js文件，就不要写成/\jsx?$/，以提升正则表达式的性能</span>
-      test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span> 
-      <span class="token comment" spellcheck="true">//babel -loader 支持缓存转换出的结果，通过 cacheDirectory 选项开启</span>
-      use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel-loader?cacheDirectory'</span><span class="token punctuation">]</span> <span class="token punctuation">,</span> 
-      <span class="token comment" spellcheck="true">//只对项目根目录下 src 目录中的文件采用 babel-loader</span>
-      include<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="优化-resolve-extensions-配置"><a href="#优化-resolve-extensions-配置" class="headerlink" title="优化 resolve.extensions 配置"></a>优化 resolve.extensions 配置</h3><p>在导入语句没带文件后缀时，Webpack 会自动带上后缀去尝试询问文件是否存在。如果这个列表越长，或者正确的后缀越往后，就会造成尝试的次数越多，所以resolve .extensions 的配置也会影响到构建的性能。<br>建议：</p>
-<ul>
-<li>后缀尝试列表要尽可能小，不要将项目中不可能存在的情况写到后缀尝试列表中。</li>
-<li>频率出现最高的文件后缀要优先放在最前面，以做到尽快退出寻找过程。</li>
-<li>在源码中写导入语句时，要尽可能带上后缀 从而可以避免寻找过程</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> 
-  resolve <span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-    <span class="token comment" spellcheck="true">//尽可能减少后缀尝试的可能性</span>
-    extensions <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="静态资源优化"><a href="#静态资源优化" class="headerlink" title="静态资源优化"></a>静态资源优化</h3><h4 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h4><p>使用<code>DllPlugin</code>和<code>DLLReferencePlugin</code>，拆分<code>bundles</code>。具体使用请看<a href="https://www.yuque.com/walter-glskq/zf7grn/mgw9o4" target="_blank" rel="noopener">这一篇文章</a>。也可以使用<a href="https://www.npmjs.com/package/hard-source-webpack-plugin" target="_blank" rel="noopener">hard-source-webpack-plugin</a>替换<code>DllPlugin</code>和<code>DLLReferencePlugin</code>。<br>生产环境webpack默认开启<code>uglify-js</code>。</p>
+</li>
+<li>代码分割Code Spliting<ol>
+<li>entry：入口文件手动分割</li>
+<li><a href="https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks" target="_blank" rel="noopener">splitChunks</a>：optimization.splitChunks，将相同的代码抽离到一个单独的文件；也可以将第三方库文件抽离</li>
+<li><a href="https://webpack.js.org/api/module-methods/#import-1" target="_blank" rel="noopener">import()</a>：动态导入。</li>
+</ol>
+</li>
+<li>利用缓存<ol>
+<li>使用cache-loader，缓存每次打包之后的文件。</li>
+</ol>
+</li>
+<li>多核<ol>
+<li>使用<a href="https://www.npmjs.com/package/happypack" target="_blank" rel="noopener">happypack</a>（已不维护）、<a href="https://www.npmjs.com/package/thread-loader" target="_blank" rel="noopener">thread-laoder</a>、<a href="https://www.npmjs.com/package/webpack-parallel-uglify-plugin" target="_blank" rel="noopener">webpack-parallel-uglify-plugin</a>等，开启多核执行。</li>
+</ol>
+</li>
+<li>分包加载：使用DllPlugin 和 DLLReferencePlugin</li>
+<li>缩小搜索范围：使用exclude、include尽量缩小webapck的搜索范围。</li>
+<li>配置resolve .extensions 尽量将优先级高的放在前面，缩短命中时间。</li>
+<li>预渲染：<a href="https://www.npmjs.com/package/prerender-spa-plugin" target="_blank" rel="noopener">prenderer-spa-plugin</a>  将重要页面采用预渲染功能，有利于SEO。</li>
+<li>服务端渲染：<a href="https://www.npmjs.com/package/vue-server-renderer" target="_blank" rel="noopener">vue-server-render</a> 在服务端将页面渲染完成，直接返回html页面给客户端。</li>
+<li>同构：SSR + CSR，刷新SSR ，路由切换CSR。</li>
+</ol>
+<h3 id="静态资源优化"><a href="#静态资源优化" class="headerlink" title="静态资源优化"></a>静态资源优化</h3><h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><p>使用<code>DllPlugin</code>和<code>DLLReferencePlugin</code>，拆分<code>bundles</code>。具体使用请看<a href="https://www.yuque.com/walter-glskq/zf7grn/mgw9o4" target="_blank" rel="noopener">这一篇文章</a>。也可以使用<a href="https://www.npmjs.com/package/hard-source-webpack-plugin" target="_blank" rel="noopener">hard-source-webpack-plugin</a>替换<code>DllPlugin</code>和<code>DLLReferencePlugin</code>。<br>生产环境webpack默认开启<code>uglify-js</code>。</p>
 <h5 id="压缩js"><a href="#压缩js" class="headerlink" title="压缩js"></a>压缩js</h5><pre class=" language-javascript"><code class="language-javascript">optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     minimizer<span class="token punctuation">:</span> <span class="token punctuation">[</span>
       <span class="token keyword">new</span> <span class="token class-name">UglifyJsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -179,7 +183,7 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span></code></pre>
 <h5 id="关于代码分离"><a href="#关于代码分离" class="headerlink" title="关于代码分离"></a>关于代码分离</h5><p>请移步<a href="https://www.yuque.com/walter-glskq/zf7grn/zcamxf" target="_blank" rel="noopener">https://www.yuque.com/walter-glskq/zf7grn/zcamxf</a></p>
-<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><p><code>extract-text-webpack-plugin</code>和<code>mini-css-extract-plugin</code>使用该插件将css文件从js中剥离出来，进行优化压缩。配合<code>postcss-loader</code>进行css预处理和后处理。</p>
+<h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><p><code>extract-text-webpack-plugin</code>和<code>mini-css-extract-plugin</code>使用该插件将css文件从js中剥离出来，进行优化压缩。配合<code>postcss-loader</code>进行css预处理和后处理。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//压缩css 并且将css从js抽离出来</span>
 <span class="token keyword">const</span> MiniCssExtractPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mini-css-extract-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//优化css</span>
@@ -215,7 +219,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="img"><a href="#img" class="headerlink" title="img"></a>img</h4><p>使用<code>file-loader和image-webpack-loader</code>处理图片文件，进行压缩。</p>
+<h4 id="Img"><a href="#Img" class="headerlink" title="Img"></a>Img</h4><p>使用<code>file-loader和image-webpack-loader</code>处理图片文件，进行压缩。</p>
 <pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// ...</span>
   module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -266,7 +270,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <span class="token punctuation">}</span>
       <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="优化HTML模板"><a href="#优化HTML模板" class="headerlink" title="优化HTML模板"></a>优化HTML模板</h3><p>配置minify，优化html文件。生产环境生效。</p>
+<h4 id="压缩HTML"><a href="#压缩HTML" class="headerlink" title="压缩HTML"></a>压缩HTML</h4><p>配置minify，优化html文件。生产环境生效。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
   template<span class="token punctuation">:</span> <span class="token string">'index.html'</span><span class="token punctuation">,</span>
@@ -290,7 +294,39 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 </code></pre>
-<h4 id="优化打包加速"><a href="#优化打包加速" class="headerlink" title="优化打包加速"></a>优化打包加速</h4><p>使用<code>webpack-parallel-uglify-plugin</code>。webpack默认提供了UglifyJS插件来压缩JS代码，但是它使用的是单线程压缩代码，也就是说多个js文件需要被压缩，它需要一个个文件进行压缩。所以说在正式环境打包压缩代码速度非常慢(因为压缩JS代码需要先把代码解析成用Object抽象表示的AST语法树，再去应用各种规则分析和处理AST，导致这个过程耗时非常大)。当webpack有多个JS文件需要输出和压缩时候，原来会使用UglifyJS去一个个压缩并且输出，但是ParallelUglifyPlugin插件则会开启多个子进程，把对多个文件压缩的工作分别给多个子进程去完成，但是每个子进程还是通过UglifyJS去压缩代码。无非就是变成了并行处理该压缩了，并行处理多个子任务，效率会更加的提高。</p>
+<h3 id="使用DllPlugin和DLLReferencePlugin"><a href="#使用DllPlugin和DLLReferencePlugin" class="headerlink" title="使用DllPlugin和DLLReferencePlugin"></a>使用DllPlugin和DLLReferencePlugin</h3><ol>
+<li>使用<code>DllPlugin</code>和<code>DLLReferencePlugin</code>：<ol>
+<li><code>DLLPlugin</code> 和 <code>DLLReferencePlugin</code> 用某种方法实现了拆分 <code>bundles</code>，同时还大大提升了构建的速度。</li>
+</ol>
+</li>
+</ol>
+<p>包含大量复用模块的动态链接库只需被编译一次，在之后的构建过程中被动态链接库包含的模块将不会重新编译，而是直接使用动态链接库中 的代码 由于动态链接库中大多数包含的是常用的第三方模块。例如 <code>vue、vue-router</code> ，所以只要不升级这些模块的版本，动态链接库就不用重新编译。</p>
+<h3 id="优化Loader配置"><a href="#优化Loader配置" class="headerlink" title="优化Loader配置"></a>优化Loader配置</h3><p>由于 <code>Loader</code> 对文件的转换操作很耗时，所以需要让尽可能少的文件被 <code>Loader</code> 处理。可以通过 <code>test</code> <code>include</code> <code>exclude</code> 三个配置项来命中 <code>Loader</code> 要应用规则的文件。</p>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  module <span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    rules <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//如果项目源码中只有js文件，就不要写成/\jsx?$/，以提升正则表达式的性能</span>
+      test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span> 
+      <span class="token comment" spellcheck="true">//babel -loader 支持缓存转换出的结果，通过 cacheDirectory 选项开启</span>
+      use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'babel-loader?cacheDirectory'</span><span class="token punctuation">]</span> <span class="token punctuation">,</span> 
+      <span class="token comment" spellcheck="true">//只对项目根目录下 src 目录中的文件采用 babel-loader</span>
+      include<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="优化-resolve-extensions-配置"><a href="#优化-resolve-extensions-配置" class="headerlink" title="优化 resolve.extensions 配置"></a>优化 resolve.extensions 配置</h3><p>在导入语句没带文件后缀时，Webpack 会自动带上后缀去尝试询问文件是否存在。如果这个列表越长，或者正确的后缀越往后，就会造成尝试的次数越多，所以resolve .extensions 的配置也会影响到构建的性能。<br>建议：</p>
+<ul>
+<li>后缀尝试列表要尽可能小，不要将项目中不可能存在的情况写到后缀尝试列表中。</li>
+<li>频率出现最高的文件后缀要优先放在最前面，以做到尽快退出寻找过程。</li>
+<li>在源码中写导入语句时，要尽可能带上后缀 从而可以避免寻找过程</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  resolve <span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">//尽可能减少后缀尝试的可能性</span>
+    extensions <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="优化打包加速"><a href="#优化打包加速" class="headerlink" title="优化打包加速"></a>优化打包加速</h3><p>使用<code>webpack-parallel-uglify-plugin</code>。webpack默认提供了UglifyJS插件来压缩JS代码，但是它使用的是单线程压缩代码，也就是说多个js文件需要被压缩，它需要一个个文件进行压缩。所以说在正式环境打包压缩代码速度非常慢(因为压缩JS代码需要先把代码解析成用Object抽象表示的AST语法树，再去应用各种规则分析和处理AST，导致这个过程耗时非常大)。当webpack有多个JS文件需要输出和压缩时候，原来会使用UglifyJS去一个个压缩并且输出，但是ParallelUglifyPlugin插件则会开启多个子进程，把对多个文件压缩的工作分别给多个子进程去完成，但是每个子进程还是通过UglifyJS去压缩代码。无非就是变成了并行处理该压缩了，并行处理多个子任务，效率会更加的提高。</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 引入 ParallelUglifyPlugin 插件</span>
 <span class="token keyword">const</span> ParallelUglifyPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-parallel-uglify-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -369,7 +405,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
   <span class="token keyword">new</span> <span class="token class-name">DashboardPlugin</span><span class="token punctuation">(</span>dashboard<span class="token punctuation">.</span>setData<span class="token punctuation">)</span>
 <span class="token punctuation">]</span></code></pre>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1585733343507-1b89d2eb-a890-49cb-a982-ac6ee452877b.png#align=left&display=inline&height=350&name=image.png&originHeight=700&originWidth=1200&size=375613&status=done&style=none&width=600" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/705088/1585733343507-1b89d2eb-a890-49cb-a982-ac6ee452877b.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_10%2Ctext_a2FrYQ%3D%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image.png"></p>
 
       
       <!-- reward -->
@@ -452,19 +488,19 @@ plugins<span class="token punctuation">:</span> <span class="token punctuation">
   
   <nav class="article-nav">
     
-      <a href="/2020/04/11/Vue/Vue%E5%90%8C%E6%9E%84/" class="article-nav-link">
+      <a href="/2020/04/10/Vue/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/Vue%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Vue同构
+            vue源码解读
           
         </div>
       </a>
     
     
-      <a href="/2020/03/28/Interview/07/" class="article-nav-link">
+      <a href="/2020/04/05/JavaScript/cookieAndSession/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Flex布局</div>
+        <div class="article-nav-title">Cookie / Session安全机制</div>
       </a>
     
   </nav>
